@@ -32,8 +32,10 @@ Sofware Requirements
 =======================
 1. Windows XP or Later
 2. .Net 4.5.1 or later
-3. PostgreSQL Database
-4. Any FTP Server
+3. PostgreSQL Database (Can be on any Operating System)
+4. Any FTP Server (Can be on any Operating System)
+5. Java
+6. Jasper Reports
 
 =====================
 Hardware Requirements

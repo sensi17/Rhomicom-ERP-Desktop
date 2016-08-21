@@ -26,3 +26,17 @@ Typical Target institutions/organisations are
 3. Associations/Churches/Professional Bodies
 4. Construction Firms
 5. Academic Institutions
+
+=======================
+Sofware Requirements
+=======================
+1. Windows XP or Later
+2. .Net 4.5.1 or later
+3. PostgreSQL Database
+4. Any FTP Server
+
+=====================
+Hardware Requirements
+=====================
+Same hardware requirements for above Sofware requirements
+

@@ -2,7 +2,7 @@
 Rhomicom Enterprise Resource Planning System
 
 This is a complete ERP system proudly made in Ghana by Ghanaians.
-It can be used to manage backend activities and operations of all kinds institutions and organisations.
+It can be used to manage backend activities and operations of all kinds of institutions and organisations.
 
 Various Modules currently completed are
 1. Accounting
@@ -19,3 +19,9 @@ Outstanding Modules are
 
 This is currently a Desktop application written in C# with Visual Studio 2015 Community Edition.
 Work on the web-based version has also started and will be published soon.
+Typical Target institutions/organisations are
+1. Hotels/Restaurants/Coffee shops
+2. Super Markets/Boutiques/Wholesale and Retail Shops
+3. Associations/Churches/Professional Bodies
+4. Construction Firms
+5. Academic Institutions

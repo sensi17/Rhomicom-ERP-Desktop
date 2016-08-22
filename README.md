@@ -1,9 +1,9 @@
 # Rhomicom ERP v1.2.1
 Rhomicom Enterprise Resource Planning System
 
-This is a complete ERP system proudly made in Ghana by Ghanaians.
+This is a complete ERP system proudly started in Ghana by Ghanaians.
 The company behind this project is Rhomicom Systems Tech. Ltd.(http://rhomicom.com)
-It can be used to manage backend activities and operations of all kinds of institutions and organisations.
+The software can be used to manage both backend and front-end operations of all kinds of institutions and organisations.
 
 Various Modules currently completed are
 1. Accounting

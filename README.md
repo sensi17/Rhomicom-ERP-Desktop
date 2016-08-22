@@ -1,5 +1,7 @@
 # Rhomicom ERP v1.2.1
+============================================
 Rhomicom Enterprise Resource Planning System
+============================================
 
 This is a complete ERP system proudly started in Ghana by Ghanaians.
 The company behind this project is Rhomicom Systems Tech. Ltd.(http://rhomicom.com)
@@ -38,7 +40,6 @@ Sofware Requirements
 3. PostgreSQL Database 9.3 or later (Can be hosted on any Operating System)
 4. Any FTP Server (Can be hosted on any Operating System)
 5. Java 1.6 or later
-6. Jasper Reports
 
 =====================
 Hardware Requirements
@@ -50,6 +51,8 @@ Technologies/Tools Used (Credits/Acknowledgements)
 ==================================================
 1. C# (.Net)-Visual Studio
 2. Java-(Netbeans)
-3. HTML/CSS (Bootstrap)
-4. javascript/jQuery
-5. TIBCO JasperSoft Studio
+3. PHP
+4. HTML/CSS (Bootstrap)
+5. javascript/jQuery
+6. TIBCO JasperSoft Studio
+7. PostgreSQL Database

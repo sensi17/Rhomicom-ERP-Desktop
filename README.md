@@ -1,13 +1,11 @@
 # Rhomicom ERP v1.2.1
-============================================
-Rhomicom Enterprise Resource Planning System
-============================================
-
-This is a complete ERP system proudly started in Ghana by Ghanaians.
+Rhomicom Enterprise Resource Planning System is a complete ERP system proudly started in Ghana by Ghanaians.
 The company behind this project is Rhomicom Systems Tech. Ltd.(http://rhomicom.com)
 The software can be used to manage both backend and front-end operations of all kinds of institutions and organisations.
 
+=======================================
 Various Modules currently completed are
+=======================================
 1. Accounting
 2. Person Data
 3. Internal Payments (Payroll, Membership Fees, Dues and Contributions)
@@ -16,7 +14,9 @@ Various Modules currently completed are
 6. Events Management
 7. Facility Rentals/Hospitality Management
 
+=======================
 Outstanding Modules are
+=======================
 1. Projects Management
 2. Learning/Performance Management System
 

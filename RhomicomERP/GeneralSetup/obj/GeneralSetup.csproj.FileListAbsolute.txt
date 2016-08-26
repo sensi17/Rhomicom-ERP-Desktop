@@ -1,0 +1,130 @@
+C:\Users\User\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\Rhomicom_Org_Manager\GeneralSetup\bin\Debug\GeneralSetup.dll
+C:\Users\User\Desktop\Rhomicom_Org_Manager\GeneralSetup\bin\Debug\GeneralSetup.pdb
+C:\Users\User\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.dll
+C:\Users\User\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.pdb
+C:\Users\User\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Forms.mainForm.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Properties.Resources.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addLOVNameDiag.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addPssblValDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\GeneralSetup\bin\Debug\GeneralSetup.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\GeneralSetup\bin\Debug\GeneralSetup.pdb
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addLOVNameDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addPssblValDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Forms.mainForm.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Properties.Resources.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.csproj.GenerateResource.Cache
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\GeneralSetup\bin\Debug\GeneralSetup.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\GeneralSetup\bin\Debug\GeneralSetup.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addLOVNameDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addPssblValDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Forms.mainForm.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Properties.Resources.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.pdb
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\GeneralSetup\bin\Debug\GeneralSetup.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\GeneralSetup\bin\Debug\GeneralSetup.pdb
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addLOVNameDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addPssblValDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Forms.mainForm.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Properties.Resources.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.csproj.GenerateResource.Cache
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.pdb
+C:\Rhomicom_Org_Manager\GeneralSetup\bin\Debug\GeneralSetup.dll
+C:\Rhomicom_Org_Manager\GeneralSetup\bin\Debug\GeneralSetup.pdb
+C:\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\ResolveAssemblyReference.cache
+C:\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addLOVNameDiag.resources
+C:\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addPssblValDiag.resources
+C:\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Forms.mainForm.resources
+C:\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Properties.Resources.resources
+C:\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.csproj.GenerateResource.Cache
+C:\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.dll
+C:\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.pdb
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\GeneralSetup\bin\Debug\GeneralSetup.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\GeneralSetup\bin\Debug\GeneralSetup.pdb
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\ResolveAssemblyReference.cache
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addLOVNameDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addPssblValDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Forms.mainForm.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Properties.Resources.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.csproj.GenerateResource.Cache
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\GeneralSetup\bin\Debug\GeneralSetup.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\GeneralSetup\bin\Debug\GeneralSetup.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addLOVNameDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addPssblValDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Forms.mainForm.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Properties.Resources.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.csproj.GenerateResource.Cache
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.pdb
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\GeneralSetup\bin\Debug\GeneralSetup.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\GeneralSetup\bin\Debug\GeneralSetup.pdb
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addLOVNameDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addPssblValDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Forms.mainForm.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Properties.Resources.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.csproj.GenerateResource.Cache
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.pdb
+C:\MYSTUFF\Rhomicom_Org_Manager\GeneralSetup\bin\Debug\GeneralSetup.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\GeneralSetup\bin\Debug\GeneralSetup.pdb
+C:\MYSTUFF\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addLOVNameDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addPssblValDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Forms.mainForm.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Properties.Resources.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.csproj.GenerateResource.Cache
+C:\MYSTUFF\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.pdb
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\GeneralSetup\bin\Debug\GeneralSetup.dll
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\GeneralSetup\bin\Debug\GeneralSetup.pdb
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addLOVNameDiag.resources
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addPssblValDiag.resources
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Forms.mainForm.resources
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.Properties.Resources.resources
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.csproj.GenerateResource.Cache
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.dll
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\GeneralSetup\obj\Debug\GeneralSetup.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG\GeneralSetup\bin\Debug\GeneralSetup.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG\GeneralSetup\bin\Debug\GeneralSetup.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG\GeneralSetup\obj\Debug\ResolveAssemblyReference.cache
+C:\MY_APPS\Rhomicom_Org_Manager_PG\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addLOVNameDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addPssblValDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG\GeneralSetup\obj\Debug\GeneralSetup.Forms.mainForm.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG\GeneralSetup\obj\Debug\GeneralSetup.Properties.Resources.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG\GeneralSetup\obj\Debug\GeneralSetup.csproj.GenerateResource.Cache
+C:\MY_APPS\Rhomicom_Org_Manager_PG\GeneralSetup\obj\Debug\GeneralSetup.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG\GeneralSetup\obj\Debug\GeneralSetup.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\GeneralSetup\bin\Debug\GeneralSetup.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\GeneralSetup\bin\Debug\GeneralSetup.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\GeneralSetup\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addLOVNameDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addPssblValDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\GeneralSetup\obj\Debug\GeneralSetup.Forms.mainForm.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\GeneralSetup\obj\Debug\GeneralSetup.Properties.Resources.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\GeneralSetup\obj\Debug\GeneralSetup.csproj.GenerateResource.Cache
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\GeneralSetup\obj\Debug\GeneralSetup.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\GeneralSetup\obj\Debug\GeneralSetup.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\GeneralSetup\bin\Debug\GeneralSetup.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\GeneralSetup\bin\Debug\GeneralSetup.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\GeneralSetup\obj\Debug\ResolveAssemblyReference.cache
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addLOVNameDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\GeneralSetup\obj\Debug\GeneralSetup.Dialogs.addPssblValDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\GeneralSetup\obj\Debug\GeneralSetup.Forms.mainForm.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\GeneralSetup\obj\Debug\GeneralSetup.Properties.Resources.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\GeneralSetup\obj\Debug\GeneralSetup.csproj.GenerateResource.Cache
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\GeneralSetup\obj\Debug\GeneralSetup.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\GeneralSetup\obj\Debug\GeneralSetup.pdb

@@ -1,0 +1,16 @@
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Payments\bin\Debug\Payments.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Payments\bin\Debug\Payments.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Payments\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Payments\obj\Debug\Payments.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Payments\obj\Debug\Payments.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Payments\obj\Debug\Payments.Forms.mainForm.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Payments\obj\Debug\Payments.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Payments\obj\Debug\Payments.Properties.Resources.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Payments\bin\Debug\Payments.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Payments\bin\Debug\Payments.pdb
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Payments\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Payments\obj\Debug\Payments.Forms.mainForm.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Payments\obj\Debug\Payments.Properties.Resources.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Payments\obj\Debug\Payments.csproj.GenerateResource.Cache
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Payments\obj\Debug\Payments.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Payments\obj\Debug\Payments.pdb

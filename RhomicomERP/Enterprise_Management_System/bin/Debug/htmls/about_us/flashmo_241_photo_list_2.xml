@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<photos>
+
+	<config 
+		auto_play="true"
+		auto_play_duration="2.5" 
+		previous_button="true"
+		next_button="true"
+		photo_spacing="1"
+		tween_duration="0.8"
+		tween_effect="easeInOutQuart">
+	</config>
+	
+	<photo>
+		<filename>photos/softDev.jpg</filename>
+		<description><![CDATA[<span class="title">01 COMPUTER SOFTWARE PROGRAMS DEVELOPMENT</span>
+<p align="justify">We develop <span class="highlight">desktop and web application software programs for personal and commercial use. </span></p>
+<p align="justify">Computer software program makes complex work and/or management easy and time efficient. </p>
+<p align="justify">Software programs can be user friendly i.e. easy for users to use. This depends on how it was designed and coded (pragrammed) and this is one of the important we consider when developing a software at Rhomicom</p>]]></description>		
+	</photo>
+	
+	<photo>
+		<filename>photos/compTr.jpg</filename>
+		<description><![CDATA[<span class="title">02 I.T CONSULTANCY AND COMPUTER TRAINING</span>
+<p align="justify">Rhomicom offers training and consultancy services in I.T for <span class="highlight">companies and individuals. </span>We also offer <span class="highlight">in-service training and on-the-job training in I.T</span></p>
+<p align="justify">We offer training and services in the following</p>
+<p align="justify" class="note">1. DATABASES (ORACLE, MySQL, Microsoft SQL, Microsoft Access</p>
+<p align="justify" class="highlight">2. PROGRAMMING LANGUAGES (VB.NET 2005/2008/2010, Microsoft VC++ 6/Win 32 API Programming/C/C++, VB6, Dev C/C++/Borland C++ 5, Java (including Applets/Servlets/JSP), C# 2005/2008/2010, Microsoft VC++.NET 2005/2008/2010, (X)HTML/CSS/JAVASCRIPT, VBSCRIPT, ASP 3.0, PHP, QTC++, Actionscript 3</p>
+<p align="justify" class="note">3. SERVER ADMINISTRATION (.Windows 2003 Server Administration, Windows 2008 Server Administration, Unix Server Administration (Several), Web Servers/Email Servers, Thin Clients, Network Engineering/CISCO Certifications)</p>
+<p align="justify" class="highlight">4. GRAPHICS DESIGN (Corel Draw, Flash, Photoshop, 3dsMax, Autocad, Visio/Engineering Base, Maya, Fireworks, Adobe Indesign, Adobe Illustrator)</p>
+<p align="justify" class="note">5. MOVIE CREATION/EDITING (Adobe Premier, Adobe AfterEffects, Ulead, Microsoft Movie Maker)</p>
+<p align="justify" class="highlight">6. CONTROL PANEL BUILDING/ELECTRICAL SERVICES DESIGN[CONSULTANCY/CONTRACTORS] (INSTRUMENTATION/SENSORS/TRANSDUCERS, ACTUATORS/EMBEDDED CONTROLLERS, CCTV/SECURITY ALARM SYSTEMS) </p>
+<p align="justify" class="note">7. EMBEDDED ELECTRONIC SYSTEMS DESIGN (PIC Microcontrollers Programming (C/C++), AVR Microcontrollers Programming (C/C++), PCB making Software & Hardware, MATLAB, LABVIEW, MULTISM/WORKBENCH, CADENCE, ORCAD, PSPICE)</p>
+<p align="justify" class="highlight">8. PLC/HMI/SCADA (SIEMENS, ALLEN BRADLEY, DELTA, MITSUBISHI, TOSHIBA, OMRON, ZENON, MULLER)</p>]]></description>		
+	</photo>
+	
+	<photo>
+		<filename>photos/electricAuto.jpg</filename>
+		<description><![CDATA[<span class="title">03 ELECTRICAL AUTOMATIONS AND ELECTRONICS</span>
+<p align="justify">We install and program PIC Microcontrollers <span class="highlight"> (A microcontroller is a small computer on a single integrated circuit containing a processor core, memory, and programmable input/output peripherals.) </span>for industries and also reprogram and repair domestic and industrial microcontroller systems.</p>
+<span class="note">PIC Microcontrollers Programming (C/C++), AVR Microcontrollers Programming (C/C++)</span>]]></description>
+	</photo>
+	
+	<photo>
+		<filename>photos/webDev.jpg</filename>
+		<description><![CDATA[<span class="title">04 WEBSITE DESIGNING AND WEB HOSTING</span>
+<p align="justify">We design Websites/Flash websites/Advanced websites for individuals and companies</p>
+<span class="subtitle">Web Hosting</span>
+<p align="justify">A web hosting service is a type of Internet hosting service that allows individuals and organizations to make their own website accessible via the World Wide Web. <span class="highlight">We also host web application softwares</span></p>]]></description>
+	</photo>
+</photos>	

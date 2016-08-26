@@ -1,0 +1,62 @@
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.Forms.mainForm.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\ReportsManager\bin\Debug\ReportsManager.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\ReportsManager\bin\Debug\ReportsManager.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.Properties.Resources.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\ReportsManager\bin\Debug\ReportsManager.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\ReportsManager\bin\Debug\ReportsManager.pdb
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.Forms.mainForm.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.Properties.Resources.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.csproj.GenerateResource.Cache
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.pdb
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\ReportsManager\bin\Debug\ReportsManager.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\ReportsManager\bin\Debug\ReportsManager.pdb
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.Forms.mainForm.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.Properties.Resources.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.csproj.GenerateResource.Cache
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.pdb
+C:\Rhomicom_Org_Manager\ReportsManager\bin\Debug\ReportsManager.dll
+C:\Rhomicom_Org_Manager\ReportsManager\bin\Debug\ReportsManager.pdb
+C:\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ResolveAssemblyReference.cache
+C:\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.Forms.mainForm.resources
+C:\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.Properties.Resources.resources
+C:\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.csproj.GenerateResource.Cache
+C:\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.dll
+C:\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.pdb
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\ReportsManager\bin\Debug\ReportsManager.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\ReportsManager\bin\Debug\ReportsManager.pdb
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ResolveAssemblyReference.cache
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.Forms.mainForm.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.Properties.Resources.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.csproj.GenerateResource.Cache
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\ReportsManager\bin\Debug\ReportsManager.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\ReportsManager\bin\Debug\ReportsManager.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.Forms.mainForm.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.Properties.Resources.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.csproj.GenerateResource.Cache
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.pdb
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.Dialogs.addParamsDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.Dialogs.fillParamsDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.Dialogs.addParamsDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.Dialogs.fillParamsDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\ReportsManager\bin\Debug\ReportsManager.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\ReportsManager\bin\Debug\ReportsManager.pdb
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.Dialogs.addParamsDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.Dialogs.fillParamsDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.Forms.mainForm.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.Properties.Resources.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.csproj.GenerateResource.Cache
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\ReportsManager\obj\Debug\ReportsManager.pdb

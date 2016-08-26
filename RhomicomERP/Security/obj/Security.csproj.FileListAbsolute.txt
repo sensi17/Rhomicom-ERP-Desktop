@@ -1,0 +1,120 @@
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Security\bin\Debug\Security.dll
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Security\bin\Debug\Security.pdb
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addUserDiag.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addUserRole.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.chngPswdDiag.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.personDiag.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Forms.mainForm.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Properties.Resources.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.dll
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.pdb
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addRoleDiag.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addRolePrvldgDiag.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.editPlcyMdlsDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\bin\Debug\Security.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\bin\Debug\Security.pdb
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addRoleDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addRolePrvldgDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addUserDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addUserRole.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.chngPswdDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.editPlcyMdlsDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.personDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Forms.mainForm.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Properties.Resources.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.csproj.GenerateResource.Cache
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Security\bin\Debug\Security.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Security\bin\Debug\Security.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Security\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addRoleDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addRolePrvldgDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addUserDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addUserRole.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.chngPswdDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.editPlcyMdlsDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.personDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Forms.mainForm.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Properties.Resources.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Security\obj\Debug\Security.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Security\obj\Debug\Security.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Security\obj\Debug\Security.pdb
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Security\bin\Debug\Security.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Security\bin\Debug\Security.pdb
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addRoleDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addRolePrvldgDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addUserDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addUserRole.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.chngPswdDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.editPlcyMdlsDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.personDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Forms.mainForm.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Properties.Resources.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.csproj.GenerateResource.Cache
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.pdb
+C:\Rhomicom_Org_Manager\Security\bin\Debug\Security.dll
+C:\Rhomicom_Org_Manager\Security\bin\Debug\Security.pdb
+C:\Rhomicom_Org_Manager\Security\obj\Debug\ResolveAssemblyReference.cache
+C:\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addRoleDiag.resources
+C:\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addRolePrvldgDiag.resources
+C:\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addUserDiag.resources
+C:\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addUserRole.resources
+C:\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.chngPswdDiag.resources
+C:\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.editPlcyMdlsDiag.resources
+C:\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.personDiag.resources
+C:\Rhomicom_Org_Manager\Security\obj\Debug\Security.Forms.mainForm.resources
+C:\Rhomicom_Org_Manager\Security\obj\Debug\Security.Properties.Resources.resources
+C:\Rhomicom_Org_Manager\Security\obj\Debug\Security.csproj.GenerateResource.Cache
+C:\Rhomicom_Org_Manager\Security\obj\Debug\Security.dll
+C:\Rhomicom_Org_Manager\Security\obj\Debug\Security.pdb
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\bin\Debug\Security.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\bin\Debug\Security.pdb
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\ResolveAssemblyReference.cache
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addRoleDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addRolePrvldgDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addUserDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addUserRole.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.chngPswdDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.editPlcyMdlsDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.personDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Forms.mainForm.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.Properties.Resources.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.csproj.GenerateResource.Cache
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Security\obj\Debug\Security.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Security\bin\Debug\Security.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Security\bin\Debug\Security.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addRoleDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addRolePrvldgDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addUserDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addUserRole.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.chngPswdDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.editPlcyMdlsDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.personDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Forms.mainForm.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Properties.Resources.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.csproj.GenerateResource.Cache
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.pdb
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Security\bin\Debug\Security.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Security\bin\Debug\Security.pdb
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addRoleDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addRolePrvldgDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addUserDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.addUserRole.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.chngPswdDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.editPlcyMdlsDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Dialogs.personDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Forms.mainForm.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.Properties.Resources.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.csproj.GenerateResource.Cache
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Security\obj\Debug\Security.pdb

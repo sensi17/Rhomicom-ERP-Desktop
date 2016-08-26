@@ -1,0 +1,326 @@
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\ResolveAssemblyReference.cache
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.ResolveComReference.cache
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm1.resources
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm2.resources
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm3.resources
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftMenuForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.mainForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnGLIntfcForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnInvoiceForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnItmBalsForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnItmLstForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnItmTmpltsForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnMiscAdjstForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnPrchOrdrForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnPrdtCatForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnRcpRtrnForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnRcptsForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnStckTrnsfrsForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnStrsWhseForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnUomForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.GenerateResource.Cache
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.dll
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.pdb
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.xml
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\de\PdfSharp.resources.dll
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.dll
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.pdb
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Properties.Resources.resources
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.dll
+C:\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.pdb
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.dll
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.pdb
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.dll
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.pdb
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.xml
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\de\PdfSharp.resources.dll
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.ResolveComReference.cache
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm1.resources
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm2.resources
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm3.resources
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftMenuForm.resources
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.mainForm.resources
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnGLIntfcForm.resources
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnInvoiceForm.resources
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnItmBalsForm.resources
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnItmLstForm.resources
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnItmTmpltsForm.resources
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnMiscAdjstForm.resources
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnPrchOrdrForm.resources
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnPrdtCatForm.resources
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnRcpRtrnForm.resources
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnRcptsForm.resources
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnStckTrnsfrsForm.resources
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnStrsWhseForm.resources
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnUomForm.resources
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Properties.Resources.resources
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.GenerateResource.Cache
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.dll
+C:\Users\impakers\Desktop\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.pdb
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.ResolveComReference.cache
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm1.resources
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm2.resources
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm3.resources
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftMenuForm.resources
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.mainForm.resources
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.AApplicationForm.resources
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.checkinsForm.resources
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.paymentsForm.resources
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnItmTmpltsForm.resources
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.serviceTypesForm.resources
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.applicationForm.resources
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.gymForm.resources
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnRcptsForm.resources
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnStckTrnsfrsForm.resources
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnStrsWhseForm.resources
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnUomForm.resources
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Properties.Resources.resources
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.GenerateResource.Cache
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.dll
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.pdb
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.dll
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.pdb
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.xml
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\bin\Debug\de\PdfSharp.resources.dll
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.dll
+C:\Users\Chris\Desktop\RHO_PLUGINS_2 - Copy\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.pdb
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.dll
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.pdb
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.dll
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.pdb
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.xml
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\de\PdfSharp.resources.dll
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.ResolveComReference.cache
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm1.resources
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm2.resources
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm3.resources
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftMenuForm.resources
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.mainForm.resources
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.AApplicationForm.resources
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.checkinsForm.resources
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.paymentsForm.resources
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnItmTmpltsForm.resources
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.serviceTypesForm.resources
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.applicationForm.resources
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.gymForm.resources
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnRcptsForm.resources
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnStckTrnsfrsForm.resources
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnStrsWhseForm.resources
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnUomForm.resources
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Properties.Resources.resources
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.GenerateResource.Cache
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.dll
+C:\Users\Chris\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.pdb
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.dll
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.pdb
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.dll
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.pdb
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.xml
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\de\PdfSharp.resources.dll
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.ResolveComReference.cache
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm1.resources
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm2.resources
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm3.resources
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftMenuForm.resources
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.mainForm.resources
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.AApplicationForm.resources
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.checkinsForm.resources
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.paymentsForm.resources
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnItmTmpltsForm.resources
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.serviceTypesForm.resources
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.applicationForm.resources
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.gymForm.resources
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnRcptsForm.resources
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnStckTrnsfrsForm.resources
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnStrsWhseForm.resources
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.wfnUomForm.resources
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Properties.Resources.resources
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.GenerateResource.Cache
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.dll
+C:\Users\Christopher Amankwah\Desktop\APPLSYS\from Applsys Server\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.pdb
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.dll
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.pdb
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.dll
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.pdb
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.xml
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\de\PdfSharp.resources.dll
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\ResolveAssemblyReference.cache
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.ResolveComReference.cache
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm1.resources
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm2.resources
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm3.resources
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftMenuForm.resources
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.mainForm.resources
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.checkinsForm.resources
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.paymentsForm.resources
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.serviceTypesForm.resources
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.gymForm.resources
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Properties.Resources.resources
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.GenerateResource.Cache
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.dll
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.pdb
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.roomsDshBrdForm.resources
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.restaurantForm.resources
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.complaintsForm.resources
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.addAttchmntDiag.resources
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.attchmntsDiag.resources
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.extraInfoDiag.resources
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.itmSearchDiag.resources
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.rptParamsDiag.resources
+F:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.uomConversion.resources
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.dll
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.pdb
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.dll
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.pdb
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.xml
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\de\PdfSharp.resources.dll
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\ResolveAssemblyReference.cache
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.ResolveComReference.cache
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.addAttchmntDiag.resources
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.attchmntsDiag.resources
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.extraInfoDiag.resources
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.itmSearchDiag.resources
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.rptParamsDiag.resources
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm1.resources
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm2.resources
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm3.resources
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftMenuForm.resources
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.mainForm.resources
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.checkinsForm.resources
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.restaurantForm.resources
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.roomsDshBrdForm.resources
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.serviceTypesForm.resources
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.complaintsForm.resources
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.gymForm.resources
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Properties.Resources.resources
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.GenerateResource.Cache
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.dll
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.pdb
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.dll
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.pdb
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.dll
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.pdb
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.xml
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\bin\Debug\de\PdfSharp.resources.dll
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\ResolveAssemblyReference.cache
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.ResolveComReference.cache
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.addAttchmntDiag.resources
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.attchmntsDiag.resources
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.extraInfoDiag.resources
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.itmSearchDiag.resources
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.rptParamsDiag.resources
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.uomConversion.resources
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm1.resources
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm2.resources
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm3.resources
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftMenuForm.resources
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.mainForm.resources
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.checkinsForm.resources
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.restaurantForm.resources
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.roomsDshBrdForm.resources
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.serviceTypesForm.resources
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.complaintsForm.resources
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.gymForm.resources
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Properties.Resources.resources
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.GenerateResource.Cache
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.dll
+D:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.pdb
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.uomConversion.resources
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.itemRentalsForm.resources
+C:\1_DESIGNS\MYAPPS\RHO_PLUGINS_2\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.pmRecsForm.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csprojResolveAssemblyReference.cache
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.ResolveComReference.cache
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.dll
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.pdb
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.addAttchmntDiag.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.attchmntsDiag.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.extraInfoDiag.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.itmSearchDiag.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.rptParamsDiag.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.uomConversion.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.itemRentalsForm.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm1.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm2.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm3.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftMenuForm.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.mainForm.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.checkinsForm.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.pmRecsForm.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.restaurantForm.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.roomsDshBrdForm.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.serviceTypesForm.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.complaintsForm.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.gymForm.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Properties.Resources.resources
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.GenerateResource.Cache
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.dll
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.pdb
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.dll
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.pdb
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.xml
+C:\1_DESIGNS\MYAPPS\VS2013_PROJS\HospitalityManagement\HospitalityManagement\bin\Debug\de\PdfSharp.resources.dll
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.dll
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.pdb
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.dll
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.pdb
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.xml
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\bin\Debug\de\PdfSharp.resources.dll
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csprojResolveAssemblyReference.cache
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.ResolveComReference.cache
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.addAttchmntDiag.resources
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.attchmntsDiag.resources
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.extraInfoDiag.resources
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.itmSearchDiag.resources
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.rptParamsDiag.resources
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.uomConversion.resources
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.itemRentalsForm.resources
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm1.resources
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm2.resources
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm3.resources
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftMenuForm.resources
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.mainForm.resources
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.checkinsForm.resources
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.pmRecsForm.resources
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.restaurantForm.resources
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.roomsDshBrdForm.resources
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.serviceTypesForm.resources
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.complaintsForm.resources
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.gymForm.resources
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Properties.Resources.resources
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.GenerateResource.Cache
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.dll
+C:\1_DESIGNS\MYAPPS\VS2015_PROJS\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.pdb
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.dll
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.pdb
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.pdb
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\bin\Debug\PdfSharp.xml
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\bin\Debug\de\PdfSharp.resources.dll
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csprojResolveAssemblyReference.cache
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.ResolveComReference.cache
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.addAttchmntDiag.resources
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.attchmntsDiag.resources
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.extraInfoDiag.resources
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.itmSearchDiag.resources
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Dialogs.rptParamsDiag.resources
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.uomConversion.resources
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.itemRentalsForm.resources
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm1.resources
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm2.resources
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftHelpForm3.resources
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.leftMenuForm.resources
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.mainForm.resources
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.checkinsForm.resources
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.pmRecsForm.resources
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.restaurantForm.resources
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.roomsDshBrdForm.resources
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.serviceTypesForm.resources
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.complaintsForm.resources
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Forms.gymForm.resources
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.Properties.Resources.resources
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.csproj.GenerateResource.Cache
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.dll
+C:\1_DESIGNS\MYAPPS\TO_BE_PUBLISHED\HospitalityManagement\HospitalityManagement\obj\Debug\HospitalityManagement.pdb

@@ -1,0 +1,16 @@
+bin\Debug\PersonInformation.dll
+bin\Debug\PersonInformation.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\PersonInformation.Dialogs.addBnftsDiag.resources
+obj\Debug\PersonInformation.Dialogs.addRltvsDiag.resources
+obj\Debug\PersonInformation.Dialogs.asgnTmpltDiag.resources
+obj\Debug\PersonInformation.Dialogs.massAsgnItmsDiag.resources
+obj\Debug\PersonInformation.Dialogs.ntnltyDiag.resources
+obj\Debug\PersonInformation.Dialogs.prsnTypeDiag.resources
+obj\Debug\PersonInformation.Dialogs.prsnTypHstyDiag.resources
+obj\Debug\PersonInformation.Dialogs.rltvsDiag.resources
+obj\Debug\PersonInformation.Forms.mainForm.resources
+obj\Debug\PersonInformation.Properties.Resources.resources
+obj\Debug\PersonInformation.csproj.GenerateResource.Cache
+obj\Debug\PersonInformation.dll
+obj\Debug\PersonInformation.pdb

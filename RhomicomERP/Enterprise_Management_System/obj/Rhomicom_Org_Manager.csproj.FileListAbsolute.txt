@@ -1,0 +1,8 @@
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom_Org_Manager.Properties.Resources.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom_Org_Manager.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom Organisation Manager.exe
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom Organisation Manager.pdb
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom Organisation Manager.exe
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom Organisation Manager.pdb
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom_Org_Manager.Forms.mainForm.resources

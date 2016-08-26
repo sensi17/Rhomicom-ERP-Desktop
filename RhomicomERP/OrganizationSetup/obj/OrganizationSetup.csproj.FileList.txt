@@ -1,0 +1,11 @@
+bin\Debug\OrganizationSetup.dll
+bin\Debug\OrganizationSetup.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\OrganizationSetup.Dialogs.addBalItmDiag.resources
+obj\Debug\OrganizationSetup.Dialogs.addWkDetDiag.resources
+obj\Debug\OrganizationSetup.Dialogs.itemValDiag.resources
+obj\Debug\OrganizationSetup.Forms.mainForm.resources
+obj\Debug\OrganizationSetup.Properties.Resources.resources
+obj\Debug\OrganizationSetup.csproj.GenerateResource.Cache
+obj\Debug\OrganizationSetup.dll
+obj\Debug\OrganizationSetup.pdb

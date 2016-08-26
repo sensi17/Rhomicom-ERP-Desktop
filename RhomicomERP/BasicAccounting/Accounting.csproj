@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D4ACB4DE-D331-4D5E-B83E-0F7C7B39C36C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Accounting</RootNamespace>
+    <AssemblyName>Accounting</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="cadmaFunctions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Organisation_Management_System\bin\Debug\cadmaFunctions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CommonCode">
+      <HintPath>..\CommonCode\bin\Debug\CommonCode.dll</HintPath>
+    </Reference>
+    <Reference Include="glsLabel, Version=1.0.3000.31080, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Organisation_Management_System\bin\Debug\glsLabel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Interop.Microsoft.Office.Core, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Organisation_Management_System\bin\Debug\Interop.Microsoft.Office.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Microsoft.Office.Interop.Excel, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Organisation_Management_System\bin\Debug\Interop.Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Microsoft.Office.Interop.Word, Version=8.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Organisation_Management_System\bin\Debug\Interop.Microsoft.Office.Interop.Word.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\LIBRARIES\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=2.0.11.92, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Organisation_Management_System\bin\Debug\Npgsql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.3.1.24483, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Organisation_Management_System\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Accounting.cs" />
+    <Compile Include="Classes\CurrencyRates.cs" />
+    <Compile Include="Classes\Global.cs" />
+    <Compile Include="Dialogs\addAttchmntDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\addAttchmntDiag.Designer.cs">
+      <DependentUpon>addAttchmntDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\addBdgtLineDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\addBdgtLineDiag.Designer.cs">
+      <DependentUpon>addBdgtLineDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\addFromTmpltDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\addFromTmpltDiag.Designer.cs">
+      <DependentUpon>addFromTmpltDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\addTrnsDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\addTrnsDiag.Designer.cs">
+      <DependentUpon>addTrnsDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\addTrnsLstDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\addTrnsLstDiag.Designer.cs">
+      <DependentUpon>addTrnsLstDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\addTrnsTmpltDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\addTrnsTmpltDiag.Designer.cs">
+      <DependentUpon>addTrnsTmpltDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\attchmntsDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\attchmntsDiag.Designer.cs">
+      <DependentUpon>attchmntsDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\bdgtTmpDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\bdgtTmpDiag.Designer.cs">
+      <DependentUpon>bdgtTmpDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\docTmpltsDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\docTmpltsDiag.Designer.cs">
+      <DependentUpon>docTmpltsDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\exchangeRatesDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\exchangeRatesDiag.Designer.cs">
+      <DependentUpon>exchangeRatesDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\nwDateDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\nwDateDiag.Designer.cs">
+      <DependentUpon>nwDateDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\pymntMthdsDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\pymntMthdsDiag.Designer.cs">
+      <DependentUpon>pymntMthdsDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\trnsAmntBreakDwnDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\trnsAmntBreakDwnDiag.Designer.cs">
+      <DependentUpon>trnsAmntBreakDwnDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\vwTrnsctnsDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\vwTrnsctnsDiag.Designer.cs">
+      <DependentUpon>vwTrnsctnsDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\accntsSetupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\accntsSetupForm.designer.cs">
+      <DependentUpon>accntsSetupForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\acctnPrdsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\acctnPrdsForm.Designer.cs">
+      <DependentUpon>acctnPrdsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\custSpplrForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\custSpplrForm.designer.cs">
+      <DependentUpon>custSpplrForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\fxdAsstsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\fxdAsstsForm.Designer.cs">
+      <DependentUpon>fxdAsstsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\mainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\mainForm.Designer.cs">
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\pyblsDocsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\pyblsDocsForm.Designer.cs">
+      <DependentUpon>pyblsDocsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\pymntsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\pymntsForm.Designer.cs">
+      <DependentUpon>pymntsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\rcvblsDocsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\rcvblsDocsForm.Designer.cs">
+      <DependentUpon>rcvblsDocsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\reconcileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\reconcileForm.Designer.cs">
+      <DependentUpon>reconcileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\taxNDscntsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\taxNDscntsForm.designer.cs">
+      <DependentUpon>taxNDscntsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dialogs\addAttchmntDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>addAttchmntDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\addBdgtLineDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>addBdgtLineDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\addFromTmpltDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>addFromTmpltDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\addTrnsDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>addTrnsDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\addTrnsLstDiag.resx">
+      <DependentUpon>addTrnsLstDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\addTrnsTmpltDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>addTrnsTmpltDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\attchmntsDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>attchmntsDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\bdgtTmpDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>bdgtTmpDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\docTmpltsDiag.resx">
+      <DependentUpon>docTmpltsDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\exchangeRatesDiag.resx">
+      <DependentUpon>exchangeRatesDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\nwDateDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>nwDateDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\pymntMthdsDiag.resx">
+      <DependentUpon>pymntMthdsDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\trnsAmntBreakDwnDiag.resx">
+      <DependentUpon>trnsAmntBreakDwnDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\vwTrnsctnsDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>vwTrnsctnsDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\accntsSetupForm.resx">
+      <DependentUpon>accntsSetupForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\acctnPrdsForm.resx">
+      <DependentUpon>acctnPrdsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\custSpplrForm.resx">
+      <DependentUpon>custSpplrForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\fxdAsstsForm.resx">
+      <DependentUpon>fxdAsstsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\mainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\pyblsDocsForm.resx">
+      <DependentUpon>pyblsDocsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\pymntsForm.resx">
+      <DependentUpon>pymntsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\rcvblsDocsForm.resx">
+      <DependentUpon>rcvblsDocsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\reconcileForm.resx">
+      <DependentUpon>reconcileForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\taxNDscntsForm.resx">
+      <DependentUpon>taxNDscntsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DataContainer_MoveFirstHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DataContainer_MoveLastHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DataContainer_MoveNextHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DataContainer_MovePreviousHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FloppyDisk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sql_icon_by_raisch-d3ax2ih.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\statistics_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\98.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blank.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\action_go.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\thumb.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\oneSafe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download %2826%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_document_preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mi_scare_report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adjunto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tick_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo_256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\openfileicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\animated.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

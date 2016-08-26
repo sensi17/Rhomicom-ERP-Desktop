@@ -1,0 +1,7 @@
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Person\bin\Debug\Person.dll
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Person\bin\Debug\Person.pdb
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\Person.Forms.mainForm.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\Person.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\Person.dll
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\Person.pdb

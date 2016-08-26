@@ -1,0 +1,15 @@
+C:\MYSTUFF\Rhomicom_Org_Manager\BasicAccounting\bin\Debug\GeneralLedger.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\BasicAccounting\bin\Debug\GeneralLedger.pdb
+C:\MYSTUFF\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\GeneralLedger.Dialogs.addBdgtLineDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\GeneralLedger.Dialogs.addFromTmpltDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\GeneralLedger.Dialogs.addTrnsDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\GeneralLedger.Dialogs.addTrnsTmpltDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\GeneralLedger.Dialogs.bdgtTmpDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\GeneralLedger.Dialogs.nwDateDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\GeneralLedger.Dialogs.vwTrnsctnsDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\GeneralLedger.Forms.mainForm.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\GeneralLedger.Properties.Resources.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\GeneralLedger.csproj.GenerateResource.Cache
+C:\MYSTUFF\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\GeneralLedger.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\GeneralLedger.pdb

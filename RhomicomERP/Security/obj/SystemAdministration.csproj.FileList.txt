@@ -1,0 +1,15 @@
+bin\Debug\SystemAdministration.dll
+bin\Debug\SystemAdministration.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\SystemAdministration.Dialogs.addRoleDiag.resources
+obj\Debug\SystemAdministration.Dialogs.addRolePrvldgDiag.resources
+obj\Debug\SystemAdministration.Dialogs.addUserDiag.resources
+obj\Debug\SystemAdministration.Dialogs.addUserRole.resources
+obj\Debug\SystemAdministration.Dialogs.chngPswdDiag.resources
+obj\Debug\SystemAdministration.Dialogs.editPlcyMdlsDiag.resources
+obj\Debug\SystemAdministration.Dialogs.personDiag.resources
+obj\Debug\SystemAdministration.Forms.mainForm.resources
+obj\Debug\SystemAdministration.Properties.Resources.resources
+obj\Debug\SystemAdministration.csproj.GenerateResource.Cache
+obj\Debug\SystemAdministration.dll
+obj\Debug\SystemAdministration.pdb

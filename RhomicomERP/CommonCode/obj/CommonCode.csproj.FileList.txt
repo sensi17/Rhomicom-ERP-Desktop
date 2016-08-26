@@ -1,0 +1,15 @@
+bin\Debug\CommonCode.dll
+bin\Debug\CommonCode.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\CommonCode.activateDiag.resources
+obj\Debug\CommonCode.calendarDiag.resources
+obj\Debug\CommonCode.dsplyARowsExtInfDiag.resources
+obj\Debug\CommonCode.exprtToExcelDiag.resources
+obj\Debug\CommonCode.Properties.Resources.resources
+obj\Debug\CommonCode.recHstryDiag.resources
+obj\Debug\CommonCode.viewSQLDiag.resources
+obj\Debug\CommonCode.vwLogMsgForm.resources
+obj\Debug\CommonCode.vwPssblValueDiag.resources
+obj\Debug\CommonCode.csproj.GenerateResource.Cache
+obj\Debug\CommonCode.dll
+obj\Debug\CommonCode.pdb

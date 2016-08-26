@@ -1,0 +1,5 @@
+bin\Debug\RhoInterface.dll
+bin\Debug\RhoInterface.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\RhoInterface.dll
+obj\Debug\RhoInterface.pdb

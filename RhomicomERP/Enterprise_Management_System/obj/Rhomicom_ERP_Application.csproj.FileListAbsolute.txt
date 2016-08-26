@@ -1,0 +1,28 @@
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom ERP Application V1.0.0.exe.config
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom ERP Application V1.0.0.exe
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom ERP Application V1.0.0.pdb
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Mono.Security.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.pdb
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.xml
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\de\Npgsql.resources.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\es\Npgsql.resources.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\fi\Npgsql.resources.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\fr\Npgsql.resources.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\ja\Npgsql.resources.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom_ERP_Application.Dialogs.chngPswdDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom_ERP_Application.Dialogs.connectDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom_ERP_Application.Dialogs.customiseDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom_ERP_Application.Dialogs.inboxDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom_ERP_Application.Dialogs.loginDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom_ERP_Application.Dialogs.switchRolesDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom_ERP_Application.Forms.homePageForm.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom_ERP_Application.Forms.mainForm.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom_ERP_Application.Properties.Resources.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom_ERP_Application.csproj.GenerateResource.Cache
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom ERP Application V1.0.0.exe
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom ERP Application V1.0.0.pdb
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom Enterprise Manager V1.0.0.exe.config
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom_Enterprise_Manager.Properties.Resources.resources

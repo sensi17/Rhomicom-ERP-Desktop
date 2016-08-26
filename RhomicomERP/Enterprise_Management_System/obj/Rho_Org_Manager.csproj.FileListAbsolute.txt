@@ -1,0 +1,220 @@
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom Organization Manager.exe
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom Organization Manager.pdb
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.dll
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Mono.Security.dll
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.pdb
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.xml
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\de\Npgsql.resources.dll
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\es\Npgsql.resources.dll
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\fi\Npgsql.resources.dll
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\fr\Npgsql.resources.dll
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\ja\Npgsql.resources.dll
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.chngPswdDiag.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.connectDiag.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.inboxDiag.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.loginDiag.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.switchRolesDiag.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Forms.homePageForm.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Forms.mainForm.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Properties.Resources.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom Organization Manager.exe
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom Organization Manager.pdb
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom Organization Manager.exe
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom Organization Manager.pdb
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.chngPswdDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.connectDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.inboxDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.loginDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.switchRolesDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Forms.homePageForm.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Forms.mainForm.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Properties.Resources.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.csproj.GenerateResource.Cache
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom Organization Manager.exe
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom Organization Manager.pdb
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Mono.Security.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.pdb
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.xml
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\de\Npgsql.resources.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\es\Npgsql.resources.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\fi\Npgsql.resources.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\fr\Npgsql.resources.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\ja\Npgsql.resources.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom Organization Manager.exe
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom Organization Manager.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom Organization Manager.exe
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom Organization Manager.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Mono.Security.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.xml
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\de\Npgsql.resources.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\es\Npgsql.resources.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\fi\Npgsql.resources.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\fr\Npgsql.resources.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\ja\Npgsql.resources.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.chngPswdDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.connectDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.inboxDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.loginDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.switchRolesDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Forms.homePageForm.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Forms.mainForm.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Properties.Resources.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.csproj.GenerateResource.Cache
+I:\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom Organization Manager.exe
+I:\PROJECTS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom Organization Manager.pdb
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Mono.Security.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.pdb
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.xml
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\de\Npgsql.resources.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\es\Npgsql.resources.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\fi\Npgsql.resources.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\fr\Npgsql.resources.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\ja\Npgsql.resources.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.chngPswdDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.connectDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.inboxDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.loginDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.switchRolesDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Forms.homePageForm.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Forms.mainForm.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Properties.Resources.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.csproj.GenerateResource.Cache
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom Organization Manager.exe
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom Organization Manager.pdb
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom Organization Manager.exe
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom Organization Manager.pdb
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.dll
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Mono.Security.dll
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.pdb
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.xml
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\de\Npgsql.resources.dll
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\es\Npgsql.resources.dll
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\fi\Npgsql.resources.dll
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\fr\Npgsql.resources.dll
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\ja\Npgsql.resources.dll
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\ResolveAssemblyReference.cache
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.chngPswdDiag.resources
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.connectDiag.resources
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.inboxDiag.resources
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.loginDiag.resources
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.switchRolesDiag.resources
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Forms.homePageForm.resources
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Forms.mainForm.resources
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Properties.Resources.resources
+C:\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.csproj.GenerateResource.Cache
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom Organization Manager.exe
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom Organization Manager.pdb
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom Organization Manager.exe
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom Organization Manager.pdb
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom Organization Manager.exe
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom Organization Manager.pdb
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Mono.Security.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.pdb
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.xml
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\de\Npgsql.resources.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\es\Npgsql.resources.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\fi\Npgsql.resources.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\fr\Npgsql.resources.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\ja\Npgsql.resources.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\zh-CN\Npgsql.resources.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\ResolveAssemblyReference.cache
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.chngPswdDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.connectDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.inboxDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.loginDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.switchRolesDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Forms.homePageForm.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Forms.mainForm.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Properties.Resources.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.csproj.GenerateResource.Cache
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom Organization Manager.exe
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom Organization Manager.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom Organization Manager.exe
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom Organization Manager.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Mono.Security.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.xml
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\de\Npgsql.resources.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\es\Npgsql.resources.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\fi\Npgsql.resources.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\fr\Npgsql.resources.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\ja\Npgsql.resources.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.chngPswdDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.connectDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.inboxDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.loginDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.switchRolesDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Forms.homePageForm.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Forms.mainForm.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Properties.Resources.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.csproj.GenerateResource.Cache
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom Organization Manager.exe
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom Organization Manager.pdb
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Mono.Security.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.pdb
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.xml
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\de\Npgsql.resources.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\es\Npgsql.resources.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\fi\Npgsql.resources.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\fr\Npgsql.resources.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\ja\Npgsql.resources.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.chngPswdDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.connectDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.inboxDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.loginDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.switchRolesDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Forms.homePageForm.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Forms.mainForm.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Properties.Resources.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.csproj.GenerateResource.Cache
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom Organization Manager V1.0.0.exe
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom Organization Manager V1.0.0.pdb
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom Organization Manager V1.0.0.exe
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom Organization Manager V1.0.0.pdb
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom ERP Application V1.0.0.exe
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom ERP Application V1.0.0.pdb
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom ERP Application V1.0.0.exe
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Rhomicom ERP Application V1.0.0.pdb
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Mono.Security.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.pdb
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\Npgsql.xml
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\de\Npgsql.resources.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\es\Npgsql.resources.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\fi\Npgsql.resources.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\fr\Npgsql.resources.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\ja\Npgsql.resources.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.chngPswdDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.connectDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.customiseDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.inboxDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.loginDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Dialogs.switchRolesDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Forms.homePageForm.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Forms.mainForm.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.Properties.Resources.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rho_Org_Manager.csproj.GenerateResource.Cache
+C:\MYSTUFF\Rhomicom_Org_Manager\Rhomicom_Org_Manager\obj\Debug\Rhomicom_ERP_Application.Properties.Resources.resources

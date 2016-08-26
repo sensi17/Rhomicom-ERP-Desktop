@@ -1,0 +1,12 @@
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\ProgramLauncher\obj\Debug\ResolveAssemblyReference.cache
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\ProgramLauncher\bin\Debug\ProgramLauncher.exe.config
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\ProgramLauncher\bin\Debug\ProgramLauncher.exe
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\ProgramLauncher\bin\Debug\ProgramLauncher.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\ProgramLauncher\obj\Debug\ProgramLauncher.exe
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\ProgramLauncher\obj\Debug\ProgramLauncher.pdb
+C:\MYAPPS\Rhomicom_Org_Manager_PG_2\ProgramLauncher\bin\Debug\ProgramLauncher.exe.config
+C:\MYAPPS\Rhomicom_Org_Manager_PG_2\ProgramLauncher\bin\Debug\ProgramLauncher.exe
+C:\MYAPPS\Rhomicom_Org_Manager_PG_2\ProgramLauncher\bin\Debug\ProgramLauncher.pdb
+C:\MYAPPS\Rhomicom_Org_Manager_PG_2\ProgramLauncher\obj\Debug\ResolveAssemblyReference.cache
+C:\MYAPPS\Rhomicom_Org_Manager_PG_2\ProgramLauncher\obj\Debug\ProgramLauncher.exe
+C:\MYAPPS\Rhomicom_Org_Manager_PG_2\ProgramLauncher\obj\Debug\ProgramLauncher.pdb

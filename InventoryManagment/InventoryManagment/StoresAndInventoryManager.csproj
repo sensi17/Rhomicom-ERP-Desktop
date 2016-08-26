@@ -1,0 +1,747 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4B21E295-3BB2-497E-8031-6AF77DD4172D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StoresAndInventoryManager</RootNamespace>
+    <AssemblyName>StoresAndInventoryManager</AssemblyName>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="cadmaFunctions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\RhomicomERP\Enterprise_Management_System\bin\Debug\cadmaFunctions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CommonCode">
+      <HintPath>..\..\RhomicomERP\Enterprise_Management_System\bin\Debug\CommonCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Dll and Sample Excel for Data Import\2.1.beta.binary\Excel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="glsLabel, Version=1.0.3000.31080, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\RhomicomERP\Enterprise_Management_System\bin\Debug\glsLabel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Dll and Sample Excel for Data Import\2.1.beta.binary\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Interop.Microsoft.Office.Core">
+      <HintPath>..\..\RhomicomERP\Enterprise_Management_System\bin\Debug\Interop.Microsoft.Office.Core.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.Microsoft.Office.Interop.Excel, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\RhomicomERP\Enterprise_Management_System\bin\Debug\Interop.Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Npgsql, Version=2.0.11.92, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\RhomicomERP\Enterprise_Management_System\bin\Debug\Npgsql.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="PdfSharp, Version=1.31.1789.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Debug\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="RhoInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\RhomicomERP\Enterprise_Management_System\bin\Debug\RhoInterface.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.3.1.24483, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\RhomicomERP\Enterprise_Management_System\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Global.cs" />
+    <Compile Include="Classes\StoresAndInventoryManager.cs" />
+    <Compile Include="Classes\MyDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Dialogs\addAttchmntDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\addAttchmntDiag.designer.cs">
+      <DependentUpon>addAttchmntDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\addGLIntfcTrnsDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\addGLIntfcTrnsDiag.Designer.cs">
+      <DependentUpon>addGLIntfcTrnsDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\adjustmentPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\adjustmentPrompt.Designer.cs">
+      <DependentUpon>adjustmentPrompt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\adjustmentSourceDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\adjustmentSourceDiag.Designer.cs">
+      <DependentUpon>adjustmentSourceDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\attchmntsDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\attchmntsDiag.designer.cs">
+      <DependentUpon>attchmntsDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\balUomConvDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\balUomConvDetails.Designer.cs">
+      <DependentUpon>balUomConvDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\sQLFormulaDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\sQLFormulaDiag.designer.cs">
+      <DependentUpon>sQLFormulaDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\QuickReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\QuickReceipt.designer.cs">
+      <DependentUpon>QuickReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\rptParamsDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\rptParamsDiag.designer.cs">
+      <DependentUpon>rptParamsDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\calendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\calendar.Designer.cs">
+      <DependentUpon>calendar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\Excel Import.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\Excel Import.Designer.cs">
+      <DependentUpon>Excel Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\extraInfoDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\extraInfoDiag.designer.cs">
+      <DependentUpon>extraInfoDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\itemSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\itemSearch.Designer.cs">
+      <DependentUpon>itemSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\itmSearchDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\itmSearchDiag.designer.cs">
+      <DependentUpon>itmSearchDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\payables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\payables.Designer.cs">
+      <DependentUpon>payables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\uomConversion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\uomConversion.Designer.cs">
+      <DependentUpon>uomConversion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\addPymntDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\addPymntDiag.designer.cs">
+      <DependentUpon>addPymntDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\consgmtRcpt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\consgmtRcpt.Designer.cs">
+      <DependentUpon>consgmtRcpt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\consgmtRecReturns.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\consgmtRecReturns.Designer.cs">
+      <DependentUpon>consgmtRecReturns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\glIntrfcForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\glIntrfcForm.Designer.cs">
+      <DependentUpon>glIntrfcForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\invAdjstmnt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\invAdjstmnt.Designer.cs">
+      <DependentUpon>invAdjstmnt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\invoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\invoiceForm.designer.cs">
+      <DependentUpon>invoiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\itemListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\itemListForm.Designer.cs">
+      <DependentUpon>itemListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\itemTypeTmplts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\itemTypeTmplts.Designer.cs">
+      <DependentUpon>itemTypeTmplts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\itmBals.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\itmBals.Designer.cs">
+      <DependentUpon>itmBals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\leftHelpForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\leftHelpForm1.Designer.cs">
+      <DependentUpon>leftHelpForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\leftHelpForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\leftHelpForm2.Designer.cs">
+      <DependentUpon>leftHelpForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\leftHelpForm3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\leftHelpForm3.Designer.cs">
+      <DependentUpon>leftHelpForm3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\leftMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\leftMenuForm.Designer.cs">
+      <DependentUpon>leftMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\mainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\mainForm.Designer.cs">
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\prchseOrdrForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\prchseOrdrForm.designer.cs">
+      <DependentUpon>prchseOrdrForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\prdtCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\prdtCategories.Designer.cs">
+      <DependentUpon>prdtCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\productionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\productionForm.Designer.cs">
+      <DependentUpon>productionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\pyblsDocsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\pyblsDocsForm.designer.cs">
+      <DependentUpon>pyblsDocsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\storeHouses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\storeHouses.Designer.cs">
+      <DependentUpon>storeHouses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\storeHseTransfers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\storeHseTransfers.Designer.cs">
+      <DependentUpon>storeHseTransfers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\unitOfMeasures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\unitOfMeasures.Designer.cs">
+      <DependentUpon>unitOfMeasures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfnGLIntfcForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfnGLIntfcForm.Designer.cs">
+      <DependentUpon>wfnGLIntfcForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfnInvoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfnInvoiceForm.Designer.cs">
+      <DependentUpon>wfnInvoiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfnItmBalsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfnItmBalsForm.Designer.cs">
+      <DependentUpon>wfnItmBalsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfnItmLstForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfnItmLstForm.Designer.cs">
+      <DependentUpon>wfnItmLstForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfnItmTmpltsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfnItmTmpltsForm.Designer.cs">
+      <DependentUpon>wfnItmTmpltsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfnMiscAdjstForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfnMiscAdjstForm.Designer.cs">
+      <DependentUpon>wfnMiscAdjstForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfnPrchOrdrForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfnPrchOrdrForm.Designer.cs">
+      <DependentUpon>wfnPrchOrdrForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfnPrdtCatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfnPrdtCatForm.Designer.cs">
+      <DependentUpon>wfnPrdtCatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfnRcpRtrnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfnRcpRtrnForm.Designer.cs">
+      <DependentUpon>wfnRcpRtrnForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfnRcptsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfnRcptsForm.Designer.cs">
+      <DependentUpon>wfnRcptsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfnStckTrnsfrsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfnStckTrnsfrsForm.Designer.cs">
+      <DependentUpon>wfnStckTrnsfrsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfnStrsWhseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfnStrsWhseForm.Designer.cs">
+      <DependentUpon>wfnStrsWhseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\wfnUomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\wfnUomForm.Designer.cs">
+      <DependentUpon>wfnUomForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dialogs\addAttchmntDiag.resx">
+      <DependentUpon>addAttchmntDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\addGLIntfcTrnsDiag.resx">
+      <DependentUpon>addGLIntfcTrnsDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\adjustmentPrompt.resx">
+      <DependentUpon>adjustmentPrompt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\adjustmentSourceDiag.resx">
+      <DependentUpon>adjustmentSourceDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\attchmntsDiag.resx">
+      <DependentUpon>attchmntsDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\balUomConvDetails.resx">
+      <DependentUpon>balUomConvDetails.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\sQLFormulaDiag.resx">
+      <DependentUpon>sQLFormulaDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\QuickReceipt.resx">
+      <DependentUpon>QuickReceipt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\rptParamsDiag.resx">
+      <DependentUpon>rptParamsDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\calendar.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>calendar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\Excel Import.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Excel Import.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\extraInfoDiag.resx">
+      <DependentUpon>extraInfoDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\itemSearch.resx">
+      <DependentUpon>itemSearch.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\itmSearchDiag.resx">
+      <DependentUpon>itmSearchDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\payables.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>payables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\uomConversion.resx">
+      <DependentUpon>uomConversion.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\addPymntDiag.resx">
+      <DependentUpon>addPymntDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\consgmtRcpt.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>consgmtRcpt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\consgmtRecReturns.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>consgmtRecReturns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\glIntrfcForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>glIntrfcForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\invAdjstmnt.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>invAdjstmnt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\invoiceForm.resx">
+      <DependentUpon>invoiceForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\itemListForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>itemListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\itemTypeTmplts.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>itemTypeTmplts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\itmBals.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>itmBals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\leftHelpForm1.resx">
+      <DependentUpon>leftHelpForm1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\leftHelpForm2.resx">
+      <DependentUpon>leftHelpForm2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\leftHelpForm3.resx">
+      <DependentUpon>leftHelpForm3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\leftMenuForm.resx">
+      <DependentUpon>leftMenuForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\mainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\prchseOrdrForm.resx">
+      <DependentUpon>prchseOrdrForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\prdtCategories.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>prdtCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\productionForm.resx">
+      <DependentUpon>productionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\pyblsDocsForm.resx">
+      <DependentUpon>pyblsDocsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\storeHouses.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>storeHouses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\storeHseTransfers.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>storeHseTransfers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\unitOfMeasures.resx">
+      <DependentUpon>unitOfMeasures.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfnGLIntfcForm.resx">
+      <DependentUpon>wfnGLIntfcForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfnInvoiceForm.resx">
+      <DependentUpon>wfnInvoiceForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfnItmBalsForm.resx">
+      <DependentUpon>wfnItmBalsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfnItmLstForm.resx">
+      <DependentUpon>wfnItmLstForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfnItmTmpltsForm.resx">
+      <DependentUpon>wfnItmTmpltsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfnMiscAdjstForm.resx">
+      <DependentUpon>wfnMiscAdjstForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfnPrchOrdrForm.resx">
+      <DependentUpon>wfnPrchOrdrForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfnPrdtCatForm.resx">
+      <DependentUpon>wfnPrdtCatForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfnRcpRtrnForm.resx">
+      <DependentUpon>wfnRcpRtrnForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfnRcptsForm.resx">
+      <DependentUpon>wfnRcptsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfnStckTrnsfrsForm.resx">
+      <DependentUpon>wfnStckTrnsfrsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfnStrsWhseForm.resx">
+      <DependentUpon>wfnStrsWhseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\wfnUomForm.resx">
+      <DependentUpon>wfnUomForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add1-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tick_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imagesCAIEWU3J.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Halt.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Credit cards.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\excel_icon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export-icon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Import-Excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\main_menu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reverse.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15.png" />
+    <None Include="Resources\90.png" />
+    <None Include="Resources\98.png" />
+    <None Include="Resources\action_go.gif" />
+    <None Include="Resources\actions_document_preview.png" />
+    <None Include="Resources\adjunto.png" />
+    <None Include="Resources\blank.jpg" />
+    <None Include="Resources\CustomIcon.png" />
+    <None Include="Resources\DataContainer_MoveFirstHS.png" />
+    <None Include="Resources\DataContainer_MoveLastHS.png" />
+    <None Include="Resources\DataContainer_MoveNextHS.png" />
+    <None Include="Resources\DataContainer_MovePreviousHS.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\edit32.png" />
+    <None Include="Resources\FloppyDisk.png" />
+    <None Include="Resources\GeneralLedgerIcon1.png" />
+    <None Include="Resources\image007.png" />
+    <None Include="Resources\images.jpeg" />
+    <None Include="Resources\Information.png" />
+    <None Include="Resources\list.jpg" />
+    <None Include="Resources\mi_scare_report.png" />
+    <None Include="Resources\plus_32.png" />
+    <None Include="Resources\print_64.png" />
+    <None Include="Resources\refresh.bmp" />
+    <None Include="Resources\sql_icon_by_raisch-d3ax2ih.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\staffs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\statistics_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eraser.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo_256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

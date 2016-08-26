@@ -1,0 +1,42 @@
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\Rhomicom Enterprise Manager V1.0.0.exe.config
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\obj\Debug\Rhomicom Enterprise Manager V1.0.0.exe
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\obj\Debug\Rhomicom Enterprise Manager V1.0.0.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\Rhomicom Enterprise Manager V1.0.0.exe
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\Rhomicom Enterprise Manager V1.0.0.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\Accounting.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\BasicPersonData.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\CommonCode.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\GeneralSetup.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\InternalPayments.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\Npgsql.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\OrganizationSetup.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\ReportsAndProcesses.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\SystemAdministration.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\Mono.Security.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\CommonCode.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\GeneralSetup.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\ReportsAndProcesses.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\BasicPersonData.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\InternalPayments.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\OrganizationSetup.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\Npgsql.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\Npgsql.xml
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\SystemAdministration.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\Accounting.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\de\Npgsql.resources.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\es\Npgsql.resources.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\fi\Npgsql.resources.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\fr\Npgsql.resources.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\ja\Npgsql.resources.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\obj\Debug\ResolveAssemblyReference.cache
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\obj\Debug\Rhomicom_Enterprise_Manager.Dialogs.chngPswdDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\obj\Debug\Rhomicom_Enterprise_Manager.Dialogs.connectDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\obj\Debug\Rhomicom_Enterprise_Manager.Dialogs.customiseDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\obj\Debug\Rhomicom_Enterprise_Manager.Dialogs.inboxDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\obj\Debug\Rhomicom_Enterprise_Manager.Dialogs.loginDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\obj\Debug\Rhomicom_Enterprise_Manager.Dialogs.switchRolesDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\obj\Debug\Rhomicom_Enterprise_Manager.Forms.homePageForm.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\obj\Debug\Rhomicom_Enterprise_Manager.Forms.mainForm.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\obj\Debug\Rhomicom_Enterprise_Manager.Properties.Resources.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\Rhomicom_Org_Manager\obj\Debug\Rhomicom_Enterprise_Manager.csproj.GenerateResource.Cache

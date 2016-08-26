@@ -1,0 +1,65 @@
+C:\Users\User\Desktop\Rhomicom_Org_Manager\rhoInterface\bin\Debug\RhoInterface.dll
+C:\Users\User\Desktop\Rhomicom_Org_Manager\rhoInterface\bin\Debug\RhoInterface.pdb
+C:\Users\User\Desktop\Rhomicom_Org_Manager\rhoInterface\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\Rhomicom_Org_Manager\rhoInterface\obj\Debug\RhoInterface.dll
+C:\Users\User\Desktop\Rhomicom_Org_Manager\rhoInterface\obj\Debug\RhoInterface.pdb
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\rhoInterface\bin\Debug\RhoInterface.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\rhoInterface\bin\Debug\RhoInterface.pdb
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\rhoInterface\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\rhoInterface\obj\Debug\RhoInterface.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\rhoInterface\obj\Debug\RhoInterface.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\rhoInterface\bin\Debug\RhoInterface.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\rhoInterface\bin\Debug\RhoInterface.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\rhoInterface\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\rhoInterface\obj\Debug\RhoInterface.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\rhoInterface\obj\Debug\RhoInterface.pdb
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\rhoInterface\bin\Debug\RhoInterface.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\rhoInterface\bin\Debug\RhoInterface.pdb
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\rhoInterface\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\rhoInterface\obj\Debug\RhoInterface.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\rhoInterface\obj\Debug\RhoInterface.pdb
+C:\Rhomicom_Org_Manager\rhoInterface\bin\Debug\RhoInterface.dll
+C:\Rhomicom_Org_Manager\rhoInterface\bin\Debug\RhoInterface.pdb
+C:\Rhomicom_Org_Manager\rhoInterface\obj\Debug\ResolveAssemblyReference.cache
+C:\Rhomicom_Org_Manager\rhoInterface\obj\Debug\RhoInterface.dll
+C:\Rhomicom_Org_Manager\rhoInterface\obj\Debug\RhoInterface.pdb
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\rhoInterface\bin\Debug\RhoInterface.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\rhoInterface\bin\Debug\RhoInterface.pdb
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\rhoInterface\obj\Debug\ResolveAssemblyReference.cache
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\rhoInterface\obj\Debug\RhoInterface.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\rhoInterface\obj\Debug\RhoInterface.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\rhoInterface\bin\Debug\RhoInterface.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\rhoInterface\bin\Debug\RhoInterface.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\rhoInterface\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\rhoInterface\obj\Debug\RhoInterface.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\rhoInterface\obj\Debug\RhoInterface.pdb
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\rhoInterface\bin\Debug\RhoInterface.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\rhoInterface\bin\Debug\RhoInterface.pdb
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\rhoInterface\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\rhoInterface\obj\Debug\RhoInterface.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\rhoInterface\obj\Debug\RhoInterface.pdb
+C:\MYSTUFF\Rhomicom_Org_Manager\rhoInterface\bin\Debug\RhoInterface.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\rhoInterface\bin\Debug\RhoInterface.pdb
+C:\MYSTUFF\Rhomicom_Org_Manager\rhoInterface\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\Rhomicom_Org_Manager\rhoInterface\obj\Debug\RhoInterface.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\rhoInterface\obj\Debug\RhoInterface.pdb
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\rhoInterface\bin\Debug\RhoInterface.dll
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\rhoInterface\bin\Debug\RhoInterface.pdb
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\rhoInterface\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\rhoInterface\obj\Debug\RhoInterface.dll
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\rhoInterface\obj\Debug\RhoInterface.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG\rhoInterface\bin\Debug\RhoInterface.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG\rhoInterface\bin\Debug\RhoInterface.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG\rhoInterface\obj\Debug\ResolveAssemblyReference.cache
+C:\MY_APPS\Rhomicom_Org_Manager_PG\rhoInterface\obj\Debug\RhoInterface.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG\rhoInterface\obj\Debug\RhoInterface.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\rhoInterface\bin\Debug\RhoInterface.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\rhoInterface\bin\Debug\RhoInterface.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\rhoInterface\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\rhoInterface\obj\Debug\RhoInterface.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\rhoInterface\obj\Debug\RhoInterface.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\rhoInterface\bin\Debug\RhoInterface.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\rhoInterface\bin\Debug\RhoInterface.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\rhoInterface\obj\Debug\ResolveAssemblyReference.cache
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\rhoInterface\obj\Debug\RhoInterface.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\rhoInterface\obj\Debug\RhoInterface.pdb

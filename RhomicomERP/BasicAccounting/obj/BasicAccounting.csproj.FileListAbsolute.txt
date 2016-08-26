@@ -1,0 +1,105 @@
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Forms.mainForm.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\BasicAccounting\bin\Debug\BasicAccounting.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\BasicAccounting\bin\Debug\BasicAccounting.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Properties.Resources.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addTrnsDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.vwTrnsctnsDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addTrnsTmpltDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addFromTmpltDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\bin\Debug\BasicAccounting.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\bin\Debug\BasicAccounting.pdb
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addFromTmpltDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addTrnsDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addTrnsTmpltDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.vwTrnsctnsDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Forms.mainForm.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Properties.Resources.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.csproj.GenerateResource.Cache
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.nwDateDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.nwDateDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addBdgtLineDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addBdgtLineDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.bdgtTmpDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.bdgtTmpDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\BasicAccounting\bin\Debug\BasicAccounting.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\BasicAccounting\bin\Debug\BasicAccounting.pdb
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addBdgtLineDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addFromTmpltDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addTrnsDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addTrnsTmpltDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.bdgtTmpDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.nwDateDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.vwTrnsctnsDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Forms.mainForm.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Properties.Resources.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.csproj.GenerateResource.Cache
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.pdb
+C:\Rhomicom_Org_Manager\BasicAccounting\bin\Debug\BasicAccounting.dll
+C:\Rhomicom_Org_Manager\BasicAccounting\bin\Debug\BasicAccounting.pdb
+C:\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\ResolveAssemblyReference.cache
+C:\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addBdgtLineDiag.resources
+C:\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addFromTmpltDiag.resources
+C:\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addTrnsDiag.resources
+C:\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addTrnsTmpltDiag.resources
+C:\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.bdgtTmpDiag.resources
+C:\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.nwDateDiag.resources
+C:\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.vwTrnsctnsDiag.resources
+C:\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Forms.mainForm.resources
+C:\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Properties.Resources.resources
+C:\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.csproj.GenerateResource.Cache
+C:\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.dll
+C:\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.pdb
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\bin\Debug\BasicAccounting.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\bin\Debug\BasicAccounting.pdb
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\ResolveAssemblyReference.cache
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addBdgtLineDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addFromTmpltDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addTrnsDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addTrnsTmpltDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.bdgtTmpDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.nwDateDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.vwTrnsctnsDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Forms.mainForm.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Properties.Resources.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.csproj.GenerateResource.Cache
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\BasicAccounting\bin\Debug\BasicAccounting.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\BasicAccounting\bin\Debug\BasicAccounting.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addBdgtLineDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addFromTmpltDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addTrnsDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addTrnsTmpltDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.bdgtTmpDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.nwDateDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.vwTrnsctnsDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Forms.mainForm.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Properties.Resources.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.csproj.GenerateResource.Cache
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.pdb
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\BasicAccounting\bin\Debug\BasicAccounting.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\BasicAccounting\bin\Debug\BasicAccounting.pdb
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addBdgtLineDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addFromTmpltDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addTrnsDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.addTrnsTmpltDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.bdgtTmpDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.nwDateDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Dialogs.vwTrnsctnsDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Forms.mainForm.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.Properties.Resources.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.csproj.GenerateResource.Cache
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\BasicAccounting\obj\Debug\BasicAccounting.pdb

@@ -1,0 +1,484 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FB562679-1B39-4BC9-B994-B20AD7061ACE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommonCode</RootNamespace>
+    <AssemblyName>CommonCode</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="cadmaFunctions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Organisation_Management_System\bin\Debug\cadmaFunctions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="glsLabel, Version=1.0.3000.31080, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Organisation_Management_System\bin\Debug\glsLabel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Interop.Microsoft.Office.Core, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Organisation_Management_System\bin\Debug\Interop.Microsoft.Office.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Interop.Microsoft.Office.Interop.Excel, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Organisation_Management_System\bin\Debug\Interop.Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Interop.Microsoft.Office.Interop.Word, Version=8.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Organisation_Management_System\bin\Debug\Interop.Microsoft.Office.Interop.Word.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MarkupConverter, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\LIBRARIES\MarkupConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Npgsql, Version=2.0.11.92, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Organisation_Management_System\bin\Debug\Npgsql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="RhoInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Organisation_Management_System\bin\Debug\RhoInterface.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RicherTextBox, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\LIBRARIES\RicherTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.3.1.24483, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Organisation_Management_System\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="activateDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="activateDiag.Designer.cs">
+      <DependentUpon>activateDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addPssblValDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addPssblValDiag.Designer.cs">
+      <DependentUpon>addPssblValDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addPymntDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addPymntDiag.Designer.cs">
+      <DependentUpon>addPymntDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adhocDscntDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adhocDscntDiag.Designer.cs">
+      <DependentUpon>adhocDscntDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="calendarDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="calendarDiag.Designer.cs">
+      <DependentUpon>calendarDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonCode.cs" />
+    <Compile Include="Core\DialogBox.cs" />
+    <Compile Include="Core\Format.cs" />
+    <Compile Include="Core\Gui.cs" />
+    <Compile Include="Core\HideScriptErrors.cs" />
+    <Compile Include="Core\Initialisation.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Core\Initialisation1.cs" />
+    <Compile Include="Core\Items.cs" />
+    <Compile Include="gnrtRptProgressDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="gnrtRptProgressDiag.Designer.cs">
+      <DependentUpon>gnrtRptProgressDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cstSpplrDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cstSpplrDiag.Designer.cs">
+      <DependentUpon>cstSpplrDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dsplyARowsExtInfDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dsplyARowsExtInfDiag.Designer.cs">
+      <DependentUpon>dsplyARowsExtInfDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="exprtToExcelDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="exprtToExcelDiag.Designer.cs">
+      <DependentUpon>exprtToExcelDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fillParamsDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fillParamsDiag.designer.cs">
+      <DependentUpon>fillParamsDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="getAddressesDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="getAddressesDiag.designer.cs">
+      <DependentUpon>getAddressesDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HttpUtils.cs" />
+    <Compile Include="intnlPymntsDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="intnlPymntsDiag.Designer.cs">
+      <DependentUpon>intnlPymntsDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginDiag.Designer.cs">
+      <DependentUpon>LoginDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="recHstryDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="recHstryDiag.Designer.cs">
+      <DependentUpon>recHstryDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sendMailDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sendMailDiag.designer.cs">
+      <DependentUpon>sendMailDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewSQLDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewSQLDiag.Designer.cs">
+      <DependentUpon>viewSQLDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vwLogMsgForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vwLogMsgForm.Designer.cs">
+      <DependentUpon>vwLogMsgForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vwPssblValueDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vwPssblValueDiag.Designer.cs">
+      <DependentUpon>vwPssblValueDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="vwRptDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="vwRptDiag.designer.cs">
+      <DependentUpon>vwRptDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XAML\HtmlEditor.xaml.cs">
+      <DependentUpon>HtmlEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML\PickInlineImage.xaml.cs">
+      <DependentUpon>PickInlineImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML\InsertWebLink.xaml.cs">
+      <DependentUpon>InsertWebLink.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML\sendMailNewDiag.xaml.cs">
+      <DependentUpon>sendMailNewDiag.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML\WebBrowser.xaml.cs">
+      <DependentUpon>WebBrowser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAML\WebEditor.xaml.cs">
+      <DependentUpon>WebEditor.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="activateDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>activateDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addPssblValDiag.resx">
+      <DependentUpon>addPssblValDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addPymntDiag.resx">
+      <DependentUpon>addPymntDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adhocDscntDiag.resx">
+      <DependentUpon>adhocDscntDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="calendarDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>calendarDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gnrtRptProgressDiag.resx">
+      <DependentUpon>gnrtRptProgressDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cstSpplrDiag.resx">
+      <DependentUpon>cstSpplrDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dsplyARowsExtInfDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>dsplyARowsExtInfDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="exprtToExcelDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>exprtToExcelDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fillParamsDiag.resx">
+      <DependentUpon>fillParamsDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="getAddressesDiag.resx">
+      <DependentUpon>getAddressesDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="intnlPymntsDiag.resx">
+      <DependentUpon>intnlPymntsDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LoginDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="recHstryDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>recHstryDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sendMailDiag.resx">
+      <DependentUpon>sendMailDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewSQLDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>viewSQLDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vwLogMsgForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>vwLogMsgForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vwPssblValueDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>vwPssblValueDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vwRptDiag.resx">
+      <DependentUpon>vwRptDiag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DataContainer_MoveFirstHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DataContainer_MoveLastHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DataContainer_MoveNextHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DataContainer_MovePreviousHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sql_icon_by_raisch-d3ax2ih.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blank.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image007.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\statistics_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_document_preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo_256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FloppyDisk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print02.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CustomIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GeneralLedgerIcon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="XAML\HtmlEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML\PickInlineImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML\InsertWebLink.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML\sendMailNewDiag.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML\WebBrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML\WebEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\staffs.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

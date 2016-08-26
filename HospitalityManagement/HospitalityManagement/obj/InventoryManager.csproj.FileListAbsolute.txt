@@ -1,0 +1,134 @@
+C:\MYSTUFF\5DESIGNS\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\5DESIGNS\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.csproj.GenerateResource.Cache
+C:\MYSTUFF\5DESIGNS\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.mainForm.resources
+C:\MYSTUFF\5DESIGNS\RHO_PLUGINS\InventoryManagment\InventoryManagment\bin\Debug\InventoryManager.dll
+C:\MYSTUFF\5DESIGNS\RHO_PLUGINS\InventoryManagment\InventoryManagment\bin\Debug\InventoryManager.pdb
+C:\MYSTUFF\5DESIGNS\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.dll
+C:\MYSTUFF\5DESIGNS\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.pdb
+C:\Users\benjamina.cudjoe\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\bin\Debug\InventoryManager.pdb
+C:\Users\benjamina.cudjoe\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\benjamina.cudjoe\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.mainForm.resources
+C:\Users\benjamina.cudjoe\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.csproj.GenerateResource.Cache
+C:\Users\benjamina.cudjoe\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.pdb
+C:\Users\benjamina.cudjoe\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\bin\Debug\InventoryManager.dll
+C:\Users\benjamina.cudjoe\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.dll
+C:\Users\benjamina.cudjoe\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itemListForm.resources
+C:\Users\benjamina.cudjoe\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itmBals.resources
+C:\Users\benjamina.cudjoe\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.prdtCategories.resources
+C:\Users\benjamina.cudjoe\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.storeHouses.resources
+C:\Users\benjamina.cudjoe\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Properties.Resources.resources
+C:\Users\IMPARKERS\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\bin\Debug\InventoryManager.dll
+C:\Users\IMPARKERS\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\bin\Debug\InventoryManager.pdb
+C:\Users\IMPARKERS\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\IMPARKERS\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itemListForm.resources
+C:\Users\IMPARKERS\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itmBals.resources
+C:\Users\IMPARKERS\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.mainForm.resources
+C:\Users\IMPARKERS\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.prdtCategories.resources
+C:\Users\IMPARKERS\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.storeHouses.resources
+C:\Users\IMPARKERS\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Properties.Resources.resources
+C:\Users\IMPARKERS\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.csproj.GenerateResource.Cache
+C:\Users\IMPARKERS\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.dll
+C:\Users\IMPARKERS\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.pdb
+C:\Users\IMPARKERS\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.consgmtRecpt.resources
+C:\Users\IMPARKERS\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.consgmtRecReturns.resources
+C:\Users\IMPARKERS\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.invAdjstmnt.resources
+C:\Users\IMPARKERS\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.storeHseTransfers.resources
+C:\Users\IMPARKERS\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itemTypeTmplts.resources
+C:\Users\IMPARKERS\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Dialogs.calendar.resources
+C:\Users\IMPARKERS\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itemSearch.resources
+C:\Users\benjamina.cudjoe\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Dialogs.calendar.resources
+C:\Users\benjamina.cudjoe\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itemSearch.resources
+C:\Users\benjamina.cudjoe\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.consgmtRecpt.resources
+C:\Users\benjamina.cudjoe\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.consgmtRecReturns.resources
+C:\Users\benjamina.cudjoe\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.invAdjstmnt.resources
+C:\Users\benjamina.cudjoe\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itemTypeTmplts.resources
+C:\Users\benjamina.cudjoe\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.storeHseTransfers.resources
+C:\Users\data.store32\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\data.store32\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Dialogs.calendar.resources
+C:\Users\data.store32\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itemSearch.resources
+C:\Users\data.store32\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.consgmtRecpt.resources
+C:\Users\data.store32\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.consgmtRecReturns.resources
+C:\Users\data.store32\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.invAdjstmnt.resources
+C:\Users\data.store32\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itemListForm.resources
+C:\Users\data.store32\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itemTypeTmplts.resources
+C:\Users\data.store32\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itmBals.resources
+C:\Users\data.store32\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.mainForm.resources
+C:\Users\data.store32\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.prdtCategories.resources
+C:\Users\data.store32\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.storeHouses.resources
+C:\Users\data.store32\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.storeHseTransfers.resources
+C:\Users\data.store32\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Properties.Resources.resources
+C:\Users\data.store32\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.csproj.GenerateResource.Cache
+C:\Users\data.store32\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.dll
+C:\Users\data.store32\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\bin\Debug\InventoryManager.dll
+C:\Users\data.store32\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\bin\Debug\InventoryManager.pdb
+C:\Users\data.store32\Desktop\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.pdb
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\bin\Debug\InventoryManager.dll
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\bin\Debug\InventoryManager.pdb
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Dialogs.calendar.resources
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itemSearch.resources
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.consgmtRecpt.resources
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.consgmtRecReturns.resources
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.invAdjstmnt.resources
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itemListForm.resources
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itemTypeTmplts.resources
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itmBals.resources
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.mainForm.resources
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.prdtCategories.resources
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.storeHouses.resources
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.storeHseTransfers.resources
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Properties.Resources.resources
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.csproj.GenerateResource.Cache
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.dll
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.pdb
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.glIntrfcForm.resources
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Dialogs.payables.resources
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.csproj.ResolveComReference.cache
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Dialogs.excelImport.resources
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\bin\Debug\Excel.dll
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\impakers\Desktop\Rhomicom Inventory Manager\RHO_PLUGINS\InventoryManagment\InventoryManagment\bin\Debug\Excel.pdb
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\ResolveAssemblyReference.cache
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.csproj.ResolveComReference.cache
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Dialogs.calendar.resources
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Dialogs.excelImport.resources
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itemSearch.resources
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Dialogs.payables.resources
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.consgmtRecpt.resources
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.consgmtRecReturns.resources
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.glIntrfcForm.resources
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.invAdjstmnt.resources
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itemListForm.resources
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itemTypeTmplts.resources
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itmBals.resources
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.mainForm.resources
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.prdtCategories.resources
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.storeHouses.resources
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.storeHseTransfers.resources
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Properties.Resources.resources
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.csproj.GenerateResource.Cache
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.dll
+C:\MY_APPS\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.pdb
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\ResolveAssemblyReference.cache
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.csproj.ResolveComReference.cache
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Dialogs.calendar.resources
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Dialogs.excelImport.resources
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itemSearch.resources
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Dialogs.payables.resources
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.consgmtRecpt.resources
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.consgmtRecReturns.resources
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.glIntrfcForm.resources
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.invAdjstmnt.resources
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itemListForm.resources
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itemTypeTmplts.resources
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.itmBals.resources
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.mainForm.resources
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.prdtCategories.resources
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.storeHouses.resources
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Forms.storeHseTransfers.resources
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.Properties.Resources.resources
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.csproj.GenerateResource.Cache
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.dll
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\InventoryManager.pdb
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\bin\Debug\InventoryManager.dll
+C:\MY_APPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\bin\Debug\InventoryManager.pdb

@@ -1,0 +1,25 @@
+bin\Debug\Npgsql.dll
+bin\Debug\Mono.Security.dll
+bin\Debug\Npgsql.pdb
+bin\Debug\Npgsql.xml
+bin\Debug\de\Npgsql.resources.dll
+bin\Debug\es\Npgsql.resources.dll
+bin\Debug\fi\Npgsql.resources.dll
+bin\Debug\fr\Npgsql.resources.dll
+bin\Debug\ja\Npgsql.resources.dll
+bin\Debug\zh-CN\Npgsql.resources.dll
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\Rho_Org_Manager.Dialogs.chngPswdDiag.resources
+obj\Debug\Rho_Org_Manager.Dialogs.connectDiag.resources
+obj\Debug\Rho_Org_Manager.Dialogs.inboxDiag.resources
+obj\Debug\Rho_Org_Manager.Dialogs.loginDiag.resources
+obj\Debug\Rho_Org_Manager.Dialogs.switchRolesDiag.resources
+obj\Debug\Rho_Org_Manager.Forms.homePageForm.resources
+obj\Debug\Rho_Org_Manager.Forms.mainForm.resources
+obj\Debug\Rho_Org_Manager.Properties.Resources.resources
+obj\Debug\Rho_Org_Manager.csproj.GenerateResource.Cache
+bin\Debug\Rhomicom ERP Application V1.0.0.exe
+bin\Debug\Rhomicom ERP Application V1.0.0.pdb
+obj\Debug\Rhomicom ERP Application V1.0.0.exe
+obj\Debug\Rhomicom ERP Application V1.0.0.pdb
+obj\Debug\Rho_Org_Manager.Dialogs.customiseDiag.resources

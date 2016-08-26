@@ -1,0 +1,15 @@
+bin\Debug\BasicAccounting.dll
+bin\Debug\BasicAccounting.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\BasicAccounting.Dialogs.addBdgtLineDiag.resources
+obj\Debug\BasicAccounting.Dialogs.addFromTmpltDiag.resources
+obj\Debug\BasicAccounting.Dialogs.addTrnsDiag.resources
+obj\Debug\BasicAccounting.Dialogs.addTrnsTmpltDiag.resources
+obj\Debug\BasicAccounting.Dialogs.bdgtTmpDiag.resources
+obj\Debug\BasicAccounting.Dialogs.nwDateDiag.resources
+obj\Debug\BasicAccounting.Dialogs.vwTrnsctnsDiag.resources
+obj\Debug\BasicAccounting.Forms.mainForm.resources
+obj\Debug\BasicAccounting.Properties.Resources.resources
+obj\Debug\BasicAccounting.csproj.GenerateResource.Cache
+obj\Debug\BasicAccounting.dll
+obj\Debug\BasicAccounting.pdb

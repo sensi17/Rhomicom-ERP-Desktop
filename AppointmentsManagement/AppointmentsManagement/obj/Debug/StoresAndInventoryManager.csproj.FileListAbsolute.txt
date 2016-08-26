@@ -1,0 +1,166 @@
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\ResolveAssemblyReference.cache
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.csproj.ResolveComReference.cache
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Properties.Resources.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.csproj.GenerateResource.Cache
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.calendar.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.excelImport.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.itemSearch.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.payables.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.consgmtRecReturns.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.glIntrfcForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.invAdjstmnt.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.itemListForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.itemTypeTmplts.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.itmBals.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.mainForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.prdtCategories.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.storeHouses.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.storeHseTransfers.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\bin\Debug\StoresAndInventoryManager.dll
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\bin\Debug\StoresAndInventoryManager.pdb
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.dll
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.pdb
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.invoiceForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.prchseOrdrForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.addAttchmntDiag.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.attchmntsDiag.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.extraInfoDiag.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.itmSearchDiag.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.pymntsRcvdForm.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\bin\Debug\StoresAndInventoryManager.dll
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\bin\Debug\StoresAndInventoryManager.pdb
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.csproj.ResolveComReference.cache
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.addAttchmntDiag.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.attchmntsDiag.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.calendar.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.excelImport.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.extraInfoDiag.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.itemSearch.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.itmSearchDiag.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.payables.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.consgmtRecReturns.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.glIntrfcForm.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.invAdjstmnt.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.invoiceForm.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.itemListForm.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.itemTypeTmplts.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.itmBals.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.mainForm.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.prchseOrdrForm.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.prdtCategories.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.pymntsRcvdForm.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.storeHouses.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.storeHseTransfers.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Properties.Resources.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.csproj.GenerateResource.Cache
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.dll
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.pdb
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.unitOfMeasures.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.uomConversion.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.balUomConvDetails.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.adjustmentSourceDiag.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.consgmtRcpt.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.adjustmentPrompt.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\ResolveAssemblyReference.cache
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.csproj.ResolveComReference.cache
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.addAttchmntDiag.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.adjustmentPrompt.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.adjustmentSourceDiag.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.attchmntsDiag.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.balUomConvDetails.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.calendar.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.excelImport.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.extraInfoDiag.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.itemSearch.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.itmSearchDiag.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.payables.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.uomConversion.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.consgmtRcpt.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.consgmtRecReturns.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.glIntrfcForm.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.invAdjstmnt.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.invoiceForm.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.itemListForm.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.itemTypeTmplts.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.itmBals.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.mainForm.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.prchseOrdrForm.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.prdtCategories.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.pymntsRcvdForm.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.storeHouses.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.storeHseTransfers.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.unitOfMeasures.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Properties.Resources.resources
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.csproj.GenerateResource.Cache
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.dll
+H:\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.pdb
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\bin\Debug\StoresAndInventoryManager.dll
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\bin\Debug\StoresAndInventoryManager.pdb
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\ResolveAssemblyReference.cache
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.csproj.ResolveComReference.cache
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.addAttchmntDiag.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.adjustmentPrompt.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.adjustmentSourceDiag.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.attchmntsDiag.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.balUomConvDetails.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.calendar.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.excelImport.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.extraInfoDiag.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.itemSearch.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.itmSearchDiag.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.payables.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.uomConversion.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.consgmtRcpt.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.consgmtRecReturns.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.glIntrfcForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.invAdjstmnt.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.invoiceForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.itemListForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.itemTypeTmplts.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.itmBals.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.mainForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.prchseOrdrForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.prdtCategories.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.pymntsRcvdForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.storeHouses.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.storeHseTransfers.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.unitOfMeasures.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.Properties.Resources.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.csproj.GenerateResource.Cache
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.dll
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment_NEW\InventoryManagment\obj\Debug\StoresAndInventoryManager.pdb
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.adjustmentPrompt.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.adjustmentSourceDiag.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.balUomConvDetails.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.uomConversion.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.consgmtRcpt.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.unitOfMeasures.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.addPymntDiag.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.pymntsGvnForm.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.addPymntDiag.resources
+C:\Users\impakers\Desktop\Rhomicom Org Manager\Rhomicom Enterprise Manager Plugins\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.pymntsGvnForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\bin\Debug\PdfSharp.dll
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\bin\Debug\PdfSharp.pdb
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\bin\Debug\PdfSharp.xml
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\bin\Debug\de\PdfSharp.resources.dll
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.rptParamsDiag.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.leftMenuForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.wfnInvoiceForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.wfnItmLstForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.wfnPrchOrdrForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.wfnPrdtCatForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.leftHelpForm1.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.leftHelpForm2.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.leftHelpForm3.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.wfnGLIntfcForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.wfnItmBalsForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.wfnItmTmpltsForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.wfnMiscAdjstForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.wfnRcpRtrnForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.wfnRcptsForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.wfnStckTrnsfrsForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.wfnStrsWhseForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Forms.wfnUomForm.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.QuickReceipt.resources
+C:\MYAPPS\RHO_PLUGINS_2\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.Dialogs.addGLIntfcTrnsDiag.resources

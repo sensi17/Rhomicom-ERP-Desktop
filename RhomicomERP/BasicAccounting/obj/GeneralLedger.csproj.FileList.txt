@@ -1,0 +1,15 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\GeneralLedger.Dialogs.addBdgtLineDiag.resources
+obj\Debug\GeneralLedger.Dialogs.addFromTmpltDiag.resources
+obj\Debug\GeneralLedger.Dialogs.addTrnsDiag.resources
+obj\Debug\GeneralLedger.Dialogs.addTrnsTmpltDiag.resources
+obj\Debug\GeneralLedger.Dialogs.bdgtTmpDiag.resources
+obj\Debug\GeneralLedger.Dialogs.nwDateDiag.resources
+obj\Debug\GeneralLedger.Dialogs.vwTrnsctnsDiag.resources
+obj\Debug\GeneralLedger.Forms.mainForm.resources
+obj\Debug\GeneralLedger.csproj.GenerateResource.Cache
+bin\Debug\GeneralLedger.dll
+bin\Debug\GeneralLedger.pdb
+obj\Debug\GeneralLedger.Properties.Resources.resources
+obj\Debug\GeneralLedger.dll
+obj\Debug\GeneralLedger.pdb

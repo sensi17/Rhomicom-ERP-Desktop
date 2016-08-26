@@ -1,0 +1,10 @@
+bin\Debug\ReportsManager.dll
+bin\Debug\ReportsManager.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\ReportsManager.Dialogs.addParamsDiag.resources
+obj\Debug\ReportsManager.Dialogs.fillParamsDiag.resources
+obj\Debug\ReportsManager.Forms.mainForm.resources
+obj\Debug\ReportsManager.Properties.Resources.resources
+obj\Debug\ReportsManager.csproj.GenerateResource.Cache
+obj\Debug\ReportsManager.dll
+obj\Debug\ReportsManager.pdb

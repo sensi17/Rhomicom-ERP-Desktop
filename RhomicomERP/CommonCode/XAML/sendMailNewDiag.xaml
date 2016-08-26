@@ -1,0 +1,155 @@
+﻿<Window x:Name="MainWindow1" x:Class="CommonCode.XAML.sendMailNewDiag"
+         xmlns:local="clr-namespace:CommonCode.XAML" 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        Title="Send Bulk Mails"  WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="pack://siteoforigin:,,,/Resources/web.png" Height="550" Width="1020" BorderBrush="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}">
+    <Grid>
+        <local:WPFWebBrowser x:Name="webBrowserEditor"  Grid.Row="1" Margin="0,112,0,0" Grid.Column="2" BorderThickness="1" BorderBrush="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" Panel.ZIndex="-99" />
+        <Ribbon x:Name="mainRibbon1"  Foreground="#333333" Margin="0,-24,0,0" Grid.Column="2" Panel.ZIndex="-99" Grid.RowSpan="2">
+            <RibbonTab Header="Editor">
+                <RibbonGroup Header="Files" Width="80" >
+                    <RibbonButton x:Name="RibbonButtonNew" Label="" LargeImageSource="pack://siteoforigin:,,,/Images/new.png" Click="RibbonButtonNew_Click"  />
+                    <RibbonButton x:Name="RibbonButtonOpen" Label="" SmallImageSource="pack://siteoforigin:,,,/Images/open.png" Click="RibbonButtonOpen_Click" HorizontalAlignment="Left" Width="22"/>
+                    <RibbonButton x:Name="RibbonButtonOpenweb" Label="" SmallImageSource="pack://siteoforigin:,,,/Images/link.png" Click="RibbonButtonOpenweb_Click"/>
+                    <RibbonButton x:Name="RibbonButtonSave" Label="" SmallImageSource="pack://siteoforigin:,,,/Images/save.png" Click="RibbonButtonSave_Click"/>
+                </RibbonGroup>
+                <RibbonGroup Header="Editor" Width="350">
+                    <StackPanel>
+                        <ComboBox x:Name="RibbonComboboxFormat" Width="160" Margin="0,0,0,4" HorizontalAlignment="Left" SelectionChanged="RibbonComboboxFormat_SelectionChanged" >
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Value}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <StackPanel Orientation="Horizontal">
+                            <ComboBox  x:Name="RibbonComboboxFonts" Width="160" SelectionChanged="RibbonComboboxFonts_SelectionChanged"/>
+                            <ComboBox x:Name="RibbonComboboxFontHeight" Width="50" SelectionChanged="RibbonComboboxFontHeight_SelectionChanged"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <RibbonButton x:Name="SettingsBold" SmallImageSource="pack://siteoforigin:,,,/Images/bold.png" Click="SettingsBold_Click"/>
+                            <RibbonButton x:Name="SettingsItalic" SmallImageSource="pack://siteoforigin:,,,/Images/italic.png" Click="SettingsItalic_Click"/>
+                            <RibbonButton x:Name="SettingsUnderLine" SmallImageSource="pack://siteoforigin:,,,/Images/UnderLine.png" Click="SettingsUnderLine_Click"/>
+                            <RibbonButton x:Name="SettingsFontColor" SmallImageSource="pack://siteoforigin:,,,/Images/Color.png" Click="SettingsFontColor_Click"/>
+                            <RibbonButton x:Name="SettingsBackColor" SmallImageSource="pack://siteoforigin:,,,/Images/backcolor.png" Click="SettingsBackColor_Click"/>
+                            <RibbonButton x:Name="SettingsAddLink" SmallImageSource="pack://siteoforigin:,,,/Images/link.png" Click="SettingsAddLink_Click"/>
+                            <RibbonButton x:Name="SettingsAddImage" SmallImageSource="pack://siteoforigin:,,,/Images/image.png" Click="SettingsAddImage_Click"/>
+                            <RibbonButton x:Name="SettingsLeftAlign" SmallImageSource="pack://siteoforigin:,,,/Images/LeftAlign.png" Click="SettingsLeftAlign_Click"/>
+                            <RibbonButton x:Name="SettingsCenter2" SmallImageSource="pack://siteoforigin:,,,/Images/center2.png" Click="SettingsCenter2_Click"/>
+                            <RibbonButton x:Name="SettingsRightAlign" SmallImageSource="pack://siteoforigin:,,,/Images/RightAlign.png" Click="SettingsJustifyRight_Click"/>
+                            <RibbonButton x:Name="SettingsCenter" SmallImageSource="pack://siteoforigin:,,,/Images/center.png" Click="SettingsJustifyFull_Click"/>
+                            <RibbonButton x:Name="SettingsNumbered" SmallImageSource="pack://siteoforigin:,,,/Images/Numbered.png" Click="SettingsInsertOrderedList_Click"/>
+                            <RibbonButton x:Name="SettingsBullets" SmallImageSource="pack://siteoforigin:,,,/Images/bullets.png" Click="SettingsBullets_Click"/>
+                            <RibbonButton x:Name="SettingsOutIdent" SmallImageSource="pack://siteoforigin:,,,/Images/OutIdent.png" Click="SettingsOutIdent_Click"/>
+                            <RibbonButton x:Name="SettingsIdent" SmallImageSource="pack://siteoforigin:,,,/Images/ident.png" Click="SettingsIdent_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </RibbonGroup>
+                <RibbonGroup Header="Custom" Width="144" Margin="0,1">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <RibbonButton x:Name="EditWeb1"  LargeImageSource="pack://siteoforigin:,,,/Images/Editor.png" Height="42" HorizontalAlignment="Left" Click="EditWeb_Click"/>
+                            <RibbonButton x:Name="ViewHTML"  LargeImageSource="pack://siteoforigin:,,,/Images/html.png" Height="42" HorizontalAlignment="Left" Click="ViewHTML_Click"/>
+                            <RibbonButton x:Name="closeWindow" Height="42" HorizontalAlignment="Left" IsCancel="True" Click="closeWindow_Click" RenderTransformOrigin="0.682,0.619" ToolTipDescription="Close Program" Label="" LargeImageSource="pack://siteoforigin:,,,/Images/Close.png"/>
+                        </StackPanel>
+                    </StackPanel>
+                </RibbonGroup>
+            </RibbonTab>
+        </Ribbon>
+
+        <GridSplitter Grid.Column ="0" Background="Blue" Width="5"
+    		HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderThickness="1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Height="auto" Margin="198,0,89,0"/>
+
+        <StatusBar Grid.Row="2" Grid.ColumnSpan="3" ClipToBounds="True">
+            <StatusBarItem>
+                <TextBlock x:Name="lblCursorPosition" Text="http://www.rhomicom.com Credits: http://www.greencomponent.net, http://www.codeproject.com/"/>
+            </StatusBarItem>
+        </StatusBar>
+        <local:HtmlEditor x:Name="HtmlEditor1"  Grid.Row="1" Grid.Column="2" Margin="0,112,0,0" TextOptions.TextFormattingMode="Display" Width="Auto" Height="Auto" Visibility="Hidden"/>
+        <GroupBox Header="Destination Group/Addresses" Grid.Row="1" Margin="5,1,5,0" Height="351" VerticalAlignment="Top" Grid.ColumnSpan="2">
+            <Grid>
+                <TextBox x:Name="grpNmIDTextBox" HorizontalAlignment="Left" Height="6" Margin="162,72,0,0" TextWrapping="Wrap" Text="-1" VerticalAlignment="Top" Width="25" Focusable="False" IsHitTestVisible="False" IsTabStop="False" AllowDrop="False" Panel.ZIndex="-11" IsReadOnly="True"/>
+                <Label Content="Message Type:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,3,0,0"/>
+                <Label Content="Group Type:" HorizontalAlignment="Left" Margin="0,25,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="sendIndvdllyCheckBox" HorizontalAlignment="Left" Margin="267,3,0,0" VerticalAlignment="Top" Width="109" Height="78" IsChecked="True" VerticalContentAlignment="Center">
+                    <TextBlock Text="Send Mails to Email Addresses Individually and NOT in Groups!" TextWrapping="Wrap"/>
+                </CheckBox>
+                <ComboBox x:Name="msgTypComboBox" HorizontalAlignment="Left" Margin="85,3,0,0" VerticalAlignment="Top" Width="177" SelectionChanged="msgTypComboBox_SelectionChanged">
+                    <ComboBoxItem x:Name="cbi1" Content="Email"/>
+                    <ComboBoxItem x:Name="cbi2" Content="SMS"/>
+                    <ComboBoxItem x:Name="cbi3" Content="Local Inbox (System)"/>
+                </ComboBox>
+                <ComboBox x:Name="grpComboBox" HorizontalAlignment="Left" Margin="85,27,0,0" VerticalAlignment="Top" Width="102" SelectionChanged="grpComboBox_SelectionChanged">
+                    <ComboBoxItem x:Name="cb1" Content="Everyone"/>
+                    <ComboBoxItem x:Name="cb2" Content="Divisions/Groups"/>
+                    <ComboBoxItem x:Name="cb3" Content="Grade"/>
+                    <ComboBoxItem x:Name="cb4" Content="Job"/>
+                    <ComboBoxItem x:Name="cb5" Content="Position"/>
+                    <ComboBoxItem x:Name="cb6" Content="Site/Location"/>
+                    <ComboBoxItem x:Name="cb7" Content="Person Type"/>
+                    <ComboBoxItem x:Name="cb8" Content="Currently Selected Person"/>
+                    <ComboBoxItem x:Name="cb9" Content="Companies/Institutions"/>
+                    <local:WPFWebBrowser/>
+                </ComboBox>
+                <Label Content="Group Name:" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top"/>
+                <Label Content="Workplace:" HorizontalAlignment="Left" Margin="0,83,0,0" VerticalAlignment="Top"/>
+                <Label Content="Site:" HorizontalAlignment="Left" Margin="0,122,0,0" VerticalAlignment="Top"/>
+                <Label Content="To:" HorizontalAlignment="Left" Margin="0,155,0,0" VerticalAlignment="Top"/>
+                <Label Content="Cc:" HorizontalAlignment="Left" Margin="0,217,0,0" VerticalAlignment="Top"/>
+                <Label Content="Bcc:" HorizontalAlignment="Left" Margin="0,269,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="grpNmButton" Content="..." HorizontalAlignment="Left" Margin="237,52,0,0" VerticalAlignment="Top" Width="25" Click="grpNmButton_Click"/>
+                <Button x:Name="cstmrButton" Content="..." HorizontalAlignment="Left" Margin="237,91,0,0" VerticalAlignment="Top" Width="25" Click="cstmrButton_Click"/>
+                <Button x:Name="cstmrSiteButton" Content="..." HorizontalAlignment="Left" Margin="237,130,0,0" VerticalAlignment="Top" Width="25" Click="cstmrSiteButton_Click"/>
+                <TextBox x:Name="toTextBox" HorizontalAlignment="Left" Height="57" Margin="85,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="291" AcceptsReturn="True" AcceptsTab="True" AutoWordSelection="True" TextOptions.TextFormattingMode="Display"/>
+                <Button x:Name="toButton" Content="--&gt;" HorizontalAlignment="Left" Margin="57,160,0,0" VerticalAlignment="Top" Width="25" Click="toButton_Click"/>
+                <TextBox x:Name="ccTextBox" HorizontalAlignment="Left" Height="52" Margin="85,218,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="291"/>
+                <Button x:Name="ccButton" Content="--&gt;" HorizontalAlignment="Left" Margin="57,219,0,0" VerticalAlignment="Top" Width="25" Click="ccButton_Click"/>
+                <TextBox x:Name="bccTextBox" HorizontalAlignment="Left" Height="55" Margin="85,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="291"/>
+                <Button x:Name="bccButton" Content="--&gt;" HorizontalAlignment="Left" Margin="57,273,0,0" VerticalAlignment="Top" Width="25" Click="bccButton_Click"/>
+                <Button x:Name="button5" HorizontalAlignment="Left" Margin="267,90,0,0" VerticalAlignment="Top" Width="109" Height="52" Click="button5_Click">
+                    <TextBlock TextWrapping="Wrap" Text="Auto-Load Qualifying Mails"/>
+                </Button>
+                <TextBox x:Name="cstmrIDTextBox" HorizontalAlignment="Left" Height="23" Margin="162,97,0,0" TextWrapping="Wrap" Text="-1" VerticalAlignment="Top" Width="25" Focusable="False" IsHitTestVisible="False" IsTabStop="False" AllowDrop="False" IsReadOnly="True"/>
+                <TextBox x:Name="cstmrSiteIDTextBox" HorizontalAlignment="Left" Height="23" Margin="162,132,0,0" TextWrapping="Wrap" Text="-1" VerticalAlignment="Top" Width="25" Focusable="False" IsHitTestVisible="False" IsTabStop="False" AllowDrop="False"/>
+                <TextBox x:Name="cstmrSiteTextBox" HorizontalAlignment="Left" Height="28" Margin="85,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" VerticalScrollBarVisibility="Auto" Panel.ZIndex="2"/>
+                <TextBox x:Name="cstmrNmTextBox" HorizontalAlignment="Left" Height="36" Margin="85,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" VerticalScrollBarVisibility="Auto" Panel.ZIndex="2"/>
+                <TextBox x:Name="grpNmTextBox" HorizontalAlignment="Left" Height="38" Margin="85,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" VerticalScrollBarVisibility="Auto" Panel.ZIndex="2" Background="White"/>
+                <ComboBox x:Name="grpSlctnComboBox" HorizontalAlignment="Left" Margin="192,27,0,0" VerticalAlignment="Top" Width="70">
+                    <ComboBoxItem x:Name="cb10" Content="contains"/>
+                    <ComboBoxItem x:Name="cb11" Content="is equal to"/>
+                    <ComboBoxItem x:Name="cb12" Content="starts with"/>
+                    <local:WPFWebBrowser/>
+                </ComboBox>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Subject/Attachments" Margin="5,349,0,0" Grid.Row="1" VerticalAlignment="Top" Height="95" HorizontalAlignment="Left" Grid.ColumnSpan="2">
+            <Grid>
+                <Label Content="Subject:" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="subjTextBox" HorizontalAlignment="Left" Height="23" Margin="86,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="293"/>
+                <Label Content="Attachments:" HorizontalAlignment="Left" Margin="6,29,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="attchMntsTextBox" HorizontalAlignment="Left" Height="41" Margin="86,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+                <Button x:Name="browseButton" Content="..." HorizontalAlignment="Left" Margin="354,30,0,0" VerticalAlignment="Top" Width="25" Click="browseButton_Click"/>
+            </Grid>
+        </GroupBox>
+        <Button x:Name="okButton" Content="Send" HorizontalAlignment="Left" Margin="123,449,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="okButton_Click"/>
+        <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="203,449,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="cancelButton_Click"/>
+        <Label   x:Name="mailLabel" Background="#FF19B600" Panel.ZIndex="50" VerticalAlignment="Center"  FontFamily="Times New Roman" FontSize="24" FontStyle="Italic" Foreground="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" Visibility="Visible" Grid.Row="1" HorizontalAlignment="Center" Padding="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="3" Margin="27,222,25,196" Width="960" Height="77">
+            <TextBlock TextWrapping="WrapWithOverflow" Padding="10" Background="#FF19B600" Width="auto" Height="auto">
+               Sending Messages...Please Wait...
+            </TextBlock>
+        </Label>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="292"/>
+            <ColumnDefinition Width="109"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+    </Grid>
+</Window>
+

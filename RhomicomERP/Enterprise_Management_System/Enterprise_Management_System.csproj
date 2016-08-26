@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{583535EE-9519-4F5B-9DE0-AF8B91D5577D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Enterprise_Management_System</RootNamespace>
+    <AssemblyName>Rhomicom ERP V1.0.0</AssemblyName>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+    <SignManifests>false</SignManifests>
+    <ManifestCertificateThumbprint>14842164C774AC19176A95F01879D44467A64F11</ManifestCertificateThumbprint>
+    <ManifestKeyFile>Rhomicom_ERP_Application_TemporaryKey.pfx</ManifestKeyFile>
+    <TargetZone>LocalIntranet</TargetZone>
+    <GenerateManifests>false</GenerateManifests>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <StartupObject>Enterprise_Management_System.Classes.Program</StartupObject>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AcademicsManagement, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\AcademicsManagement\AcademicsManagement\bin\Debug\AcademicsManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="Accounting, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\BasicAccounting\bin\Debug\Accounting.dll</HintPath>
+    </Reference>
+    <Reference Include="AlertsManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\AlertsManager\bin\Debug\AlertsManager.dll</HintPath>
+    </Reference>
+    <Reference Include="AppointmentsManagement, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\AppointmentsManagement\AppointmentsManagement\bin\Debug\AppointmentsManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="BasicPersonData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Person\bin\Debug\BasicPersonData.dll</HintPath>
+    </Reference>
+    <Reference Include="cadmaFunctions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="CommonCode, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\CommonCode\bin\Debug\CommonCode.dll</HintPath>
+    </Reference>
+    <Reference Include="EventsAndAttendance, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\EventsAndAttendance\bin\Debug\EventsAndAttendance.dll</HintPath>
+    </Reference>
+    <Reference Include="GeneralSetup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GeneralSetup\bin\Debug\GeneralSetup.dll</HintPath>
+    </Reference>
+    <Reference Include="glsLabel, Version=1.0.3000.31080, Culture=neutral, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="HospitalityManagement, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HospitalityManagement\HospitalityManagement\bin\Debug\HospitalityManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="InternalPayments, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Payments\bin\Debug\InternalPayments.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Microsoft.Office.Core, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Interop.Microsoft.Office.Interop.Excel, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Interop.Microsoft.Office.Interop.Word, Version=8.4.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Interop.Office, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Interop.VBIDE, Version=5.3.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="InventoryManager">
+      <HintPath>..\..\InventoryManagment\InventoryManagment\bin\Debug\InventoryManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Manuals, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Manuals\bin\Debug\Manuals.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Npgsql, Version=2.0.11.92, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Npgsql2.0.11.92-bin-ms.net\Npgsql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OrganizationSetup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\OrganizationSetup\bin\Debug\OrganizationSetup.dll</HintPath>
+    </Reference>
+    <Reference Include="ProjectsManagement, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ProjectsManagement\ProjectsManagement\bin\Debug\ProjectsManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="ReportsAndProcesses, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ReportsManager\bin\Debug\ReportsAndProcesses.dll</HintPath>
+    </Reference>
+    <Reference Include="RhoInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="StoresAndInventoryManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\InventoryManagment\InventoryManagment\bin\Debug\StoresAndInventoryManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="SystemAdministration, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Security\bin\Debug\SystemAdministration.dll</HintPath>
+    </Reference>
+    <Reference Include="USDConverter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\USDConverter\USDConverter\bin\Debug\USDConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.3.1.24483, Culture=neutral, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="WorkflowManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\WorkflowManager\bin\Debug\WorkflowManager.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Global.cs" />
+    <Compile Include="Classes\rhoModuleFuncs.cs" />
+    <Compile Include="Dialogs\chngPswdDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\chngPswdDiag.Designer.cs">
+      <DependentUpon>chngPswdDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\connectDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\connectDiag.Designer.cs">
+      <DependentUpon>connectDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\customiseDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\customiseDiag.Designer.cs">
+      <DependentUpon>customiseDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\inboxDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\inboxDiag.Designer.cs">
+      <DependentUpon>inboxDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\loginDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\loginDiag.Designer.cs">
+      <DependentUpon>loginDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\switchRolesDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\switchRolesDiag.Designer.cs">
+      <DependentUpon>switchRolesDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\homePageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\homePageForm.Designer.cs">
+      <DependentUpon>homePageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\mainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\mainForm.Designer.cs">
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Dialogs\chngPswdDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>chngPswdDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\connectDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>connectDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\customiseDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>customiseDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\inboxDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>inboxDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\loginDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>loginDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\switchRolesDiag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>switchRolesDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\homePageForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>homePageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\mainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>mainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="bin\Debug\logo.ico" />
+    <BaseApplicationManifest Include="Properties\app.manifest" />
+    <None Include="Resources\119.png" />
+    <None Include="Resources\LaSTCobaltBooks.png" />
+    <None Include="Resources\antenna1.png" />
+    <None Include="Resources\lan disconnect.ico" />
+    <None Include="Resources\49.png" />
+    <None Include="Resources\53.png" />
+    <None Include="Resources\CustomIcon.png" />
+    <None Include="Resources\DataContainer_MoveFirstHS.png" />
+    <None Include="Resources\DataContainer_MoveLastHS.png" />
+    <None Include="Resources\DataContainer_MoveNextHS.png" />
+    <None Include="Resources\DataContainer_MovePreviousHS.png" />
+    <None Include="Resources\action_go.gif" />
+    <None Include="bin\Debug\blank.jpg" />
+    <None Include="bin\Debug\logo.JPG" />
+    <None Include="bin\Debug\logo.png" />
+    <None Include="bin\Debug\Images\Org\1.png" />
+    <None Include="Resources\animated.gif" />
+    <Content Include="Icon.ico" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\Icon.ico" />
+    <None Include="Resources\download %283%29.jpg" />
+    <None Include="Resources\Emailcon.png" />
+    <None Include="Resources\alert.png" />
+    <None Include="Resources\date.png" />
+    <None Include="Resources\calendar2.ico" />
+    <None Include="Resources\calendar2.png" />
+    <None Include="Resources\background.jpg" />
+    <None Include="Resources\Inventory.png" />
+    <None Include="Resources\education.png" />
+    <None Include="Resources\bank_256.png" />
+    <None Include="Resources\images %2814%29.jpg" />
+    <None Include="Resources\addresses_wbg_64x64.png" />
+    <None Include="Resources\dscnt.png" />
+    <Content Include="Resources\logo.ico" />
+    <None Include="Resources\undo_256.png" />
+    <None Include="Resources\stock_disconnect.png" />
+    <None Include="Resources\workflow.png" />
+    <None Include="Resources\mi_scare_report.png" />
+    <None Include="Resources\pay.png" />
+    <None Include="Resources\person.png" />
+    <None Include="Resources\reports.png" />
+    <None Include="Resources\stop-button.jpg" />
+    <None Include="Resources\logo.png" />
+    <None Include="Resources\groupings.png" />
+    <None Include="Resources\Close.png" />
+    <None Include="Resources\SecurityLock.png" />
+    <None Include="Resources\user-mapping.ico" />
+    <None Include="Resources\network_48.png" />
+    <None Include="Resources\BuildingManagement.png" />
+    <None Include="Resources\LaST %28Cobalt%29 Control Panel.png" />
+    <None Include="Resources\add1-64.png" />
+    <None Include="Resources\Help111.png" />
+    <None Include="Resources\world_48.png" />
+    <None Include="Resources\software_48.png" />
+    <None Include="Resources\house_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

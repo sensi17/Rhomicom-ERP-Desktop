@@ -1,0 +1,211 @@
+C:\Users\User\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.calendarDiag.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\Rhomicom_Org_Manager\CommonCode\bin\Debug\CommonCode.dll
+C:\Users\User\Desktop\Rhomicom_Org_Manager\CommonCode\bin\Debug\CommonCode.pdb
+C:\Users\User\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.recHstryDiag.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.viewSQLDiag.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.dll
+C:\Users\User\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.pdb
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\bin\Debug\CommonCode.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\bin\Debug\CommonCode.pdb
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.calendarDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.recHstryDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.viewSQLDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.csproj.GenerateResource.Cache
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.pdb
+C:\Users\User\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.Properties.Resources.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.vwPssblValueDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.Properties.Resources.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.vwPssblValueDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.dsplyARowsExtInfDiag.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.dsplyARowsExtInfDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\CommonCode\bin\Debug\CommonCode.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\CommonCode\bin\Debug\CommonCode.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\CommonCode\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.calendarDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.dsplyARowsExtInfDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.Properties.Resources.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.recHstryDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.viewSQLDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.vwPssblValueDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.exprtToExcelDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.exprtToExcelDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.activateDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.activateDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\CommonCode\bin\Debug\CommonCode.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\CommonCode\bin\Debug\CommonCode.pdb
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.activateDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.calendarDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.dsplyARowsExtInfDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.exprtToExcelDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.Properties.Resources.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.recHstryDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.viewSQLDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.vwPssblValueDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.csproj.GenerateResource.Cache
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.pdb
+C:\Rhomicom_Org_Manager\CommonCode\obj\Debug\ResolveAssemblyReference.cache
+C:\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.activateDiag.resources
+C:\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.calendarDiag.resources
+C:\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.dsplyARowsExtInfDiag.resources
+C:\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.exprtToExcelDiag.resources
+C:\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.Properties.Resources.resources
+C:\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.recHstryDiag.resources
+C:\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.viewSQLDiag.resources
+C:\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.vwPssblValueDiag.resources
+C:\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.csproj.GenerateResource.Cache
+C:\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.dll
+C:\Rhomicom_Org_Manager\CommonCode\bin\Debug\CommonCode.dll
+C:\Rhomicom_Org_Manager\CommonCode\bin\Debug\CommonCode.pdb
+C:\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.pdb
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\bin\Debug\CommonCode.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\bin\Debug\CommonCode.pdb
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\ResolveAssemblyReference.cache
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.activateDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.calendarDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.dsplyARowsExtInfDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.exprtToExcelDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.Properties.Resources.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.recHstryDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.viewSQLDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.vwPssblValueDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.csproj.GenerateResource.Cache
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.pdb
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.vwLogMsgForm.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\CommonCode\bin\Debug\CommonCode.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\CommonCode\bin\Debug\CommonCode.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.activateDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.calendarDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.dsplyARowsExtInfDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.exprtToExcelDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.Properties.Resources.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.recHstryDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.viewSQLDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.vwLogMsgForm.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.vwPssblValueDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.csproj.GenerateResource.Cache
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.pdb
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\CommonCode\bin\Debug\CommonCode.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\CommonCode\bin\Debug\CommonCode.pdb
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.activateDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.calendarDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.dsplyARowsExtInfDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.exprtToExcelDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.Properties.Resources.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.recHstryDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.viewSQLDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.vwLogMsgForm.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.vwPssblValueDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.csproj.GenerateResource.Cache
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.pdb
+C:\MYSTUFF\Rhomicom_Org_Manager\CommonCode\bin\Debug\CommonCode.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\CommonCode\bin\Debug\CommonCode.pdb
+C:\MYSTUFF\Rhomicom_Org_Manager\CommonCode\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.activateDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.calendarDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.dsplyARowsExtInfDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.exprtToExcelDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.Properties.Resources.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.recHstryDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.viewSQLDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.vwLogMsgForm.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.vwPssblValueDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.csproj.GenerateResource.Cache
+C:\MYSTUFF\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.pdb
+C:\MYSTUFF\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.loginDiag.resources
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\CommonCode\bin\Debug\CommonCode.dll
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\CommonCode\bin\Debug\CommonCode.pdb
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.activateDiag.resources
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.calendarDiag.resources
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.dsplyARowsExtInfDiag.resources
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.exprtToExcelDiag.resources
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.loginDiag.resources
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.Properties.Resources.resources
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.recHstryDiag.resources
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.viewSQLDiag.resources
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.vwLogMsgForm.resources
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.vwPssblValueDiag.resources
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.csproj.GenerateResource.Cache
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.dll
+C:\Users\rich\Desktop\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.pdb
+C:\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.loginDiag.resources
+C:\Rhomicom_Org_Manager\CommonCode\obj\Debug\CommonCode.vwLogMsgForm.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG\CommonCode\bin\Debug\CommonCode.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG\CommonCode\bin\Debug\CommonCode.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\ResolveAssemblyReference.cache
+C:\MY_APPS\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.activateDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.calendarDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.dsplyARowsExtInfDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.exprtToExcelDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.loginDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.Properties.Resources.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.recHstryDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.viewSQLDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.vwLogMsgForm.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.vwPssblValueDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.csproj.GenerateResource.Cache
+C:\MY_APPS\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.pdb
+C:\Users\impakers\Desktop\Rhomicom_Org_Manager_PG\CommonCode\bin\Debug\CommonCode.dll
+C:\Users\impakers\Desktop\Rhomicom_Org_Manager_PG\CommonCode\bin\Debug\CommonCode.pdb
+C:\Users\impakers\Desktop\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\impakers\Desktop\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.activateDiag.resources
+C:\Users\impakers\Desktop\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.calendarDiag.resources
+C:\Users\impakers\Desktop\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.dsplyARowsExtInfDiag.resources
+C:\Users\impakers\Desktop\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.exprtToExcelDiag.resources
+C:\Users\impakers\Desktop\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.loginDiag.resources
+C:\Users\impakers\Desktop\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.Properties.Resources.resources
+C:\Users\impakers\Desktop\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.recHstryDiag.resources
+C:\Users\impakers\Desktop\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.viewSQLDiag.resources
+C:\Users\impakers\Desktop\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.vwLogMsgForm.resources
+C:\Users\impakers\Desktop\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.vwPssblValueDiag.resources
+C:\Users\impakers\Desktop\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.csproj.GenerateResource.Cache
+C:\Users\impakers\Desktop\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.dll
+C:\Users\impakers\Desktop\Rhomicom_Org_Manager_PG\CommonCode\obj\Debug\CommonCode.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\ResolveAssemblyReference.cache
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.activateDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.calendarDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.dsplyARowsExtInfDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.exprtToExcelDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.loginDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.Properties.Resources.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.recHstryDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.viewSQLDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.vwLogMsgForm.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.vwPssblValueDiag.resources
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.csproj.GenerateResource.Cache
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\CommonCode\bin\Debug\CommonCode.dll
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\CommonCode\bin\Debug\CommonCode.pdb
+C:\MY_APPS\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\CommonCode\bin\Debug\CommonCode.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\CommonCode\bin\Debug\CommonCode.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.activateDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.calendarDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.dsplyARowsExtInfDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.exprtToExcelDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.loginDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.Properties.Resources.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.recHstryDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.viewSQLDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.vwLogMsgForm.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.vwPssblValueDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.csproj.GenerateResource.Cache
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager_PG_2\CommonCode\obj\Debug\CommonCode.pdb

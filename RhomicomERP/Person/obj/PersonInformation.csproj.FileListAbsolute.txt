@@ -1,0 +1,132 @@
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Forms.mainForm.resources
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Person\bin\Debug\PersonInformation.dll
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Person\bin\Debug\PersonInformation.pdb
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.dll
+C:\Users\User\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.pdb
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\bin\Debug\PersonInformation.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\bin\Debug\PersonInformation.pdb
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Forms.mainForm.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.csproj.GenerateResource.Cache
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.dll
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Person\bin\Debug\PersonInformation.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Person\bin\Debug\PersonInformation.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Person\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Forms.mainForm.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.dll
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.pdb
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Properties.Resources.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Properties.Resources.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.prsnTypeDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.prsnTypHstyDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.ntnltyDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.ntnltyDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.prsnTypeDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.prsnTypHstyDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.rltvsDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.addRltvsDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.addRltvsDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.rltvsDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.addBnftsDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.addBnftsDiag.resources
+C:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.asgnTmpltDiag.resources
+C:\Users\User\Desktop\PROJECTS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.asgnTmpltDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Person\bin\Debug\PersonInformation.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Person\bin\Debug\PersonInformation.pdb
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.addBnftsDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.addRltvsDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.asgnTmpltDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.ntnltyDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.prsnTypeDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.prsnTypHstyDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.rltvsDiag.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Forms.mainForm.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Properties.Resources.resources
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.csproj.GenerateResource.Cache
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.dll
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.pdb
+C:\Rhomicom_Org_Manager\Person\bin\Debug\PersonInformation.dll
+C:\Rhomicom_Org_Manager\Person\bin\Debug\PersonInformation.pdb
+C:\Rhomicom_Org_Manager\Person\obj\Debug\ResolveAssemblyReference.cache
+C:\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.addBnftsDiag.resources
+C:\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.addRltvsDiag.resources
+C:\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.asgnTmpltDiag.resources
+C:\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.ntnltyDiag.resources
+C:\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.prsnTypeDiag.resources
+C:\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.prsnTypHstyDiag.resources
+C:\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.rltvsDiag.resources
+C:\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Forms.mainForm.resources
+C:\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Properties.Resources.resources
+C:\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.csproj.GenerateResource.Cache
+C:\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.dll
+C:\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.pdb
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\ResolveAssemblyReference.cache
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.addBnftsDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.addRltvsDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.asgnTmpltDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.ntnltyDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.prsnTypeDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.prsnTypHstyDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.rltvsDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Forms.mainForm.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Properties.Resources.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.csproj.GenerateResource.Cache
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\bin\Debug\PersonInformation.dll
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\bin\Debug\PersonInformation.pdb
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.pdb
+C:\MYSTUFF\5DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.massAsgnItmsDiag.resources
+E:\MYSTUFF\5. DESIGNS\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.massAsgnItmsDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Person\bin\Debug\PersonInformation.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Person\bin\Debug\PersonInformation.pdb
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.addBnftsDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.addRltvsDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.asgnTmpltDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.massAsgnItmsDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.ntnltyDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.prsnTypeDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.prsnTypHstyDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.rltvsDiag.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Forms.mainForm.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Properties.Resources.resources
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.csproj.GenerateResource.Cache
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.dll
+C:\Users\richard.adjei-mensah\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.pdb
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.addBnftsDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.addRltvsDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.asgnTmpltDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.massAsgnItmsDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.ntnltyDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.prsnTypeDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.prsnTypHstyDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.rltvsDiag.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Forms.mainForm.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Properties.Resources.resources
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.csproj.GenerateResource.Cache
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Person\bin\Debug\PersonInformation.dll
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Person\bin\Debug\PersonInformation.pdb
+C:\Users\data.store32\Desktop\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.pdb
+C:\MYSTUFF\Rhomicom_Org_Manager\Person\bin\Debug\PersonInformation.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\Person\bin\Debug\PersonInformation.pdb
+C:\MYSTUFF\Rhomicom_Org_Manager\Person\obj\Debug\ResolveAssemblyReference.cache
+C:\MYSTUFF\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.addBnftsDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.addRltvsDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.asgnTmpltDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.massAsgnItmsDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.ntnltyDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.prsnTypeDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.prsnTypHstyDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Dialogs.rltvsDiag.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Forms.mainForm.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.Properties.Resources.resources
+C:\MYSTUFF\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.csproj.GenerateResource.Cache
+C:\MYSTUFF\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.dll
+C:\MYSTUFF\Rhomicom_Org_Manager\Person\obj\Debug\PersonInformation.pdb

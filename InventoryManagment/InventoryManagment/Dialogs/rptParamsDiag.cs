@@ -140,8 +140,8 @@ namespace StoresAndInventoryManager.Forms
     }
 
     private void rptComboBox_SelectedIndexChanged(object sender, EventArgs e)
-    {
-      if (this.rptComboBox.Text == "Money Received Report")
+    {           
+      if (this.rptComboBox.Text.Contains("Money Received Report"))
       {
         this.sortByComboBox.Items.Clear();
         this.sortByComboBox.Items.Add("None");

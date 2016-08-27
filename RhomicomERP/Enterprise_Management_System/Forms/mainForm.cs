@@ -64,8 +64,8 @@ namespace Enterprise_Management_System.Forms
             string tst = System.Environment.GetEnvironmentVariable("Path");
             CommonCode.CommonCodes.LocalDataPool = new string[100];
             CommonCode.CommonCodes.AppName = "Rhomicom ERP";
-            CommonCode.CommonCodes.AppVrsn = "V1 P21";
-            CommonCode.CommonCodes.AppVersion = "V1.2.1";
+            CommonCode.CommonCodes.AppVrsn = "V1 P22";
+            CommonCode.CommonCodes.AppVersion = "V1.2.2";
             this.appVersionStatusLabel.Text = CommonCode.CommonCodes.AppName + " " + CommonCode.CommonCodes.AppVersion;
             this.Text = CommonCode.CommonCodes.AppName + " " + CommonCode.CommonCodes.AppVersion;
 

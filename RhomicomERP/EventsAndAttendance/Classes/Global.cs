@@ -2969,8 +2969,97 @@ and (a.doc_type=y.other_mdls_doc_type or (a.prnt_doc_typ=y.other_mdls_doc_type a
       {
         return 0;
       }
-    }
-    public static DataSet get_One_CheckinDt(long checkInID)
+        }
+
+        public static long get_Ttl_Uncnclld_Checkins(string searchWord, string searchIn,
+         int orgID, bool shwActive, bool shwUnsettled, string extrWhere)
+        {
+            /*Doc. Status
+        Created By
+        Customer
+        Purpose of Visit
+        Document Number
+        Facility Number
+        Start Date*/
+            string strSql = "";
+            string whereClause = "";
+            string activeDocClause = "";
+            string unstldBillClause = "";
+            if (shwUnsettled)
+            {
+                unstldBillClause = @" AND EXISTS (SELECT f.src_doc_hdr_id 
+FROM scm.scm_doc_amnt_smmrys f WHERE f.smmry_type='7Change/Balance' 
+and round(f.smmry_amnt,2)>0 and y.invc_hdr_id=f.src_doc_hdr_id and f.src_doc_type=y.invc_type
+ and y.approval_status != 'Cancelled')";
+                //unpstdCls = " AND (a.approval_status!='Approved')";
+            }
+            if (shwActive)
+            {
+                activeDocClause = " AND (a.doc_status='Reserved' or a.doc_status='Checked-In' or a.doc_status='Ordered')";
+            }
+
+            if (searchIn == "Doc. Status")
+            {
+                whereClause = "(a.doc_status ilike '" + searchWord.Replace("'", "''") +
+            "')";
+            }
+            else if (searchIn == "Created By")
+            {
+                whereClause = "(a.created_by IN (select c.user_id from sec.sec_users c where c.user_name ilike '" + searchWord.Replace("'", "''") +
+             "'))";
+            }
+            else if (searchIn == "Customer")
+            {
+                whereClause = "(a.sponsor_id IN (select c.cust_sup_id from scm.scm_cstmr_suplr c where c.cust_sup_name ilike '" + searchWord.Replace("'", "''") +
+            "') or a.customer_id IN (select c.cust_sup_id from scm.scm_cstmr_suplr c where c.cust_sup_name ilike '" + searchWord.Replace("'", "''") +
+            "'))";
+            }
+            else if (searchIn == "Facility Number" || searchIn == "Table/Room Number")
+            {
+                whereClause = "(b.room_name ilike '" + searchWord.Replace("'", "''") +
+            @"' or (Select p.room_name from hotl.rooms p, hotl.checkins_hdr k 
+        where p.room_id = k.service_det_id and a.prnt_chck_in_id=k.check_in_id 
+and a.prnt_doc_typ = k.doc_type ORDER BY 1 LIMIT 1 OFFSET 0) ilike '" + searchWord.Replace("'", "''") +
+            "')";
+            }
+            else if (searchIn == "Purpose of Visit")
+            {
+                whereClause = "(a.purpose_of_visit ilike '" + searchWord.Replace("'", "''") +
+            "')";
+            }
+            else if (searchIn == "Document Number")
+            {
+                whereClause = "(a.doc_num ilike '" + searchWord.Replace("'", "''") +
+            "' or y.invc_number ilike '" + searchWord.Replace("'", "''") +
+            "')";
+            }
+            else if (searchIn == "Start Date")
+            {
+                whereClause = "(to_char(to_timestamp(a.start_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:SS') ilike '" + searchWord.Replace("'", "''") +
+            "')";
+            }
+            strSql = "SELECT count(1) " +
+         @"FROM hotl.checkins_hdr a 
+LEFT OUTER JOIN hotl.service_types d ON (a.service_type_id=d.service_type_id )
+LEFT OUTER JOIN hotl.rooms b ON (a.service_det_id = b.room_id)
+LEFT OUTER JOIN scm.scm_sales_invc_hdr y ON ((a.check_in_id = y.other_mdls_doc_id or (a.prnt_chck_in_id=y.other_mdls_doc_id and y.other_mdls_doc_id>0))
+and (a.doc_type=y.other_mdls_doc_type or (a.prnt_doc_typ=y.other_mdls_doc_type and a.prnt_doc_typ != ''))) " +
+         "WHERE " + whereClause + activeDocClause + unstldBillClause + " and a.doc_status != 'Cancelled' and COALESCE(d.org_id, " + orgID + ")=" + orgID +
+         @"" + extrWhere;
+            /* and a.service_type_id=d.service_type_id and a.service_det_id = b.room_id 
+            and (a.check_in_id = y.other_mdls_doc_id or (a.prnt_chck_in_id=y.other_mdls_doc_id and y.other_mdls_doc_id>0)) 
+      and (a.doc_type=y.other_mdls_doc_type or (a.prnt_doc_typ=y.other_mdls_doc_type and a.prnt_doc_typ != ''))*/
+            DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
+            if (dtst.Tables[0].Rows.Count > 0)
+            {
+                return long.Parse(dtst.Tables[0].Rows[0][0].ToString());
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        public static DataSet get_One_CheckinDt(long checkInID)
     {
       string strSql = @"Select a.check_in_id, a.doc_num, a.doc_type, a.fclty_type, 
 to_char(to_timestamp(a.start_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:SS'), 

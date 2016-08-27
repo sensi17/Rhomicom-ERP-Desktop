@@ -2499,7 +2499,109 @@ ORDER BY " + ordrBy + @"";
       return dtst;
     }
 
-    public static DataSet get_ItemsSold(long UsrID, string doctype, string strtDte, string endDte, int orgID, string ordrBy)
+        public static DataSet get_PymtsMoneyRcvd(long UsrID, string doctype,
+       string strtDte, string endDte, int orgID, string ordrBy, bool useCreatnDte)
+        {
+            /*y.user_name ""Sales Agent"",*/
+            string usrCls = "";
+            string usrNmSect = " ||' ('||y.user_name||')'";
+            if (UsrID > 0)
+            {
+                usrCls = " and (y.user_id = " + UsrID + ")";
+                usrNmSect = "";
+            }
+            if (ordrBy == "OUTSTANDING AMOUNT")
+            {
+                ordrBy = @"tbl1.col5 DESC, tbl1.col7, tbl1.col1 ASC";
+            }
+            else if (ordrBy == "TOTAL AMOUNT")
+            {
+                ordrBy = @"tbl1.col2 DESC, tbl1.col7, tbl1.col1 ASC";
+            }
+            else
+            {
+                ordrBy = "tbl1.col7, tbl1.col1 ASC";
+            }
+
+            string strSql = "";
+            string dateClause = "";
+            string dateClauseR = "";
+            string dateClauseM = "";
+            if (useCreatnDte)
+            {
+                dateClause = "(CASE WHEN z.creation_date IS NULL THEN a.creation_date ELSE z.creation_date END)";
+                dateClauseR = "(CASE WHEN z.creation_date IS NULL THEN a.creation_date ELSE z.creation_date END)";
+                dateClauseM = "a.creation_date";
+            }
+            else
+            {
+                dateClause = "(CASE WHEN z.pymnt_date IS NULL THEN a.invc_date || ' 00:00:00' ELSE z.pymnt_date END)";
+                dateClauseR = "(CASE WHEN z.pymnt_date IS NULL THEN a.rcvbls_invc_date || ' 00:00:00' ELSE z.pymnt_date END)";
+                dateClauseM = "a.mass_pay_trns_date";
+            }
+
+            strSql = @"SELECT row_number() OVER (ORDER BY " + ordrBy + @") AS ""No.  ""
+, tbl1.col1 ""Document No.                     "", tbl1.col2 ""  Invoice Amount"", tbl1.col3 "" Discount Amount"",
+tbl1.col4 ""     Amount Paid"", tbl1.col5 ""Outstanding Amt."", tbl1.col6 "" Date                      "", tbl1.col7 ""mt""
+FROM (SELECT REPLACE(a.invc_number || ' (' || COALESCE(scm.get_cstmr_splr_name(a.customer_id),'Unspecified') 
+|| ')' || ' (' || hotl.get_invc_room_num(a.invc_hdr_id) || ')-' || gst.get_pssbl_val(a.invc_curr_id),' ()','') col1, 
+scm.get_doc_smry_typ_amnt(a.invc_hdr_id, a.invc_type, '5Grand Total') + 
+abs(scm.get_doc_smry_typ_amnt(a.invc_hdr_id, a.invc_type, '3Discount')) col2, 
+scm.get_doc_smry_typ_amnt(a.invc_hdr_id, a.invc_type, '3Discount') col3,
+COALESCE(z.amount_paid,0) col4, 
+scm.get_doc_smry_typ_amnt(a.invc_hdr_id, a.invc_type, '7Change/Balance') col5, 
+to_char(to_timestamp(" + dateClause + @",'YYYY-MM-DD HH24:MI:SS'),
+'DD-Mon-YYYY HH24:MI:SS')" + usrNmSect + @" col6,
+" + dateClause + @" col7 
+FROM scm.scm_sales_invc_hdr a 
+LEFT OUTER JOIN sec.sec_users y ON (a.created_by=y.user_id)
+LEFT OUTER JOIN accb.accb_rcvbls_invc_hdr x ON (x.src_doc_type=a.invc_type and x.src_doc_hdr_id = a.invc_hdr_id)
+LEFT OUTER JOIN accb.accb_payments z ON (z.src_doc_typ=x.rcvbls_invc_type and z.src_doc_id=x.rcvbls_invc_hdr_id and z.orgnl_pymnt_id<=0 and z.pymnt_vldty_status='VALID')
+WHERE ((a.approval_status ilike 'Approved' or 
+(Select count(q.invc_det_ln_id) from scm.scm_sales_invc_det q 
+where q.invc_hdr_id = a.invc_hdr_id and q.is_itm_delivered='1')>0) AND (a.org_id = " + orgID + @") " + usrCls + " and (a.invc_type ilike '" + doctype.Replace("'", "''") + @"') 
+and (to_timestamp(" + dateClause + @",'YYYY-MM-DD HH24:MI:SS') between 
+to_timestamp('" + strtDte + @"','DD-Mon-YYYY HH24:MI:SS') AND 
+to_timestamp('" + endDte + @"','DD-Mon-YYYY HH24:MI:SS'))) 
+UNION
+SELECT a.rcvbls_invc_number  || ' (' || COALESCE(scm.get_cstmr_splr_name(a.customer_id),'Unspecified') || ')-' || gst.get_pssbl_val(a.invc_curr_id) col1, 
+CASE WHEN a.advc_pay_ifo_doc_id<=0 THEN accb.get_rcvbl_smry_typ_amnt(a.rcvbls_invc_hdr_id, a.rcvbls_invc_type, '6Grand Total') + 
+abs(accb.get_rcvbl_smry_typ_amnt(a.rcvbls_invc_hdr_id, a.rcvbls_invc_type, '3Discount')) ELSE 0 END col2, 
+accb.get_rcvbl_smry_typ_amnt(a.rcvbls_invc_hdr_id, a.rcvbls_invc_type, '3Discount') col3,
+COALESCE(z.amount_paid,0) col4, 
+accb.get_rcvbl_smry_typ_amnt(a.rcvbls_invc_hdr_id, a.rcvbls_invc_type, '8Outstanding Balance') col5, 
+to_char(to_timestamp(" + dateClauseR + @",'YYYY-MM-DD HH24:MI:SS'),
+'DD-Mon-YYYY HH24:MI:SS')" + usrNmSect + @" col6, " + dateClauseR + @" col7 
+FROM accb.accb_rcvbls_invc_hdr a 
+LEFT OUTER JOIN sec.sec_users y ON (a.created_by=y.user_id) 
+LEFT OUTER JOIN accb.accb_payments z ON (z.src_doc_typ=a.rcvbls_invc_type and z.src_doc_id=a.rcvbls_invc_hdr_id and z.orgnl_pymnt_id<=0 and z.pymnt_vldty_status='VALID')
+WHERE ((a.approval_status ilike 'Approved') AND (a.org_id = " + orgID + @") " + usrCls + @" and ((a.src_doc_hdr_id||'.'||a.src_doc_type) " +
+    "NOT IN (Select v.invc_hdr_id||'.'||v.invc_type from scm.scm_sales_invc_hdr v where v.org_id = " + orgID +
+    @" and v.invc_type ilike '" + doctype.Replace("'", "''") + @"')) 
+and a.invc_amnt_appld_elswhr <= 0 
+and (to_timestamp(" + dateClauseR + @",'YYYY-MM-DD HH24:MI:SS') between 
+to_timestamp('" + strtDte + @"','DD-Mon-YYYY HH24:MI:SS') AND 
+to_timestamp('" + endDte + @"','DD-Mon-YYYY HH24:MI:SS')))
+UNION
+SELECT a.mass_pay_name col1, 
+pay.get_intrnlpay_salesamnt(a.mass_pay_id) col2, 
+0 col3,
+pay.get_intrnlpay_salesamnt(a.mass_pay_id) col4, 
+0 col5, 
+to_char(to_timestamp(" + dateClauseM + @",'YYYY-MM-DD HH24:MI:SS'), 'DD-Mon-YYYY HH24:MI:SS')" + usrNmSect + @" col6, 
+" + dateClauseM + @" col7 
+FROM pay.pay_mass_pay_run_hdr a, 
+sec.sec_users y WHERE ((a.run_status = '1' and a.sent_to_gl = '1') AND (a.org_id = " + orgID + @") AND 
+(a.created_by=y.user_id)" + usrCls + @" and pay.get_intrnlpay_salesamnt(a.mass_pay_id)!=0 
+and (to_timestamp(" + dateClauseM + @",'YYYY-MM-DD HH24:MI:SS') between 
+to_timestamp('" + strtDte + @"','DD-Mon-YYYY HH24:MI:SS') AND 
+to_timestamp('" + endDte + @"','DD-Mon-YYYY HH24:MI:SS')))) tbl1 
+ORDER BY " + ordrBy + @"";
+            DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
+            return dtst;
+        }
+
+        public static DataSet get_ItemsSold(long UsrID, string doctype, string strtDte, string endDte, int orgID, string ordrBy)
     {
       /*
    y.user_name ""Sales Agent"",*/

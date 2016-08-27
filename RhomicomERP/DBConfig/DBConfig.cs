@@ -20,7 +20,7 @@ namespace DBConfig
     public Computer myComputer = new Microsoft.VisualBasic.Devices.Computer();
 
     string installPath = "";
-    string patchVrsnNm = "ROMS/REMS V1 P21";
+    string patchVrsnNm = "ROMS/REMS V1 P22";
     public DBConfig()
     {
       InitializeComponent();

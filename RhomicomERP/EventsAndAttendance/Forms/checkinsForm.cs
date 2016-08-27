@@ -49,6 +49,7 @@ namespace EventsAndAttendance.Forms
         public string recDt_SQL = "";
         public string smmry_SQL = "";
         bool obey_evnts = false;
+        bool fnshdLoading = false;
         int mainItemID = -1;
         public bool txtChngd = false;
         public string srchWrd = "%";
@@ -1180,6 +1181,7 @@ namespace EventsAndAttendance.Forms
                 this.roomNumTextBox.Focus();
                 this.roomIDTextBox.SelectAll();
             }
+            this.fnshdLoading = true;
         }
 
         private void btnMakePayment_Click(object sender, EventArgs e)
@@ -4230,11 +4232,19 @@ namespace EventsAndAttendance.Forms
                 this.loadPanel();
                 return;
             }
-            //if (this.tmTblDetID <= 0)
-            //{
-            //  Global.mnFrm.cmCde.showMsg("No Event Selected!", 0);
-            //  return;
-            //}
+            long crntActive = Global.get_Ttl_Uncnclld_Checkins("%",
+                   "Customer", Global.mnFrm.cmCde.Org_id,
+                   false, false,
+                 " and a.doc_type IN ('Booking','Check-In') and a.fclty_type IN ('Event') and a.customer_id = COALESCE(NULLIF(" + this.inptCstmrID +
+                 ",-1),a.customer_id) and y.event_doc_type='Attendance Register' and y.event_rgstr_id=COALESCE(NULLIF(" + this.registerID + ",-1),y.event_rgstr_id)");
+            if (crntActive > 0)
+            {
+                if (this.fnshdLoading)
+                {
+                    Global.mnFrm.cmCde.showMsg("Cannot Create more than one Active Bill for the same Participant in the same Event!", 0);
+                }
+                return;
+            }
             //if (this.inptCstmrID <= 0)
             //{
             //  Global.mnFrm.cmCde.showMsg("No Customer/Participant Selected!", 0);

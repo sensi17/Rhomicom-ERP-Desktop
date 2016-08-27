@@ -10636,7 +10636,7 @@ to_char(to_timestamp(a.creation_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:
             nwDiag.cmnCde.SampleRole = cmnCde.SampleRole;
             nwDiag.cmnCde.Extra_Adt_Trl_Info = "";
             //nwDiag.Show();
-            bool? dgres = nwDiag.ShowDialog();
+            nwDiag.Show();
             return DialogResult.OK;
         }
 

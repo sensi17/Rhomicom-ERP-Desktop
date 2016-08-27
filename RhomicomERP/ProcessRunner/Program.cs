@@ -61,17 +61,17 @@ namespace REMSProcessRunner
                         Global.dataBasDir = args[9].Trim('"');
                         Global.errorLog += args[8] + "\r\n" + args[9] + "\r\n";
                     }
-                    Console.WriteLine(Global.errorLog);
-                    Global.writeToLog();
+                    string[] macDet = Global.getMachDetails();
+                    Global.errorLog += "\r\n" + "PID: " + Global.pid + " Running on: " + macDet[0] + " / " + macDet[1] + " / " + macDet[2];
                     Global.runID = long.Parse(args[6]);
                     do_connection(args[0], args[1], args[2], args[3], args[4]);
                     Global.appStatPath = Global.rnnrsBasDir;
-                    //Program.updateRates("2015-07-02");
                     if (Global.runID > 0)
                     {
                         Global.rnUser_ID = long.Parse(Global.getGnrlRecNm("rpt.rpt_report_runs", "rpt_run_id", "run_by", Global.runID));
                         Global.UsrsOrg_ID = Global.getUsrOrgID(Global.rnUser_ID);
                     }
+                    Global.writeToLog();
 
                     if (Global.globalSQLConn.State == ConnectionState.Open)
                     {
@@ -79,11 +79,13 @@ namespace REMSProcessRunner
                         bool isLstnrRnng = false;
                         if (Program.runnerName == "REQUESTS LISTENER PROGRAM")
                         {
-                            int isIPAllwd = Global.getEnbldPssblValID(Global.getMachDetails()[2],
+                            int isIPAllwd = Global.getEnbldPssblValID(macDet[2],
                       Global.getEnbldLovID("Allowed IP Address for Request Listener"));
-                            Global.errorLog = Global.getMachDetails()[2] + "/" + isIPAllwd;
+                            int isDBAllwd = Global.getEnbldPssblValID(Global.Dbase,
+                       Global.getEnbldLovID("Allowed DB Name for Request Listener"));
+                            Global.errorLog = macDet[2] + "/" + isIPAllwd + "/" + Global.Dbase + "/" + isDBAllwd;
                             Global.writeToLog();
-                            if (isIPAllwd <= 0)
+                            if (isIPAllwd <= 0 || isDBAllwd <= 0)
                             {
                                 Program.killThreads();
                                 Thread.CurrentThread.Abort();
@@ -271,7 +273,7 @@ namespace REMSProcessRunner
             }
             catch (Exception ex)
             {
-                Global.errorLog = ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.InnerException + "\r\n\r\n";
+                Global.errorLog += ex.Message + "\r\n\r\n" + ex.StackTrace + "\r\n\r\n" + ex.InnerException + "\r\n\r\n";
                 Global.writeToLog();
                 killThreads();
             }
@@ -354,6 +356,8 @@ namespace REMSProcessRunner
             {
                 long prgmID = Global.getGnrlRecID("rpt.rpt_prcss_rnnrs", "rnnr_name", "prcss_rnnr_id", runnerName);
                 Global.errorLog = "Successfully Started Thread Five\r\nProgram ID:" + prgmID + ": Program Name: " + runnerName + "\r\n";
+                string[] macDet = Global.getMachDetails();
+                Global.errorLog += "\r\n" + "PID: " + Global.pid + " Running on: " + macDet[0] + " / " + macDet[1] + " / " + macDet[2];
                 Global.writeToLog();
 
                 string rptTitle = "";
@@ -393,7 +397,7 @@ namespace REMSProcessRunner
                     long prgUntsCnt = prgmUntsDtSt.Tables[0].Rows.Count;
 
                     Global.rnUser_ID = long.Parse(runDtSt.Tables[0].Rows[0][0].ToString());
-                    Global.errorLog = "Run ID: " + Global.runID + " Report ID:" + locRptID + "\r\n";
+                    Global.errorLog += "\r\nRun ID: " + Global.runID + " Report ID:" + locRptID + "\r\n";
                     Global.writeToLog();
                     long msg_id = Global.getGnrlRecID("rpt.rpt_run_msgs", "process_typ", "process_id", "msg_id", "Process Run", Global.runID);
 

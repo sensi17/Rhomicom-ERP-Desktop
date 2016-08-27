@@ -2031,11 +2031,19 @@ namespace Enterprise_Management_System.Forms
                 if (CommonCode.CommonCodes.GlobalSQLConn.State == ConnectionState.Open
                   /*&& CommonCode.CommonCodes.GlobalSQLConn.FullState != ConnectionState.Broken*/)
                 {
+                    int lvid = Global.myNwMainFrm.cmnCdMn.getLovID("Allowed DB Name for Request Listener");
+                    if (lvid <= 0)
+                    {
+                        Global.myNwMainFrm.cmnCdMn.createLovNm("Allowed DB Name for Request Listener", "Allowed DB Name for Request Listener", false, "", "SYS", true);
+                        lvid = Global.myNwMainFrm.cmnCdMn.getLovID("Allowed DB Name for Request Listener");
+                    }
                     bool rnnrRnng = false;
                     int isIPAllwd = Global.myNwMainFrm.cmnCdMn.getEnbldPssblValID(Global.myNwMainFrm.cmnCdMn.getMachDetails()[2],
                       Global.myNwMainFrm.cmnCdMn.getEnbldLovID("Allowed IP Address for Request Listener"));
+                    int isDBAllwd = Global.myNwMainFrm.cmnCdMn.getEnbldPssblValID(Global.db_name, lvid);
+
                     string tst = System.Environment.GetEnvironmentVariable("Path");
-                    if (isIPAllwd > 0)
+                    if (isIPAllwd > 0 && isDBAllwd > 0)
                     {
                         //for (int i = 0; i < 10; i++)
                         //{

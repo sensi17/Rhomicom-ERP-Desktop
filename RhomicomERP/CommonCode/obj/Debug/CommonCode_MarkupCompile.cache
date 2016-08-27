@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\RhomicomERP\CommonCode\obj\Debug\
+C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\CommonCode\obj\Debug\
 CommonCode
 none
 false
@@ -13,7 +13,7 @@ DEBUG;TRACE
 6-2107651237
 
 551143191370
-28-1786683176
+28-687318015
 XAML\HtmlEditor.xaml;XAML\PickInlineImage.xaml;XAML\InsertWebLink.xaml;XAML\sendMailNewDiag.xaml;XAML\WebBrowser.xaml;XAML\WebEditor.xaml;
 
 False

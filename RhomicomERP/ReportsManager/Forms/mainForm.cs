@@ -4939,7 +4939,7 @@ to_char(to_timestamp(a.trnsctn_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:M
                 }
                 catch (Exception ex)
                 {
-                    lovName = "SQL Report";
+                    lovName = "";
                 }
                 try
                 {

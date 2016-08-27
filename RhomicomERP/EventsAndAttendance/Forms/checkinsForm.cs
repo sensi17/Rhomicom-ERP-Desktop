@@ -4237,7 +4237,7 @@ namespace EventsAndAttendance.Forms
                    false, false,
                  " and a.doc_type IN ('Booking','Check-In') and a.fclty_type IN ('Event') and a.customer_id = COALESCE(NULLIF(" + this.inptCstmrID +
                  ",-1),a.customer_id) and y.event_doc_type='Attendance Register' and y.event_rgstr_id=COALESCE(NULLIF(" + this.registerID + ",-1),y.event_rgstr_id)");
-            if (crntActive > 0)
+            if (crntActive > 0 && this.registerID > 0 && this.inptCstmrID > 0)
             {
                 if (this.fnshdLoading)
                 {

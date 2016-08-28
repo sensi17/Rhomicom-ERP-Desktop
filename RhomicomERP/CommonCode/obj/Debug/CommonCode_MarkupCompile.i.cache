@@ -16,5 +16,5 @@ DEBUG;TRACE
 28-1786683176
 XAML\HtmlEditor.xaml;XAML\PickInlineImage.xaml;XAML\InsertWebLink.xaml;XAML\sendMailNewDiag.xaml;XAML\WebBrowser.xaml;XAML\WebEditor.xaml;
 
-True
+False
 

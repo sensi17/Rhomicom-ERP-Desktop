@@ -53,3 +53,10 @@ Technologies/Tools Used (Credits/Acknowledgements)
 2. Java-(Netbeans)
 3. TIBCO JasperSoft Studio
 4. PostgreSQL Database
+
+Typically these files need to be installed 
+
+NDP451-KB2858728-x86-x64-AllOS-ENU.exe
+jre-8u101-windows-i586.exe
+jre-8u101-windows-x64.exe
+postgresql-9.3.5-3-windows.exe  etc

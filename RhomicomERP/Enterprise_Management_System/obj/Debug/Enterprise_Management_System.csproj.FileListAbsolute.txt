@@ -913,3 +913,5 @@ C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\Enterprise_Management_System\bin\Debug
 C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\Enterprise_Management_System\bin\Debug\Newtonsoft.Json.xml
 C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\Enterprise_Management_System\bin\Debug\RicherTextBox.pdb
 C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\Enterprise_Management_System\bin\Debug\MarkupConverter.pdb
+C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\RhomicomERP\Enterprise_Management_System\bin\Debug\RicherTextBox.pdb
+C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\RhomicomERP\Enterprise_Management_System\bin\Debug\MarkupConverter.pdb

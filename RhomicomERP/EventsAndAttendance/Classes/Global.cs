@@ -3328,17 +3328,6 @@ to_char(to_timestamp(a.creation_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:
       Global.mnFrm.cmCde.updateDataNoParams(updtSQL);
     }
 
-    public static void updatePrntCheckIn(long chckInID, long prntChckIn)
-    {
-      Global.mnFrm.cmCde.Extra_Adt_Trl_Info = "";
-      string dateStr = Global.mnFrm.cmCde.getDB_Date_time();
-      string updtSQL = @"UPDATE hotl.checkins_hdr
-   SET prnt_chck_in_id=" + chckInID +
-            ", prnt_doc_typ='Check-In', last_update_by=" + Global.myEvnt.user_id + ", last_update_date='" + dateStr +
-            "' WHERE (check_in_id =" + chckInID + ")";
-      Global.mnFrm.cmCde.updateDataNoParams(updtSQL);
-    }
-
     #endregion
 
     #region "RECEIVABLES..."
@@ -6148,8 +6137,8 @@ long glBatchID)
       string updtSQL = "UPDATE hotl.checkins_hdr SET " +
             "doc_status='" + apprvlSts + "', last_update_by=" + Global.myEvnt.user_id +
             ", last_update_date='" + dateStr +
-            "' WHERE (check_in_id = " +
-            docid + " or prnt_chck_in_id = " + docid + ")";
+            "' WHERE ((check_in_id = " +
+            docid + " and check_in_id >0) or (prnt_chck_in_id = " + docid + " and prnt_chck_in_id>0))";
       Global.mnFrm.cmCde.updateDataNoParams(updtSQL);
     }
 

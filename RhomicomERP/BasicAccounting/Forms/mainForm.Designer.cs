@@ -1292,20 +1292,20 @@ namespace Accounting.Forms
             this.hideTreevwMenuItem,
             this.toolStripSeparator123});
             this.treeVWContextMenuStrip.Name = "usersContextMenuStrip";
-            this.treeVWContextMenuStrip.Size = new System.Drawing.Size(154, 32);
+            this.treeVWContextMenuStrip.Size = new System.Drawing.Size(153, 32);
             // 
             // hideTreevwMenuItem
             // 
             this.hideTreevwMenuItem.Image = global::Accounting.Properties.Resources.download__26_;
             this.hideTreevwMenuItem.Name = "hideTreevwMenuItem";
-            this.hideTreevwMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.hideTreevwMenuItem.Size = new System.Drawing.Size(152, 22);
             this.hideTreevwMenuItem.Text = "Hide Tree View";
             this.hideTreevwMenuItem.Click += new System.EventHandler(this.hideTreevwMenuItem_Click);
             // 
             // toolStripSeparator123
             // 
             this.toolStripSeparator123.Name = "toolStripSeparator123";
-            this.toolStripSeparator123.Size = new System.Drawing.Size(150, 6);
+            this.toolStripSeparator123.Size = new System.Drawing.Size(149, 6);
             // 
             // runRptButton
             // 
@@ -2164,7 +2164,7 @@ namespace Accounting.Forms
             this.saveChrtButton.Image = global::Accounting.Properties.Resources.FloppyDisk;
             this.saveChrtButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveChrtButton.Name = "saveChrtButton";
-            this.saveChrtButton.Size = new System.Drawing.Size(54, 22);
+            this.saveChrtButton.Size = new System.Drawing.Size(53, 22);
             this.saveChrtButton.Text = "SAVE";
             this.saveChrtButton.Click += new System.EventHandler(this.saveChrtButton_Click);
             // 
@@ -3502,7 +3502,7 @@ namespace Accounting.Forms
             this.rcHstryIMAButton});
             this.toolStrip17.Location = new System.Drawing.Point(5, 6);
             this.toolStrip17.Name = "toolStrip17";
-            this.toolStrip17.Size = new System.Drawing.Size(280, 25);
+            this.toolStrip17.Size = new System.Drawing.Size(279, 25);
             this.toolStrip17.TabIndex = 139;
             this.toolStrip17.TabStop = true;
             this.toolStrip17.Text = "toolStrip17";
@@ -3529,7 +3529,7 @@ namespace Accounting.Forms
             this.saveIMAButton.Image = global::Accounting.Properties.Resources.FloppyDisk;
             this.saveIMAButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveIMAButton.Name = "saveIMAButton";
-            this.saveIMAButton.Size = new System.Drawing.Size(54, 22);
+            this.saveIMAButton.Size = new System.Drawing.Size(53, 22);
             this.saveIMAButton.Text = "SAVE";
             // 
             // delIMAButton
@@ -4180,13 +4180,13 @@ namespace Accounting.Forms
             this.recHstryTrnsMenuItem,
             this.vwSQLTrnsMenuItem});
             this.trnsContextMenuStrip.Name = "usersContextMenuStrip";
-            this.trnsContextMenuStrip.Size = new System.Drawing.Size(244, 236);
+            this.trnsContextMenuStrip.Size = new System.Drawing.Size(242, 236);
             // 
             // addTrnsMenuItem
             // 
             this.addTrnsMenuItem.Image = global::Accounting.Properties.Resources.plus_32;
             this.addTrnsMenuItem.Name = "addTrnsMenuItem";
-            this.addTrnsMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.addTrnsMenuItem.Size = new System.Drawing.Size(241, 22);
             this.addTrnsMenuItem.Text = "&Add Transaction";
             this.addTrnsMenuItem.Click += new System.EventHandler(this.addTrnsMenuItem_Click);
             // 
@@ -4194,7 +4194,7 @@ namespace Accounting.Forms
             // 
             this.addTrnsTmpltMenuItem.Image = global::Accounting.Properties.Resources.plus_32;
             this.addTrnsTmpltMenuItem.Name = "addTrnsTmpltMenuItem";
-            this.addTrnsTmpltMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.addTrnsTmpltMenuItem.Size = new System.Drawing.Size(241, 22);
             this.addTrnsTmpltMenuItem.Text = "Add Transaction from Template";
             this.addTrnsTmpltMenuItem.Click += new System.EventHandler(this.addTrnsTmpltMenuItem_Click);
             // 
@@ -4202,7 +4202,7 @@ namespace Accounting.Forms
             // 
             this.editTrnsMenuItem.Image = global::Accounting.Properties.Resources.edit32;
             this.editTrnsMenuItem.Name = "editTrnsMenuItem";
-            this.editTrnsMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.editTrnsMenuItem.Size = new System.Drawing.Size(241, 22);
             this.editTrnsMenuItem.Text = "&Edit Transaction";
             this.editTrnsMenuItem.Click += new System.EventHandler(this.editTrnsMenuItem_Click);
             // 
@@ -4210,20 +4210,20 @@ namespace Accounting.Forms
             // 
             this.deleteTrnsMenuItem.Image = global::Accounting.Properties.Resources.delete;
             this.deleteTrnsMenuItem.Name = "deleteTrnsMenuItem";
-            this.deleteTrnsMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.deleteTrnsMenuItem.Size = new System.Drawing.Size(241, 22);
             this.deleteTrnsMenuItem.Text = "Delete Transaction";
             this.deleteTrnsMenuItem.Click += new System.EventHandler(this.deleteTrnsMenuItem_Click);
             // 
             // toolStripSeparator67
             // 
             this.toolStripSeparator67.Name = "toolStripSeparator67";
-            this.toolStripSeparator67.Size = new System.Drawing.Size(240, 6);
+            this.toolStripSeparator67.Size = new System.Drawing.Size(238, 6);
             // 
             // trnsDetMenuItem
             // 
             this.trnsDetMenuItem.Image = global::Accounting.Properties.Resources.actions_document_preview;
             this.trnsDetMenuItem.Name = "trnsDetMenuItem";
-            this.trnsDetMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.trnsDetMenuItem.Size = new System.Drawing.Size(241, 22);
             this.trnsDetMenuItem.Text = "View Amount Breakdown";
             this.trnsDetMenuItem.Click += new System.EventHandler(this.trnsDetMenuItem_Click);
             // 
@@ -4231,20 +4231,20 @@ namespace Accounting.Forms
             // 
             this.validateTrnsMenuItem.Image = global::Accounting.Properties.Resources.tick_64;
             this.validateTrnsMenuItem.Name = "validateTrnsMenuItem";
-            this.validateTrnsMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.validateTrnsMenuItem.Size = new System.Drawing.Size(241, 22);
             this.validateTrnsMenuItem.Text = "Check Transaction Validity";
             this.validateTrnsMenuItem.Click += new System.EventHandler(this.validateTrnsMenuItem_Click);
             // 
             // toolStripSeparator32
             // 
             this.toolStripSeparator32.Name = "toolStripSeparator32";
-            this.toolStripSeparator32.Size = new System.Drawing.Size(240, 6);
+            this.toolStripSeparator32.Size = new System.Drawing.Size(238, 6);
             // 
             // exptExclTdetMenuItem
             // 
             this.exptExclTdetMenuItem.Image = global::Accounting.Properties.Resources.image007;
             this.exptExclTdetMenuItem.Name = "exptExclTdetMenuItem";
-            this.exptExclTdetMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.exptExclTdetMenuItem.Size = new System.Drawing.Size(241, 22);
             this.exptExclTdetMenuItem.Text = "Export to Excel";
             this.exptExclTdetMenuItem.Click += new System.EventHandler(this.exptExclTdetMenuItem_Click);
             // 
@@ -4252,7 +4252,7 @@ namespace Accounting.Forms
             // 
             this.refreshTrnsMenuItem.Image = global::Accounting.Properties.Resources.refresh;
             this.refreshTrnsMenuItem.Name = "refreshTrnsMenuItem";
-            this.refreshTrnsMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.refreshTrnsMenuItem.Size = new System.Drawing.Size(241, 22);
             this.refreshTrnsMenuItem.Text = "&Refresh";
             this.refreshTrnsMenuItem.Click += new System.EventHandler(this.refreshTrnsMenuItem_Click);
             // 
@@ -4260,7 +4260,7 @@ namespace Accounting.Forms
             // 
             this.recHstryTrnsMenuItem.Image = global::Accounting.Properties.Resources.statistics_32;
             this.recHstryTrnsMenuItem.Name = "recHstryTrnsMenuItem";
-            this.recHstryTrnsMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.recHstryTrnsMenuItem.Size = new System.Drawing.Size(241, 22);
             this.recHstryTrnsMenuItem.Text = "Record &History";
             this.recHstryTrnsMenuItem.Click += new System.EventHandler(this.recHstryTrnsMenuItem_Click);
             // 
@@ -4268,7 +4268,7 @@ namespace Accounting.Forms
             // 
             this.vwSQLTrnsMenuItem.Image = global::Accounting.Properties.Resources.sql_icon_by_raisch_d3ax2ih;
             this.vwSQLTrnsMenuItem.Name = "vwSQLTrnsMenuItem";
-            this.vwSQLTrnsMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.vwSQLTrnsMenuItem.Size = new System.Drawing.Size(241, 22);
             this.vwSQLTrnsMenuItem.Text = "&View SQL";
             this.vwSQLTrnsMenuItem.Click += new System.EventHandler(this.vwSQLTrnsMenuItem_Click);
             // 
@@ -4579,10 +4579,10 @@ namespace Accounting.Forms
             this.tabPage2.BackColor = System.Drawing.Color.DarkGray;
             this.tabPage2.Controls.Add(this.trnsctnsPanel);
             this.tabPage2.ImageKey = "images_trns.jpeg";
-            this.tabPage2.Location = new System.Drawing.Point(4, 88);
+            this.tabPage2.Location = new System.Drawing.Point(4, 60);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1113, 639);
+            this.tabPage2.Size = new System.Drawing.Size(1113, 667);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "JOURNAL ENTRIES";
             // 
@@ -4600,7 +4600,7 @@ namespace Accounting.Forms
             this.trnsctnsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trnsctnsPanel.Location = new System.Drawing.Point(3, 3);
             this.trnsctnsPanel.Name = "trnsctnsPanel";
-            this.trnsctnsPanel.Size = new System.Drawing.Size(1107, 633);
+            this.trnsctnsPanel.Size = new System.Drawing.Size(1107, 661);
             this.trnsctnsPanel.TabIndex = 1;
             // 
             // showUnpostedCheckBox
@@ -4657,7 +4657,7 @@ namespace Accounting.Forms
             this.saveTrnsBatchButton.Image = global::Accounting.Properties.Resources.FloppyDisk;
             this.saveTrnsBatchButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveTrnsBatchButton.Name = "saveTrnsBatchButton";
-            this.saveTrnsBatchButton.Size = new System.Drawing.Size(54, 22);
+            this.saveTrnsBatchButton.Size = new System.Drawing.Size(53, 22);
             this.saveTrnsBatchButton.Text = "SAVE";
             this.saveTrnsBatchButton.Click += new System.EventHandler(this.saveTrnsBatchButton_Click);
             // 
@@ -5015,7 +5015,7 @@ namespace Accounting.Forms
             this.trnsBatchListView.HideSelection = false;
             this.trnsBatchListView.Location = new System.Drawing.Point(4, 81);
             this.trnsBatchListView.Name = "trnsBatchListView";
-            this.trnsBatchListView.Size = new System.Drawing.Size(238, 549);
+            this.trnsBatchListView.Size = new System.Drawing.Size(238, 577);
             this.trnsBatchListView.TabIndex = 5;
             this.trnsBatchListView.UseCompatibleStateImageBehavior = false;
             this.trnsBatchListView.View = System.Windows.Forms.View.Details;
@@ -5477,7 +5477,7 @@ namespace Accounting.Forms
             this.toolStripButton16.Image = global::Accounting.Properties.Resources.pay;
             this.toolStripButton16.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton16.Name = "toolStripButton16";
-            this.toolStripButton16.Size = new System.Drawing.Size(162, 22);
+            this.toolStripButton16.Size = new System.Drawing.Size(161, 22);
             this.toolStripButton16.Text = "SETUP EXCHANGE RATES";
             this.toolStripButton16.Click += new System.EventHandler(this.exchngRatesButton_Click);
             // 
@@ -5533,7 +5533,7 @@ namespace Accounting.Forms
             this.groupBox3.Location = new System.Drawing.Point(246, 147);
             this.groupBox3.MinimumSize = new System.Drawing.Size(782, 300);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(861, 483);
+            this.groupBox3.Size = new System.Drawing.Size(861, 511);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             // 
@@ -5857,7 +5857,7 @@ namespace Accounting.Forms
             this.trnsDetListView.HideSelection = false;
             this.trnsDetListView.Location = new System.Drawing.Point(7, 68);
             this.trnsDetListView.Name = "trnsDetListView";
-            this.trnsDetListView.Size = new System.Drawing.Size(849, 412);
+            this.trnsDetListView.Size = new System.Drawing.Size(849, 440);
             this.trnsDetListView.TabIndex = 2;
             this.trnsDetListView.UseCompatibleStateImageBehavior = false;
             this.trnsDetListView.View = System.Windows.Forms.View.Details;
@@ -6700,13 +6700,13 @@ namespace Accounting.Forms
             this.rcHstryTsrchMenuItem,
             this.vwSQLTsrchMenuItem});
             this.trnsSrchContextMenuStrip.Name = "usersContextMenuStrip";
-            this.trnsSrchContextMenuStrip.Size = new System.Drawing.Size(184, 170);
+            this.trnsSrchContextMenuStrip.Size = new System.Drawing.Size(183, 170);
             // 
             // exptExclTSrchMenuItem
             // 
             this.exptExclTSrchMenuItem.Image = global::Accounting.Properties.Resources.image007;
             this.exptExclTSrchMenuItem.Name = "exptExclTSrchMenuItem";
-            this.exptExclTSrchMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.exptExclTSrchMenuItem.Size = new System.Drawing.Size(182, 22);
             this.exptExclTSrchMenuItem.Text = "Export to Excel";
             this.exptExclTSrchMenuItem.Click += new System.EventHandler(this.exptExclTSrchMenuItem_Click);
             // 
@@ -6714,7 +6714,7 @@ namespace Accounting.Forms
             // 
             this.exptToTmplt1MenuItem.Image = global::Accounting.Properties.Resources.image007;
             this.exptToTmplt1MenuItem.Name = "exptToTmplt1MenuItem";
-            this.exptToTmplt1MenuItem.Size = new System.Drawing.Size(183, 22);
+            this.exptToTmplt1MenuItem.Size = new System.Drawing.Size(182, 22);
             this.exptToTmplt1MenuItem.Text = "Export to Template 1";
             this.exptToTmplt1MenuItem.Click += new System.EventHandler(this.exptToTmplt1MenuItem_Click);
             // 
@@ -6722,33 +6722,33 @@ namespace Accounting.Forms
             // 
             this.exptToTmplt2MenuItem.Image = global::Accounting.Properties.Resources.image007;
             this.exptToTmplt2MenuItem.Name = "exptToTmplt2MenuItem";
-            this.exptToTmplt2MenuItem.Size = new System.Drawing.Size(183, 22);
+            this.exptToTmplt2MenuItem.Size = new System.Drawing.Size(182, 22);
             this.exptToTmplt2MenuItem.Text = "Export to Template 2";
             this.exptToTmplt2MenuItem.Click += new System.EventHandler(this.exptToTmplt2MenuItem_Click);
             // 
             // toolStripSeparator137
             // 
             this.toolStripSeparator137.Name = "toolStripSeparator137";
-            this.toolStripSeparator137.Size = new System.Drawing.Size(180, 6);
+            this.toolStripSeparator137.Size = new System.Drawing.Size(179, 6);
             // 
             // openBatchMenuItem
             // 
             this.openBatchMenuItem.Image = global::Accounting.Properties.Resources.openfileicon;
             this.openBatchMenuItem.Name = "openBatchMenuItem";
-            this.openBatchMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.openBatchMenuItem.Size = new System.Drawing.Size(182, 22);
             this.openBatchMenuItem.Text = "Open Journal Batch";
             this.openBatchMenuItem.Click += new System.EventHandler(this.openBatchMenuItem_Click);
             // 
             // toolStripSeparator64
             // 
             this.toolStripSeparator64.Name = "toolStripSeparator64";
-            this.toolStripSeparator64.Size = new System.Drawing.Size(180, 6);
+            this.toolStripSeparator64.Size = new System.Drawing.Size(179, 6);
             // 
             // rfrshTsrchMenuItem
             // 
             this.rfrshTsrchMenuItem.Image = global::Accounting.Properties.Resources.refresh;
             this.rfrshTsrchMenuItem.Name = "rfrshTsrchMenuItem";
-            this.rfrshTsrchMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.rfrshTsrchMenuItem.Size = new System.Drawing.Size(182, 22);
             this.rfrshTsrchMenuItem.Text = "&Refresh";
             this.rfrshTsrchMenuItem.Click += new System.EventHandler(this.rfrshTsrchMenuItem_Click);
             // 
@@ -6756,7 +6756,7 @@ namespace Accounting.Forms
             // 
             this.rcHstryTsrchMenuItem.Image = global::Accounting.Properties.Resources.statistics_32;
             this.rcHstryTsrchMenuItem.Name = "rcHstryTsrchMenuItem";
-            this.rcHstryTsrchMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.rcHstryTsrchMenuItem.Size = new System.Drawing.Size(182, 22);
             this.rcHstryTsrchMenuItem.Text = "Record &History";
             this.rcHstryTsrchMenuItem.Click += new System.EventHandler(this.rcHstryTsrchMenuItem_Click);
             // 
@@ -6764,7 +6764,7 @@ namespace Accounting.Forms
             // 
             this.vwSQLTsrchMenuItem.Image = global::Accounting.Properties.Resources.sql_icon_by_raisch_d3ax2ih;
             this.vwSQLTsrchMenuItem.Name = "vwSQLTsrchMenuItem";
-            this.vwSQLTsrchMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.vwSQLTsrchMenuItem.Size = new System.Drawing.Size(182, 22);
             this.vwSQLTsrchMenuItem.Text = "&View SQL";
             this.vwSQLTsrchMenuItem.Click += new System.EventHandler(this.vwSQLTsrchMenuItem_Click);
             // 
@@ -7199,26 +7199,26 @@ namespace Accounting.Forms
             this.vwTrnsTbalsMenuItem,
             this.vwSQLTbalsMenuItem});
             this.tBalMenuStrip.Name = "usersContextMenuStrip";
-            this.tBalMenuStrip.Size = new System.Drawing.Size(170, 76);
+            this.tBalMenuStrip.Size = new System.Drawing.Size(169, 76);
             // 
             // exptExclTBalMenuItem
             // 
             this.exptExclTBalMenuItem.Image = global::Accounting.Properties.Resources.image007;
             this.exptExclTBalMenuItem.Name = "exptExclTBalMenuItem";
-            this.exptExclTBalMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.exptExclTBalMenuItem.Size = new System.Drawing.Size(168, 22);
             this.exptExclTBalMenuItem.Text = "&Export to Excel";
             this.exptExclTBalMenuItem.Click += new System.EventHandler(this.exptExclTBalMenuItem_Click);
             // 
             // toolStripSeparator121
             // 
             this.toolStripSeparator121.Name = "toolStripSeparator121";
-            this.toolStripSeparator121.Size = new System.Drawing.Size(166, 6);
+            this.toolStripSeparator121.Size = new System.Drawing.Size(165, 6);
             // 
             // vwTrnsTbalsMenuItem
             // 
             this.vwTrnsTbalsMenuItem.Image = global::Accounting.Properties.Resources.statistics_32;
             this.vwTrnsTbalsMenuItem.Name = "vwTrnsTbalsMenuItem";
-            this.vwTrnsTbalsMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.vwTrnsTbalsMenuItem.Size = new System.Drawing.Size(168, 22);
             this.vwTrnsTbalsMenuItem.Text = "View &Transactions";
             this.vwTrnsTbalsMenuItem.Click += new System.EventHandler(this.vwTrnsTbalsMenuItem_Click);
             // 
@@ -7226,7 +7226,7 @@ namespace Accounting.Forms
             // 
             this.vwSQLTbalsMenuItem.Image = global::Accounting.Properties.Resources.sql_icon_by_raisch_d3ax2ih;
             this.vwSQLTbalsMenuItem.Name = "vwSQLTbalsMenuItem";
-            this.vwSQLTbalsMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.vwSQLTbalsMenuItem.Size = new System.Drawing.Size(168, 22);
             this.vwSQLTbalsMenuItem.Text = "&View SQL";
             this.vwSQLTbalsMenuItem.Click += new System.EventHandler(this.vwSQLTbalsMenuItem_Click);
             // 
@@ -7260,7 +7260,7 @@ namespace Accounting.Forms
             this.pnlTabPage.Controls.Add(this.prftnlossPanel);
             this.pnlTabPage.Location = new System.Drawing.Point(4, 24);
             this.pnlTabPage.Name = "pnlTabPage";
-            this.pnlTabPage.Size = new System.Drawing.Size(1099, 633);
+            this.pnlTabPage.Size = new System.Drawing.Size(1099, 605);
             this.pnlTabPage.TabIndex = 1;
             this.pnlTabPage.Text = "PROFIT & LOSS";
             this.pnlTabPage.UseVisualStyleBackColor = true;
@@ -7275,7 +7275,7 @@ namespace Accounting.Forms
             this.prftnlossPanel.Location = new System.Drawing.Point(0, 0);
             this.prftnlossPanel.Margin = new System.Windows.Forms.Padding(0);
             this.prftnlossPanel.Name = "prftnlossPanel";
-            this.prftnlossPanel.Size = new System.Drawing.Size(1099, 633);
+            this.prftnlossPanel.Size = new System.Drawing.Size(1099, 605);
             this.prftnlossPanel.TabIndex = 6;
             // 
             // groupBox11
@@ -7490,7 +7490,7 @@ namespace Accounting.Forms
             this.plGroupBox.ForeColor = System.Drawing.Color.White;
             this.plGroupBox.Location = new System.Drawing.Point(2, 0);
             this.plGroupBox.Name = "plGroupBox";
-            this.plGroupBox.Size = new System.Drawing.Size(894, 630);
+            this.plGroupBox.Size = new System.Drawing.Size(894, 602);
             this.plGroupBox.TabIndex = 0;
             this.plGroupBox.TabStop = false;
             this.plGroupBox.Text = "PROFIT && LOSS STATEMENT FOR THE CHOSEN PERIOD";
@@ -7516,7 +7516,7 @@ namespace Accounting.Forms
             this.plListView.HoverSelection = true;
             this.plListView.Location = new System.Drawing.Point(3, 19);
             this.plListView.Name = "plListView";
-            this.plListView.Size = new System.Drawing.Size(888, 608);
+            this.plListView.Size = new System.Drawing.Size(888, 580);
             this.plListView.TabIndex = 0;
             this.plListView.UseCompatibleStateImageBehavior = false;
             this.plListView.View = System.Windows.Forms.View.Details;
@@ -7567,26 +7567,26 @@ namespace Accounting.Forms
             this.vwTrnsPrfNLsMenuItem,
             this.vwSQLPrfNLsMenuItem});
             this.prfNlsMenuStrip.Name = "usersContextMenuStrip";
-            this.prfNlsMenuStrip.Size = new System.Drawing.Size(170, 76);
+            this.prfNlsMenuStrip.Size = new System.Drawing.Size(169, 76);
             // 
             // exptExclPrfNLsMenuItem
             // 
             this.exptExclPrfNLsMenuItem.Image = global::Accounting.Properties.Resources.image007;
             this.exptExclPrfNLsMenuItem.Name = "exptExclPrfNLsMenuItem";
-            this.exptExclPrfNLsMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.exptExclPrfNLsMenuItem.Size = new System.Drawing.Size(168, 22);
             this.exptExclPrfNLsMenuItem.Text = "Export to Excel";
             this.exptExclPrfNLsMenuItem.Click += new System.EventHandler(this.exptExclPrfNLsMenuItem_Click);
             // 
             // toolStripSeparator122
             // 
             this.toolStripSeparator122.Name = "toolStripSeparator122";
-            this.toolStripSeparator122.Size = new System.Drawing.Size(166, 6);
+            this.toolStripSeparator122.Size = new System.Drawing.Size(165, 6);
             // 
             // vwTrnsPrfNLsMenuItem
             // 
             this.vwTrnsPrfNLsMenuItem.Image = global::Accounting.Properties.Resources.statistics_32;
             this.vwTrnsPrfNLsMenuItem.Name = "vwTrnsPrfNLsMenuItem";
-            this.vwTrnsPrfNLsMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.vwTrnsPrfNLsMenuItem.Size = new System.Drawing.Size(168, 22);
             this.vwTrnsPrfNLsMenuItem.Text = "View &Transactions";
             this.vwTrnsPrfNLsMenuItem.Click += new System.EventHandler(this.vwTrnsPrfNLsMenuItem_Click);
             // 
@@ -7594,7 +7594,7 @@ namespace Accounting.Forms
             // 
             this.vwSQLPrfNLsMenuItem.Image = global::Accounting.Properties.Resources.sql_icon_by_raisch_d3ax2ih;
             this.vwSQLPrfNLsMenuItem.Name = "vwSQLPrfNLsMenuItem";
-            this.vwSQLPrfNLsMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.vwSQLPrfNLsMenuItem.Size = new System.Drawing.Size(168, 22);
             this.vwSQLPrfNLsMenuItem.Text = "&View SQL";
             this.vwSQLPrfNLsMenuItem.Click += new System.EventHandler(this.vwSQLPrfNLsMenuItem_Click);
             // 
@@ -7628,7 +7628,7 @@ namespace Accounting.Forms
             this.balsShtTabPage.Controls.Add(this.balSheetPanel);
             this.balsShtTabPage.Location = new System.Drawing.Point(4, 24);
             this.balsShtTabPage.Name = "balsShtTabPage";
-            this.balsShtTabPage.Size = new System.Drawing.Size(1099, 633);
+            this.balsShtTabPage.Size = new System.Drawing.Size(1099, 605);
             this.balsShtTabPage.TabIndex = 2;
             this.balsShtTabPage.Text = "BALANCE SHEET";
             this.balsShtTabPage.UseVisualStyleBackColor = true;
@@ -7642,7 +7642,7 @@ namespace Accounting.Forms
             this.balSheetPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.balSheetPanel.Location = new System.Drawing.Point(0, 0);
             this.balSheetPanel.Name = "balSheetPanel";
-            this.balSheetPanel.Size = new System.Drawing.Size(1099, 633);
+            this.balSheetPanel.Size = new System.Drawing.Size(1099, 605);
             this.balSheetPanel.TabIndex = 7;
             // 
             // groupBox13
@@ -7760,7 +7760,7 @@ namespace Accounting.Forms
             this.blsGroupBox.ForeColor = System.Drawing.Color.White;
             this.blsGroupBox.Location = new System.Drawing.Point(2, 0);
             this.blsGroupBox.Name = "blsGroupBox";
-            this.blsGroupBox.Size = new System.Drawing.Size(914, 630);
+            this.blsGroupBox.Size = new System.Drawing.Size(914, 602);
             this.blsGroupBox.TabIndex = 0;
             this.blsGroupBox.TabStop = false;
             this.blsGroupBox.Text = "BALANCE SHEET REPORT AS AT";
@@ -7786,7 +7786,7 @@ namespace Accounting.Forms
             this.blsListView.HoverSelection = true;
             this.blsListView.Location = new System.Drawing.Point(3, 19);
             this.blsListView.Name = "blsListView";
-            this.blsListView.Size = new System.Drawing.Size(908, 608);
+            this.blsListView.Size = new System.Drawing.Size(908, 580);
             this.blsListView.TabIndex = 0;
             this.blsListView.UseCompatibleStateImageBehavior = false;
             this.blsListView.View = System.Windows.Forms.View.Details;
@@ -7837,26 +7837,26 @@ namespace Accounting.Forms
             this.vwTrnsBlsMenuItem,
             this.vwSQLBlsMenuItem});
             this.balShtsMenuStrip.Name = "usersContextMenuStrip";
-            this.balShtsMenuStrip.Size = new System.Drawing.Size(170, 76);
+            this.balShtsMenuStrip.Size = new System.Drawing.Size(169, 76);
             // 
             // exptExclBlsMenuItem
             // 
             this.exptExclBlsMenuItem.Image = global::Accounting.Properties.Resources.image007;
             this.exptExclBlsMenuItem.Name = "exptExclBlsMenuItem";
-            this.exptExclBlsMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.exptExclBlsMenuItem.Size = new System.Drawing.Size(168, 22);
             this.exptExclBlsMenuItem.Text = "Export to Excel";
             this.exptExclBlsMenuItem.Click += new System.EventHandler(this.exptExclBlsMenuItem_Click);
             // 
             // toolStripSeparator70
             // 
             this.toolStripSeparator70.Name = "toolStripSeparator70";
-            this.toolStripSeparator70.Size = new System.Drawing.Size(166, 6);
+            this.toolStripSeparator70.Size = new System.Drawing.Size(165, 6);
             // 
             // vwTrnsBlsMenuItem
             // 
             this.vwTrnsBlsMenuItem.Image = global::Accounting.Properties.Resources.statistics_32;
             this.vwTrnsBlsMenuItem.Name = "vwTrnsBlsMenuItem";
-            this.vwTrnsBlsMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.vwTrnsBlsMenuItem.Size = new System.Drawing.Size(168, 22);
             this.vwTrnsBlsMenuItem.Text = "View &Transactions";
             this.vwTrnsBlsMenuItem.Click += new System.EventHandler(this.vwTrnsBlsMenuItem_Click);
             // 
@@ -7864,7 +7864,7 @@ namespace Accounting.Forms
             // 
             this.vwSQLBlsMenuItem.Image = global::Accounting.Properties.Resources.sql_icon_by_raisch_d3ax2ih;
             this.vwSQLBlsMenuItem.Name = "vwSQLBlsMenuItem";
-            this.vwSQLBlsMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.vwSQLBlsMenuItem.Size = new System.Drawing.Size(168, 22);
             this.vwSQLBlsMenuItem.Text = "&View SQL";
             this.vwSQLBlsMenuItem.Click += new System.EventHandler(this.vwSQLBlsMenuItem_Click);
             // 
@@ -7902,7 +7902,7 @@ namespace Accounting.Forms
             this.subLedgerTabPage.ForeColor = System.Drawing.Color.White;
             this.subLedgerTabPage.Location = new System.Drawing.Point(4, 24);
             this.subLedgerTabPage.Name = "subLedgerTabPage";
-            this.subLedgerTabPage.Size = new System.Drawing.Size(1099, 633);
+            this.subLedgerTabPage.Size = new System.Drawing.Size(1099, 605);
             this.subLedgerTabPage.TabIndex = 3;
             this.subLedgerTabPage.Text = "SUB-LEDGER BALANCES";
             this.subLedgerTabPage.UseVisualStyleBackColor = true;
@@ -8009,7 +8009,7 @@ namespace Accounting.Forms
             this.subLdgrGroupBox.ForeColor = System.Drawing.Color.White;
             this.subLdgrGroupBox.Location = new System.Drawing.Point(2, 0);
             this.subLdgrGroupBox.Name = "subLdgrGroupBox";
-            this.subLdgrGroupBox.Size = new System.Drawing.Size(922, 636);
+            this.subLdgrGroupBox.Size = new System.Drawing.Size(922, 608);
             this.subLdgrGroupBox.TabIndex = 0;
             this.subLdgrGroupBox.TabStop = false;
             this.subLdgrGroupBox.Text = "SUBLEDGER ACCOUNT BALANCE AS AT NOW";
@@ -8037,7 +8037,7 @@ namespace Accounting.Forms
             this.subledgerListView.HoverSelection = true;
             this.subledgerListView.Location = new System.Drawing.Point(3, 19);
             this.subledgerListView.Name = "subledgerListView";
-            this.subledgerListView.Size = new System.Drawing.Size(916, 614);
+            this.subledgerListView.Size = new System.Drawing.Size(916, 586);
             this.subledgerListView.TabIndex = 0;
             this.subledgerListView.UseCompatibleStateImageBehavior = false;
             this.subledgerListView.View = System.Windows.Forms.View.Details;
@@ -8100,26 +8100,26 @@ namespace Accounting.Forms
             this.vwSublLdgrTrnsMenuItem,
             this.vwSQLSubLdgrMenuItem});
             this.subLdgrContextMenuStrip.Name = "usersContextMenuStrip";
-            this.subLdgrContextMenuStrip.Size = new System.Drawing.Size(170, 76);
+            this.subLdgrContextMenuStrip.Size = new System.Drawing.Size(169, 76);
             // 
             // exprtSubLgdrMenuItem
             // 
             this.exprtSubLgdrMenuItem.Image = global::Accounting.Properties.Resources.image007;
             this.exprtSubLgdrMenuItem.Name = "exprtSubLgdrMenuItem";
-            this.exprtSubLgdrMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.exprtSubLgdrMenuItem.Size = new System.Drawing.Size(168, 22);
             this.exprtSubLgdrMenuItem.Text = "Export to Excel";
             this.exprtSubLgdrMenuItem.Click += new System.EventHandler(this.exprtSubLgdrMenuItem_Click);
             // 
             // toolStripSeparator47
             // 
             this.toolStripSeparator47.Name = "toolStripSeparator47";
-            this.toolStripSeparator47.Size = new System.Drawing.Size(166, 6);
+            this.toolStripSeparator47.Size = new System.Drawing.Size(165, 6);
             // 
             // vwSublLdgrTrnsMenuItem
             // 
             this.vwSublLdgrTrnsMenuItem.Image = global::Accounting.Properties.Resources.statistics_32;
             this.vwSublLdgrTrnsMenuItem.Name = "vwSublLdgrTrnsMenuItem";
-            this.vwSublLdgrTrnsMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.vwSublLdgrTrnsMenuItem.Size = new System.Drawing.Size(168, 22);
             this.vwSublLdgrTrnsMenuItem.Text = "View &Transactions";
             this.vwSublLdgrTrnsMenuItem.Click += new System.EventHandler(this.vwSublLdgrTrnsMenuItem_Click);
             // 
@@ -8127,7 +8127,7 @@ namespace Accounting.Forms
             // 
             this.vwSQLSubLdgrMenuItem.Image = global::Accounting.Properties.Resources.sql_icon_by_raisch_d3ax2ih;
             this.vwSQLSubLdgrMenuItem.Name = "vwSQLSubLdgrMenuItem";
-            this.vwSQLSubLdgrMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.vwSQLSubLdgrMenuItem.Size = new System.Drawing.Size(168, 22);
             this.vwSQLSubLdgrMenuItem.Text = "&View SQL";
             this.vwSQLSubLdgrMenuItem.Click += new System.EventHandler(this.vwSQLSubLdgrMenuItem_Click);
             // 
@@ -8163,7 +8163,7 @@ namespace Accounting.Forms
             this.accntStmntTabPage.Controls.Add(this.panel20);
             this.accntStmntTabPage.Location = new System.Drawing.Point(4, 24);
             this.accntStmntTabPage.Name = "accntStmntTabPage";
-            this.accntStmntTabPage.Size = new System.Drawing.Size(1099, 633);
+            this.accntStmntTabPage.Size = new System.Drawing.Size(1099, 605);
             this.accntStmntTabPage.TabIndex = 4;
             this.accntStmntTabPage.Text = "GL ACCOUNT STATEMENTS";
             this.accntStmntTabPage.UseVisualStyleBackColor = true;
@@ -8340,7 +8340,7 @@ namespace Accounting.Forms
             this.accntStmntGroupBox.ForeColor = System.Drawing.Color.White;
             this.accntStmntGroupBox.Location = new System.Drawing.Point(2, 0);
             this.accntStmntGroupBox.Name = "accntStmntGroupBox";
-            this.accntStmntGroupBox.Size = new System.Drawing.Size(922, 636);
+            this.accntStmntGroupBox.Size = new System.Drawing.Size(922, 608);
             this.accntStmntGroupBox.TabIndex = 0;
             this.accntStmntGroupBox.TabStop = false;
             this.accntStmntGroupBox.Text = "ACCOUNT TRANSACTIONS FOR THE PERIOD CHOSEN";
@@ -8370,7 +8370,7 @@ namespace Accounting.Forms
             this.accntStmntListView.HoverSelection = true;
             this.accntStmntListView.Location = new System.Drawing.Point(3, 19);
             this.accntStmntListView.Name = "accntStmntListView";
-            this.accntStmntListView.Size = new System.Drawing.Size(916, 614);
+            this.accntStmntListView.Size = new System.Drawing.Size(916, 586);
             this.accntStmntListView.TabIndex = 0;
             this.accntStmntListView.UseCompatibleStateImageBehavior = false;
             this.accntStmntListView.View = System.Windows.Forms.View.Details;
@@ -8520,7 +8520,7 @@ namespace Accounting.Forms
             this.tabPage22.Controls.Add(this.periodGroupBox);
             this.tabPage22.Location = new System.Drawing.Point(4, 24);
             this.tabPage22.Name = "tabPage22";
-            this.tabPage22.Size = new System.Drawing.Size(1099, 633);
+            this.tabPage22.Size = new System.Drawing.Size(1099, 605);
             this.tabPage22.TabIndex = 7;
             this.tabPage22.Text = "PERIOD BY PERIOD NET TRNS.";
             // 
@@ -8717,7 +8717,7 @@ namespace Accounting.Forms
             this.periodGroupBox.ForeColor = System.Drawing.Color.White;
             this.periodGroupBox.Location = new System.Drawing.Point(2, 0);
             this.periodGroupBox.Name = "periodGroupBox";
-            this.periodGroupBox.Size = new System.Drawing.Size(888, 630);
+            this.periodGroupBox.Size = new System.Drawing.Size(888, 602);
             this.periodGroupBox.TabIndex = 1;
             this.periodGroupBox.TabStop = false;
             this.periodGroupBox.Text = "PERIOD BY PERIOD TRIAL BALANCE FOR 2015";
@@ -8743,7 +8743,7 @@ namespace Accounting.Forms
             this.periodStmntListView.HoverSelection = true;
             this.periodStmntListView.Location = new System.Drawing.Point(3, 19);
             this.periodStmntListView.Name = "periodStmntListView";
-            this.periodStmntListView.Size = new System.Drawing.Size(882, 608);
+            this.periodStmntListView.Size = new System.Drawing.Size(882, 580);
             this.periodStmntListView.TabIndex = 0;
             this.periodStmntListView.UseCompatibleStateImageBehavior = false;
             this.periodStmntListView.View = System.Windows.Forms.View.Details;
@@ -8795,26 +8795,26 @@ namespace Accounting.Forms
             this.vwTrnsMnthlyMenuItem,
             this.vwSQLMnthlyMenuItem});
             this.mnthlyMenuStrip.Name = "usersContextMenuStrip";
-            this.mnthlyMenuStrip.Size = new System.Drawing.Size(170, 76);
+            this.mnthlyMenuStrip.Size = new System.Drawing.Size(169, 76);
             // 
             // exprtExclMnthlyMenuItem
             // 
             this.exprtExclMnthlyMenuItem.Image = global::Accounting.Properties.Resources.image007;
             this.exprtExclMnthlyMenuItem.Name = "exprtExclMnthlyMenuItem";
-            this.exprtExclMnthlyMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.exprtExclMnthlyMenuItem.Size = new System.Drawing.Size(168, 22);
             this.exprtExclMnthlyMenuItem.Text = "&Export to Excel";
             this.exprtExclMnthlyMenuItem.Click += new System.EventHandler(this.exptExclMnthlyMenuItem_Click);
             // 
             // toolStripSeparator143
             // 
             this.toolStripSeparator143.Name = "toolStripSeparator143";
-            this.toolStripSeparator143.Size = new System.Drawing.Size(166, 6);
+            this.toolStripSeparator143.Size = new System.Drawing.Size(165, 6);
             // 
             // vwTrnsMnthlyMenuItem
             // 
             this.vwTrnsMnthlyMenuItem.Image = global::Accounting.Properties.Resources.statistics_32;
             this.vwTrnsMnthlyMenuItem.Name = "vwTrnsMnthlyMenuItem";
-            this.vwTrnsMnthlyMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.vwTrnsMnthlyMenuItem.Size = new System.Drawing.Size(168, 22);
             this.vwTrnsMnthlyMenuItem.Text = "View &Transactions";
             this.vwTrnsMnthlyMenuItem.Click += new System.EventHandler(this.vwTrnsMnthlyMenuItem_Click);
             // 
@@ -8822,7 +8822,7 @@ namespace Accounting.Forms
             // 
             this.vwSQLMnthlyMenuItem.Image = global::Accounting.Properties.Resources.sql_icon_by_raisch_d3ax2ih;
             this.vwSQLMnthlyMenuItem.Name = "vwSQLMnthlyMenuItem";
-            this.vwSQLMnthlyMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.vwSQLMnthlyMenuItem.Size = new System.Drawing.Size(168, 22);
             this.vwSQLMnthlyMenuItem.Text = "&View SQL";
             this.vwSQLMnthlyMenuItem.Click += new System.EventHandler(this.vwSQLMnthlyMenuItem_Click);
             // 
@@ -8833,7 +8833,7 @@ namespace Accounting.Forms
             this.tabPage20.Controls.Add(this.cashFlowGroupBox);
             this.tabPage20.Location = new System.Drawing.Point(4, 24);
             this.tabPage20.Name = "tabPage20";
-            this.tabPage20.Size = new System.Drawing.Size(1099, 633);
+            this.tabPage20.Size = new System.Drawing.Size(1099, 605);
             this.tabPage20.TabIndex = 5;
             this.tabPage20.Text = "CASH FLOW STATEMENT";
             this.tabPage20.UseVisualStyleBackColor = true;
@@ -9027,7 +9027,7 @@ namespace Accounting.Forms
             this.cashFlowGroupBox.ForeColor = System.Drawing.Color.White;
             this.cashFlowGroupBox.Location = new System.Drawing.Point(2, 0);
             this.cashFlowGroupBox.Name = "cashFlowGroupBox";
-            this.cashFlowGroupBox.Size = new System.Drawing.Size(888, 635);
+            this.cashFlowGroupBox.Size = new System.Drawing.Size(888, 607);
             this.cashFlowGroupBox.TabIndex = 3;
             this.cashFlowGroupBox.TabStop = false;
             this.cashFlowGroupBox.Text = "PERIOD BY PERIOD TRIAL BALANCE FOR 2015";
@@ -9051,7 +9051,7 @@ namespace Accounting.Forms
             this.cashFlowListView.HoverSelection = true;
             this.cashFlowListView.Location = new System.Drawing.Point(3, 19);
             this.cashFlowListView.Name = "cashFlowListView";
-            this.cashFlowListView.Size = new System.Drawing.Size(882, 613);
+            this.cashFlowListView.Size = new System.Drawing.Size(882, 585);
             this.cashFlowListView.TabIndex = 0;
             this.cashFlowListView.UseCompatibleStateImageBehavior = false;
             this.cashFlowListView.View = System.Windows.Forms.View.Details;
@@ -9091,26 +9091,26 @@ namespace Accounting.Forms
             this.vwTrnsCashFlowMenuItem,
             this.vwSQLCashFlowMenuItem});
             this.cashFlowContextMenuStrip.Name = "usersContextMenuStrip";
-            this.cashFlowContextMenuStrip.Size = new System.Drawing.Size(170, 76);
+            this.cashFlowContextMenuStrip.Size = new System.Drawing.Size(169, 76);
             // 
             // exprtCashFlowMenuItem
             // 
             this.exprtCashFlowMenuItem.Image = global::Accounting.Properties.Resources.image007;
             this.exprtCashFlowMenuItem.Name = "exprtCashFlowMenuItem";
-            this.exprtCashFlowMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.exprtCashFlowMenuItem.Size = new System.Drawing.Size(168, 22);
             this.exprtCashFlowMenuItem.Text = "&Export to Excel";
             this.exprtCashFlowMenuItem.Click += new System.EventHandler(this.exptExclCashFlowMenuItem_Click);
             // 
             // toolStripSeparator144
             // 
             this.toolStripSeparator144.Name = "toolStripSeparator144";
-            this.toolStripSeparator144.Size = new System.Drawing.Size(166, 6);
+            this.toolStripSeparator144.Size = new System.Drawing.Size(165, 6);
             // 
             // vwTrnsCashFlowMenuItem
             // 
             this.vwTrnsCashFlowMenuItem.Image = global::Accounting.Properties.Resources.statistics_32;
             this.vwTrnsCashFlowMenuItem.Name = "vwTrnsCashFlowMenuItem";
-            this.vwTrnsCashFlowMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.vwTrnsCashFlowMenuItem.Size = new System.Drawing.Size(168, 22);
             this.vwTrnsCashFlowMenuItem.Text = "View &Transactions";
             this.vwTrnsCashFlowMenuItem.Click += new System.EventHandler(this.vwTrnsCashFlowMenuItem_Click);
             // 
@@ -9118,7 +9118,7 @@ namespace Accounting.Forms
             // 
             this.vwSQLCashFlowMenuItem.Image = global::Accounting.Properties.Resources.sql_icon_by_raisch_d3ax2ih;
             this.vwSQLCashFlowMenuItem.Name = "vwSQLCashFlowMenuItem";
-            this.vwSQLCashFlowMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.vwSQLCashFlowMenuItem.Size = new System.Drawing.Size(168, 22);
             this.vwSQLCashFlowMenuItem.Text = "&View SQL";
             this.vwSQLCashFlowMenuItem.Click += new System.EventHandler(this.vwSQLCashFlowMenuItem_Click);
             // 
@@ -9128,7 +9128,7 @@ namespace Accounting.Forms
             this.tabPage21.Location = new System.Drawing.Point(4, 24);
             this.tabPage21.Name = "tabPage21";
             this.tabPage21.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage21.Size = new System.Drawing.Size(1099, 633);
+            this.tabPage21.Size = new System.Drawing.Size(1099, 605);
             this.tabPage21.TabIndex = 6;
             this.tabPage21.Text = "FINANCIAL RATIOS";
             this.tabPage21.UseVisualStyleBackColor = true;
@@ -9200,7 +9200,7 @@ namespace Accounting.Forms
             this.saveBdgButton.Image = global::Accounting.Properties.Resources.FloppyDisk;
             this.saveBdgButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveBdgButton.Name = "saveBdgButton";
-            this.saveBdgButton.Size = new System.Drawing.Size(54, 22);
+            this.saveBdgButton.Size = new System.Drawing.Size(53, 22);
             this.saveBdgButton.Text = "SAVE";
             this.saveBdgButton.Click += new System.EventHandler(this.saveBdgButton_Click);
             // 
@@ -10269,7 +10269,7 @@ namespace Accounting.Forms
             this.saveTmpltButton.Image = global::Accounting.Properties.Resources.FloppyDisk;
             this.saveTmpltButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveTmpltButton.Name = "saveTmpltButton";
-            this.saveTmpltButton.Size = new System.Drawing.Size(54, 22);
+            this.saveTmpltButton.Size = new System.Drawing.Size(53, 22);
             this.saveTmpltButton.Text = "SAVE";
             this.saveTmpltButton.Click += new System.EventHandler(this.saveTmpltButton_Click);
             // 
@@ -10440,13 +10440,13 @@ namespace Accounting.Forms
             this.recHstryTmpTrnsMenuItem,
             this.vwSQLTmpTrnsMenuItem});
             this.tmpltContextMenuStrip.Name = "usersContextMenuStrip";
-            this.tmpltContextMenuStrip.Size = new System.Drawing.Size(173, 164);
+            this.tmpltContextMenuStrip.Size = new System.Drawing.Size(172, 164);
             // 
             // addTmpltTrnsMenuItem
             // 
             this.addTmpltTrnsMenuItem.Image = global::Accounting.Properties.Resources.plus_32;
             this.addTmpltTrnsMenuItem.Name = "addTmpltTrnsMenuItem";
-            this.addTmpltTrnsMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.addTmpltTrnsMenuItem.Size = new System.Drawing.Size(171, 22);
             this.addTmpltTrnsMenuItem.Text = "&Add Transaction";
             this.addTmpltTrnsMenuItem.Click += new System.EventHandler(this.addTmpltTrnsMenuItem_Click);
             // 
@@ -10454,7 +10454,7 @@ namespace Accounting.Forms
             // 
             this.editTmpltTrnsMenuItem.Image = global::Accounting.Properties.Resources.edit32;
             this.editTmpltTrnsMenuItem.Name = "editTmpltTrnsMenuItem";
-            this.editTmpltTrnsMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.editTmpltTrnsMenuItem.Size = new System.Drawing.Size(171, 22);
             this.editTmpltTrnsMenuItem.Text = "&Edit Transaction";
             this.editTmpltTrnsMenuItem.Click += new System.EventHandler(this.editTmpltTrnsMenuItem_Click);
             // 
@@ -10462,20 +10462,20 @@ namespace Accounting.Forms
             // 
             this.delTmpltTrnsMenuItem.Image = global::Accounting.Properties.Resources.delete;
             this.delTmpltTrnsMenuItem.Name = "delTmpltTrnsMenuItem";
-            this.delTmpltTrnsMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.delTmpltTrnsMenuItem.Size = new System.Drawing.Size(171, 22);
             this.delTmpltTrnsMenuItem.Text = "Delete Transaction";
             this.delTmpltTrnsMenuItem.Click += new System.EventHandler(this.delTmpltTrnsMenuItem_Click);
             // 
             // toolStripSeparator33
             // 
             this.toolStripSeparator33.Name = "toolStripSeparator33";
-            this.toolStripSeparator33.Size = new System.Drawing.Size(169, 6);
+            this.toolStripSeparator33.Size = new System.Drawing.Size(168, 6);
             // 
             // exptExclTmpDtMenuItem
             // 
             this.exptExclTmpDtMenuItem.Image = global::Accounting.Properties.Resources.image007;
             this.exptExclTmpDtMenuItem.Name = "exptExclTmpDtMenuItem";
-            this.exptExclTmpDtMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.exptExclTmpDtMenuItem.Size = new System.Drawing.Size(171, 22);
             this.exptExclTmpDtMenuItem.Text = "Export to Excel";
             this.exptExclTmpDtMenuItem.Click += new System.EventHandler(this.exptExclTmpDtMenuItem_Click);
             // 
@@ -10483,7 +10483,7 @@ namespace Accounting.Forms
             // 
             this.refreshTmpltTrnsMenuItem.Image = global::Accounting.Properties.Resources.refresh;
             this.refreshTmpltTrnsMenuItem.Name = "refreshTmpltTrnsMenuItem";
-            this.refreshTmpltTrnsMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.refreshTmpltTrnsMenuItem.Size = new System.Drawing.Size(171, 22);
             this.refreshTmpltTrnsMenuItem.Text = "&Refresh";
             this.refreshTmpltTrnsMenuItem.Click += new System.EventHandler(this.refreshTmpltTrnsMenuItem_Click);
             // 
@@ -10491,7 +10491,7 @@ namespace Accounting.Forms
             // 
             this.recHstryTmpTrnsMenuItem.Image = global::Accounting.Properties.Resources.statistics_32;
             this.recHstryTmpTrnsMenuItem.Name = "recHstryTmpTrnsMenuItem";
-            this.recHstryTmpTrnsMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.recHstryTmpTrnsMenuItem.Size = new System.Drawing.Size(171, 22);
             this.recHstryTmpTrnsMenuItem.Text = "Record &History";
             this.recHstryTmpTrnsMenuItem.Click += new System.EventHandler(this.recHstryTmpTrnsMenuItem_Click);
             // 
@@ -10499,7 +10499,7 @@ namespace Accounting.Forms
             // 
             this.vwSQLTmpTrnsMenuItem.Image = global::Accounting.Properties.Resources.sql_icon_by_raisch_d3ax2ih;
             this.vwSQLTmpTrnsMenuItem.Name = "vwSQLTmpTrnsMenuItem";
-            this.vwSQLTmpTrnsMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.vwSQLTmpTrnsMenuItem.Size = new System.Drawing.Size(171, 22);
             this.vwSQLTmpTrnsMenuItem.Text = "&View SQL";
             this.vwSQLTmpTrnsMenuItem.Click += new System.EventHandler(this.vwSQLTmpTrnsMenuItem_Click);
             // 
@@ -10558,13 +10558,13 @@ namespace Accounting.Forms
             this.rcHstryTmpltMenuItem,
             this.vwSQLTmpltMenuItem});
             this.tmpltMnMenuStrip.Name = "usersContextMenuStrip";
-            this.tmpltMnMenuStrip.Size = new System.Drawing.Size(161, 164);
+            this.tmpltMnMenuStrip.Size = new System.Drawing.Size(160, 164);
             // 
             // addTmpltMenuItem
             // 
             this.addTmpltMenuItem.Image = global::Accounting.Properties.Resources.plus_32;
             this.addTmpltMenuItem.Name = "addTmpltMenuItem";
-            this.addTmpltMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.addTmpltMenuItem.Size = new System.Drawing.Size(159, 22);
             this.addTmpltMenuItem.Text = "&Add Template";
             this.addTmpltMenuItem.Click += new System.EventHandler(this.addTmpltMenuItem_Click);
             // 
@@ -10572,7 +10572,7 @@ namespace Accounting.Forms
             // 
             this.editTmpltMenuItem.Image = global::Accounting.Properties.Resources.edit32;
             this.editTmpltMenuItem.Name = "editTmpltMenuItem";
-            this.editTmpltMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.editTmpltMenuItem.Size = new System.Drawing.Size(159, 22);
             this.editTmpltMenuItem.Text = "&Edit Template";
             this.editTmpltMenuItem.Click += new System.EventHandler(this.editTmpltMenuItem_Click);
             // 
@@ -10580,20 +10580,20 @@ namespace Accounting.Forms
             // 
             this.delTmpltMenuItem.Image = global::Accounting.Properties.Resources.delete;
             this.delTmpltMenuItem.Name = "delTmpltMenuItem";
-            this.delTmpltMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.delTmpltMenuItem.Size = new System.Drawing.Size(159, 22);
             this.delTmpltMenuItem.Text = "Delete Template";
             this.delTmpltMenuItem.Click += new System.EventHandler(this.delTmpltMenuItem_Click);
             // 
             // toolStripSeparator68
             // 
             this.toolStripSeparator68.Name = "toolStripSeparator68";
-            this.toolStripSeparator68.Size = new System.Drawing.Size(157, 6);
+            this.toolStripSeparator68.Size = new System.Drawing.Size(156, 6);
             // 
             // exptExclTmpltMenuItem
             // 
             this.exptExclTmpltMenuItem.Image = global::Accounting.Properties.Resources.image007;
             this.exptExclTmpltMenuItem.Name = "exptExclTmpltMenuItem";
-            this.exptExclTmpltMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.exptExclTmpltMenuItem.Size = new System.Drawing.Size(159, 22);
             this.exptExclTmpltMenuItem.Text = "Export to Excel";
             this.exptExclTmpltMenuItem.Click += new System.EventHandler(this.exptExclTmpltMenuItem_Click);
             // 
@@ -10601,7 +10601,7 @@ namespace Accounting.Forms
             // 
             this.rfrshTmpltMenuItem.Image = global::Accounting.Properties.Resources.refresh;
             this.rfrshTmpltMenuItem.Name = "rfrshTmpltMenuItem";
-            this.rfrshTmpltMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.rfrshTmpltMenuItem.Size = new System.Drawing.Size(159, 22);
             this.rfrshTmpltMenuItem.Text = "&Refresh";
             this.rfrshTmpltMenuItem.Click += new System.EventHandler(this.rfrshTmpltMenuItem_Click);
             // 
@@ -10609,7 +10609,7 @@ namespace Accounting.Forms
             // 
             this.rcHstryTmpltMenuItem.Image = global::Accounting.Properties.Resources.statistics_32;
             this.rcHstryTmpltMenuItem.Name = "rcHstryTmpltMenuItem";
-            this.rcHstryTmpltMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.rcHstryTmpltMenuItem.Size = new System.Drawing.Size(159, 22);
             this.rcHstryTmpltMenuItem.Text = "Record &History";
             this.rcHstryTmpltMenuItem.Click += new System.EventHandler(this.rcHstryTmpltMenuItem_Click);
             // 
@@ -10617,7 +10617,7 @@ namespace Accounting.Forms
             // 
             this.vwSQLTmpltMenuItem.Image = global::Accounting.Properties.Resources.sql_icon_by_raisch_d3ax2ih;
             this.vwSQLTmpltMenuItem.Name = "vwSQLTmpltMenuItem";
-            this.vwSQLTmpltMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.vwSQLTmpltMenuItem.Size = new System.Drawing.Size(159, 22);
             this.vwSQLTmpltMenuItem.Text = "&View SQL";
             this.vwSQLTmpltMenuItem.Click += new System.EventHandler(this.vwSQLTmpltMenuItem_Click);
             // 
@@ -11190,13 +11190,13 @@ namespace Accounting.Forms
             this.rcHstryTusrMenuItem,
             this.vwSQLTusrMenuItem});
             this.tmpltUsrsMenuStrip.Name = "usersContextMenuStrip";
-            this.tmpltUsrsMenuStrip.Size = new System.Drawing.Size(176, 120);
+            this.tmpltUsrsMenuStrip.Size = new System.Drawing.Size(175, 120);
             // 
             // addUsrMenuItem
             // 
             this.addUsrMenuItem.Image = global::Accounting.Properties.Resources.plus_32;
             this.addUsrMenuItem.Name = "addUsrMenuItem";
-            this.addUsrMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.addUsrMenuItem.Size = new System.Drawing.Size(174, 22);
             this.addUsrMenuItem.Text = "Add Template User";
             this.addUsrMenuItem.Click += new System.EventHandler(this.addUsrMenuItem_Click);
             // 
@@ -11204,20 +11204,20 @@ namespace Accounting.Forms
             // 
             this.exptExclTusrMenuItem.Image = global::Accounting.Properties.Resources.image007;
             this.exptExclTusrMenuItem.Name = "exptExclTusrMenuItem";
-            this.exptExclTusrMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.exptExclTusrMenuItem.Size = new System.Drawing.Size(174, 22);
             this.exptExclTusrMenuItem.Text = "Export to Excel";
             this.exptExclTusrMenuItem.Click += new System.EventHandler(this.exptExclTusrMenuItem_Click);
             // 
             // toolStripSeparator69
             // 
             this.toolStripSeparator69.Name = "toolStripSeparator69";
-            this.toolStripSeparator69.Size = new System.Drawing.Size(172, 6);
+            this.toolStripSeparator69.Size = new System.Drawing.Size(171, 6);
             // 
             // rfrshTUsrMenuItem
             // 
             this.rfrshTUsrMenuItem.Image = global::Accounting.Properties.Resources.refresh;
             this.rfrshTUsrMenuItem.Name = "rfrshTUsrMenuItem";
-            this.rfrshTUsrMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.rfrshTUsrMenuItem.Size = new System.Drawing.Size(174, 22);
             this.rfrshTUsrMenuItem.Text = "&Refresh";
             this.rfrshTUsrMenuItem.Click += new System.EventHandler(this.rfrshTUsrMenuItem_Click);
             // 
@@ -11225,7 +11225,7 @@ namespace Accounting.Forms
             // 
             this.rcHstryTusrMenuItem.Image = global::Accounting.Properties.Resources.statistics_32;
             this.rcHstryTusrMenuItem.Name = "rcHstryTusrMenuItem";
-            this.rcHstryTusrMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.rcHstryTusrMenuItem.Size = new System.Drawing.Size(174, 22);
             this.rcHstryTusrMenuItem.Text = "Record &History";
             this.rcHstryTusrMenuItem.Click += new System.EventHandler(this.rcHstryTusrMenuItem_Click);
             // 
@@ -11233,7 +11233,7 @@ namespace Accounting.Forms
             // 
             this.vwSQLTusrMenuItem.Image = global::Accounting.Properties.Resources.sql_icon_by_raisch_d3ax2ih;
             this.vwSQLTusrMenuItem.Name = "vwSQLTusrMenuItem";
-            this.vwSQLTusrMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.vwSQLTusrMenuItem.Size = new System.Drawing.Size(174, 22);
             this.vwSQLTusrMenuItem.Text = "&View SQL";
             this.vwSQLTusrMenuItem.Click += new System.EventHandler(this.vwSQLTusrMenuItem_Click);
             // 

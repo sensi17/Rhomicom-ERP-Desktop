@@ -89,3 +89,8 @@ C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\rhoInterface\bin\Debug\RhoInterface.pd
 C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\rhoInterface\obj\Debug\RhoInterface.csprojResolveAssemblyReference.cache
 C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\rhoInterface\obj\Debug\RhoInterface.dll
 C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\rhoInterface\obj\Debug\RhoInterface.pdb
+C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\RhomicomERP\rhoInterface\bin\Debug\RhoInterface.dll
+C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\RhomicomERP\rhoInterface\bin\Debug\RhoInterface.pdb
+C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\RhomicomERP\rhoInterface\obj\Debug\RhoInterface.csprojResolveAssemblyReference.cache
+C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\RhomicomERP\rhoInterface\obj\Debug\RhoInterface.dll
+C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\RhomicomERP\rhoInterface\obj\Debug\RhoInterface.pdb

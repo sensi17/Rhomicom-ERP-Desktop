@@ -514,3 +514,5 @@ C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\CommonCode\obj\Debug\CommonCode.vwRptD
 C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\CommonCode\obj\Debug\CommonCode.csproj.GenerateResource.Cache
 C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\CommonCode\obj\Debug\CommonCode.dll
 C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\CommonCode\obj\Debug\CommonCode.pdb
+C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\RhomicomERP\CommonCode\bin\Debug\MarkupConverter.pdb
+C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\RhomicomERP\CommonCode\bin\Debug\RicherTextBox.pdb

@@ -3543,14 +3543,14 @@ namespace Accounting.Forms
               && (Global.get_ScmIntrfcTrnsCnt(long.Parse(this.batchIDTextBox.Text)) > 0
               || Global.get_PayIntrfcTrnsCnt(long.Parse(this.batchIDTextBox.Text)) > 0))
             {
-                Global.mnFrm.cmCde.showMsg("Cannot Delete/Void Batches \r\nthat came from other Modules" +
+                Global.mnFrm.cmCde.showMsg("Cannot Delete/Void Batches \r\nthat came from other Modules " +
                 "and have Transactions in them!", 0);
                 return;
             }
             if ((this.batchSourceLabel.Text != "Manual" && this.batchSourceLabel.Text != "Manual Batch Reversal")
               && this.batchStatusLabel.Text == "Posted")
             {
-                Global.mnFrm.cmCde.showMsg("Cannot Void Batches \r\nthat came from other Modules" +
+                Global.mnFrm.cmCde.showMsg("Cannot Void Batches \r\nthat came from other Modules " +
                 "and have been Posted!", 0);
                 return;
             }
@@ -3567,7 +3567,7 @@ namespace Accounting.Forms
                  "\r\nBatch and all its Transactions? \r\nThis Action cannot be undone!", 1)
                  == DialogResult.No)
                 {
-                    Global.mnFrm.cmCde.showMsg("Operation Cancelled!", 4);
+                    //Global.mnFrm.cmCde.showMsg("Operation Cancelled!", 4);
                     return;
                 }
                 else
@@ -3626,7 +3626,7 @@ namespace Accounting.Forms
                  "\r\nBatch and all its Transactions? \r\nThis Action cannot be undone!", 1)
                  == DialogResult.No)
                 {
-                    Global.mnFrm.cmCde.showMsg("Operation Cancelled!", 4);
+                    //Global.mnFrm.cmCde.showMsg("Operation Cancelled!", 4);
                     return;
                 }
                 else

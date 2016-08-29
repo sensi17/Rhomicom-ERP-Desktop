@@ -306,9 +306,9 @@ namespace EventsAndAttendance.Forms
                 //{
                 //}
                 this.fcltyTypeComboBox.SelectedItem = orgnlItm;
-                this.mainItemID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm(
+                int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm(
         "attn.event_price_categories", "price_ctgry_id", "inv_itm_id",
-        int.Parse(this.roomIDTextBox.Text)));
+        int.Parse(this.roomIDTextBox.Text)), out this.mainItemID);
 
                 //        if (this.docTypeComboBox.Text == "Check-In")
                 //        {
@@ -9224,7 +9224,8 @@ namespace EventsAndAttendance.Forms
 
         private void nxtApprvlStatusButton_Click(object sender, EventArgs e)
         {
-            if (this.salesDocIDTextBox.Text == "" || this.salesDocIDTextBox.Text == "-1")
+            if (this.salesDocIDTextBox.Text == "" || this.salesDocIDTextBox.Text == "-1"
+                || long.Parse(this.docIDTextBox.Text) <= 0)
             {
                 Global.mnFrm.cmCde.showMsg("Please select a Saved Document First!", 0);
                 return;
@@ -10130,6 +10131,11 @@ namespace EventsAndAttendance.Forms
                 Cursor.Current = Cursors.Default;
                 return;
             }
+            if (long.Parse(this.docIDTextBox.Text) <= 0)
+            {
+                Global.mnFrm.cmCde.showMsg("Please select a Saved Document First!", 0);
+                return;
+            }
             //Check if Unreversed Payments Exists then disallow else allow
             //and reverse accounting Transactions
             if (this.salesApprvlStatusTextBox.Text != "Approved"
@@ -10721,6 +10727,11 @@ namespace EventsAndAttendance.Forms
             }
             //Check if Unreversed Payments Exists then disallow else allow
             //and reverse accounting Transactions
+            if (long.Parse(this.docIDTextBox.Text) <= 0)
+            {
+                Global.mnFrm.cmCde.showMsg("Please select a Saved Document First!", 0);
+                return;
+            }
             if (this.salesApprvlStatusTextBox.Text != "Approved"
               && this.badDebtButton.Text == "Declare as Bad Debt")
             {

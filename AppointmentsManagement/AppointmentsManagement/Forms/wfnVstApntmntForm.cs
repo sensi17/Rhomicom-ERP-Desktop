@@ -8210,6 +8210,11 @@ ELSE scm.get_cstmr_splr_name(cstmr_id) END)",
 
         private void nxtApprvlStatusButton_Click(object sender, EventArgs e)
         {
+            if (long.Parse(this.docIDTextBox.Text) <= 0)
+            {
+                Global.mnFrm.cmCde.showMsg("Please select a Saved Document First!", 0);
+                return;
+            }
             if (this.billVisitCheckBox.Checked == false)
             {
                 if (this.docStatusTextBox.Text == "Closed")
@@ -8217,6 +8222,7 @@ ELSE scm.get_cstmr_splr_name(cstmr_id) END)",
                     Global.mnFrm.cmCde.showMsg("Document is alreadly Closed!", 0);
                     return;
                 }
+                
                 if (MessageBox.Show("Are you sure you want to CLOSE the selected Document?" +
            "\r\nAll Undelivered Lines will be changed to Delivered!. \r\nThis action cannot be undone!\r\n\r\nDo you still want to Proceed?", "Rhomicom Message",
            MessageBoxButtons.YesNo, MessageBoxIcon.Warning,
@@ -9135,6 +9141,11 @@ ELSE scm.get_cstmr_splr_name(cstmr_id) END)",
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            if (long.Parse(this.docIDTextBox.Text) <= 0)
+            {
+                Global.mnFrm.cmCde.showMsg("Please select a Saved Document First!", 0);
+                return;
+            }
             if (this.billVisitCheckBox.Checked == false)
             {
                 if (this.docStatusTextBox.Text == "Cancelled")
@@ -9700,6 +9711,11 @@ ELSE scm.get_cstmr_splr_name(cstmr_id) END)",
             }
             //Check if Unreversed Payments Exists then disallow else allow
             //and reverse accounting Transactions
+            if (long.Parse(this.docIDTextBox.Text) <= 0)
+            {
+                Global.mnFrm.cmCde.showMsg("Please select a Saved Document First!", 0);
+                return;
+            }
             if (this.salesApprvlStatusTextBox.Text != "Approved"
               && this.badDebtButton.Text == "Declare as Bad Debt")
             {

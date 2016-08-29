@@ -220,3 +220,5 @@ C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\DBConfig\obj\Debug\DBConfig.exe
 C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\DBConfig\obj\Debug\DBConfig.pdb
 C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\DBConfig\bin\Debug\RicherTextBox.pdb
 C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\DBConfig\bin\Debug\MarkupConverter.pdb
+C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\RhomicomERP\DBConfig\bin\Debug\RicherTextBox.pdb
+C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\RhomicomERP\DBConfig\bin\Debug\MarkupConverter.pdb

@@ -357,3 +357,5 @@ C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\EventsAndAttendance\obj\Debug\EventsAn
 C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\EventsAndAttendance\obj\Debug\EventsAndAttendance.pdb
 C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\EventsAndAttendance\bin\Debug\RicherTextBox.pdb
 C:\1_DESIGNS\MYAPPS\RHO_PROJS\RhomicomERP\EventsAndAttendance\bin\Debug\MarkupConverter.pdb
+C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\RhomicomERP\EventsAndAttendance\bin\Debug\RicherTextBox.pdb
+C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\RhomicomERP\EventsAndAttendance\bin\Debug\MarkupConverter.pdb

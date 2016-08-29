@@ -9779,6 +9779,11 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                 Global.mnFrm.cmCde.showMsg("Please select a Saved Document First!", 0);
                 return;
             }
+            if (long.Parse(this.docIDTextBox.Text) <= 0)
+            {
+                Global.mnFrm.cmCde.showMsg("Please select a Saved Document First!", 0);
+                return;
+            }
             if (this.salesApprvlStatusTextBox.Text == "Approved"
               || this.salesApprvlStatusTextBox.Text == "Cancelled" || this.salesApprvlStatusTextBox.Text == "Declared Bad Debt")
             {
@@ -10693,6 +10698,11 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
             }
             //Check if Unreversed Payments Exists then disallow else allow
             //and reverse accounting Transactions
+            if (long.Parse(this.docIDTextBox.Text) <= 0)
+            {
+                Global.mnFrm.cmCde.showMsg("Please select a Saved Document First!", 0);
+                return;
+            }
             if (this.salesApprvlStatusTextBox.Text != "Approved"
               && this.salesApprvlStatusTextBox.Text != "Initiated"
                && this.salesApprvlStatusTextBox.Text != "Validated"
@@ -11332,6 +11342,11 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
             }
             //Check if Unreversed Payments Exists then disallow else allow
             //and reverse accounting Transactions
+            if (long.Parse(this.docIDTextBox.Text) <= 0)
+            {
+                Global.mnFrm.cmCde.showMsg("Please select a Saved Document First!", 0);
+                return;
+            }
             if (this.salesApprvlStatusTextBox.Text != "Approved"
               && this.badDebtButton.Text == "Declare as Bad Debt")
             {

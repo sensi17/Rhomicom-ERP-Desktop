@@ -5030,8 +5030,8 @@ and round(f.smmry_amnt,2)>0 and a.invc_hdr_id=f.src_doc_hdr_id and f.src_doc_typ
             string updtSQL = "UPDATE hotl.checkins_hdr SET " +
                   "doc_status='" + apprvlSts + "', last_update_by=" + Global.myHosp.user_id +
                   ", last_update_date='" + dateStr +
-                  "' WHERE (check_in_id = " +
-                  docid + " or prnt_chck_in_id = " + docid + ")";
+                  "' WHERE ((check_in_id = " +
+                  docid + " and check_in_id>0) or (prnt_chck_in_id = " + docid + " and prnt_chck_in_id>0))";
             Global.mnFrm.cmCde.updateDataNoParams(updtSQL);
         }
 

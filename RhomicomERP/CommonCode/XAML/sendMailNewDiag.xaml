@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        Title="Send Bulk Mails"  WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="pack://siteoforigin:,,,/Resources/web.png" Height="550" Width="1020" BorderBrush="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" Topmost="True">
+        Title="Send Bulk Mails"  WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="pack://siteoforigin:,,,/Resources/web.png" Height="550" Width="1020" BorderBrush="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}">
     <Grid>
         <local:WPFWebBrowser x:Name="webBrowserEditor"  Grid.Row="1" Margin="0,112,0,0" Grid.Column="2" BorderThickness="1" BorderBrush="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" Panel.ZIndex="-99" />
         <Ribbon x:Name="mainRibbon1"  Foreground="#333333" Margin="0,-24,0,0" Grid.Column="2" Panel.ZIndex="-99" Grid.RowSpan="2">

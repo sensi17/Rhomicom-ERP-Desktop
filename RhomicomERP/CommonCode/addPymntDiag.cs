@@ -2818,11 +2818,11 @@ this.docTypeComboBox.Text, cmnCde.Org_id);*/
         {
             if (this.dsablPayments)
             {
-                this.Size = new Size(1015, 490);
+                this.Size = new Size(1018, 490);
             }
             else
             {
-                this.Size = new Size(505, 490);
+                this.Size = new Size(517, 490);
             }
             string dateStr = cmnCde.getFrmtdDB_Date_time();
 
@@ -4108,19 +4108,19 @@ this.docTypeComboBox.Text, cmnCde.Org_id);*/
         {
             if (this.pymntHistoryButton.Text.Contains("Hide"))
             {
-                this.Size = new Size(505, 490);
+                this.Size = new Size(517, 490);
                 if (this.StartPosition != FormStartPosition.CenterParent)
                 {
-                    this.Location = new Point(this.Location.X + 510, this.Location.Y);
+                    this.Location = new Point(this.Location.X + 517, this.Location.Y);
                 }
                 this.pymntHistoryButton.Text = "Show Payment History";
             }
             else
             {
-                this.Size = new Size(1015, 490);
+                this.Size = new Size(1018, 490);
                 if (this.StartPosition != FormStartPosition.CenterParent)
                 {
-                    this.Location = new Point(this.Location.X - 510, this.Location.Y);
+                    this.Location = new Point(this.Location.X - 517, this.Location.Y);
                 }
                 this.pymntHistoryButton.Text = "Hide Payment History";
                 this.populateTrnsGridVw();

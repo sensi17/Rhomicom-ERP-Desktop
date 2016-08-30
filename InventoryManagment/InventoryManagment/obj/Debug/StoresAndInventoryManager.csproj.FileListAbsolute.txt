@@ -666,3 +666,5 @@ C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\InventoryManagment\InventoryMana
 C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.csproj.GenerateResource.Cache
 C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.dll
 C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\InventoryManagment\InventoryManagment\obj\Debug\StoresAndInventoryManager.pdb
+C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\InventoryManagment\InventoryManagment\bin\Debug\RicherTextBox.pdb
+C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\InventoryManagment\InventoryManagment\bin\Debug\MarkupConverter.pdb

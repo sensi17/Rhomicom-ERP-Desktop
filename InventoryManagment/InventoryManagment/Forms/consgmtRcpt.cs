@@ -1294,9 +1294,11 @@ namespace StoresAndInventoryManager.Forms
             {
                 varConsgmtID = "-1";
             }
-            if (long.Parse(varPrcsRunOutputID) > 0)
+            long prnOutpt = -1;
+            long.TryParse(varPrcsRunOutputID, out prnOutpt);
+            if (prnOutpt > 0)
             {
-                Global.updateProcessRunOutpts(long.Parse(varPrcsRunOutputID), parRecptNo, long.Parse(varConsgmtID));
+                Global.updateProcessRunOutpts(prnOutpt, parRecptNo, long.Parse(varConsgmtID));
             }
         }
 
@@ -4779,7 +4781,7 @@ c.lifespan, c.tag_number, c.serial_number, c.consignmt_condition, c.remarks, " +
             }
             catch (Exception ex)
             {
-                Global.mnFrm.cmCde.showMsg(ex.Message, 0);
+                Global.mnFrm.cmCde.showMsg(ex.Message + "\r\n" + ex.StackTrace + "\r\n" + ex.InnerException, 0);
                 return 0;
             }
 

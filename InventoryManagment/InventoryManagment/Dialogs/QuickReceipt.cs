@@ -275,7 +275,7 @@ namespace StoresAndInventoryManager.Forms
             catch (Exception ex)
             {
                 //MessageBox.Show(ex.Message);
-                Global.mnFrm.cmCde.showMsg(ex.Message, 0);
+                Global.mnFrm.cmCde.showMsg(ex.Message + "\r\n" + ex.StackTrace + "\r\n" + ex.InnerException, 0);
                 return;
             }
         }
@@ -410,7 +410,7 @@ namespace StoresAndInventoryManager.Forms
                 //if (rcptType == "Quick Receipt")
                 //{
 
-                if (srchIdx >= 0)
+                if (srchIdx >= 0 && double.Parse(itmCostArry[srchIdx]) > 0)
                 {
                     detUnitPriceCell.Value = itmCostArry[srchIdx];
                 }
@@ -433,7 +433,7 @@ namespace StoresAndInventoryManager.Forms
 
                 //Check Brought Value Here 3
                 DataGridViewCell detItmDestStoreCell = new DataGridViewTextBoxCell();
-                if (srchIdx >= 0)
+                if (srchIdx >= 0 && int.Parse(itmStoreArry[srchIdx]) > 0)
                 {
                     detItmDestStoreCell.Value = Global.mnFrm.cmCde.getGnrlRecNm("inv.inv_itm_subinventories", "subinv_id", "subinv_name", int.Parse(itmStoreArry[srchIdx]));
                 }
@@ -1574,7 +1574,7 @@ namespace StoresAndInventoryManager.Forms
             }
             catch (Exception ex)
             {
-                Global.mnFrm.cmCde.showMsg(ex.Message, 0);
+                Global.mnFrm.cmCde.showMsg(ex.Message + "\r\n" + ex.StackTrace + "\r\n" + ex.InnerException, 0);
                 return;
             }
         }
@@ -2148,7 +2148,7 @@ namespace StoresAndInventoryManager.Forms
             }
             catch (Exception ex)
             {
-                Global.mnFrm.cmCde.showMsg(ex.Message, 0);
+                Global.mnFrm.cmCde.showMsg(ex.Message + "\r\n" + ex.StackTrace + "\r\n" + ex.InnerException, 0);
                 return;
             }
         }

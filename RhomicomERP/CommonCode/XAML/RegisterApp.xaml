@@ -1,0 +1,40 @@
+﻿<Window x:Name="registerProduct" x:Class="CommonCode.XAML.RegisterApp"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CommonCode.XAML"
+             mc:Ignorable="d" Height="339" Width="485" Loaded="registerProduct_Loaded">
+    <Grid Background="Gray" Margin="0,0,0,0">
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,5,0,0" Name="textBlockHeading" Text="Product Registration (For Support):" VerticalAlignment="Top" Width="453"  FontSize="17" FontStretch="ExtraCondensed"/>
+        <!--Button as a Link button using style-->
+        <!--end Button as a Link button using style-->
+        <Grid Margin="10,0,11,23" Background="White" Height="254" VerticalAlignment="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="252*" />
+                <!--   <RowDefinition Height="12*" />-->
+            </Grid.RowDefinitions>
+            <TextBlock Height="20" HorizontalAlignment="Left" Margin="67,0,0,0" x:Name ="errormessage" VerticalAlignment="Top" Width="247"  OpacityMask="Crimson" Foreground="#FFE5572C" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="16,20,0,0" Name="textBlockFirstname" Text="Name of Organisation:" VerticalAlignment="Top" Width="123" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="16,50,0,0" Name="textBlockLastName" Text="Location:" VerticalAlignment="Top" Width="123" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="16,80,0,0" Name="textBlockEmailId" Text="Email Address:" VerticalAlignment="Top" Width="123" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="16,137,0,0" Name="textBlockAddress" Text="Support Code:" VerticalAlignment="Top" Width="110" />
+
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="140,20,0,0" Name="textBoxFirstName" VerticalAlignment="Top" Width="303" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="140,50,0,0" Name="textBoxLastName" VerticalAlignment="Top" Width="303" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="140,80,0,0" Name="textBoxEmail" VerticalAlignment="Top" Width="303" />
+            <!--For password-->
+            <TextBox Height="80" HorizontalAlignment="Left" Margin="140,0,0,36" Name="textBoxAddress" VerticalAlignment="Bottom" Width="303" />
+            <Button Content="Submit Registration" Height="23" HorizontalAlignment="Left" Margin="4,223,0,0" x:Name="Submit_Registration" VerticalAlignment="Top" Width="123" />
+            <Button Content="Verify Registration" Height="23" HorizontalAlignment="Left" Margin="132,223,0,0" Name="button2" VerticalAlignment="Top" Width="111" />
+            <Button Content="Cancel" Height="23" HorizontalAlignment="Right" Margin="0,223,12,0" Name="button3" VerticalAlignment="Top" Width="70" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="16,108,0,0" x:Name="textBlockAddress_Copy" Text="Support Subscription Type:" VerticalAlignment="Top" Width="151" />
+            <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="172,109,0,0" VerticalAlignment="Top" Width="271">
+                <ComboBoxItem Content="Premium Support"/>
+                <ComboBoxItem Content="Standard Support"/>
+                <ComboBoxItem Content="Basic Support"/>
+            </ComboBox>
+            <Button Content="Submit Registration" Height="23" HorizontalAlignment="Left" Margin="248,223,0,0" x:Name="Submit_Registration_Copy" VerticalAlignment="Top" Width="123" />
+        </Grid>
+    </Grid>
+</Window>

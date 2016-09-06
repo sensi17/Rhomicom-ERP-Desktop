@@ -713,7 +713,7 @@ namespace Accounting.Dialogs
         string btchN = this.trnsDetListView.SelectedItems[0].SubItems[21].Text;
         Global.mnFrm.searchForTrnsTextBox.Text = btchN;
         Global.mnFrm.searchInTrnsComboBox.SelectedItem = "Batch Name";
-        Global.mnFrm.loadCorrectPanel("Accounting Transactions");
+        Global.mnFrm.loadCorrectPanel("Journal Entries");
         Global.mnFrm.showUnpostedCheckBox.Checked = false;
         if (Global.mnFrm.shwMyBatchesCheckBox.Enabled == true)
         {

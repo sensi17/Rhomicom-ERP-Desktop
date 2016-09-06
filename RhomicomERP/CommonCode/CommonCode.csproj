@@ -261,6 +261,9 @@
     <Compile Include="XAML\InsertWebLink.xaml.cs">
       <DependentUpon>InsertWebLink.xaml</DependentUpon>
     </Compile>
+    <Compile Include="XAML\RegisterApp.xaml.cs">
+      <DependentUpon>RegisterApp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="XAML\sendMailNewDiag.xaml.cs">
       <DependentUpon>sendMailNewDiag.xaml</DependentUpon>
     </Compile>
@@ -454,6 +457,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="XAML\InsertWebLink.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="XAML\RegisterApp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

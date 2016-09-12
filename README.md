@@ -29,6 +29,7 @@ Capabilities of the Rhomicom ERP (Web/Desktop Renditions)
 23. Export and Import of Data from Microsoft Excel fully supported					
 24. School/Academics Management/Performance Management System					
 25. Projects Management
+26. Automated Stock Management with regards to Restaurant Recipies, Product Creation and Manufacturing of Items
 
 =======================================
 Various Modules currently completed are

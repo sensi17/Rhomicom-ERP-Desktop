@@ -7,7 +7,7 @@ APPENDIX A: Capabilities of the Rhomicom ERP (Web/Desktop Reditions)
 ====================================================================
 1. Capture/Upload all Bio and Allied Data on Members, Staff, Students, Board Members, and Directors Etc.													
 2. Run Payroll for all Persons Captured where applicable (Payroll is fully customizable to meet the peculiar needs of the institution)	3. Tithes, Welfare Dues, Contributions, Membership Dues, School Fees can all be collected/paid with receipts via the Internal Payments Module								
-4. Point three can also be done via the Sales/Inventory Module where there is the need to sell inventory items to the member/student at the time of paying the fees/dues					
+4. Point three can also be done via the Sales/Inventory Module where there is the need to sell inventory items to the member/student at the time of paying the fees/dues	(Point of Sale (POS) supported)				
 5. Automated SMS Alerts on any report or data needed (E.g. birthday messages, customer payment alerts etc.)												
 6. Automated Email Alerts on any report or data needed (E.g. pay slips, bills, dues balances etc.)	
 7. Automated backups and data integrity checks							

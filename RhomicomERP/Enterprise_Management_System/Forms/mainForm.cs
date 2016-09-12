@@ -63,9 +63,6 @@ namespace Enterprise_Management_System.Forms
         {
             string tst = System.Environment.GetEnvironmentVariable("Path");
             CommonCode.CommonCodes.LocalDataPool = new string[100];
-            CommonCode.CommonCodes.AppName = "Rhomicom ERP";
-            CommonCode.CommonCodes.AppVrsn = "V1 P22";
-            CommonCode.CommonCodes.AppVersion = "V1.2.2 (Free)";
             this.appVersionStatusLabel.Text = CommonCode.CommonCodes.AppName + " " + CommonCode.CommonCodes.AppVersion;
             this.Text = CommonCode.CommonCodes.AppName + " " + CommonCode.CommonCodes.AppVersion;
 
@@ -2372,5 +2369,10 @@ namespace Enterprise_Management_System.Forms
         #region "OTHER FUNCTIONS..."
 
         #endregion
+
+        private void registerForSupportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Global.myNwMainFrm.cmnCdMn.showSupportDiag(Global.myNwMainFrm.cmnCdMn);
+        }
     }
 }

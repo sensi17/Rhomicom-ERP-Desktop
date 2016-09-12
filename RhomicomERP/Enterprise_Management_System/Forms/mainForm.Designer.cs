@@ -117,6 +117,7 @@ namespace Enterprise_Management_System.Forms
             this.updtLabelsTimer = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.registerForSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -481,7 +482,8 @@ namespace Enterprise_Management_System.Forms
             this.operationalManualsToolStripMenuItem,
             this.contentToolStripMenuItem,
             this.toolStripSeparator4,
-            this.aboutRhomicomToolStripMenuItem});
+            this.aboutRhomicomToolStripMenuItem,
+            this.registerForSupportToolStripMenuItem});
             this.helpToolStripMenuItem.Image = global::Enterprise_Management_System.Properties.Resources.Help111;
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
@@ -852,6 +854,14 @@ namespace Enterprise_Management_System.Forms
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // registerForSupportToolStripMenuItem
+            // 
+            this.registerForSupportToolStripMenuItem.Image = global::Enterprise_Management_System.Properties.Resources.addresses_wbg_64x64;
+            this.registerForSupportToolStripMenuItem.Name = "registerForSupportToolStripMenuItem";
+            this.registerForSupportToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.registerForSupportToolStripMenuItem.Text = "Register for Support";
+            this.registerForSupportToolStripMenuItem.Click += new System.EventHandler(this.registerForSupportToolStripMenuItem_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -955,6 +965,7 @@ namespace Enterprise_Management_System.Forms
     public System.Windows.Forms.ToolStripMenuItem localStorageMenuItem;
     public System.Windows.Forms.ToolStripMenuItem visitsAndAppointmentsToolStripMenuItem;
     public System.Windows.Forms.ToolStripMenuItem projectManagementToolStripMenuItem;
-  }
+        private System.Windows.Forms.ToolStripMenuItem registerForSupportToolStripMenuItem;
+    }
 }
 

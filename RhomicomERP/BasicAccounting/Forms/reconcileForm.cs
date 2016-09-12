@@ -787,6 +787,12 @@ namespace Accounting.Forms
 
         private void OKButton_Click(object sender, EventArgs e)
         {
+            if (this.trnsDataGridView.Rows.Count <= 0)
+            {
+                Global.mnFrm.cmCde.showMsg("Please create transactions First!", 0);
+                this.saveTrnsBatchButton.Enabled = true;
+                return;
+            }
             this.saveTrnsBatchButton.Enabled = false;
             this.gotoButton_Click(this.gotoButton, e);
             this.createBatch();
@@ -1161,6 +1167,95 @@ namespace Accounting.Forms
         private void autoBalanceButton_Click(object sender, EventArgs e)
         {
 
+            this.gotoButton.PerformClick();
+            double ttldiff = double.Parse(this.totalDiffLabel.Text);
+            if (ttldiff == 0)
+            {
+                Global.mnFrm.cmCde.showMsg("Transactions are already Balanced", 0);
+                return;
+            }
+            if (this.trnsDataGridView.Rows.Count > 0)
+            {
+                this.trnsDataGridView.CurrentCell = this.trnsDataGridView.Rows[this.trnsDataGridView.Rows.Count - 1].Cells[1];
+            }
+            int rowIdx = this.trnsDataGridView.CurrentCell.RowIndex;
+            if (this.trnsDataGridView.Rows[rowIdx].Cells[1].Value.ToString() != "")
+            {
+                this.addTrnsLineButton.PerformClick();
+            }
+            if (this.trnsDataGridView.Rows.Count > 0)
+            {
+                this.trnsDataGridView.CurrentCell = this.trnsDataGridView.Rows[this.trnsDataGridView.Rows.Count - 1].Cells[1];
+            }
+            double tllDbt = double.Parse(this.totalDbtsLabel.Text);
+            double tllCrdt = double.Parse(this.totalCrdtsLabel.Text);
+            string incrsDcrs = "Increase";
+            if (tllDbt > tllCrdt)
+            {
+                incrsDcrs = "Decrease";
+            }
+            int acntID = Global.get_DfltCashAcnt(Global.mnFrm.cmCde.Org_id);
+            rowIdx = this.trnsDataGridView.CurrentCell.RowIndex;
+            string trnsDesc = "";
+            long trnsaction_id = -1;
+            int pssblvalid = -1;
+            string lneDesc = "";
+            double qty = 1;
+            double unitAmnt = 0;
+            double lnAmnt = 0;
+            long trnsdetid = -1;
+            trnsaction_id = -1 * long.Parse(Global.mnFrm.cmCde.getDB_Date_time().Replace("-", "").Replace(":", "").Replace(" ", ""));
+            string refDocNums = "";
+            for (int i = 0; i < this.trnsDataGridView.Rows.Count; i++)
+            {
+                int accntid = -1;
+                int.TryParse(this.trnsDataGridView.Rows[i].Cells[5].Value.ToString(), out accntid);
+                string acntType = Global.mnFrm.cmCde.getAccntType(accntid);
+                trnsdetid = Global.getNewAmntBrkDwnID();
+                lneDesc = this.trnsDataGridView.Rows[i].Cells[1].Value.ToString();
+                string refDocNum = this.trnsDataGridView.Rows[i].Cells[2].Value.ToString();
+                double.TryParse(this.trnsDataGridView.Rows[i].Cells[7].Value.ToString(), out unitAmnt);
+                if (lneDesc != "")
+                {
+                    trnsDesc += ": " + lneDesc;
+                    refDocNums += ": " + refDocNum;
+                    lnAmnt = unitAmnt;
+                    qty = Global.dbtOrCrdtAccntMultiplier(accntid,
+               this.trnsDataGridView.Rows[i].Cells[3].Value.ToString().Substring(0, 1));
+                    //
+                    //Global.mnFrm.cmCde.isAccntContra(accntid) == "1"
+                    if (((acntType == "A" || acntType == "EX")
+                      && incrsDcrs == "Increase")
+                      || ((acntType == "R" || acntType == "EQ" || acntType == "L")
+                      && incrsDcrs == "Decrease")
+                      || (Global.mnFrm.cmCde.isAccntContra(accntid) == "1"
+                     && incrsDcrs == "Decrease"))
+                    {
+                        qty = -1 * qty;
+                    }
+
+                    //else
+                    //{
+                    //  qty = -1 * qty;
+                    //}
+                    double netAmnt = qty * (double)lnAmnt;
+                    Global.createAmntBrkDwn(trnsaction_id, trnsdetid, pssblvalid, lneDesc + " " + refDocNum, qty, unitAmnt, netAmnt);
+                }
+            }
+            char[] w = { ':' };
+            if (trnsDesc.Length > 484)
+            {
+                trnsDesc = trnsDesc.Substring(0, 484);
+            }
+            this.trnsDataGridView.Rows[rowIdx].Cells[0].Value = trnsaction_id;
+            this.trnsDataGridView.Rows[rowIdx].Cells[1].Value = "Balancing Leg: " + trnsDesc.Trim().Trim(w);
+            this.trnsDataGridView.Rows[rowIdx].Cells[2].Value = refDocNums;
+            this.trnsDataGridView.Rows[rowIdx].Cells[3].Value = incrsDcrs;
+            this.trnsDataGridView.Rows[rowIdx].Cells[4].Value = Global.mnFrm.cmCde.getAccntNum(acntID) +
+              "." + Global.mnFrm.cmCde.getAccntName(acntID);
+            this.trnsDataGridView.Rows[rowIdx].Cells[5].Value = acntID;
+            this.trnsDataGridView.Rows[rowIdx].Cells[7].Value = ttldiff;
+            this.gotoButton.PerformClick();
         }
 
         private void accntStmntTextBox_TextChanged(object sender, EventArgs e)
@@ -1433,7 +1528,7 @@ namespace Accounting.Forms
             }
             nwItem1 = new ListViewItem(new string[] {
       "","","CLOSING BALANCE","",closngDbtBals.ToString("#,##0.00"),
-      closngCrdtBals.ToString("#,##0.00"), 
+      closngCrdtBals.ToString("#,##0.00"),
       closngBals.ToString("#,##0.00"),
         endDate,"","","","","","","","","","","",""});
             nwItem1.BackColor = Color.SkyBlue;
@@ -1549,7 +1644,7 @@ namespace Accounting.Forms
 
         private void removeSlctdButton_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < this.accntStmntListView.CheckedItems.Count; )
+            for (int i = 0; i < this.accntStmntListView.CheckedItems.Count;)
             {
                 if (this.accntStmntListView.CheckedItems[0].SubItems[1].Text != "")
                 {
@@ -1685,7 +1780,7 @@ namespace Accounting.Forms
             this.statusLoadPictureBox.Visible = true;
             System.Windows.Forms.Application.DoEvents();
             //Call createTrnsTmp passing onto it values from the Checked List View Items
-            for (int i = 0; i < this.accntStmntListView.CheckedItems.Count; )
+            for (int i = 0; i < this.accntStmntListView.CheckedItems.Count;)
             {
                 if (this.accntStmntListView.CheckedItems[0].SubItems[1].Text != ""
                   && this.accntStmntListView.CheckedItems[0].SubItems[17].Text == "VALID"
@@ -1879,6 +1974,23 @@ namespace Accounting.Forms
             {
                 this.endDteAccntStmntTextBox.Text = this.endDteAccntStmntTextBox.Text.Substring(0, 11) + " 23:59:59";
             }
+        }
+
+        private void resetRcnclButton_Click(object sender, EventArgs e)
+        {
+            if (Global.mnFrm.cmCde.showMsg("Are you sure you want to CLEAR All RECORDS on this Page?" +
+             "\r\nThis action cannot be undone!", 1) == DialogResult.No)
+            {
+                //Global.mnFrm.cmCde.showMsg("Operation Cancelled!", 4);
+                return;
+            }
+            this.batchid = -1;
+            this.batchNameTextBox.Text = "";
+            this.trnsDataGridView.Rows.Clear();
+
+            this.totalCrdtsLabel.Text = "0.00";
+            this.totalDbtsLabel.Text = "0.00";
+            this.totalDiffLabel.Text = "0.00";
         }
     }
 }

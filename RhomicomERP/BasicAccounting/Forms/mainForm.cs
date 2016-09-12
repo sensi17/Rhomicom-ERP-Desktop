@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -164,6 +164,11 @@ namespace Accounting.Forms
         long last_imadt_num = 0;
         public string imadt_SQL = "";
         bool obey_imadt_evnts = false;
+        //Reconciliation
+        public int orgid = -1;
+        public long batchid = -1;
+        public int curid = -1;
+        public string curCode = "";
         #endregion
 
         #region "FORM EVENTS..."
@@ -284,6 +289,8 @@ namespace Accounting.Forms
             //Global.createRqrdLOVs1();
             this.funCurID = Global.mnFrm.cmCde.getOrgFuncCurID(Global.mnFrm.cmCde.Org_id);
             this.funcCurCode = Global.mnFrm.cmCde.getPssblValNm(funCurID);
+            this.curid = this.funCurID;
+            this.curCode = this.funcCurCode;
             //Global.updtOrgAccntCurrID(Global.mnFrm.cmCde.Org_id, this.funCurID);
             int suspns_accnt = Global.get_Suspns_Accnt(Global.mnFrm.cmCde.Org_id);
             int accntID = Global.mnFrm.cmCde.getAccntID("01SYSTEM_SUSPENSE13040", Global.mnFrm.cmCde.Org_id);
@@ -5435,15 +5442,18 @@ Check the ff Days:" + "\r\n";
                     double.TryParse(dtst.Tables[0].Rows[i][3].ToString(), out amnt1);
                     double.TryParse(dtst.Tables[0].Rows[i][4].ToString(), out amnt2);
                     double.TryParse(dtst.Tables[0].Rows[i][5].ToString(), out amnt3);
-                    if (amnt2 > amnt1)
+                    if (!this.shwBalsVarnCheckBox.Checked)
                     {
-                        amnt2 = amnt2 - amnt1;
-                        amnt1 = 0;
-                    }
-                    else
-                    {
-                        amnt1 = amnt1 - amnt2;
-                        amnt2 = 0;
+                        if (amnt2 > amnt1)
+                        {
+                            amnt2 = amnt2 - amnt1;
+                            amnt1 = 0;
+                        }
+                        else
+                        {
+                            amnt1 = amnt1 - amnt2;
+                            amnt2 = 0;
+                        }
                     }
                     if (this.shwBalsVarnCheckBox.Checked)
                     {
@@ -5462,8 +5472,7 @@ Check the ff Days:" + "\r\n";
                           "dbt_amount", balsDate);
                         amnt2 -= Global.get_Accnt_BalsTrnsSum(int.Parse(dtst.Tables[0].Rows[i][0].ToString()),
                           "crdt_amount", balsDate);
-                        amnt3 -= netamnt;/*Global.get_Accnt_BalsTrnsSum(int.Parse(dtst.Tables[0].Rows[i][0].ToString()),
-              "net_amount", balsDate);*/
+                        amnt3 -= netamnt;
                     }
 
                     if (amnt3 == 0 && this.hideZeroAccntCheckBox1.Checked == true)
@@ -5875,6 +5884,1434 @@ Check the ff Days:" + "\r\n";
             {
                 Global.mnFrm.cmCde.listViewKeyDown(this.trialBalListView, e);
             }
+        }
+        #endregion
+
+        #region "RECONCILE BALANCES"
+
+        private void addTrnsLineButton_Click(object sender, EventArgs e)
+        {
+            if (this.trnsDateTextBox.Text == "")
+            {
+                Global.mnFrm.cmCde.showMsg("Please provide a Default Transaction Date First!", 0);
+                return;
+            }
+            this.createTrnsRows(1);
+        }
+
+        public void createTrnsRows(int num)
+        {
+            this.obey_evnts = false;
+            //this.trnsDataGridView.Columns[0].DefaultCellStyle.NullValue = "-1";
+            //this.trnsDataGridView.Columns[1].DefaultCellStyle.NullValue = "";
+            //this.trnsDataGridView.Columns[2].DefaultCellStyle.NullValue = "Increase";
+            //this.trnsDataGridView.Columns[3].DefaultCellStyle.NullValue = "";
+            //this.trnsDataGridView.Columns[4].DefaultCellStyle.NullValue = "-1";
+            //this.trnsDataGridView.Columns[5].DefaultCellStyle.NullValue = "...";
+            //this.trnsDataGridView.Columns[6].DefaultCellStyle.NullValue = "";
+            //this.trnsDataGridView.Columns[7].DefaultCellStyle.NullValue = "0.00";
+            //this.trnsDataGridView.Columns[8].DefaultCellStyle.NullValue = this.curid;
+            //this.trnsDataGridView.Columns[9].DefaultCellStyle.NullValue = this.trnsDateTextBox.Text;
+            //this.trnsDataGridView.Columns[10].DefaultCellStyle.NullValue = "...";
+
+            for (int i = 0; i < num; i++)
+            {
+                //this.trnsDataGridView.RowCount += 1;
+                //int rowIdx = this.trnsDataGridView.RowCount - 1;
+                int rowIdx = this.trnsDataGridView.RowCount;
+                if (this.trnsDataGridView.CurrentCell != null)
+                {
+                    rowIdx = this.trnsDataGridView.CurrentCell.RowIndex + 1;
+                }
+                this.trnsDataGridView.Rows.Insert(rowIdx, 1);
+                this.trnsDataGridView.Rows[rowIdx].Cells[0].Value = "-1";
+                this.trnsDataGridView.Rows[rowIdx].Cells[1].Value = "";
+                this.trnsDataGridView.Rows[rowIdx].Cells[2].Value = "";
+                this.trnsDataGridView.Rows[rowIdx].Cells[3].Value = "Increase";
+                this.trnsDataGridView.Rows[rowIdx].Cells[4].Value = "";
+                this.trnsDataGridView.Rows[rowIdx].Cells[5].Value = "-1";
+                this.trnsDataGridView.Rows[rowIdx].Cells[6].Value = "...";
+                this.trnsDataGridView.Rows[rowIdx].Cells[7].Value = "0.00";
+                this.trnsDataGridView.Rows[rowIdx].Cells[8].Value = "...";
+                this.trnsDataGridView.Rows[rowIdx].Cells[9].Value = this.curid;
+                this.trnsDataGridView.Rows[rowIdx].Cells[10].Value = this.curCode;
+                this.trnsDataGridView.Rows[rowIdx].Cells[11].Value = "...";
+                this.trnsDataGridView.Rows[rowIdx].Cells[12].Value = this.trnsDateTextBox.Text;
+                this.trnsDataGridView.Rows[rowIdx].Cells[13].Value = "...";
+                this.trnsDataGridView.Rows[rowIdx].Cells[14].Value = "1.00";
+                this.trnsDataGridView.Rows[rowIdx].Cells[15].Value = "1.00";
+                this.trnsDataGridView.Rows[rowIdx].Cells[16].Value = "0.00";
+                this.trnsDataGridView.Rows[rowIdx].Cells[17].Value = this.curCode;
+                this.trnsDataGridView.Rows[rowIdx].Cells[18].Value = "0.00";
+                this.trnsDataGridView.Rows[rowIdx].Cells[19].Value = this.curCode;
+                this.trnsDataGridView.Rows[rowIdx].Cells[20].Value = this.curid;
+                this.trnsDataGridView.Rows[rowIdx].Cells[21].Value = this.curid;
+                this.trnsDataGridView.Rows[rowIdx].Cells[22].Value = -1;
+            }
+            for (int i = 0; i < this.trnsDataGridView.Rows.Count; i++)
+            {
+                this.trnsDataGridView.Rows[i].HeaderCell.Value = (i + 1).ToString();
+            }
+            this.obey_evnts = true;
+        }
+
+        private void delLineButton_Click(object sender, EventArgs e)
+        {
+            if (this.trnsDataGridView.CurrentCell != null)
+            {
+                this.trnsDataGridView.Rows[this.trnsDataGridView.CurrentCell.RowIndex].Selected = true;
+            }
+            if (this.trnsDataGridView.SelectedRows.Count <= 0)
+            {
+                Global.mnFrm.cmCde.showMsg("Please select the lines to be Deleted First!", 0);
+                return;
+            }
+            if (Global.mnFrm.cmCde.showMsg("Are you sure you want to DELETE the selected Record?" +
+             "\r\nThis action cannot be undone!", 1) == DialogResult.No)
+            {
+                //Global.mnFrm.cmCde.showMsg("Operation Cancelled!", 4);
+                return;
+            }
+            int slctdrows = this.trnsDataGridView.SelectedRows.Count;
+            for (int i = 0; i < slctdrows; i++)
+            {
+                long trnsID = long.Parse(this.trnsDataGridView.Rows[this.trnsDataGridView.SelectedRows[0].Index].Cells[0].Value.ToString());
+                Global.deleteTransaction(trnsID);
+                this.trnsDataGridView.Rows.RemoveAt(this.trnsDataGridView.SelectedRows[0].Index);
+            }
+            //this.gotoButton_Click(this.gotoButton, e);
+        }
+
+        private void trnsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e == null || this.obey_evnts == false)
+            {
+                return;
+            }
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            {
+                return;
+            }
+            //if (this.trnsDataGridView.CurrentCell != null)
+            //{
+            //  if (e.ColumnIndex != this.trnsDataGridView.CurrentCell.ColumnIndex)
+            //  {
+            //    return;
+            //  }
+            //}
+            //Global.mnFrm.cmCde.showMsg(this.srchWrd + "/" + e.RowIndex.ToString() + "/" + e.ColumnIndex.ToString(), 0);
+            bool prv = this.obey_evnts;
+            this.obey_evnts = false;
+
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[1].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[1].Value = string.Empty;
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[2].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[2].Value = string.Empty;
+            }
+
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[4].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[4].Value = string.Empty;
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[5].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[5].Value = "-1";
+            }
+            //if (this.trnsDataGridView.Rows[e.RowIndex].Cells[6].Value == null)
+            //{
+            //  this.trnsDataGridView.Rows[e.RowIndex].Cells[6].Value = "";
+            //}
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[7].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[7].Value = 0;
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[9].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[9].Value = "-1";
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[12].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[12].Value = "";
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[14].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[14].Value = 1.00;
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[15].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[15].Value = 1.00;
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[16].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[16].Value = 0;
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[18].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[18].Value = 0;
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[20].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[20].Value = "-1";
+            }
+            if (e.ColumnIndex == 6)
+            {
+
+                string[] selVals = new string[1];
+                selVals[0] = this.trnsDataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
+                DialogResult dgRes = Global.mnFrm.cmCde.showPssblValDiag(
+                  Global.mnFrm.cmCde.getLovID("Transaction Accounts"),
+                  ref selVals, true, true, this.orgid,
+                  this.srchWrd, "Both", true);
+                if (dgRes == DialogResult.OK)
+                {
+                    for (int i = 0; i < selVals.Length; i++)
+                    {
+                        this.obey_evnts = false;
+                        this.trnsDataGridView.Rows[e.RowIndex].Cells[5].Value = selVals[i];
+                        //this.trnsDataGridView.Rows[e.RowIndex].Cells[6].Value = 
+
+                        int accntCurrID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm(
+                          "accb.accb_chart_of_accnts", "accnt_id", "crncy_id", long.Parse(selVals[i])));
+                        this.trnsDataGridView.Rows[e.RowIndex].Cells[19].Value = Global.mnFrm.cmCde.getPssblValNm(accntCurrID);
+                        this.trnsDataGridView.Rows[e.RowIndex].Cells[20].Value = accntCurrID;
+                        this.trnsDataGridView.Rows[e.RowIndex].Cells[4].Value = Global.mnFrm.cmCde.getAccntNum(int.Parse(selVals[i])) +
+                  "." + Global.mnFrm.cmCde.getAccntName(int.Parse(selVals[i]));
+                        System.Windows.Forms.Application.DoEvents();
+
+                        string slctdCurrID = this.trnsDataGridView.Rows[e.RowIndex].Cells[9].Value.ToString();
+                        this.trnsDataGridView.Rows[e.RowIndex].Cells[14].Value = Math.Round(
+                  Global.get_LtstExchRate(int.Parse(slctdCurrID), this.curid,
+                  this.trnsDataGridView.Rows[e.RowIndex].Cells[12].Value.ToString()), 15);
+                        this.trnsDataGridView.Rows[e.RowIndex].Cells[15].Value = Math.Round(
+                          Global.get_LtstExchRate(int.Parse(slctdCurrID), accntCurrID,
+                  this.trnsDataGridView.Rows[e.RowIndex].Cells[12].Value.ToString()), 15);
+                        System.Windows.Forms.Application.DoEvents();
+
+                        double funcCurrRate = 0;
+                        double accntCurrRate = 0;
+                        double entrdAmnt = 0;
+                        double.TryParse(this.trnsDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString(), out entrdAmnt);
+                        double.TryParse(this.trnsDataGridView.Rows[e.RowIndex].Cells[14].Value.ToString(), out funcCurrRate);
+                        double.TryParse(this.trnsDataGridView.Rows[e.RowIndex].Cells[15].Value.ToString(), out accntCurrRate);
+                        this.trnsDataGridView.Rows[e.RowIndex].Cells[16].Value = (funcCurrRate * entrdAmnt).ToString("#,##0.00");
+                        this.trnsDataGridView.Rows[e.RowIndex].Cells[18].Value = (accntCurrRate * entrdAmnt).ToString("#,##0.00");
+                        System.Windows.Forms.Application.DoEvents();
+
+                    }
+                }
+                //SendKeys.Send("{Tab}"); 
+                //SendKeys.Send("{Tab}"); 
+                this.trnsDataGridView.EndEdit();
+                this.obey_evnts = true;
+                this.trnsDataGridView.CurrentCell = this.trnsDataGridView.Rows[e.RowIndex].Cells[7];
+            }
+            else if (e.ColumnIndex == 8)
+            {
+                trnsAmntBreakDwnDiag nwDiag = new trnsAmntBreakDwnDiag();
+                nwDiag.editMode = true;
+                nwDiag.trnsaction_id = long.Parse(this.trnsDataGridView.Rows[e.RowIndex].Cells[0].Value.ToString());
+                if (nwDiag.ShowDialog() == DialogResult.OK)
+                {
+                    this.trnsDataGridView.Rows[e.RowIndex].Cells[0].Value = nwDiag.trnsaction_id;
+
+                    this.trnsDataGridView.EndEdit();
+                    this.obey_evnts = true;
+                    this.trnsDataGridView.Rows[e.RowIndex].Cells[7].Value = Math.Round(nwDiag.ttlNumUpDwn.Value, 2).ToString("#,##0.00");
+                }
+                this.trnsDataGridView.EndEdit();
+                this.obey_evnts = true;
+                this.trnsDataGridView.CurrentCell = this.trnsDataGridView.Rows[e.RowIndex].Cells[7];
+            }
+            else if (e.ColumnIndex == 11)
+            {
+                int[] selVals = new int[1];
+                selVals[0] = int.Parse(this.trnsDataGridView.Rows[e.RowIndex].Cells[9].Value.ToString());
+                DialogResult dgRes = Global.mnFrm.cmCde.showPssblValDiag(
+                 Global.mnFrm.cmCde.getLovID("Currencies"), ref selVals,
+                 true, true, this.srchWrd, "Both", true);
+
+                if (dgRes == DialogResult.OK)
+                {
+                    for (int i = 0; i < selVals.Length; i++)
+                    {
+                        this.obey_evnts = false;
+                        System.Windows.Forms.Application.DoEvents();
+                        this.trnsDataGridView.Rows[e.RowIndex].Cells[9].Value = selVals[i].ToString();
+
+                        string slctdCurrID = selVals[i].ToString();
+                        string accntCurrID = this.trnsDataGridView.Rows[e.RowIndex].Cells[20].Value.ToString();
+                        string funcCurrID = this.trnsDataGridView.Rows[e.RowIndex].Cells[21].Value.ToString();
+
+                        this.trnsDataGridView.Rows[e.RowIndex].Cells[14].Value = Math.Round(
+                  Global.get_LtstExchRate(int.Parse(slctdCurrID), int.Parse(funcCurrID),
+                  this.trnsDataGridView.Rows[e.RowIndex].Cells[12].Value.ToString()), 15);
+                        this.trnsDataGridView.Rows[e.RowIndex].Cells[15].Value = Math.Round(
+                          Global.get_LtstExchRate(int.Parse(slctdCurrID), int.Parse(accntCurrID),
+                  this.trnsDataGridView.Rows[e.RowIndex].Cells[12].Value.ToString()), 15);
+                        System.Windows.Forms.Application.DoEvents();
+
+                        double funcCurrRate = 0;
+                        double accntCurrRate = 0;
+                        double entrdAmnt = 0;
+                        double.TryParse(this.trnsDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString(), out entrdAmnt);
+                        double.TryParse(this.trnsDataGridView.Rows[e.RowIndex].Cells[14].Value.ToString(), out funcCurrRate);
+                        double.TryParse(this.trnsDataGridView.Rows[e.RowIndex].Cells[15].Value.ToString(), out accntCurrRate);
+                        this.trnsDataGridView.Rows[e.RowIndex].Cells[16].Value = (funcCurrRate * entrdAmnt).ToString("#,##0.00");
+                        this.trnsDataGridView.Rows[e.RowIndex].Cells[18].Value = (accntCurrRate * entrdAmnt).ToString("#,##0.00");
+                        System.Windows.Forms.Application.DoEvents();
+
+                        this.trnsDataGridView.EndEdit();
+                        this.obey_evnts = false;
+                        this.trnsDataGridView.Rows[e.RowIndex].Cells[10].Value = Global.mnFrm.cmCde.getPssblValNm(selVals[i]);
+                    }
+                }
+                this.obey_evnts = true;
+                this.trnsDataGridView.CurrentCell = this.trnsDataGridView.Rows[e.RowIndex].Cells[7];
+            }
+            else if (e.ColumnIndex == 13)
+            {
+                this.trnsDateTextBox.Text = this.trnsDataGridView.Rows[e.RowIndex].Cells[12].Value.ToString();
+                Global.mnFrm.cmCde.selectDate(ref this.trnsDateTextBox);
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[12].Value = this.trnsDateTextBox.Text;
+                this.trnsDataGridView.EndEdit();
+
+                string slctdCurrID = this.trnsDataGridView.Rows[e.RowIndex].Cells[9].Value.ToString();
+                string accntCurrID = this.trnsDataGridView.Rows[e.RowIndex].Cells[20].Value.ToString();
+                string funcCurrID = this.trnsDataGridView.Rows[e.RowIndex].Cells[21].Value.ToString();
+
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[14].Value = Math.Round(
+                Global.get_LtstExchRate(int.Parse(slctdCurrID), int.Parse(funcCurrID),
+            this.trnsDataGridView.Rows[e.RowIndex].Cells[12].Value.ToString()), 15);
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[15].Value = Math.Round(
+                  Global.get_LtstExchRate(int.Parse(slctdCurrID), int.Parse(accntCurrID),
+            this.trnsDataGridView.Rows[e.RowIndex].Cells[12].Value.ToString()), 15);
+                System.Windows.Forms.Application.DoEvents();
+
+                double funcCurrRate = 0;
+                double accntCurrRate = 0;
+                double entrdAmnt = 0;
+                double.TryParse(this.trnsDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString(), out entrdAmnt);
+                double.TryParse(this.trnsDataGridView.Rows[e.RowIndex].Cells[14].Value.ToString(), out funcCurrRate);
+                double.TryParse(this.trnsDataGridView.Rows[e.RowIndex].Cells[15].Value.ToString(), out accntCurrRate);
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[16].Value = (funcCurrRate * entrdAmnt).ToString("#,##0.00");
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[18].Value = (accntCurrRate * entrdAmnt).ToString("#,##0.00");
+                System.Windows.Forms.Application.DoEvents();
+
+            }
+
+            this.obey_evnts = true;
+        }
+
+        private void gotoRcnclButton_Click(object sender, EventArgs e)
+        {
+            this.gotoRcnclButton.Enabled = false;
+            this.trnsDataGridView.EndEdit();
+            System.Windows.Forms.Application.DoEvents();
+            double ttlDebits = 0;
+            double ttlCredits = 0;
+            this.trnsDataGridView.EndEdit();
+            System.Windows.Forms.Application.DoEvents();
+            for (int i = 0; i < this.trnsDataGridView.Rows.Count; i++)
+            {
+                if (this.trnsDataGridView.Rows[i].Cells[1].Value == null)
+                {
+                    this.trnsDataGridView.Rows[i].Cells[1].Value = string.Empty;
+                }
+                if (this.trnsDataGridView.Rows[i].Cells[2].Value == null)
+                {
+                    this.trnsDataGridView.Rows[i].Cells[2].Value = string.Empty;
+                }
+
+                if (this.trnsDataGridView.Rows[i].Cells[3].Value == null)
+                {
+                    this.trnsDataGridView.Rows[i].Cells[3].Value = "Increase";
+                }
+
+                if (this.trnsDataGridView.Rows[i].Cells[4].Value == null)
+                {
+                    this.trnsDataGridView.Rows[i].Cells[4].Value = string.Empty;
+                }
+                if (this.trnsDataGridView.Rows[i].Cells[5].Value == null)
+                {
+                    this.trnsDataGridView.Rows[i].Cells[5].Value = "-1";
+                }
+                //if (this.trnsDataGridView.Rows[i].Cells[6].Value == null)
+                //{
+                //  this.trnsDataGridView.Rows[i].Cells[6].Value = "";
+                //}
+                if (this.trnsDataGridView.Rows[i].Cells[7].Value == null)
+                {
+                    this.trnsDataGridView.Rows[i].Cells[7].Value = "0.00";
+                }
+                if (this.trnsDataGridView.Rows[i].Cells[16].Value == null)
+                {
+                    this.trnsDataGridView.Rows[i].Cells[16].Value = "0.00";
+                }
+                if (this.trnsDataGridView.Rows[i].Cells[18].Value == null)
+                {
+                    this.trnsDataGridView.Rows[i].Cells[18].Value = "0.00";
+                }
+                if (this.trnsDataGridView.Rows[i].Cells[10].Value == null)
+                {
+                    this.trnsDataGridView.Rows[i].Cells[10].Value = "";
+                }
+                int accntid = -1;
+                int.TryParse(this.trnsDataGridView.Rows[i].Cells[5].Value.ToString(), out accntid);
+                double lnAmnt = 0;
+                double accntAmnt = 0;
+                double.TryParse(this.trnsDataGridView.Rows[i].Cells[16].Value.ToString(), out lnAmnt);
+                double.TryParse(this.trnsDataGridView.Rows[i].Cells[18].Value.ToString(), out accntAmnt);
+
+                string lnDte = this.trnsDataGridView.Rows[i].Cells[10].Value.ToString();
+                string incrsdcrs = this.trnsDataGridView.Rows[i].Cells[3].Value.ToString().Substring(0, 1);
+                string lneDesc = this.trnsDataGridView.Rows[i].Cells[1].Value.ToString();
+                //&& (lnAmnt != 0 || accntAmnt != 0)
+                if (accntid > 0 && incrsdcrs != "" && lneDesc != "")
+                {
+
+                    double netAmnt = (double)Global.dbtOrCrdtAccntMultiplier(accntid,
+               incrsdcrs) * (double)lnAmnt;
+
+                    //if (!Global.mnFrm.cmCde.isTransPrmttd(accntid, lnDte, netAmnt))
+                    //{
+                    //  return;
+                    //}
+
+                    //if (Global.mnFrm.cmCde.showMsg("Are you sure you want to Create this Transaction!", 1) == DialogResult.No)
+                    //  {
+                    //  Global.mnFrm.cmCde.showMsg("Transaction Cancelled!", 0);
+                    //  return;
+                    //  }
+                    if (Global.dbtOrCrdtAccnt(accntid,
+                      incrsdcrs) == "Debit")
+                    {
+                        ttlDebits += lnAmnt;
+                    }
+                    else
+                    {
+                        ttlCredits += lnAmnt;
+                    }
+                    this.trnsDataGridView.Rows[i].Cells[16].Style.BackColor = Color.Lime;
+                    this.trnsDataGridView.Rows[i].Cells[18].Style.BackColor = Color.Lime;
+                }
+                else
+                {
+                    this.trnsDataGridView.Rows[i].Cells[16].Style.BackColor = Color.FromArgb(255, 255, 128);
+                    this.trnsDataGridView.Rows[i].Cells[18].Style.BackColor = Color.FromArgb(255, 255, 128);
+                }
+                System.Windows.Forms.Application.DoEvents();
+            }
+            this.ttlDebitsRcnclLabel.Text = ttlDebits.ToString("#,##0.00");
+            this.ttlCreditsRcnclLabel.Text = ttlCredits.ToString("#,##0.00");
+            this.netBalanceRcnclLabel.Text = Math.Abs(ttlCredits - ttlDebits).ToString("#,##0.00");
+            if (ttlCredits.ToString("#,##0.00") == ttlDebits.ToString("#,##0.00"))
+            {
+                this.ttlCreditsRcnclLabel.BackColor = Color.Green;
+                this.ttlDebitsRcnclLabel.BackColor = Color.Green;
+            }
+            else
+            {
+                this.ttlCreditsRcnclLabel.BackColor = Color.Red;
+                this.ttlDebitsRcnclLabel.BackColor = Color.Red;
+            }
+            this.gotoRcnclButton.Enabled = true;
+        }
+
+        private void trnsDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e == null || this.obey_evnts == false)
+            {
+                return;
+            }
+
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            {
+                return;
+            }
+
+            bool prv = this.obey_evnts;
+            this.obey_evnts = false;
+
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[1].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[1].Value = string.Empty;
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[2].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[2].Value = string.Empty;
+            }
+
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[4].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[4].Value = string.Empty;
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[5].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[5].Value = "-1";
+            }
+            //if (this.trnsDataGridView.Rows[e.RowIndex].Cells[6].Value == null)
+            //{
+            //  this.trnsDataGridView.Rows[e.RowIndex].Cells[6].Value = "";
+            //}
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[7].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[7].Value = 0;
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[9].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[9].Value = "-1";
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[12].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[12].Value = "";
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[14].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[14].Value = 1.00;
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[15].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[15].Value = 1.00;
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[16].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[16].Value = 0;
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[18].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[18].Value = 0;
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[20].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[20].Value = "-1";
+            }
+            //System.Windows.Forms.Application.DoEvents();
+            if (e.ColumnIndex == 4)
+            {
+                this.srchWrd = this.trnsDataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+                if (!this.srchWrd.Contains("%"))
+                {
+                    this.srchWrd = "%" + this.srchWrd.Replace(" ", "%") + "%";
+                }
+                this.trnsDataGridView.EndEdit();
+                System.Windows.Forms.Application.DoEvents();
+                this.obey_evnts = true;
+                DataGridViewCellEventArgs e1 = new DataGridViewCellEventArgs(6, e.RowIndex);
+                this.trnsDataGridView_CellContentClick(this.trnsDataGridView, e1);
+                this.srchWrd = "%";
+                //Global.mnFrm.cmCde.showMsg(this.srchWrd, 0);
+            }
+            else if (e.ColumnIndex == 10)
+            {
+                this.srchWrd = this.trnsDataGridView.Rows[e.RowIndex].Cells[10].Value.ToString();
+                if (!this.srchWrd.Contains("%"))
+                {
+                    this.srchWrd = "%" + this.srchWrd.Replace(" ", "%") + "%";
+                }
+
+                this.trnsDataGridView.EndEdit();
+                System.Windows.Forms.Application.DoEvents();
+                this.obey_evnts = true;
+                DataGridViewCellEventArgs e1 = new DataGridViewCellEventArgs(11, e.RowIndex);
+                this.trnsDataGridView_CellContentClick(this.trnsDataGridView, e1);
+                this.srchWrd = "%";
+            }
+            else if (e.ColumnIndex == 12)
+            {
+                DateTime dte1 = DateTime.Now;
+                bool sccs = DateTime.TryParse(this.trnsDataGridView.Rows[e.RowIndex].Cells[12].Value.ToString(), out dte1);
+                if (!sccs)
+                {
+                    dte1 = DateTime.Now;
+                }
+                this.trnsDataGridView.EndEdit();
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[12].Value = dte1.ToString("dd-MMM-yyyy HH:mm:ss");
+
+                string slctdCurrID = this.trnsDataGridView.Rows[e.RowIndex].Cells[9].Value.ToString();
+                string accntCurrID = this.trnsDataGridView.Rows[e.RowIndex].Cells[20].Value.ToString();
+                string funcCurrID = this.trnsDataGridView.Rows[e.RowIndex].Cells[21].Value.ToString();
+
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[14].Value = Math.Round(
+                Global.get_LtstExchRate(int.Parse(slctdCurrID), int.Parse(funcCurrID),
+            this.trnsDataGridView.Rows[e.RowIndex].Cells[12].Value.ToString()), 15);
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[15].Value = Math.Round(
+                  Global.get_LtstExchRate(int.Parse(slctdCurrID), int.Parse(accntCurrID),
+            this.trnsDataGridView.Rows[e.RowIndex].Cells[12].Value.ToString()), 15);
+                System.Windows.Forms.Application.DoEvents();
+
+                double funcCurrRate = 0;
+                double accntCurrRate = 0;
+                double entrdAmnt = 0;
+                double.TryParse(this.trnsDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString(), out entrdAmnt);
+                double.TryParse(this.trnsDataGridView.Rows[e.RowIndex].Cells[14].Value.ToString(), out funcCurrRate);
+                double.TryParse(this.trnsDataGridView.Rows[e.RowIndex].Cells[15].Value.ToString(), out accntCurrRate);
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[16].Value = (funcCurrRate * entrdAmnt).ToString("#,##0.00");
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[18].Value = (accntCurrRate * entrdAmnt).ToString("#,##0.00");
+                System.Windows.Forms.Application.DoEvents();
+            }
+            else if (e.ColumnIndex == 14)
+            {
+                double lnAmnt = 0;
+                string orgnlAmnt = this.trnsDataGridView.Rows[e.RowIndex].Cells[14].Value.ToString();
+                bool isno = double.TryParse(orgnlAmnt, out lnAmnt);
+                if (isno == false)
+                {
+                    lnAmnt = Math.Round(Global.computeMathExprsn(orgnlAmnt), 15);
+                }
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[14].Value = Math.Round(lnAmnt, 15);
+                double entrdAmnt = 0;
+                double.TryParse(this.trnsDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString(), out entrdAmnt);
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[16].Value = (entrdAmnt * lnAmnt).ToString("#,##0.00");
+            }
+            else if (e.ColumnIndex == 15)
+            {
+                double lnAmnt = 0;
+                string orgnlAmnt = this.trnsDataGridView.Rows[e.RowIndex].Cells[15].Value.ToString();
+                bool isno = double.TryParse(orgnlAmnt, out lnAmnt);
+                if (isno == false)
+                {
+                    lnAmnt = Math.Round(Global.computeMathExprsn(orgnlAmnt), 15);
+                }
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[15].Value = Math.Round(lnAmnt, 15);
+
+                double entrdAmnt = 0;
+                double.TryParse(this.trnsDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString(), out entrdAmnt);
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[18].Value = (entrdAmnt * lnAmnt).ToString("#,##0.00");
+
+            }
+            else if (e.ColumnIndex == 7)
+            {
+                double lnAmnt = 0;
+
+                string orgnlAmnt = this.trnsDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString();
+                bool isno = double.TryParse(orgnlAmnt, out lnAmnt);
+                if (isno == false)
+                {
+                    lnAmnt = Math.Round(Global.computeMathExprsn(orgnlAmnt), 2);
+                }
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[7].Value = lnAmnt.ToString("#,##0.00");
+
+                double funcCurrRate = 0;
+                double accntCurrRate = 0;
+
+                double.TryParse(this.trnsDataGridView.Rows[e.RowIndex].Cells[14].Value.ToString(), out funcCurrRate);
+                double.TryParse(this.trnsDataGridView.Rows[e.RowIndex].Cells[15].Value.ToString(), out accntCurrRate);
+
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[16].Value = (funcCurrRate * lnAmnt).ToString("#,##0.00");
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[18].Value = (accntCurrRate * lnAmnt).ToString("#,##0.00");
+
+                if (e.RowIndex == this.trnsDataGridView.Rows.Count - 1)
+                {
+                    this.addTrnsLineButton.PerformClick();
+                }
+
+            }
+
+            this.obey_evnts = true;
+        }
+
+        private void trnsDataGridView_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e == null || this.obey_evnts == false)
+            {
+                return;
+            }
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            {
+                return;
+            }
+            bool prv = this.obey_evnts;
+            this.obey_evnts = false;
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[1].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[1].Value = string.Empty;
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[2].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[2].Value = string.Empty;
+            }
+
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[4].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[4].Value = string.Empty;
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[5].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[5].Value = "-1";
+            }
+            //if (this.trnsDataGridView.Rows[e.RowIndex].Cells[6].Value == null)
+            //{
+            //  this.trnsDataGridView.Rows[e.RowIndex].Cells[6].Value = "";
+            //}
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[7].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[7].Value = 0;
+            }
+            if (this.trnsDataGridView.Rows[e.RowIndex].Cells[10].Value == null)
+            {
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[10].Value = "";
+            }
+            if (e.ColumnIndex == 7)
+            {
+                //int acntID = int.Parse(this.trnsDataGridView.Rows[e.RowIndex].Cells[4].Value.ToString());
+                //this.trnsDataGridView.Rows[e.RowIndex].Cells[3].Value = Global.mnFrm.cmCde.getAccntNum(acntID) +
+                //"." + Global.mnFrm.cmCde.getAccntName(acntID);
+
+                //int entrdCurrID = int.Parse(this.trnsDataGridView.Rows[e.RowIndex].Cells[8].Value.ToString());
+                //this.trnsDataGridView.Rows[e.RowIndex].Cells[9].Value = Global.mnFrm.cmCde.getPssblValNm(entrdCurrID);
+
+                double lnAmnt = 0;
+                string orgnlAmnt = this.trnsDataGridView.Rows[e.RowIndex].Cells[7].Value.ToString();
+                bool isno = double.TryParse(orgnlAmnt, out lnAmnt);
+                if (isno == false)
+                {
+                    lnAmnt = Math.Round(Global.computeMathExprsn(orgnlAmnt), 2);
+                }
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[7].Value = lnAmnt.ToString("#,##0.00");
+
+                double funcCurrRate = 0;
+                double accntCurrRate = 0;
+
+                double.TryParse(this.trnsDataGridView.Rows[e.RowIndex].Cells[14].Value.ToString(), out funcCurrRate);
+                double.TryParse(this.trnsDataGridView.Rows[e.RowIndex].Cells[15].Value.ToString(), out accntCurrRate);
+
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[16].Value = (funcCurrRate * lnAmnt).ToString("#,##0.00");
+                this.trnsDataGridView.Rows[e.RowIndex].Cells[18].Value = (accntCurrRate * lnAmnt).ToString("#,##0.00");
+                this.trnsDataGridView.BeginEdit(true);
+            }
+            else if (e.ColumnIndex == 4 || e.ColumnIndex == 6)
+            {
+
+                //int acntID = int.Parse(this.trnsDataGridView.Rows[e.RowIndex].Cells[4].Value.ToString());
+                //this.trnsDataGridView.Rows[e.RowIndex].Cells[3].Value = Global.mnFrm.cmCde.getAccntNum(acntID) +
+                //"." + Global.mnFrm.cmCde.getAccntName(acntID);
+                this.trnsDataGridView.BeginEdit(true);
+            }
+            else if (e.ColumnIndex == 10 || e.ColumnIndex == 11 || e.ColumnIndex == 12)
+            {
+                //int entrdCurrID = int.Parse(this.trnsDataGridView.Rows[e.RowIndex].Cells[8].Value.ToString());
+                //this.trnsDataGridView.Rows[e.RowIndex].Cells[9].Value = Global.mnFrm.cmCde.getPssblValNm(entrdCurrID);
+                this.trnsDataGridView.BeginEdit(true);
+            }
+            else// if (e.ColumnIndex == 1)
+            {
+                this.trnsDataGridView.BeginEdit(false);
+                //this.trnsDataGridView.Rows[e.RowIndex].Cells[1].Selected = false;
+            }
+
+            this.obey_evnts = true;
+        }
+
+        private void OKButton_Click(object sender, EventArgs e)
+        {
+            if (this.trnsDataGridView.Rows.Count <= 0)
+            {
+                Global.mnFrm.cmCde.showMsg("Please create transactions First!", 0);
+                this.saveTrnsBatchButton.Enabled = true;
+                return;
+            }
+            this.saveTrnsBatchRcnclButton.Enabled = false;
+            this.gotoRcnclButton_Click(this.gotoRcnclButton, e);
+            this.createBatch();
+            if (this.batchid <= 0
+              || Global.mnFrm.cmCde.getGnrlRecNm("accb.accb_trnsctn_batches", "batch_id", "batch_status", this.batchid) == "1")
+            {
+                Global.mnFrm.cmCde.showMsg("Please select an Unposted Transactions Batch First!", 0);
+                this.saveTrnsBatchRcnclButton.Enabled = true;
+                return;
+            }
+            if (this.ttlCreditsRcnclLabel.Text != this.ttlDebitsRcnclLabel.Text)
+            {
+                if (Global.mnFrm.cmCde.showMsg("These transactions are not balanced! \r\nAre you sure you want to Create them Anyway?", 1) == DialogResult.No)
+                {
+                    //Global.mnFrm.cmCde.showMsg("Operation Cancelled!", 0);
+                    this.saveTrnsBatchRcnclButton.Enabled = true;
+                    this.saveTrnsBatchRcnclButton.Enabled = true;
+                    return;
+                }
+            }
+            //this.waitLabel1.Visible = true;
+            for (int i = 0; i < this.trnsDataGridView.Rows.Count; i++)
+            {
+                if (this.trnsDataGridView.Rows[i].Cells[1].Value == null)
+                {
+                    this.trnsDataGridView.Rows[i].Cells[1].Value = string.Empty;
+                }
+                if (this.trnsDataGridView.Rows[i].Cells[2].Value == null)
+                {
+                    this.trnsDataGridView.Rows[i].Cells[2].Value = string.Empty;
+                }
+                if (this.trnsDataGridView.Rows[i].Cells[3].Value == null)
+                {
+                    this.trnsDataGridView.Rows[i].Cells[3].Value = "Increase";
+                }
+                if (this.trnsDataGridView.Rows[i].Cells[4].Value == null)
+                {
+                    this.trnsDataGridView.Rows[i].Cells[4].Value = string.Empty;
+                }
+                if (this.trnsDataGridView.Rows[i].Cells[5].Value == null)
+                {
+                    this.trnsDataGridView.Rows[i].Cells[5].Value = "-1";
+                }
+                //if (this.trnsDataGridView.Rows[i].Cells[6].Value == null)
+                //{
+                //  this.trnsDataGridView.Rows[i].Cells[6].Value = "";
+                //}
+                if (this.trnsDataGridView.Rows[i].Cells[7].Value == null)
+                {
+                    this.trnsDataGridView.Rows[i].Cells[7].Value = "0.00";
+                }
+                if (this.trnsDataGridView.Rows[i].Cells[16].Value == null)
+                {
+                    this.trnsDataGridView.Rows[i].Cells[16].Value = "0.00";
+                }
+                if (this.trnsDataGridView.Rows[i].Cells[18].Value == null)
+                {
+                    this.trnsDataGridView.Rows[i].Cells[18].Value = "0.00";
+                }
+                if (this.trnsDataGridView.Rows[i].Cells[10].Value == null)
+                {
+                    this.trnsDataGridView.Rows[i].Cells[10].Value = "";
+                }
+                if (this.trnsDataGridView.Rows[i].Cells[22].Value == null)
+                {
+                    this.trnsDataGridView.Rows[i].Cells[22].Value = -1;
+                }
+                int accntid = -1;
+                int.TryParse(this.trnsDataGridView.Rows[i].Cells[5].Value.ToString(), out accntid);
+                double lnAmnt = 0;
+                double.TryParse(this.trnsDataGridView.Rows[i].Cells[16].Value.ToString(), out lnAmnt);
+                double acntAmnt = 0;
+                double.TryParse(this.trnsDataGridView.Rows[i].Cells[17].Value.ToString(), out acntAmnt);
+                double entrdAmnt = 0;
+                double.TryParse(this.trnsDataGridView.Rows[i].Cells[7].Value.ToString(), out entrdAmnt);
+
+                string lnDte = this.trnsDataGridView.Rows[i].Cells[12].Value.ToString();
+                string incrsdcrs = this.trnsDataGridView.Rows[i].Cells[3].Value.ToString().Substring(0, 1);
+                string lneDesc = this.trnsDataGridView.Rows[i].Cells[1].Value.ToString();
+                //&& (lnAmnt != 0 || acntAmnt != 0)
+                if (accntid > 0 && incrsdcrs != "" && lneDesc != "")
+                {
+                    //        double netAmnt = (double)Global.dbtOrCrdtAccntMultiplier(accntid,
+                    //incrsdcrs) * (double)lnAmnt;
+
+                    //        if (!Global.mnFrm.cmCde.isTransPrmttd(accntid, lnDte, netAmnt))
+                    //        {
+                    //          this.waitLabel1.Visible = false;
+                    //          return;
+                    //        }
+                }
+                else
+                {
+                }
+                System.Windows.Forms.Application.DoEvents();
+            }
+
+            for (int i = 0; i < this.trnsDataGridView.Rows.Count; i++)
+            {
+                System.Windows.Forms.Application.DoEvents();
+                int accntid = -1;
+                int.TryParse(this.trnsDataGridView.Rows[i].Cells[5].Value.ToString(), out accntid);
+                long trnsid = -1;
+                long.TryParse(this.trnsDataGridView.Rows[i].Cells[0].Value.ToString(), out trnsid);
+                long srctrnsid = -1;
+                long.TryParse(this.trnsDataGridView.Rows[i].Cells[22].Value.ToString(), out srctrnsid);
+                double lnAmnt = 0;
+                double.TryParse(this.trnsDataGridView.Rows[i].Cells[16].Value.ToString(), out lnAmnt);
+
+                double acntAmnt = 0;
+                double.TryParse(this.trnsDataGridView.Rows[i].Cells[18].Value.ToString(), out acntAmnt);
+                double entrdAmnt = 0;
+                double.TryParse(this.trnsDataGridView.Rows[i].Cells[7].Value.ToString(), out entrdAmnt);
+
+                string lnDte = this.trnsDataGridView.Rows[i].Cells[12].Value.ToString();
+                string incrsdcrs = this.trnsDataGridView.Rows[i].Cells[3].Value.ToString().Substring(0, 1);
+                string lneDesc = this.trnsDataGridView.Rows[i].Cells[1].Value.ToString();
+                string refDocNum = this.trnsDataGridView.Rows[i].Cells[2].Value.ToString();
+                if (lneDesc.Length > 499)
+                {
+                    lneDesc = lneDesc.Substring(0, 499);
+                }
+                int entrdCurrID = int.Parse(this.trnsDataGridView.Rows[i].Cells[9].Value.ToString());
+                int funcCurrID = int.Parse(this.trnsDataGridView.Rows[i].Cells[21].Value.ToString());
+                int accntCurrID = int.Parse(this.trnsDataGridView.Rows[i].Cells[20].Value.ToString());
+                double funcCurrRate = double.Parse(this.trnsDataGridView.Rows[i].Cells[14].Value.ToString());
+                double accntCurrRate = double.Parse(this.trnsDataGridView.Rows[i].Cells[15].Value.ToString());
+                //(lnAmnt != 0 || acntAmnt != 0) &&
+                if (accntid > 0 && incrsdcrs != "" && lneDesc != "")
+                {
+                    double netAmnt = (double)Global.dbtOrCrdtAccntMultiplier(accntid,
+               incrsdcrs) * (double)lnAmnt;
+
+                    if (Global.dbtOrCrdtAccnt(accntid,
+                      incrsdcrs) == "Debit")
+                    {
+                        if (trnsid <= 0)
+                        {
+                            long oldtrnsid = trnsid;
+                            trnsid = Global.getNewTrnsID();
+                            Global.createTransaction(trnsid, accntid,
+                              lneDesc, lnAmnt,
+                              lnDte, funcCurrID, this.batchid, 0.00,
+                              netAmnt, entrdAmnt, entrdCurrID, acntAmnt, accntCurrID, funcCurrRate, accntCurrRate, "D", refDocNum, srctrnsid);
+                            //this.trnsDataGridView.Rows[i].Cells[0].Value = 
+                            Global.updateAmntBrkDwn(oldtrnsid, trnsid);
+                        }
+                        else
+                        {
+                            Global.updateTransaction(accntid,
+                     lneDesc, lnAmnt,
+                     lnDte, funcCurrID,
+                     this.batchid, 0.00, netAmnt, trnsid,
+                     entrdAmnt, entrdCurrID, acntAmnt, accntCurrID, funcCurrRate, accntCurrRate, "D", refDocNum, srctrnsid);
+                        }
+                    }
+                    else
+                    {
+                        if (trnsid <= 0)
+                        {
+                            long oldtrnsid = trnsid;
+                            trnsid = Global.getNewTrnsID();
+
+                            Global.createTransaction(trnsid, accntid,
+                            lneDesc, 0.00,
+                            lnDte, funcCurrID,
+                            this.batchid, lnAmnt, netAmnt,
+                     entrdAmnt, entrdCurrID, acntAmnt, accntCurrID, funcCurrRate, accntCurrRate, "C", refDocNum, srctrnsid);
+
+                            Global.updateAmntBrkDwn(oldtrnsid, trnsid);
+                        }
+                        else
+                        {
+                            Global.updateTransaction(accntid,
+                     lneDesc, 0.00,
+                              lnDte
+                              , funcCurrID,
+                     this.batchid, lnAmnt, netAmnt,
+                     trnsid,
+                     entrdAmnt, entrdCurrID, acntAmnt, accntCurrID, funcCurrRate, accntCurrRate, "C", refDocNum, srctrnsid);
+                        }
+                    }
+                }
+            }
+            this.waitLabel1.Visible = false;
+            this.saveTrnsBatchRcnclButton.Enabled = true;
+            this.saveTrnsBatchRcnclButton.Enabled = true;
+
+            if (this.batchid < 1)
+            {
+                Global.mnFrm.cmCde.showMsg("Please select a Transaction Batch First!", 0);
+                return;
+            }
+            string btchN = this.batchNmRcnclTextBox.Text;
+            Global.mnFrm.searchForTrnsTextBox.Text = btchN;
+            Global.mnFrm.searchInTrnsComboBox.SelectedItem = "Batch Name";
+            Global.mnFrm.loadCorrectPanel("Journal Entries");
+            Global.mnFrm.showUnpostedCheckBox.Checked = false;
+            if (Global.mnFrm.shwMyBatchesCheckBox.Enabled == true)
+            {
+                Global.mnFrm.shwMyBatchesCheckBox.Checked = false;
+            }
+            Global.mnFrm.rfrshTrnsButton.PerformClick();
+        }
+
+        private void saveTrnsBatchRcnclButton_Click(object sender, EventArgs e)
+        {
+            this.OKButton_Click(this.saveTrnsBatchRcnclButton, e);
+        }
+
+        private void createBatch()
+        {
+            if (this.batchid > 0)
+            {
+                this.batchNmRcnclTextBox.Text = Global.getBatchNm(this.batchid);
+                if (this.batchNmRcnclTextBox.Text == "")
+                {
+                    //do nothing
+                }
+                else
+                {
+                    return;
+                }
+            }
+            string initl = Global.mnFrm.cmCde.getUsername(Global.myBscActn.user_id).ToUpper();
+            if (initl.Length > 4)
+            {
+                initl = initl.Substring(0, 4);
+            }
+            string dte = DateTime.Parse(Global.mnFrm.cmCde.getFrmtdDB_Date_time()).ToString("yyMMdd");
+            this.batchNmRcnclTextBox.Text = initl + "-RCNCL-" + dte
+              + "-" + Global.mnFrm.cmCde.getRandomInt(100, 1000)
+                      + "-" + (Global.mnFrm.cmCde.getRecCount("accb.accb_trnsctn_batches", "batch_name",
+                      "batch_id", initl + "-" + dte + "-%") + 1).ToString().PadLeft(3, '0');
+            if (this.batchNmRcnclTextBox.Text == "")
+            {
+                Global.mnFrm.cmCde.showMsg("Please enter a Batch Name!", 0);
+                return;
+            }
+            long oldBatchID = Global.mnFrm.cmCde.getTrnsBatchID(this.batchNmRcnclTextBox.Text,
+              Global.mnFrm.cmCde.Org_id);
+            if (oldBatchID > 0)
+            {
+                Global.mnFrm.cmCde.showMsg("Batch Name is already in use in this Organization!", 0);
+                return;
+            }
+
+            Global.createBatch(Global.mnFrm.cmCde.Org_id,
+             this.batchNmRcnclTextBox.Text, "Reconciliation Done on " + Global.mnFrm.cmCde.getFrmtdDB_Date_time(),
+             "Manual",
+             "VALID", -1, "0");
+            System.Windows.Forms.Application.DoEvents();
+            this.batchid = Global.getBatchID(this.batchNmRcnclTextBox.Text, Global.mnFrm.cmCde.Org_id);
+        }
+
+        private void refreshRcnclButton_Click(object sender, EventArgs e)
+        {
+            //this.gotoRcnclButton_Click(this.gotoRcnclButton, e);
+            if (this.batchid < 1)
+            {
+                Global.mnFrm.cmCde.showMsg("Please select a Transaction Batch First!", 0);
+                return;
+            }
+            string btchN = this.batchNmRcnclTextBox.Text;
+            Global.mnFrm.searchForTrnsTextBox.Text = btchN;
+            Global.mnFrm.searchInTrnsComboBox.SelectedItem = "Batch Name";
+            Global.mnFrm.loadCorrectPanel("Journal Entries");
+            Global.mnFrm.showUnpostedCheckBox.Checked = false;
+            if (Global.mnFrm.shwMyBatchesCheckBox.Enabled == true)
+            {
+                Global.mnFrm.shwMyBatchesCheckBox.Checked = false;
+            }
+            Global.mnFrm.rfrshTrnsButton.PerformClick();
+        }
+
+        private void trnsDataGridView_CurrentCellChanged(object sender, EventArgs e)
+        {
+
+            if (this.trnsDataGridView.CurrentCell == null || this.obey_evnts == false)
+            {
+                return;
+            }
+            int rwidx = this.trnsDataGridView.CurrentCell.RowIndex;
+            int colidx = this.trnsDataGridView.CurrentCell.ColumnIndex;
+
+            if (rwidx < 0 || colidx < 0)
+            {
+                return;
+            }
+            bool prv = this.obey_evnts;
+            this.obey_evnts = false;
+            if (this.trnsDataGridView.Rows[rwidx].Cells[1].Value == null)
+            {
+                this.trnsDataGridView.Rows[rwidx].Cells[1].Value = string.Empty;
+            }
+            if (this.trnsDataGridView.Rows[rwidx].Cells[2].Value == null)
+            {
+                this.trnsDataGridView.Rows[rwidx].Cells[2].Value = string.Empty;
+            }
+
+            if (this.trnsDataGridView.Rows[rwidx].Cells[4].Value == null)
+            {
+                this.trnsDataGridView.Rows[rwidx].Cells[4].Value = string.Empty;
+            }
+            if (this.trnsDataGridView.Rows[rwidx].Cells[5].Value == null)
+            {
+                this.trnsDataGridView.Rows[rwidx].Cells[5].Value = "-1";
+            }
+            //if (this.trnsDataGridView.Rows[rwidx].Cells[6].Value == null)
+            //{
+            //  this.trnsDataGridView.Rows[rwidx].Cells[6].Value = "";
+            //}
+            if (this.trnsDataGridView.Rows[rwidx].Cells[7].Value == null)
+            {
+                this.trnsDataGridView.Rows[rwidx].Cells[7].Value = 0;
+            }
+            if (this.trnsDataGridView.Rows[rwidx].Cells[9].Value == null)
+            {
+                this.trnsDataGridView.Rows[rwidx].Cells[9].Value = "-1";
+            }
+            if (this.trnsDataGridView.Rows[rwidx].Cells[10].Value == null)
+            {
+                this.trnsDataGridView.Rows[rwidx].Cells[10].Value = "";
+            }
+            //if (colidx == 7)
+            //{
+            //  this.obey_evnts = false;
+            //  this.trnsDataGridView.CurrentCell = this.trnsDataGridView.Rows[e.RowIndex].Cells[7];
+            //}
+            if (colidx >= 0)
+            {
+                //int acntID = int.Parse(this.trnsDataGridView.Rows[rwidx].Cells[5].Value.ToString());
+                //this.trnsDataGridView.Rows[rwidx].Cells[4].Value = Global.mnFrm.cmCde.getAccntNum(acntID) +
+                //"." + Global.mnFrm.cmCde.getAccntName(acntID);
+
+                //int entrdCurrID = int.Parse(this.trnsDataGridView.Rows[rwidx].Cells[9].Value.ToString());
+                //this.trnsDataGridView.Rows[rwidx].Cells[10].Value = Global.mnFrm.cmCde.getPssblValNm(entrdCurrID);
+
+            }
+
+            this.obey_evnts = true;
+        }
+
+        private void trnsDataGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            this.trnsDataGridView.EndEdit();
+            System.Windows.Forms.Application.DoEvents();
+            this.addTrnsLstDiag_KeyDown(this, e);
+        }
+
+        private void addTrnsLstDiag_KeyDown(object sender, KeyEventArgs e)
+        {
+            this.tabControl1.SelectedTab = this.tabPage3;
+            EventArgs ex = new EventArgs();
+            if (e.Control && e.KeyCode == Keys.S)       // Ctrl-S Save
+            {
+                // do what you want here
+                this.saveTrnsBatchRcnclButton.PerformClick();
+                e.SuppressKeyPress = true;  // stops bing! also sets handeled which stop event bubbling
+            }
+            else if (e.Control && e.KeyCode == Keys.N)       // Ctrl-S Save
+            {
+                // do what you want here
+                this.addTrnsLineButton.PerformClick();
+                e.SuppressKeyPress = true;  // stops bing! also sets handeled which stop event bubbling
+            }
+            else if (e.Control && e.KeyCode == Keys.E)       // Ctrl-S Save
+            {
+                // do what you want here
+                //this.editButton.PerformClick();
+                e.Handled = false;
+                e.SuppressKeyPress = false;  // stops bing! also sets handeled which stop event bubbling
+            }
+            else if (e.Control && e.KeyCode == Keys.R)       // Ctrl-S Save
+            {
+                // do what you want here
+                this.openBatchButton.PerformClick();
+                e.SuppressKeyPress = true;  // stops bing! also sets handeled which stop event bubbling
+            }
+            else
+            {
+                e.Handled = false;
+                e.SuppressKeyPress = false;  // stops bing! also sets handeled which stop event bubbling
+            }
+        }
+
+        private void autoBalanceButton_Click(object sender, EventArgs e)
+        {
+            this.gotoRcnclButton.PerformClick();
+            double ttldiff = double.Parse(this.netBalanceRcnclLabel.Text);
+            if (ttldiff == 0)
+            {
+                Global.mnFrm.cmCde.showMsg("Transactions are already Balanced", 0);
+                return;
+            }
+            if (this.trnsDataGridView.Rows.Count > 0)
+            {
+                this.trnsDataGridView.CurrentCell = this.trnsDataGridView.Rows[this.trnsDataGridView.Rows.Count - 1].Cells[1];
+            }
+            int rowIdx = this.trnsDataGridView.CurrentCell.RowIndex;
+            if (this.trnsDataGridView.Rows[rowIdx].Cells[1].Value.ToString() != "")
+            {
+                this.addTrnsLineButton.PerformClick();
+            }
+            if (this.trnsDataGridView.Rows.Count > 0)
+            {
+                this.trnsDataGridView.CurrentCell = this.trnsDataGridView.Rows[this.trnsDataGridView.Rows.Count - 1].Cells[1];
+            }
+            double tllDbt = double.Parse(this.ttlDebitsRcnclLabel.Text);
+            double tllCrdt = double.Parse(this.ttlCreditsRcnclLabel.Text);
+            string incrsDcrs = "Decrease";
+            if (tllDbt > tllCrdt)
+            {
+                incrsDcrs = "Increase";
+            }
+            int acntID = Global.get_RetEarn_Accnt(Global.mnFrm.cmCde.Org_id);
+            rowIdx = this.trnsDataGridView.CurrentCell.RowIndex;
+            string trnsDesc = "";
+            long trnsaction_id = -1;
+            int pssblvalid = -1;
+            string lneDesc = "";
+            double qty = 1;
+            double unitAmnt = 0;
+            double lnAmnt = 0;
+            long trnsdetid = -1;
+            trnsaction_id = -1 * long.Parse(Global.mnFrm.cmCde.getDB_Date_time().Replace("-", "").Replace(":", "").Replace(" ", ""));
+            string refDocNums = "";
+            for (int i = 0; i < this.trnsDataGridView.Rows.Count; i++)
+            {
+                int accntid = -1;
+                int.TryParse(this.trnsDataGridView.Rows[i].Cells[5].Value.ToString(), out accntid);
+                string acntType = Global.mnFrm.cmCde.getAccntType(accntid);
+                trnsdetid = Global.getNewAmntBrkDwnID();
+                lneDesc = this.trnsDataGridView.Rows[i].Cells[1].Value.ToString();
+                string refDocNum = this.trnsDataGridView.Rows[i].Cells[2].Value.ToString();
+                double.TryParse(this.trnsDataGridView.Rows[i].Cells[7].Value.ToString(), out unitAmnt);
+                if (lneDesc != "")
+                {
+                    trnsDesc += ": " + lneDesc;
+                    refDocNums += ": " + refDocNum;
+                    lnAmnt = unitAmnt;
+                    qty = Global.dbtOrCrdtAccntMultiplier(accntid,
+               this.trnsDataGridView.Rows[i].Cells[3].Value.ToString().Substring(0, 1));
+                    //
+                    //Global.mnFrm.cmCde.isAccntContra(accntid) == "1"
+                    if (((acntType == "A" || acntType == "EX")
+                      && incrsDcrs == "Increase")
+                      || ((acntType == "R" || acntType == "EQ" || acntType == "L")
+                      && incrsDcrs == "Decrease")
+                      || (Global.mnFrm.cmCde.isAccntContra(accntid) == "1"
+                     && incrsDcrs == "Decrease"))
+                    {
+                        qty = -1 * qty;
+                    }
+
+                    //else
+                    //{
+                    //  qty = -1 * qty;
+                    //}
+                    double netAmnt = qty * (double)lnAmnt;
+                    Global.createAmntBrkDwn(trnsaction_id, trnsdetid, pssblvalid, lneDesc + " " + refDocNum, qty, unitAmnt, netAmnt);
+                }
+            }
+            char[] w = { ':' };
+            if (trnsDesc.Length > 484)
+            {
+                trnsDesc = trnsDesc.Substring(0, 484);
+            }
+            this.trnsDataGridView.Rows[rowIdx].Cells[0].Value = trnsaction_id;
+            this.trnsDataGridView.Rows[rowIdx].Cells[1].Value = "Balancing Leg: " + trnsDesc.Trim().Trim(w);
+            this.trnsDataGridView.Rows[rowIdx].Cells[2].Value = refDocNums;
+            this.trnsDataGridView.Rows[rowIdx].Cells[3].Value = incrsDcrs;
+            this.trnsDataGridView.Rows[rowIdx].Cells[4].Value = Global.mnFrm.cmCde.getAccntNum(acntID) +
+              "." + Global.mnFrm.cmCde.getAccntName(acntID);
+            this.trnsDataGridView.Rows[rowIdx].Cells[5].Value = acntID;
+            this.trnsDataGridView.Rows[rowIdx].Cells[7].Value = ttldiff;
+            this.gotoRcnclButton.PerformClick();
+        }
+
+        private void createTrnsTmp(
+          long trnsID,
+          string trnsDesc,
+          string trnsDte,
+          string incrsDcrs,
+          int accntID,
+          string accntNum,
+          string entrdAmnt,
+          string entrdCurr,
+          string refDocNum,
+          double funcCurrRate,
+          double accntCurrRate)
+        {
+            this.obey_evnts = false;
+            System.Windows.Forms.Application.DoEvents();
+
+            if (trnsDesc != "" && trnsDte != "" && incrsDcrs != "" && accntNum != "" && entrdAmnt != "" && entrdCurr != "")
+            {
+                string trnsDte1 = DateTime.ParseExact(trnsDte, "dd-MMM-yyyy HH:mm:ss",
+           System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+                double amntEntrd = 0;
+                bool isno = double.TryParse(entrdAmnt, out amntEntrd);
+                if (isno == false)
+                {
+                    amntEntrd = Math.Round(Global.computeMathExprsn(entrdAmnt), 2);
+                }
+                int entCurID = Global.mnFrm.cmCde.getPssblValID(entrdCurr, Global.mnFrm.cmCde.getLovID("Currencies"));
+
+                if (Global.getTrnsID(trnsDesc, accntID, amntEntrd, entCurID, trnsDte1) > 0)
+                {
+                    Global.mnFrm.cmCde.showMsg("Similar Transaction has been created Already!", 0);
+                    return;
+                }
+                if (accntID <= 0 || entCurID <= 0)
+                {
+                    Global.mnFrm.cmCde.showMsg("Either the Account Number or Currency does not Exist!", 0);
+                    return;
+                }
+
+                this.trnsDataGridView.RowCount += 1;
+                int rowIdx = this.trnsDataGridView.RowCount - 1;
+                this.trnsDataGridView.Rows[rowIdx].HeaderCell.Value = this.trnsDataGridView.RowCount.ToString();
+                this.trnsDataGridView.Rows[rowIdx].Cells[0].Value = "-1";
+                this.trnsDataGridView.Rows[rowIdx].Cells[1].Value = trnsDesc;
+                this.trnsDataGridView.Rows[rowIdx].Cells[2].Value = refDocNum;
+                string incrs_dcrs = "Decrease";
+                if (incrsDcrs.ToLower() == "increase")
+                {
+                    incrs_dcrs = "Increase";
+                }
+                this.trnsDataGridView.Rows[rowIdx].Cells[3].Value = incrs_dcrs;
+                this.trnsDataGridView.Rows[rowIdx].Cells[7].Value = amntEntrd.ToString("#,##0.00");
+
+                this.trnsDataGridView.Rows[rowIdx].Cells[4].Value = Global.mnFrm.cmCde.getAccntNum(accntID) +
+                  "." + Global.mnFrm.cmCde.getAccntName(accntID);
+                this.trnsDataGridView.Rows[rowIdx].Cells[5].Value = accntID;
+                this.trnsDataGridView.Rows[rowIdx].Cells[6].Value = "...";
+                //this.trnsDataGridView.Rows[rowIdx].Cells[6].Value = Global.mnFrm.cmCde.getAccntName(accntID);
+                this.trnsDataGridView.Rows[rowIdx].Cells[9].Value = entCurID;
+                this.trnsDataGridView.Rows[rowIdx].Cells[10].Value = entrdCurr;
+                this.trnsDataGridView.Rows[rowIdx].Cells[11].Value = "...";
+                this.trnsDataGridView.Rows[rowIdx].Cells[12].Value = trnsDte;
+                this.trnsDataGridView.Rows[rowIdx].Cells[13].Value = "...";
+
+                int accntCurrID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm(
+                "accb.accb_chart_of_accnts", "accnt_id", "crncy_id", accntID));
+                string slctdCurrID = this.trnsDataGridView.Rows[rowIdx].Cells[9].Value.ToString();
+                this.trnsDataGridView.Rows[rowIdx].Cells[14].Value = Math.Round(funcCurrRate, 15);
+                this.trnsDataGridView.Rows[rowIdx].Cells[15].Value = Math.Round(accntCurrRate, 15);
+                System.Windows.Forms.Application.DoEvents();
+
+                //double.TryParse(this.trnsDataGridView.Rows[rowIdx].Cells[14].Value.ToString(), out funcCurrRate);
+                //double.TryParse(this.trnsDataGridView.Rows[rowIdx].Cells[15].Value.ToString(), out accntCurrRate);
+                if (accntCurrRate == 0)
+                {
+                    accntCurrRate = Math.Round(
+                      Global.get_LtstExchRate(int.Parse(slctdCurrID), accntCurrID,
+               this.trnsDataGridView.Rows[rowIdx].Cells[12].Value.ToString()), 15);
+                }
+                this.trnsDataGridView.Rows[rowIdx].Cells[16].Value = (funcCurrRate * amntEntrd).ToString("#,##0.00");
+                this.trnsDataGridView.Rows[rowIdx].Cells[18].Value = (accntCurrRate * amntEntrd).ToString("#,##0.00");
+                System.Windows.Forms.Application.DoEvents();
+
+                this.trnsDataGridView.Rows[rowIdx].Cells[19].Value = Global.mnFrm.cmCde.getPssblValNm(accntCurrID);
+                this.trnsDataGridView.Rows[rowIdx].Cells[20].Value = accntCurrID;
+                this.trnsDataGridView.Rows[rowIdx].Cells[21].Value = this.curid;
+                this.trnsDataGridView.Rows[rowIdx].Cells[17].Value = this.curCode;
+                this.trnsDataGridView.Rows[rowIdx].Cells[22].Value = trnsID;
+            }
+            else
+            {
+                //Global.mnFrm.cmCde.trgtSheets[0].get_Range("A" + rownum + ":E" + rownum + "", Type.Missing).Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.FromArgb(255, 0, 0));
+                //this.trgtSheets[0].get_Range("M" + rownum + ":M" + rownum + "", Type.Missing).Value2 = errMsg;
+            }
+            this.obey_evnts = true;
+        }
+
+        private void unpostedBatchButton_Click(object sender, EventArgs e)
+        {
+            string[] selVals = new string[1];
+            selVals[0] = this.batchid.ToString();
+            DialogResult dgRes = Global.mnFrm.cmCde.showPssblValDiag(
+              Global.mnFrm.cmCde.getLovID("Unposted Batches"),
+              ref selVals, false, false, this.orgid,
+              Global.myBscActn.user_id.ToString(), "0");
+            if (dgRes == DialogResult.OK)
+            {
+                for (int i = 0; i < selVals.Length; i++)
+                {
+                    this.obey_evnts = true;
+                    this.batchid = long.Parse(selVals[i]);
+                    if (i == selVals.Length - 1)
+                    {
+                        this.batchNmRcnclTextBox.Text = Global.getBatchNm(this.batchid);
+                    }
+                }
+            }
+        }
+
+        private void crrctBalsVarnceButton_Click(object sender, EventArgs e)
+        {
+            this.trnsDateTextBox.Text = this.tbalDteTextBox.Text;
+            if (this.trialBalListView.CheckedItems.Count <= 0)
+            {
+                Global.mnFrm.cmCde.showMsg("Please select an Account(s) to Reconcile!", 0);
+                return;
+            }
+            this.statusLoadLabel.Visible = true;
+            this.statusLoadPictureBox.Visible = true;
+            System.Windows.Forms.Application.DoEvents();
+            if (Global.mnFrm.cmCde.showMsg("Are you sure you want to adjust balances for the Selected Line(s)?", 1) == DialogResult.No)
+            {
+                return;
+            }
+            int trnsCreated = 0;
+            for (int i = 0; i < this.trialBalListView.CheckedItems.Count; i++)
+            {
+                int curAccntID = -1;
+                int.TryParse(this.trialBalListView.CheckedItems[i].SubItems[8].Text, out curAccntID);
+                string accntNum1 = Global.mnFrm.cmCde.getAccntNum(curAccntID);
+                string isParent = Global.getIsParentOrHsLedger(curAccntID);
+                if (curAccntID <= 0 || isParent == "1")
+                {
+                    //Global.mnFrm.cmCde.showMsg("Please select a Non-Parent Account First!", 0);
+                    curAccntID = -1;
+                    continue;
+                }
+                int destAccntID = curAccntID;
+                if (destAccntID <= 0)
+                {
+                    //Global.mnFrm.cmCde.showMsg("Please first select an Account to Move Transactions to!", 0);
+                    continue;
+                }
+                long trnsID = -1;
+                string trnsDte = this.tbalDteTextBox.Text;// DateTime.Parse(this.trialBalListView.SelectedItems[0].SubItems[7].Text).ToString("dd-MMM-yyyy HH:mm:ss");
+                string accntNum2 = Global.mnFrm.cmCde.getAccntNum(destAccntID);
+
+                string refDocNum = "";
+
+                string incrsDcrs1 = "";
+                string incrsDcrs2 = "";
+                double debitAmnt = 0;
+                double.TryParse(this.trialBalListView.CheckedItems[i].SubItems[4].Text, out debitAmnt);
+                double creditAmnt = 0;
+                double.TryParse(this.trialBalListView.CheckedItems[i].SubItems[5].Text, out creditAmnt);
+                double entrdAmnt = 0;
+                double.TryParse(this.trialBalListView.CheckedItems[i].SubItems[6].Text, out entrdAmnt);
+                if (creditAmnt != 0)
+                {
+                    incrsDcrs1 = Global.incrsOrDcrsAccnt(curAccntID, "Debit");
+                    incrsDcrs2 = Global.incrsOrDcrsAccnt(destAccntID, "Credit");
+                    entrdAmnt = creditAmnt;
+                }
+                else
+                {
+                    incrsDcrs1 = Global.incrsOrDcrsAccnt(curAccntID, "Credit");
+                    incrsDcrs2 = Global.incrsOrDcrsAccnt(destAccntID, "Debit");
+                    entrdAmnt = debitAmnt;
+                }
+                string trnsDesc = "(Closing Balance Adjustments) for balance as at " + this.trialBalListView.CheckedItems[i].SubItems[7].Text +
+                    ".\r\nCurrent balance=" + entrdAmnt.ToString("#,##0.00") +
+                    ".\r\nAccount Name=" + this.trialBalListView.CheckedItems[i].SubItems[3].Text.Trim();
+                string rspnseDesc = "Account Name=" + this.trialBalListView.CheckedItems[i].SubItems[3].Text.Trim()
+                    + ".\r\nCurrent balance=" + entrdAmnt.ToString("#,##0.00");
+                string rspnse = Microsoft.VisualBasic.Interaction.InputBox(
+                  "Type in the new Adjusted Balance (Figure)\r\n\r\n" + rspnseDesc,
+                  "Rhomicom", "0", (Global.mnFrm.cmCde.myComputer.Screen.Bounds.Width / 2) - 170,
+                  (Global.mnFrm.cmCde.myComputer.Screen.Bounds.Height / 2) - 100);
+                if (rspnse.Equals(string.Empty) || rspnse.Equals(null))
+                {
+                    Global.mnFrm.cmCde.showMsg("Adjusted balance cannot be empty!", 0);
+                    continue;
+                }
+                double rsponse = 0;
+                bool rsps = double.TryParse(rspnse, out rsponse);
+                if (rsps == false)
+                {
+                    Global.mnFrm.cmCde.showMsg("Invalid Option! Expecting Numbers only", 0);
+                    continue;
+                }
+
+                string entrdCurr = this.funcCurCode;
+                double funcCurrRate = 1;
+                double accntCurrRate = 1;
+                this.createTrnsTmp(trnsID, trnsDesc.Replace("\r\n", ""), trnsDte, incrsDcrs1, curAccntID, accntNum1, entrdAmnt.ToString(), entrdCurr, refDocNum, funcCurrRate, accntCurrRate);
+                this.createTrnsTmp(trnsID, trnsDesc.Replace("\r\n", ""), trnsDte, incrsDcrs2, destAccntID, accntNum2, rsponse.ToString(), entrdCurr, refDocNum, funcCurrRate, 1);
+                trnsCreated++;
+                System.Windows.Forms.Application.DoEvents();
+            }
+            if (trnsCreated <= 0)
+            {
+                Global.mnFrm.cmCde.showMsg("No transactions Created!", 0);
+            }
+            else
+            {
+                this.finStmntsTabControl.SelectedTab = this.tabPage21;
+            }
+            this.statusLoadLabel.Visible = false;
+            this.statusLoadPictureBox.Visible = false;
+            System.Windows.Forms.Application.DoEvents();
         }
         #endregion
 
@@ -11990,11 +13427,6 @@ SET net_amount=" + netAmnt + @"
             Global.mnFrm.cmCde.showSQL(Global.mnFrm.accntStmntSQL, 10);
         }
 
-        private void crrctBalsVarnceButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void exptToTmplt2MenuItem_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.DoEvents();
@@ -12959,6 +14391,38 @@ SET net_amount=" + netAmnt + @"
             this.plGenRptButton.PerformClick();
             System.Windows.Forms.Application.DoEvents();
             this.resetPnLButton.Enabled = true;
+        }
+
+        private void trialBalListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            if (e.IsSelected)
+            {
+                if (e.Item.Checked)
+                {
+                    e.Item.Checked = false;
+                }
+                else
+                {
+                    e.Item.Checked = true;
+                    e.Item.Selected = true;
+                }
+            }
+        }
+
+        private void resetRcnclButton_Click(object sender, EventArgs e)
+        {
+            if (Global.mnFrm.cmCde.showMsg("Are you sure you want to CLEAR All RECORDS on this Page?" +
+             "\r\nThis action cannot be undone!", 1) == DialogResult.No)
+            {
+                //Global.mnFrm.cmCde.showMsg("Operation Cancelled!", 4);
+                return;
+            }
+            this.batchid = -1;
+            this.batchNmRcnclTextBox.Text = "";
+            this.trnsDataGridView.Rows.Clear();
+            this.ttlCreditsRcnclLabel.Text = "0.00";
+            this.ttlDebitsRcnclLabel.Text = "0.00";
+            this.netBalanceRcnclLabel.Text = "0.00";
         }
     }
 }

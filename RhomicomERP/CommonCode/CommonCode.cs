@@ -64,14 +64,13 @@ namespace CommonCode
         [DllImport("psapi.dll")]
         static extern int EmptyWorkingSet(IntPtr hwProc);
 
-        static string appName = "";
-        static string appVrsn = "";
-        static string appVersion = "";
-
+        static string appName = "Rhomicom ERP";
+        static string appVrsn = "V1 P23";
+        static string appVersion = "V1.2.3 (Free)";
         public static string AppVersion
         {
             get { return CommonCodes.appVersion; }
-            set { CommonCodes.appVersion = value; }
+            //set { CommonCodes.appVersion = value; }
         }
         static string appKey = "eRRTRhbnsdGeneral Key for Rhomi|com Systems "
             + "Tech. !Ltd Enterpise/Organization @763542orbjkasdbhi68103weuikfjnsdf";
@@ -104,14 +103,14 @@ namespace CommonCode
         public static string AppVrsn
         {
             get { return CommonCodes.appVrsn; }
-            set { CommonCodes.appVrsn = value; }
+            //set { CommonCodes.appVrsn = value; }
         }
         public bool ignorAdtTrail = false;
 
         public static string AppName
         {
             get { return appName; }
-            set { appName = value; }
+            //set { appName = value; }
         }
         [DllImport("kernel32.dll", SetLastError = true, CallingConvention = CallingConvention.Winapi)]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -10637,6 +10636,28 @@ to_char(to_timestamp(a.creation_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:
             nwDiag.cmnCde.Extra_Adt_Trl_Info = "";
             //nwDiag.Show();
             nwDiag.Show();
+            return DialogResult.OK;
+        }
+
+        public DialogResult showSupportDiag(CommonCodes cmnCde)
+        {
+            XAML.RegisterApp nwDiag = new XAML.RegisterApp();
+            nwDiag.cmnCde = cmnCde;
+
+            nwDiag.cmnCde.DefaultPrvldgs = cmnCde.DefaultPrvldgs;
+            //nwDiag.cmnCde.pgSqlConn = cmnCde.pgSqlConn;
+            nwDiag.cmnCde.Login_number = cmnCde.Login_number;
+            nwDiag.cmnCde.Role_Set_IDs = cmnCde.Role_Set_IDs;
+            nwDiag.cmnCde.User_id = cmnCde.User_id;
+            nwDiag.cmnCde.Org_id = cmnCde.Org_id;
+
+            nwDiag.cmnCde.ModuleAdtTbl = cmnCde.ModuleAdtTbl;
+            nwDiag.cmnCde.ModuleDesc = cmnCde.ModuleDesc;
+            nwDiag.cmnCde.ModuleName = cmnCde.ModuleName;
+            nwDiag.cmnCde.SampleRole = cmnCde.SampleRole;
+            nwDiag.cmnCde.Extra_Adt_Trl_Info = "";
+            //nwDiag.Show();
+            nwDiag.ShowDialog();
             return DialogResult.OK;
         }
 

@@ -95,7 +95,7 @@
                 </ComboBox>
                 <Label Content="Group Name:" HorizontalAlignment="Left" Margin="0,50,0,0" VerticalAlignment="Top"/>
                 <Label Content="Workplace:" HorizontalAlignment="Left" Margin="0,83,0,0" VerticalAlignment="Top"/>
-                <Label Content="Site:" HorizontalAlignment="Left" Margin="0,122,0,0" VerticalAlignment="Top"/>
+                <Label Content="Site:" HorizontalAlignment="Right" Margin="0,122,347,0" VerticalAlignment="Top"/>
                 <Label Content="To:" HorizontalAlignment="Left" Margin="0,155,0,0" VerticalAlignment="Top"/>
                 <Label Content="Cc:" HorizontalAlignment="Left" Margin="0,217,0,0" VerticalAlignment="Top"/>
                 <Label Content="Bcc:" HorizontalAlignment="Left" Margin="0,269,0,0" VerticalAlignment="Top"/>

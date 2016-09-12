@@ -6,30 +6,29 @@ The software can be used to manage both backend and front-end operations of all 
 Capabilities of the Rhomicom ERP (Web/Desktop Renditions)
 ====================================================================
 1. Capture/Upload all Bio and Allied Data on Members, Staff, Students, Board Members, and Directors Etc.													
-2. Run Payroll for all Persons Captured where applicable (Payroll is fully customizable to meet the peculiar needs of the institution)	3. Tithes, Welfare Dues, Contributions, Membership Dues, School Fees can all be collected/paid with receipts via the Internal Payments Module								
-4. Point three can also be done via the Sales/Inventory Module where there is the need to sell inventory items to the member/student at the time of paying the fees/dues	(Point of Sale (POS) supported)				
-5. Automated SMS Alerts on any report or data needed (E.g. birthday messages, customer payment alerts etc.)												
-6. Automated Email Alerts on any report or data needed (E.g. pay slips, bills, dues balances etc.)	
-7. Automated backups and data integrity checks							
-8. Stock/Inventory Management (Fully Supports the Supply Chain Cycle)					
-9. Pass Accounting Journal Entries (Directly or using User Defined Templates)				
-10. Open/Close Accounting Periods										
-11. Budgetary Controls										
-12. Management of Payable Invoices	 and Receivable Invoices					
-13. Very User Friendly Account Reconciliation Pages						
-14. Several Financial Statements available (Trial Balance, Balance Sheet, Profit and Loss, Cash Flow, Period by Period Comparisons, Account Statements)								
-15. Management of Fixed Assets (Assets Register)							
-16. Self-Service Feature for all your members/staff/students etc. to logon (Web Version)		
-17. Ability to create and add your own custom reports in any format at all (using Jasper Reports)		
-18. User Access Controls (Using Roles and Priviledges)						
-19. Management of all Events and Programmes								
-20. Management of Facility Rentals and Hospitality Services						
-21. Manage Visits and Appointments (Schedules)							
-22. Send SMS and emails with attachments to selected Groups of People right from the System		
-23. Export and Import of Data from Microsoft Excel fully supported					
-24. School/Academics Management/Performance Management System					
-25. Projects Management
-26. Automated Stock Management with regards to Restaurant Recipies, Product Creation and Manufacturing of Items
+2. Run Payroll for all Persons Captured where applicable (Payroll is fully customizable to meet the peculiar needs of the institution)	3. Tithes, Welfare Dues, Contributions, Membership Dues, School Fees can all be collected/paid with receipts via the Internal Payments Module. This can also be done via the Sales/Inventory Module where there is the need to sell inventory items to the member/student at the time of paying the fees/dues	(Point of Sale (POS) supported)				
+4. Automated SMS Alerts on any report or data needed (E.g. birthday messages, customer payment alerts etc.)												
+5. Automated Email Alerts on any report or data needed (E.g. pay slips, bills, dues balances etc.)	
+6. Automated backups and data integrity checks							
+7. Stock/Inventory Management (Fully Supports the Supply Chain Cycle)					
+8. Pass Accounting Journal Entries (Directly or using User Defined Templates)				
+9. Open/Close Accounting Periods										
+10. Budgetary Controls										
+11. Management of Payable Invoices	 and Receivable Invoices					
+12. Very User Friendly Account Reconciliation Pages						
+13. Several Financial Statements available (Trial Balance, Balance Sheet, Profit and Loss, Cash Flow, Period by Period Comparisons, Account Statements)								
+14. Management of Fixed Assets (Assets Register)							
+15. Self-Service Feature for all your members/staff/students etc. to logon (Web Version)		
+16. Ability to create and add your own custom reports in any format at all (using Jasper Reports)		
+17. User Access Controls (Using Roles and Priviledges)						
+18. Management of all Events and Programmes								
+19. Management of Facility Rentals and Hospitality Services						
+20. Manage Visits and Appointments (Schedules)							
+21. Send SMS and emails with attachments to selected Groups of People right from the System		
+22. Export and Import of Data from Microsoft Excel fully supported					
+23. School/Academics Management/Performance Management System					
+24. Projects Management
+25. Automated Stock Management with regards to Restaurant Recipies, Product Creation and Manufacturing of Items
 
 =======================================
 Various Modules currently completed are

@@ -21,7 +21,7 @@ Capabilities of the Rhomicom ERP (Web/Desktop Renditions)
 13. Several Financial Statements available (Trial Balance, Balance Sheet, Profit and Loss, Cash Flow, Period by Period Comparisons, Account Statements)								
 14. Management of Fixed Assets (Assets Register)							
 15. Self-Service Feature for all your members/staff/students etc. to logon (Web Version)		
-16. Ability to create and add your own custom reports in any format at all (using Jasper Reports)		
+16. Ability to create and add your own custom reports in any format required (using Jasper Reports)		
 17. User Access Controls (Using Roles and Priviledges)						
 18. Management of all Events and Programmes								
 19. Management of Facility Rentals and Hospitality Services						
@@ -30,7 +30,7 @@ Capabilities of the Rhomicom ERP (Web/Desktop Renditions)
 22. Export and Import of Data from Microsoft Excel fully supported					
 23. School/Academics Management/Performance Management System					
 24. Projects Management
-25. Automated Stock Management with regards to Restaurant Recipies, Product Creation and Manufacturing of Items
+25. Automated Stock Management with regards to Restaurant Recipes Creation, New Product Creation and Manufacturing of Items
 
 =======================================
 Various Modules currently completed are

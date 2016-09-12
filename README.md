@@ -3,7 +3,7 @@ Rhomicom Enterprise Resource Planning System is a complete ERP system proudly st
 The company behind this project is Rhomicom Systems Tech. Ltd.(http://rhomicom.com)
 The software can be used to manage both backend and front-end operations of all kinds of institutions and organisations.
 ====================================================================
-Capabilities of the Rhomicom ERP (Web/Desktop Reditions)
+Capabilities of the Rhomicom ERP (Web/Desktop Renditions)
 ====================================================================
 1. Capture/Upload all Bio and Allied Data on Members, Staff, Students, Board Members, and Directors Etc.													
 2. Run Payroll for all Persons Captured where applicable (Payroll is fully customizable to meet the peculiar needs of the institution)	3. Tithes, Welfare Dues, Contributions, Membership Dues, School Fees can all be collected/paid with receipts via the Internal Payments Module								

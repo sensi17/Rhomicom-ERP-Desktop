@@ -18,7 +18,7 @@ namespace Enterprise_Management_System.Dialogs
 
     private void inboxDiag_Load(object sender, EventArgs e)
     {
-      System.Windows.Forms.Application.DoEvents();
+      //System.Windows.Forms.Application.DoEvents();
       Color[] clrs = Global.myNwMainFrm.cmnCdMn.getColors();
       this.BackColor = clrs[0];
     }

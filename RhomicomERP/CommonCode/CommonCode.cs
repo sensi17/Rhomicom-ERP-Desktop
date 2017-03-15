@@ -65,8 +65,14 @@ namespace CommonCode
         static extern int EmptyWorkingSet(IntPtr hwProc);
 
         static string appName = "Rhomicom ERP";
-        static string appVrsn = "V1 P23";
-        static string appVersion = "V1.2.3 (Free)";
+        static string appVrsn = "V1 P24";
+        static string appVersion = "V1.2.4 (Community Edition)";
+        static string modulesNeeded = "Person Records Only";
+        public static string ModulesNeeded
+        {
+            get { return CommonCodes.modulesNeeded; }
+            set { CommonCodes.modulesNeeded = value; }
+        }
         public static string AppVersion
         {
             get { return CommonCodes.appVersion; }
@@ -81,7 +87,7 @@ namespace CommonCode
             set { CommonCodes.appKey = value; }
         }
         static string orgnlAppKey = "eRRTRhbnsdGeneral Key for Rhomi|com Systems "
-        + "Tech. !Ltd Enterpise/Organization @763542orbjkasdbhi68103weuikfjnsdf";
+            + "Tech. !Ltd Enterpise/Organization @763542orbjkasdbhi68103weuikfjnsdf";
 
         public static string OrgnlAppKey
         {
@@ -465,6 +471,7 @@ namespace CommonCode
                 NpgsqlCommand selCmd = new NpgsqlCommand(@selSql, mycon);
                 selDtAdpt.SelectCommand = selCmd;
                 selDtAdpt.Fill(selDtSt, "table_1");
+                selCmd.Connection.Close();
                 mycon.Close();
                 return selDtSt;
             }
@@ -531,6 +538,7 @@ namespace CommonCode
                 NpgsqlCommand selCmd = new NpgsqlCommand(@selSql, mycon);
                 selDtAdpt.SelectCommand = selCmd;
                 selDtAdpt.Fill(selDtSt, "table_2");
+                selCmd.Connection.Close();
                 mycon.Close();
                 return selDtSt;
             }
@@ -567,6 +575,7 @@ namespace CommonCode
                 NpgsqlCommand delCmd = new NpgsqlCommand(@delSql, mycon);
                 delDtAdpt.DeleteCommand = delCmd;
                 delCmd.ExecuteNonQuery();
+                delCmd.Connection.Close();
                 mycon.Close();
                 if (this.ignorAdtTrail == false)
                 {
@@ -609,6 +618,7 @@ namespace CommonCode
                 NpgsqlCommand insCmd = new NpgsqlCommand(@insSql, mycon);
                 insDtAdpt.InsertCommand = insCmd;
                 insCmd.ExecuteNonQuery();
+                insCmd.Connection.Close();
                 mycon.Close();
                 return;
             }
@@ -647,6 +657,7 @@ namespace CommonCode
                 NpgsqlCommand updtCmd = new NpgsqlCommand(@updtSql, mycon);
                 updtDtAdpt.UpdateCommand = updtCmd;
                 updtCmd.ExecuteNonQuery();
+                updtCmd.Connection.Close();
                 mycon.Close();
                 if (this.ignorAdtTrail == false)
                 {
@@ -673,6 +684,7 @@ namespace CommonCode
                 NpgsqlCommand updtCmd = new NpgsqlCommand(@updtSql, mycon);
                 updtDtAdpt.UpdateCommand = updtCmd;
                 updtCmd.ExecuteNonQuery();
+                updtCmd.Connection.Close();
                 mycon.Close();
                 if (this.ignorAdtTrail == false)
                 {
@@ -708,6 +720,7 @@ namespace CommonCode
                 }
                 NpgsqlCommand gnrlCmd = new NpgsqlCommand(@genSql, mycon);
                 gnrlCmd.ExecuteNonQuery();
+                gnrlCmd.Connection.Close();
                 mycon.Close();
                 return;
             }
@@ -728,6 +741,7 @@ namespace CommonCode
                 mycon.Open();
                 NpgsqlCommand gnrlCmd = new NpgsqlCommand(@genSql, mycon);
                 gnrlCmd.ExecuteNonQuery();
+                gnrlCmd.Connection.Close();
                 mycon.Close();
                 return;
             }
@@ -742,10 +756,11 @@ namespace CommonCode
 
         #region "DATA MANIPULATION FUNCTIONS..."
         #region "INSERT STATEMENTS..."
+
         public void registerThsModule()
         {
             string dateStr = this.getDB_Date_time();
-            string sqlStr = "INSERT INTO sec.sec_modules(module_name, module_desc, " +
+            string sqlStr = "INSERT INTO sec.sec_modules (module_name, module_desc, " +
              "date_added, audit_trail_tbl_name) VALUES ('" +
              this.ModuleName.Replace("'", "''") + "', '" +
              this.ModuleDesc.Replace("'", "''") +
@@ -777,7 +792,6 @@ namespace CommonCode
             {
                 uID = this.User_id;
             }
-
             string dateStr = this.getDB_Date_time();
             string sqlStr = "INSERT INTO sec.sec_roles(role_name, valid_start_date, valid_end_date, created_by, " +
                      "creation_date, last_update_by, last_update_date) VALUES ('" + roleNm.Replace("'", "''") + "', '" +
@@ -1544,6 +1558,25 @@ namespace CommonCode
                 {
                     rs = rs + " 00:00:00";
                 }
+                return rs;
+            }
+            else
+            {
+                return DateTime.ParseExact(
+            this.getDB_Date_time(), "yyyy-MM-dd HH:mm:ss",
+            System.Globalization.CultureInfo.InvariantCulture).ToString("dd-MMM-yyyy 00:00:00");
+            }
+        }
+
+        public string getLtstOpenPrdAfterDate(string trnsDate)
+        {
+            string strSql = "SELECT a.period_start_date " +
+             "FROM accb.accb_periods_det a " +
+             "WHERE(a.period_start_date >='" + trnsDate + "' and a.period_status ='Open') ORDER BY a.period_start_date ASC LIMIT 1 OFFSET 0 ";
+            DataSet dtst = this.selectDataNoParams(strSql);
+            if (dtst.Tables[0].Rows.Count > 0)
+            {
+                string rs = dtst.Tables[0].Rows[0][0].ToString();
                 return rs;
             }
             else
@@ -2407,6 +2440,22 @@ namespace CommonCode
             }
         }
 
+        public int getGrpOrgID()
+        {
+            //Example username 'admin'
+            DataSet dtSt = new DataSet();
+            string sqlStr = "select MIN(org_id) from org.org_details where parent_org_id<=0";
+            dtSt = this.selectDataNoParams(sqlStr);
+            if (dtSt.Tables[0].Rows.Count > 0)
+            {
+                return int.Parse(dtSt.Tables[0].Rows[0][0].ToString());
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
         public int getJobID(string jobname, int orgid)
         {
             DataSet dtSt = new DataSet();
@@ -2724,6 +2773,40 @@ namespace CommonCode
             }
         }
 
+        public string getSegmentValDesc(int segmentValID)
+        {
+            //Example username 'admin'
+            DataSet dtSt = new DataSet();
+            string sqlStr = "select segment_description from org.org_segment_values where segment_value_id = " +
+             segmentValID + "";
+            dtSt = this.selectDataNoParams(sqlStr);
+            if (dtSt.Tables[0].Rows.Count > 0)
+            {
+                return dtSt.Tables[0].Rows[0][0].ToString();
+            }
+            else
+            {
+                return "";
+            }
+        }
+
+        public string getSegmentVal(int segmentValID)
+        {
+            //Example username 'admin'
+            DataSet dtSt = new DataSet();
+            string sqlStr = "select segment_value from org.org_segment_values where segment_value_id = " +
+             segmentValID + "";
+            dtSt = this.selectDataNoParams(sqlStr);
+            if (dtSt.Tables[0].Rows.Count > 0)
+            {
+                return dtSt.Tables[0].Rows[0][0].ToString();
+            }
+            else
+            {
+                return "";
+            }
+        }
+
         public string getAccntType(int accntid)
         {
             //Example username 'admin'
@@ -2740,7 +2823,22 @@ namespace CommonCode
                 return "";
             }
         }
-
+        public string getSgmntValAccntType(int sgmntValID)
+        {
+            //Example username 'admin'
+            DataSet dtSt = new DataSet();
+            string sqlStr = "select accnt_type from org.org_segment_values where segment_value_id = " +
+             sgmntValID + "";
+            dtSt = this.selectDataNoParams(sqlStr);
+            if (dtSt.Tables[0].Rows.Count > 0)
+            {
+                return dtSt.Tables[0].Rows[0][0].ToString();
+            }
+            else
+            {
+                return "";
+            }
+        }
         public string isAccntContra(int accntid)
         {
             //Example username 'admin'
@@ -2880,6 +2978,11 @@ namespace CommonCode
             }
         }
 
+        public static bool isEmailValid(string emailString)
+        {
+            return Regex.IsMatch(emailString, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
+        }
+
         public string getEnbldPssblValDesc(string pssblVal, int lovID)
         {
             DataSet dtSt = new DataSet();
@@ -2990,6 +3093,7 @@ namespace CommonCode
             string sqlStr = "SELECT prvldg_id from sec.sec_prvldgs where (prvldg_name = '" +
              prvldg_name.Replace("'", "''") + "' AND module_id = " +
              this.getModuleID(this.ModuleName) + ")";
+            //MessageBox.Show(this.ModuleName);
             dtSt = this.selectDataNoParams(sqlStr);
             if (dtSt.Tables[0].Rows.Count > 0)
             {
@@ -3140,7 +3244,21 @@ namespace CommonCode
                 return false;
             }
         }
-
+        public bool doesPrsnHvThisAccnt(long inp_prsn_id, int inp_accnt_id)
+        {
+            //Checks whether a given role 'system administrator' has a given priviledge
+            DataSet dtSt = new DataSet();
+            string sqlStr = "SELECT org.does_prsn_hv_accnt_id(" + inp_prsn_id + "," + inp_accnt_id + ")";
+            dtSt = this.selectDataNoParams(sqlStr);
+            if (dtSt.Tables[0].Rows.Count > 0)
+            {
+                return (long.Parse(dtSt.Tables[0].Rows[0][0].ToString()) > 0);
+            }
+            else
+            {
+                return false;
+            }
+        }
         public bool doCurRolesHvThsPrvldgs(string[] prvldgnames)
         {
             bool[] chkRslts = new bool[prvldgnames.Length];
@@ -3568,26 +3686,26 @@ namespace CommonCode
             {
                 if (criteriaID <= 0 && criteriaID2 == "" && criteriaID3 == "")
                 {
-                    strSql = "select * from (" + this.getSQLForDynamicVlLst(lovID) +
+                    strSql = "select * from (" + this.getSQLForDynamicVlLst(lovID).Replace("{:prsn_id}", this.getUserPrsnID(this.User_id).ToString()) +
                       ") tbl1 WHERE 1=1 " + extrWhere + addtnlWhere + " " + ordrBy + " LIMIT " + limit_size +
                       " OFFSET " + (Math.Abs(offset * limit_size)).ToString();
                 }
                 else if (criteriaID >= 0 && criteriaID2 == "" && criteriaID3 == "")
                 {
-                    strSql = "select * from (" + this.getSQLForDynamicVlLst(lovID) +
+                    strSql = "select * from (" + this.getSQLForDynamicVlLst(lovID).Replace("{:prsn_id}", this.getUserPrsnID(this.User_id).ToString()) +
                    ") tbl1 WHERE tbl1.d = " + criteriaID + " " + extrWhere + addtnlWhere + " " + ordrBy + " LIMIT " + limit_size +
                     " OFFSET " + (Math.Abs(offset * limit_size)).ToString();
                 }
                 else if (criteriaID >= 0 && criteriaID2 != "" && criteriaID3 == "")
                 {
-                    strSql = "select * from (" + this.getSQLForDynamicVlLst(lovID) +
+                    strSql = "select * from (" + this.getSQLForDynamicVlLst(lovID).Replace("{:prsn_id}", this.getUserPrsnID(this.User_id).ToString()) +
                      ") tbl1 WHERE (tbl1.d = " + criteriaID + " and tbl1.e = '" +
                      criteriaID2.Replace("'", "''") + "' " + extrWhere + addtnlWhere + ") " + ordrBy + " LIMIT " + limit_size +
                       " OFFSET " + (Math.Abs(offset * limit_size)).ToString();
                 }
                 else if (criteriaID >= 0 && criteriaID2 != "" && criteriaID3 != "")
                 {
-                    strSql = "select * from (" + this.getSQLForDynamicVlLst(lovID) +
+                    strSql = "select * from (" + this.getSQLForDynamicVlLst(lovID).Replace("{:prsn_id}", this.getUserPrsnID(this.User_id).ToString()) +
                 ") tbl1 WHERE (tbl1.d = " + criteriaID + " and tbl1.e = '" +
                 criteriaID2.Replace("'", "''") + "' and tbl1.f = '" + criteriaID3.Replace("'", "''") +
                 "' " + extrWhere + addtnlWhere + ") " + ordrBy + " LIMIT " + limit_size +
@@ -3595,7 +3713,7 @@ namespace CommonCode
                 }
                 else
                 {
-                    strSql = "select * from (" + this.getSQLForDynamicVlLst(lovID) +
+                    strSql = "select * from (" + this.getSQLForDynamicVlLst(lovID).Replace("{:prsn_id}", this.getUserPrsnID(this.User_id).ToString()) +
                 ") tbl1 WHERE 1=1 " + extrWhere + addtnlWhere + " " + ordrBy + " LIMIT " + limit_size +
                  " OFFSET " + (Math.Abs(offset * limit_size)).ToString();
                 }
@@ -3709,30 +3827,30 @@ namespace CommonCode
             {
                 if (criteriaID <= 0 && criteriaID2 == "" && criteriaID3 == "")
                 {
-                    strSql = "select count(1) from (" + this.getSQLForDynamicVlLst(lovID) +
+                    strSql = "select count(1) from (" + this.getSQLForDynamicVlLst(lovID).Replace("{:prsn_id}", this.getUserPrsnID(this.User_id).ToString()) +
                       ") tbl1 WHERE 1=1 " + extrWhere + addtnlWhere + "";
                 }
                 else if (criteriaID >= 0 && criteriaID2 == "" && criteriaID3 == "")
                 {
-                    strSql = "select count(1) from (" + this.getSQLForDynamicVlLst(lovID) +
+                    strSql = "select count(1) from (" + this.getSQLForDynamicVlLst(lovID).Replace("{:prsn_id}", this.getUserPrsnID(this.User_id).ToString()) +
                    ") tbl1 WHERE tbl1.d = " + criteriaID + " " + extrWhere + addtnlWhere + "";
                 }
                 else if (criteriaID >= 0 && criteriaID2 != "" && criteriaID3 == "")
                 {
-                    strSql = "select count(1) from (" + this.getSQLForDynamicVlLst(lovID) +
+                    strSql = "select count(1) from (" + this.getSQLForDynamicVlLst(lovID).Replace("{:prsn_id}", this.getUserPrsnID(this.User_id).ToString()) +
                      ") tbl1 WHERE (tbl1.d = " + criteriaID + " and tbl1.e = '" +
                      criteriaID2.Replace("'", "''") + "' " + extrWhere + addtnlWhere + ")";
                 }
                 else if (criteriaID >= 0 && criteriaID2 != "" && criteriaID3 != "")
                 {
-                    strSql = "select count(1) from (" + this.getSQLForDynamicVlLst(lovID) +
+                    strSql = "select count(1) from (" + this.getSQLForDynamicVlLst(lovID).Replace("{:prsn_id}", this.getUserPrsnID(this.User_id).ToString()) +
                 ") tbl1 WHERE (tbl1.d = " + criteriaID + " and tbl1.e = '" +
                 criteriaID2.Replace("'", "''") + "' and tbl1.f = '" + criteriaID3.Replace("'", "''") +
                 "' " + extrWhere + addtnlWhere + ")";
                 }
                 else
                 {
-                    strSql = "select count(1) from (" + this.getSQLForDynamicVlLst(lovID) +
+                    strSql = "select count(1) from (" + this.getSQLForDynamicVlLst(lovID).Replace("{:prsn_id}", this.getUserPrsnID(this.User_id).ToString()) +
             ") tbl1 WHERE 1=1 " + extrWhere + addtnlWhere + "";
                 }
                 is_dynamic = true;
@@ -4199,6 +4317,7 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
             }
             return "";
         }
+
         public string pickAFile(string filterTxt)
         {
             if (filterTxt == "")
@@ -4216,6 +4335,7 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
             }
             return "";
         }
+
         public bool copyAFile(long id, string destfolderNm, string srcFileNm)
         {
             //If strict FTP is the case uploadload File to Server after  
@@ -4289,6 +4409,10 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                     {
                         folderTyp = 15;
                     }
+                    else if (destfolderNm == this.getRptDrctry() + "\\mail_attachments")
+                    {
+                        folderTyp = 17;
+                    }
                     else if (destfolderNm == this.getAttnDocsImgsDrctry())
                     {
                         folderTyp = 10;
@@ -4309,8 +4433,58 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                     {
                         folderTyp = 14;
                     }
+                    else if (destfolderNm == this.getPtycshImgsDrctry())
+                    {
+                        folderTyp = 16;
+                    }
                     //this.dwnldImgsFTP(2, folderNm, storeFileNm);
                     this.upldImgsFTP(folderTyp, destfolderNm, id.ToString() + extnsn);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Application.DoEvents();
+                this.showMsg(ex.Message, 4);
+                return false;
+            }
+        }
+
+        public bool copyAFileSpcl(string destfolderNm, string srcFileNm)
+        {
+            //If strict FTP is the case uploadload File to Server after  
+
+            try
+            {
+                string extnsn = this.myComputer.FileSystem.GetFileInfo(srcFileNm).Extension;
+                String nwfileName = "";
+                string baseNm = System.IO.Path.GetFileName(srcFileNm);
+                nwfileName = destfolderNm + @"\" + baseNm;
+                if (srcFileNm == nwfileName)
+                {
+                    return true;
+                }
+                if (this.myComputer.FileSystem.DirectoryExists(destfolderNm) == false)
+                {
+                    this.myComputer.FileSystem.CreateDirectory(destfolderNm);
+                }
+                if (this.myComputer.FileSystem.FileExists(nwfileName))
+                {
+                    this.myComputer.FileSystem.DeleteFile(nwfileName, Microsoft.VisualBasic.FileIO.UIOption.OnlyErrorDialogs,
+                     Microsoft.VisualBasic.FileIO.RecycleOption.DeletePermanently, Microsoft.VisualBasic.FileIO.UICancelOption.DoNothing);
+                }
+                Application.DoEvents();
+                if (this.myComputer.FileSystem.FileExists(srcFileNm))
+                {
+                    this.myComputer.FileSystem.CopyFile(
+                      srcFileNm, nwfileName, true);
+                    int folderTyp = 17;
+
+                    this.upldImgsFTP(folderTyp, destfolderNm, baseNm);
                     return true;
                 }
                 else
@@ -4425,6 +4599,10 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                 {
                     folderNm = this.getFirmsImgsDrctry();
                 }
+                else if (folderTyp == 16)
+                {
+                    folderNm = this.getPtycshImgsDrctry();
+                }
 
                 this.isDwnldDone = false;
                 this.dwnldImgsFTP(folderTyp, folderNm, storeFileNm);
@@ -4510,6 +4688,10 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                 else if (folderTyp == 14)
                 {
                     folderNm = this.getFirmsImgsDrctry();
+                }
+                else if (folderTyp == 16)
+                {
+                    folderNm = this.getPtycshImgsDrctry();
                 }
 
                 this.isDwnldDone = false;
@@ -4704,6 +4886,10 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                 {
                     folderNm = this.getFirmsImgsDrctry();
                 }
+                else if (folderTyp == 16)
+                {
+                    folderNm = this.getPtycshImgsDrctry();
+                }
                 //this.dwnldImgsFTP(2, folderNm, storeFileNm);
                 this.isDwnldDone = false;
                 this.dwnldImgsFTP(folderTyp, folderNm, storeFileNm);
@@ -4806,6 +4992,10 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                 else if (folderNm == this.getFirmsImgsDrctry())
                 {
                     folderTyp = 14;
+                }
+                else if (folderNm == this.getPtycshImgsDrctry())
+                {
+                    folderTyp = 16;
                 }
                 //this.dwnldImgsFTP(2, folderNm, storeFileNm);
                 this.isDwnldDone = false;
@@ -5054,7 +5244,10 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
         {
             return Application.StartupPath + "\\Images\\" + CommonCodes.DatabaseNm + "\\PyblDocs";
         }
-
+        public string getPtycshImgsDrctry()
+        {
+            return Application.StartupPath + "\\Images\\" + CommonCodes.DatabaseNm + "\\PtyCshDocs";
+        }
         public string getRcvblsImgsDrctry()
         {
             return Application.StartupPath + "\\Images\\" + CommonCodes.DatabaseNm + "\\RcvblDocs";
@@ -5330,6 +5523,10 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
             else if (folderTyp == 15)
             {
                 subdir = @"/Rpts/jrxmls";
+            }
+            else if (folderTyp == 17)
+            {
+                subdir = @"/Rpts/mail_attachments";
             }
             else if (folderTyp == 10)
             {
@@ -5642,9 +5839,101 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                 //Handling code here.
             }
         }
+        public long getMsgBatchID()
+        {
+            //string strSql = "select nextval('accb.accb_trnsctn_batches_batch_id_seq'::regclass);";
+            string strSql = "select nextval('alrt.bulk_msgs_batch_id_seq')";
+            DataSet dtst = this.selectDataNoParams(strSql);
+            if (dtst.Tables[0].Rows.Count > 0)
+            {
+                return long.Parse(dtst.Tables[0].Rows[0][0].ToString());
+            }
+            return -1;
+        }
+
+        public void createMessageQueue(long batchID, string mailTo, string mailCc, string mailBcc, string msgBody, string msgSbjct, string attachmnts, string msgType)
+        {
+            long uID = -1;
+            if (this.User_id <= 0)
+            {
+                uID = this.getUserID("admin");
+            }
+            else
+            {
+                uID = this.User_id;
+            }
+
+            string dateStr = this.getDB_Date_time();
+            string sqlStr = @"INSERT INTO alrt.bulk_msgs_sent(
+            batch_id, to_list, cc_list, msg_body, date_sent, 
+            msg_sbjct, bcc_list, created_by, creation_date, sending_status, 
+            err_msg, attch_urls, msg_type) VALUES (" + batchID +
+            ",'" + mailTo.Replace("'", "''") +
+            "','" + mailCc.Replace("'", "''") +
+            "','" + msgBody.Replace("'", "''") +
+            "','" + dateStr +
+            "','" + msgSbjct.Replace("'", "''") +
+            "','" + mailBcc.Replace("'", "''") +
+            "', " + uID +
+            ", '" + dateStr +
+            "','0','','" + attachmnts.Replace("'", "''") +
+            "','" + msgType.Replace("'", "''") + "')";
+            this.insertDataNoParams(sqlStr);
+        }
+
+        public bool isEmailValid(string emailString, int lovID)
+        {
+            bool isEmailValid = Regex.IsMatch(emailString, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
+            if (isEmailValid == false)
+            {
+                this.createSysLovsPssblVals1(emailString, lovID);
+            }
+            return isEmailValid;
+        }
+
+        public void createSysLovsPssblVals1(string pssblVals, int lovID)
+        {
+            if (this.getPssblValID(pssblVals, lovID) <= 0)
+            {
+                this.createPssblValsForLov1(lovID, pssblVals, pssblVals, "1", "");
+            }
+        }
+        public void createPssblValsForLov1(int lovID, string pssblVal,
+         string pssblValDesc, string isEnbld, string allwd)
+        {
+            string dateStr = this.getDB_Date_time();
+            string sqlStr = "INSERT INTO gst.gen_stp_lov_values(" +
+                  "value_list_id, pssbl_value, pssbl_value_desc, " +
+                              "created_by, creation_date, last_update_by, " +
+                              "last_update_date, is_enabled, allowed_org_ids) " +
+              "VALUES (" + lovID + ", '" + pssblVal.Replace("'", "''") + "', '" +
+              pssblValDesc.Replace("'", "''") +
+              "', " + this.User_id + ", '" + dateStr + "', " + this.User_id +
+              ", '" + dateStr + "', '" + isEnbld.Replace("'", "''") +
+              "', '" + allwd.Replace("'", "''") + "')";
+            this.insertDataNoParams(sqlStr);
+        }
+
+        public bool CheckForInternetConnection()
+        {
+            try
+            {
+                using (var client = new WebClient())
+                {
+                    using (var stream = client.OpenRead("http://www.google.com"))
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
 
         public bool sendEmail(string toEml, string ccEml,
-          string bccEml, string attchmnt, string sbjct, string bdyTxt, ref string errMsg)
+          string bccEml, string attchmnt, string sbjct, string bdyTxt, string msgIdentifier, ref string errMsg)
         {
             try
             {
@@ -5676,41 +5965,126 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                 string[] bccEmails = bccEml.Trim().Split(spltChars, StringSplitOptions.RemoveEmptyEntries);
                 string[] attchMnts = attchmnt.Trim().Split(spltChars, StringSplitOptions.RemoveEmptyEntries);
                 int i = 0;
+                int lovID = this.getLovID("Email Addresses to Ignore");
                 for (i = 0; i < toEmails.Length; i++)
                 {
-                    mail.To.Add(toEmails[i]);
+                    if (this.isEmailValid(toEmails[i], lovID))
+                    {
+                        if (this.getEnbldPssblValID(toEmails[i], lovID) <= 0)
+                        {
+                            mail.To.Add(toEmails[i]);
+                        }
+                        else
+                        {
+                            errMsg += "Address:" + toEmails[i] + " blacklisted by Admin!\r\n";
+                        }
+                    }
+                    else
+                    {
+                        errMsg += "Address:" + toEmails[i] + " is Invalid!\r\n";
+                    }
                 }
+
                 for (i = 0; i < ccEmails.Length; i++)
                 {
-                    mail.CC.Add(ccEmails[i]);
+                    if (this.isEmailValid(ccEmails[i], lovID))
+                    {
+                        if (this.getEnbldPssblValID(ccEmails[i], lovID) <= 0)
+                        {
+                            mail.CC.Add(ccEmails[i]);
+                        }
+                        else
+                        {
+                            errMsg += "Address:" + ccEmails[i] + " blacklisted by Admin!\r\n";
+                        }
+                    }
+                    else
+                    {
+                        errMsg += "Address:" + ccEmails[i] + " is Invalid!\r\n";
+                    }
                 }
+
                 for (i = 0; i < bccEmails.Length; i++)
                 {
-                    mail.Bcc.Add(bccEmails[i]);
+                    if (this.isEmailValid(bccEmails[i], lovID))
+                    {
+                        if (this.getEnbldPssblValID(bccEmails[i], lovID) <= 0)
+                        {
+                            mail.Bcc.Add(bccEmails[i]);
+                        }
+                        else
+                        {
+                            errMsg += "Address:" + bccEmails[i] + " blacklisted by Admin!\r\n";
+                        }
+                    }
+                    else
+                    {
+                        errMsg += "Address:" + bccEmails[i] + " is Invalid!\r\n";
+                    }
                 }
                 for (i = 0; i < attchMnts.Length; i++)
                 {
                     Attachment attch1 = new Attachment(attchMnts[i]);
                     mail.Attachments.Add(attch1);
                 }
-                AlternateView avHtml = AlternateView.CreateAlternateViewFromString
-        (bdyTxt, null, MediaTypeNames.Text.Html);
-
+                List<LinkedResource> resources = new List<LinkedResource>();
                 string[] imgLocation = new string[20];
                 int mtcIdx = 0;
+                string imgTagSrc = "";
                 foreach (Match mtch in Regex.Matches(bdyTxt, "<img.+?src=[\"'](.+?)[\"'].+?>", RegexOptions.IgnoreCase | RegexOptions.Multiline))
                 {
-                    imgLocation[mtcIdx] = mtch.Groups[1].Value;
-                    this.getEmbeddedImage(imgLocation[mtcIdx], ref avHtml, ref bdyTxt);
-                    mtcIdx++;
-                    if (mtcIdx == 20)
+                    try
                     {
-                        break;
+                        imgLocation[mtcIdx] = mtch.Groups[1].Value;
+                        imgTagSrc = imgLocation[mtcIdx];
+                        if (imgLocation[mtcIdx].ToLower().Contains("http://")
+                            || imgLocation[mtcIdx].ToLower().Contains("https://"))
+                        {
+                            imgTagSrc = this.getRptDrctry() + @"\mail_attachments\http_file_dwnld_" + msgIdentifier + "_" + (mtcIdx + 1).ToString() + Path.GetExtension(imgLocation[mtcIdx]);
+                            if (!System.IO.File.Exists(imgTagSrc))
+                            {
+                                WebClient Client = new WebClient();
+                                Client.DownloadFile(imgLocation[mtcIdx], imgTagSrc);
+                            }
+                        }
+                        if (imgLocation[mtcIdx].Contains("cid:"))
+                        {
+                            continue;
+                        }
+                        LinkedResource inline = new LinkedResource(imgLocation[mtcIdx].Replace("file:///", ""));
+                        inline.ContentId = "LnkdResource" + (mtcIdx + 1).ToString();
+                        bdyTxt = bdyTxt.Replace(imgLocation[mtcIdx], @"cid:" + inline.ContentId + @"");
+                        resources.Add(inline);
+                        mtcIdx++;
+                        if (mtcIdx == 20)
+                        {
+                            break;
+                        }
                     }
-                    // add src to some array
+                    catch (Exception ex)
+                    {
+                        errMsg += "Error Occured:" + ex.Message + "\r\nOldImgTagSrc" + imgLocation[mtcIdx] + "\r\nNewImgTagSrc:" + imgTagSrc;
+                        mtcIdx++;
+                        if (mtcIdx == 20)
+                        {
+                            break;
+                        }
+                    }
                 }
-                mail.AlternateViews.Add(avHtml);
                 mail.Subject = sbjct;
+                if (bdyTxt.Contains("<body") == false
+                    || bdyTxt.Contains("</body>") == false)
+                {
+                    bdyTxt = "<body>" + bdyTxt + "</body>";
+                }
+                if (bdyTxt.Contains("<html") == false
+                        || bdyTxt.Contains("</html>") == false)
+                {
+                    bdyTxt = "<!DOCTYPE html><html lang=\"en\">" + bdyTxt + "</html>";
+                }
+                AlternateView avImages = AlternateView.CreateAlternateViewFromString(bdyTxt, null, MediaTypeNames.Text.Html);
+                resources.ForEach(x => avImages.LinkedResources.Add(x));
+                mail.AlternateViews.Add(avImages);
                 mail.Body = bdyTxt;
                 mail.IsBodyHtml = true;
                 //mail.BodyEncoding
@@ -5725,8 +6099,13 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                 //this.showMsg("Test!\r\n" + SmtpServer.Host + "\r\n" + fromAddress.Address +
                 //"\r\n" + fromPassword + "\r\n" + SmtpServer.Port + "\r\n" + mail.From.Address + "\r\nTo Email:" + mail.To.ToString() + "\r\n", 3);
                 //System.Windows.Forms.Application.DoEvents();
-                SmtpServer.Send(mail);
-                return true;
+                if (this.CheckForInternetConnection())
+                {
+                    SmtpServer.Send(mail);
+                    return true;
+                }
+                errMsg += "No Internet Connection";
+                return false;
             }
             catch (Exception ex)
             {
@@ -5734,76 +6113,13 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                 return false;
             }
         }
-
-        private void getEmbeddedImage(String filePath, ref AlternateView alternateView, ref string bodyTxt)
-        {
-            LinkedResource inline = new LinkedResource(filePath.Replace("file:///", ""));
-            inline.ContentId = Guid.NewGuid().ToString();
-            bodyTxt = bodyTxt.Replace(filePath, @"cid:" + inline.ContentId + @"");
-            alternateView = AlternateView.CreateAlternateViewFromString(bodyTxt, null, MediaTypeNames.Text.Html);
-            alternateView.LinkedResources.Add(inline);
-        }
-        public void updatePhoneNumbers()
-        {
-            //this.saveLabel.Text = "Reformating Contact Details...Please Wait...";
-            //this.saveLabel.Visible = true;
-            //System.Windows.Forms.Application.DoEvents();
-            string strSQL = @"SELECT person_id, 
-                           local_id_no,
-                           email, 
-                           cntct_no_tel, 
-                           cntct_no_mobl,  
-                           cntct_no_fax
-                        FROM prs.prsn_names_nos 
-                         WHERE 1=1 ORDER BY 1";
-            DataSet dtst = this.selectDataNoParams(strSQL);
-            int ttl = dtst.Tables[0].Rows.Count;
-            for (int i = 0; i < ttl; i++)
-            {
-                //this.saveLabel.Text = "Reformating Contact Details(" + (i + 1).ToString() + "/" + ttl + ")...Please Wait...";
-                //System.Windows.Forms.Application.DoEvents();
-                string email = dtst.Tables[0].Rows[i][2].ToString();
-                string cntcNo = dtst.Tables[0].Rows[i][3].ToString();
-                string cntcMobl = dtst.Tables[0].Rows[i][4].ToString();
-                string cntcFax = dtst.Tables[0].Rows[i][5].ToString();
-                long prsnID = long.Parse(dtst.Tables[0].Rows[i][0].ToString());
-                char[] w = { ',' };
-                char[] trmChr = { ',', ' ' };
-                email = email.Replace("/", ",").Replace(@"\", ",").Replace(",", ", ").Replace("  ", " ").Trim(trmChr);
-                cntcNo = cntcNo.Replace("/", ",").Replace(@"\", ",").Replace(",", ", ").Replace("  ", " ").Trim(trmChr);
-                cntcMobl = cntcMobl.Replace("/", ",").Replace(@"\", ",").Replace(",", ", ").Replace("  ", " ").Trim(trmChr);
-                cntcFax = cntcFax.Replace("/", ",").Replace(@"\", ",").Replace(",", ", ").Replace("  ", " ").Trim(trmChr);
-
-                string[] emails = email.Split(w, StringSplitOptions.RemoveEmptyEntries);
-                string[] cntcNos = cntcNo.Split(w, StringSplitOptions.RemoveEmptyEntries);
-                string[] cntcMobls = cntcMobl.Split(w, StringSplitOptions.RemoveEmptyEntries);
-                for (int y = 0; y < cntcMobls.Length; y++)
-                {
-                    if (cntcMobls[y].Trim().Length == 10)
-                    {
-                        if (cntcMobls[y].Trim().Substring(0, 1) == "0")
-                        {
-                            cntcMobls[y] = "+233" + cntcMobls[y].Trim().Substring(1);
-                        }
-                    }
-                }
-                string[] cntcFaxs = cntcFax.Split(w, StringSplitOptions.RemoveEmptyEntries);
-
-                string updtSQL = @"UPDATE prs.prsn_names_nos SET 
-                           email='" + email.Replace("'", "''") + @"', 
-                           cntct_no_tel='" + cntcNo.Replace("'", "''") + @"', 
-                           cntct_no_mobl='" + string.Join(", ", cntcMobls).Replace("'", "''") + @"',  
-                           cntct_no_fax='" + cntcFax.Replace("'", "''") + @"' WHERE person_id=" + prsnID;
-                this.updateDataNoParams(updtSQL);
-            }
-
-            //this.saveLabel.Visible = false;
-            //System.Windows.Forms.Application.DoEvents();
-        }
-
         public bool sendSMS(string msgBody, string rcpntNo, ref string errMsg)
         {
-            //{"error":0,"response":1}
+            if (!this.CheckForInternetConnection())
+            {
+                errMsg = "No Internet Connection";
+                return false;
+            }
             string response = "";
             msgBody = msgBody.Replace("\r\n", " ").Replace("\r", " ").Replace("\n", " ").Replace("|", "/");
             string succsTxt = "";
@@ -5883,6 +6199,65 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
             }
             errMsg += response;
             return false;
+        }
+
+
+        public void updatePhoneNumbers()
+        {
+            //this.saveLabel.Text = "Reformating Contact Details...Please Wait...";
+            //this.saveLabel.Visible = true;
+            //System.Windows.Forms.Application.DoEvents();
+            string strSQL = @"SELECT person_id, 
+                           local_id_no,
+                           email, 
+                           cntct_no_tel, 
+                           cntct_no_mobl,  
+                           cntct_no_fax
+                        FROM prs.prsn_names_nos 
+                         WHERE 1=1 ORDER BY 1";
+            DataSet dtst = this.selectDataNoParams(strSQL);
+            int ttl = dtst.Tables[0].Rows.Count;
+            for (int i = 0; i < ttl; i++)
+            {
+                //this.saveLabel.Text = "Reformating Contact Details(" + (i + 1).ToString() + "/" + ttl + ")...Please Wait...";
+                //System.Windows.Forms.Application.DoEvents();
+                string email = dtst.Tables[0].Rows[i][2].ToString();
+                string cntcNo = dtst.Tables[0].Rows[i][3].ToString();
+                string cntcMobl = dtst.Tables[0].Rows[i][4].ToString();
+                string cntcFax = dtst.Tables[0].Rows[i][5].ToString();
+                long prsnID = long.Parse(dtst.Tables[0].Rows[i][0].ToString());
+                char[] w = { ',' };
+                char[] trmChr = { ',', ' ' };
+                email = email.Replace("/", ",").Replace(@"\", ",").Replace(",", ", ").Replace("  ", " ").Trim(trmChr);
+                cntcNo = cntcNo.Replace("/", ",").Replace(@"\", ",").Replace(",", ", ").Replace("  ", " ").Trim(trmChr);
+                cntcMobl = cntcMobl.Replace("/", ",").Replace(@"\", ",").Replace(",", ", ").Replace("  ", " ").Trim(trmChr);
+                cntcFax = cntcFax.Replace("/", ",").Replace(@"\", ",").Replace(",", ", ").Replace("  ", " ").Trim(trmChr);
+
+                string[] emails = email.Split(w, StringSplitOptions.RemoveEmptyEntries);
+                string[] cntcNos = cntcNo.Split(w, StringSplitOptions.RemoveEmptyEntries);
+                string[] cntcMobls = cntcMobl.Split(w, StringSplitOptions.RemoveEmptyEntries);
+                for (int y = 0; y < cntcMobls.Length; y++)
+                {
+                    if (cntcMobls[y].Trim().Length == 10)
+                    {
+                        if (cntcMobls[y].Trim().Substring(0, 1) == "0")
+                        {
+                            cntcMobls[y] = "+233" + cntcMobls[y].Trim().Substring(1);
+                        }
+                    }
+                }
+                string[] cntcFaxs = cntcFax.Split(w, StringSplitOptions.RemoveEmptyEntries);
+
+                string updtSQL = @"UPDATE prs.prsn_names_nos SET 
+                           email='" + email.Replace("'", "''") + @"', 
+                           cntct_no_tel='" + cntcNo.Replace("'", "''") + @"', 
+                           cntct_no_mobl='" + string.Join(", ", cntcMobls).Replace("'", "''") + @"',  
+                           cntct_no_fax='" + cntcFax.Replace("'", "''") + @"' WHERE person_id=" + prsnID;
+                this.updateDataNoParams(updtSQL);
+            }
+
+            //this.saveLabel.Visible = false;
+            //System.Windows.Forms.Application.DoEvents();
         }
 
         public string makeSMSRestCall(string msgBody, string rcpntNo)
@@ -6003,7 +6378,7 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
         string startDte, string endDte, string periodTyp)
         {
             DateTime dte1 = DateTime.Parse(DateTime.Parse(startDte).ToString("dd-MMM-yyyy 00:00:00"));
-            DateTime dte2 = DateTime.Parse(DateTime.Parse(endDte).ToString("dd-MMM-yyyy 23:59:59"));
+            DateTime dte2 = DateTime.Parse(DateTime.Parse(endDte).ToString("dd-MMM-yyyy 23:59:50"));
             List<string> resArray = new List<string>();
             string nwstr = dte1.ToString("dd-MMM-yyyy 00:00:00");
             resArray.Add(nwstr);
@@ -6015,7 +6390,7 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                     evenOdd = !evenOdd;
                     if (evenOdd)
                     {
-                        nwstr = DateTime.Parse(dte1.AddMonths(12).AddDays(-1).ToString("dd-MMM-yyyy 23:59:59")).ToString("dd-MMM-yyyy 23:59:59");
+                        nwstr = DateTime.Parse(dte1.AddMonths(12).AddDays(-1).ToString("dd-MMM-yyyy 23:59:50")).ToString("dd-MMM-yyyy 23:59:50");
                         dte1 = DateTime.Parse(DateTime.Parse(nwstr).AddDays(1).ToString("dd-MMM-yyyy 00:00:00"));
                     }
                     else
@@ -6028,7 +6403,7 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                     }
                     else
                     {
-                        nwstr = dte2.ToString("dd-MMM-yyyy 23:59:59");
+                        nwstr = dte2.ToString("dd-MMM-yyyy 23:59:50");
                         resArray.Add(nwstr);
                     }
                 }
@@ -6041,7 +6416,7 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                     evenOdd = !evenOdd;
                     if (evenOdd)
                     {
-                        nwstr = DateTime.Parse(dte1.AddMonths(6).AddDays(-1).ToString("dd-MMM-yyyy 23:59:59")).ToString("dd-MMM-yyyy 23:59:59");
+                        nwstr = DateTime.Parse(dte1.AddMonths(6).AddDays(-1).ToString("dd-MMM-yyyy 23:59:50")).ToString("dd-MMM-yyyy 23:59:50");
                         dte1 = DateTime.Parse(DateTime.Parse(nwstr).AddDays(1).ToString("dd-MMM-yyyy 00:00:00"));
                     }
                     else
@@ -6054,7 +6429,7 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                     }
                     else
                     {
-                        nwstr = dte2.ToString("dd-MMM-yyyy 23:59:59");
+                        nwstr = dte2.ToString("dd-MMM-yyyy 23:59:50");
                         resArray.Add(nwstr);
                     }
                 }
@@ -6067,7 +6442,7 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                     evenOdd = !evenOdd;
                     if (evenOdd)
                     {
-                        nwstr = DateTime.Parse(dte1.AddMonths(3).AddDays(-1).ToString("dd-MMM-yyyy 23:59:59")).ToString("dd-MMM-yyyy 23:59:59");
+                        nwstr = DateTime.Parse(dte1.AddMonths(3).AddDays(-1).ToString("dd-MMM-yyyy 23:59:50")).ToString("dd-MMM-yyyy 23:59:50");
                         dte1 = DateTime.Parse(DateTime.Parse(nwstr).AddDays(1).ToString("dd-MMM-yyyy 00:00:00"));
                     }
                     else
@@ -6080,7 +6455,7 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                     }
                     else
                     {
-                        nwstr = dte2.ToString("dd-MMM-yyyy 23:59:59");
+                        nwstr = dte2.ToString("dd-MMM-yyyy 23:59:50");
                         resArray.Add(nwstr);
                     }
                 }
@@ -6093,7 +6468,7 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                     evenOdd = !evenOdd;
                     if (evenOdd)
                     {
-                        nwstr = DateTime.Parse(dte1.AddMonths(1).AddDays(-1).ToString("dd-MMM-yyyy 23:59:59")).ToString("dd-MMM-yyyy 23:59:59");
+                        nwstr = DateTime.Parse(dte1.AddMonths(1).AddDays(-1).ToString("dd-MMM-yyyy 23:59:50")).ToString("dd-MMM-yyyy 23:59:50");
                         dte1 = DateTime.Parse(DateTime.Parse(nwstr).AddDays(1).ToString("dd-MMM-yyyy 00:00:00"));
                     }
                     else
@@ -6106,7 +6481,7 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                     }
                     else
                     {
-                        nwstr = dte2.ToString("dd-MMM-yyyy 23:59:59");
+                        nwstr = dte2.ToString("dd-MMM-yyyy 23:59:50");
                         resArray.Add(nwstr);
                     }
                 }
@@ -6119,7 +6494,7 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                     evenOdd = !evenOdd;
                     if (evenOdd)
                     {
-                        nwstr = DateTime.Parse(dte1.AddDays(14).AddDays(-1).ToString("dd-MMM-yyyy 23:59:59")).ToString("dd-MMM-yyyy 23:59:59");
+                        nwstr = DateTime.Parse(dte1.AddDays(14).AddDays(-1).ToString("dd-MMM-yyyy 23:59:50")).ToString("dd-MMM-yyyy 23:59:50");
                         dte1 = DateTime.Parse(DateTime.Parse(nwstr).AddDays(1).ToString("dd-MMM-yyyy 00:00:00"));
                     }
                     else
@@ -6132,7 +6507,7 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                     }
                     else
                     {
-                        nwstr = dte2.ToString("dd-MMM-yyyy 23:59:59");
+                        nwstr = dte2.ToString("dd-MMM-yyyy 23:59:50");
                         resArray.Add(nwstr);
                     }
                 }
@@ -6145,7 +6520,7 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                     evenOdd = !evenOdd;
                     if (evenOdd)
                     {
-                        nwstr = DateTime.Parse(dte1.AddDays(7).AddDays(-1).ToString("dd-MMM-yyyy 23:59:59")).ToString("dd-MMM-yyyy 23:59:59");
+                        nwstr = DateTime.Parse(dte1.AddDays(7).AddDays(-1).ToString("dd-MMM-yyyy 23:59:50")).ToString("dd-MMM-yyyy 23:59:50");
                         dte1 = DateTime.Parse(DateTime.Parse(nwstr).AddDays(1).ToString("dd-MMM-yyyy 00:00:00"));
                     }
                     else
@@ -6158,7 +6533,7 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                     }
                     else
                     {
-                        nwstr = dte2.ToString("dd-MMM-yyyy 23:59:59");
+                        nwstr = dte2.ToString("dd-MMM-yyyy 23:59:50");
                         resArray.Add(nwstr);
                     }
                 }
@@ -6232,20 +6607,31 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
             Color[] clrs = { Color.FromArgb(0, 102, 160), Color.FromArgb(0, 129, 206), Color.FromArgb(0, 255, 0) };
             CommonCodes.myFrmClrs = clrs;
             string fileLoc = "";
-            //MessageBox.Show(CommonCode.Db_dbase);
-            if (CommonCodes.Db_dbase.Contains("test")
+            if (CommonCodes.Db_dbase != "")
+            {
+                int dbaseLovID = this.getLovID("Per Database Background Themes");
+                string dbaseBackColor = this.getEnbldPssblValDesc(
+                  CommonCodes.Db_dbase, dbaseLovID);
+                if (dbaseBackColor != "")
+                {
+                    fileLoc = @dbaseBackColor;
+                }
+            }
+            if (fileLoc == "" || !this.myComputer.FileSystem.FileExists(fileLoc))
+            {
+                if (CommonCodes.Db_dbase.Contains("test")
               || CommonCodes.Db_dbase.Contains("try")
               || CommonCodes.Db_dbase.Contains("trial")
               || CommonCodes.Db_dbase.Contains("train")
               || CommonCodes.Db_dbase.Contains("sample"))
-            {
-                fileLoc = @"DBInfo\Default_Test.rtheme";
+                {
+                    fileLoc = @"DBInfo\Default_Test.rtheme";
+                }
+                else
+                {
+                    fileLoc = @"DBInfo\Default.rtheme";
+                }
             }
-            else
-            {
-                fileLoc = @"DBInfo\Default.rtheme";
-            }
-
             if (this.myComputer.FileSystem.FileExists(fileLoc))
             {
                 fileReader = this.myComputer.FileSystem.OpenTextFileReader(fileLoc);
@@ -6259,6 +6645,15 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                     string[] btm1 = fileReader.ReadLine().Split(cho, StringSplitOptions.RemoveEmptyEntries);
                     CommonCodes.myFrmClrs[2] = Color.FromArgb(int.Parse(btm1[0]), int.Parse(btm1[1]), int.Parse(btm1[2]));
                     CommonCodes.AutoConnect = cnvrtBitStrToBool(fileReader.ReadLine());
+                    string mdlsght = fileReader.ReadLine();
+                    if (mdlsght == "")
+                    {
+                        mdlsght = CommonCode.CommonCodes.ModulesNeeded;
+                    }
+                    else
+                    {
+                        CommonCode.CommonCodes.ModulesNeeded = mdlsght;
+                    }
                     fileReader.Close();
                     fileReader = null;
                     return CommonCodes.myFrmClrs;
@@ -6386,35 +6781,6 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
             return rslts;
         }
 
-        //public string[] breakTxtDown1(string inptTxt, float allwdWidth, Font fnt, Graphics g)
-        //{
-        //  string nwln = "";
-        //  float lnWidth = 0;
-        //  int lnCntr = 0;
-        //  string str1 = "A";
-
-        //  int numchars = (int)((allwdWidth / (g.MeasureString(str1, fnt)).Width) * 1.4);
-
-        //  inptTxt = inptTxt.Replace("\r\n", "").Replace("\n", "").Replace("\r", "");
-
-        //  int strtIdx = 0;
-        //  for (int i = 0; i < inptTxt.Length; i++)
-        //  {
-        //    if (strtIdx >= allwdWidth - 1
-        //      && inptTxt.Substring(i, 1) == " ")
-        //    {
-        //      res = res + inptTxt.Substring(i, 1) + "<br/>";
-        //      strtIdx = 0;
-        //    }
-        //    else
-        //    {
-        //      res = res + inptTxt.Substring(i, 1);
-        //      strtIdx++;
-        //    }
-        //  }
-        //  return res;
-        //}
-
         public string[] breakTxtDown(string inptTxt, float allwdWidth, Font fnt, Graphics g)
         {
             List<string> nwstr = new List<string>();
@@ -6479,6 +6845,71 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                     else
                     {
                         fnlstr.Add(nwstr[i]);
+                    }
+                }
+            }
+            string[] rslts = new string[fnlstr.Count];
+            rslts = fnlstr.ToArray();
+            return rslts;
+        }
+
+        public string[] breakTxtDownML(string inptTxt, float allwdWidth, Font fnt, Graphics g)
+        {
+            List<string> nwstr = new List<string>();
+            List<string> fnlstr = new List<string>();
+            string nwln = "";
+            float lnWidth = 0;
+            int lnCntr = 0;
+            string str1 = "A";
+
+            int numchars = (int)((allwdWidth / (g.MeasureString(str1, fnt)).Width) * 1.4);
+
+            inptTxt = inptTxt.Replace("\r\n", " ~").Replace("\n", " ~").Replace("\r", " ~");
+            char[] chstr = { ' ' };
+            string[] nwInpt = inptTxt.Split(chstr, StringSplitOptions.RemoveEmptyEntries);
+
+            for (int i = 0; i < nwInpt.Length; i++)
+            {
+                SizeF sze = g.MeasureString(nwInpt[i] + " ", fnt);
+                lnWidth += sze.Width;
+                if ((lnWidth >= allwdWidth || nwInpt[i].StartsWith("~")) && i > 0)
+                {
+                    nwstr.Add(nwln);
+                    nwln = nwInpt[i] + " ";
+                    lnWidth = sze.Width;
+                }
+                else
+                {
+                    nwln = nwln + nwInpt[i] + " ";
+                }
+                lnCntr++;
+                if (((i == nwInpt.Length - 1)) &&
+                  (nwln != ""))
+                {
+                    nwstr.Add(nwln);
+                }
+            }
+
+            for (int i = 0; i < nwstr.Count; i++)
+            {
+                if (g.MeasureString(nwstr[i], fnt).Width <= allwdWidth)
+                {
+                    fnlstr.Add(nwstr[i].Replace("~", ""));
+                }
+                else
+                {
+                    //.Replace("~", "\r\n")
+                    if (numchars < nwstr[i].Length && nwstr[i].Trim().Contains(" ") == false)
+                    {
+                        string[] nwnwStr = this.breakPOSTxtDown(nwstr[i], allwdWidth, fnt, g, numchars);
+                        for (int j = 0; j < nwnwStr.Length; j++)
+                        {
+                            fnlstr.Add(nwnwStr[j].Replace("~", ""));
+                        }
+                    }
+                    else
+                    {
+                        fnlstr.Add(nwstr[i].Replace("~", ""));
                     }
                 }
             }
@@ -7375,6 +7806,24 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
             }
         }
 
+        public void showTxtNoPermsn(ref string inpStr)
+        {
+            viewSQLDiag nwDiag = new viewSQLDiag();
+            nwDiag.textBox1.ReadOnly = false;
+            nwDiag.textBox1.BackColor = Color.White;
+            nwDiag.textBox1.Text = inpStr;
+            nwDiag.Width = 650;
+            nwDiag.Height = 550;
+            System.Windows.Forms.Application.DoEvents();
+            Color[] clrs = this.getColors();
+            nwDiag.BackColor = clrs[0];
+            DialogResult dgres = nwDiag.ShowDialog();
+            if (dgres == DialogResult.OK)
+            {
+                inpStr = nwDiag.textBox1.Text;
+            }
+        }
+
         public void showLogMsg(long msgid, string logTblNm)
         {
             vwLogMsgForm nwDiag = new vwLogMsgForm();
@@ -7639,6 +8088,21 @@ to_char(to_timestamp(a.creation_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:
               this.cnvrtBoolToBitStr(isEnbld) +
               "', '" + allwd.Replace("'", "''") + "')";
             this.insertDataNoParams(sqlStr);
+        }
+
+        public void updatePssblValsForLov(int pssblValID, string pssblVal,
+          string pssblValDesc, bool isEnbld, string allwd)
+        {
+            string dateStr = this.getDB_Date_time();
+            this.Extra_Adt_Trl_Info = "";
+            string sqlStr = "UPDATE gst.gen_stp_lov_values SET " +
+                  "pssbl_value='" + pssblVal.Replace("'", "''") + "', pssbl_value_desc='" +
+              pssblValDesc.Replace("'", "''") +
+              "', last_update_by=" + this.User_id + ", " +
+                              "last_update_date='" + dateStr + "', is_enabled='" +
+              this.cnvrtBoolToBitStr(isEnbld) +
+              "', allowed_org_ids='" + allwd.Replace("'", "''") + "' WHERE pssbl_value_id = " + pssblValID;
+            this.updateDataNoParams(sqlStr);
         }
 
         public void createSysLovs(string[] sysLovs, string[] sysLovsDynQrys, string[] sysLovsDesc)
@@ -10790,6 +11254,70 @@ to_char(to_timestamp(a.creation_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:
             nwdiag.spplrID = cstspplrID;
             nwdiag.spplrSiteID = siteID;
 
+            if (dsablPayments)
+            {
+                nwdiag.StartPosition = FormStartPosition.CenterParent;
+                //nwdiag.WindowState = FormWindowState.Maximized;
+                //System.Windows.Forms.Application.DoEvents();
+            }
+            else
+            {
+                nwdiag.Location = new Point(X_Loc, Y_Loc);
+            }
+
+            String myName = "Accounting";
+            string myDesc = "This module helps you to manage your organization's Accounting!";
+            string audit_tbl_name = "accb.accb_audit_trail_tbl";
+            String smplRoleName = "Accounting Administrator";
+            nwdiag.cmnCde.DefaultPrvldgs = nwdiag.dfltPrvldgs;
+            //nwDiag.cstspplrID = cstspplrID;
+            //nwDiag.siteID = siteID;
+            //nwDiag.cmnCde.SubGrpNames = subGrpNames;
+            //nwDiag.cmnCde.MainTableNames = mainTableNames;
+            //nwDiag.cmnCde.KeyColumnNames = keyColumnNames;
+            //nwdiag.cmnCde.pgSqlConn = cmnCde.pgSqlConn;
+            nwdiag.cmnCde.Login_number = cmnCde.Login_number;
+            nwdiag.cmnCde.Role_Set_IDs = cmnCde.Role_Set_IDs;
+            nwdiag.cmnCde.User_id = cmnCde.User_id;
+            nwdiag.cmnCde.Org_id = cmnCde.Org_id;
+
+            nwdiag.cmnCde.ModuleAdtTbl = audit_tbl_name;
+            nwdiag.cmnCde.ModuleDesc = myDesc;
+            nwdiag.cmnCde.ModuleName = myName;
+            nwdiag.cmnCde.SampleRole = smplRoleName;
+            nwdiag.cmnCde.Extra_Adt_Trl_Info = "";
+            //nwDiag.brghtValLstID = valLstID;
+            //nwDiag.con = this.pgSqlConn;
+            //nwDiag.selectValIDs = selValIDs;
+            //nwDiag.selOnlyOne = shdSelOne;
+            //nwDiag.mustSelOne = mustSelctSth;
+            DialogResult dgres = nwdiag.ShowDialog();
+            if (dgres == DialogResult.OK)
+            {
+                //cstspplrID = int.Parse(nwDiag.idTextBox.Text);
+                //siteID = int.Parse(nwDiag.siteIDTextBox.Text);
+            }
+            //  = nwDiag.selectValIDs;
+            return dgres;
+        }
+
+        public DialogResult showPymntDiag(bool createPrepay, bool dsablPayments, int X_Loc, int Y_Loc, double amntToPay, double amntGiven, int entrdCurID, int PymntMthdID, string docTypes,
+         long cstspplrID, long siteID, long srcDocID, string srcDocType, CommonCodes cmnCde)
+        {
+            addPymntDiag nwdiag = new addPymntDiag();
+            //nwDiag.cmnCde = cmnCde;
+            nwdiag.dsablPayments = dsablPayments;
+            nwdiag.createPrepay = createPrepay;
+            nwdiag.amntToPay = amntToPay;
+            nwdiag.orgid = cmnCde.Org_id;
+            nwdiag.entrdCurrID = entrdCurID;
+            nwdiag.pymntMthdID = PymntMthdID;
+            nwdiag.docTypes = docTypes;
+            nwdiag.srcDocID = srcDocID;
+            nwdiag.srcDocType = srcDocType;
+            nwdiag.spplrID = cstspplrID;
+            nwdiag.spplrSiteID = siteID;
+            nwdiag.amntGiven = amntGiven;
             if (dsablPayments)
             {
                 nwdiag.StartPosition = FormStartPosition.CenterParent;

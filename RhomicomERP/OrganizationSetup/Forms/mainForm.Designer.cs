@@ -30,6 +30,7 @@ namespace OrganizationSetup.Forms
     {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Node1");
             System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Node2");
             System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Node0", new System.Windows.Forms.TreeNode[] {
@@ -56,6 +57,14 @@ namespace OrganizationSetup.Forms
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.orgDetailsPanel = new System.Windows.Forms.Panel();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.accntSgmntsDataGridView = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.addOrgDetButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator59 = new System.Windows.Forms.ToolStripSeparator();
@@ -93,6 +102,11 @@ namespace OrganizationSetup.Forms
             this.refreshOrgDetButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator60 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.orgNameTextBox = new System.Windows.Forms.TextBox();
+            this.delimiterComboBox = new System.Windows.Forms.ComboBox();
+            this.noOfSgmntsNumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
             this.imprtOrgTmpltButton = new System.Windows.Forms.Button();
             this.exprtOrgTmpltButton = new System.Windows.Forms.Button();
             this.sloganTextBox = new System.Windows.Forms.TextBox();
@@ -126,7 +140,6 @@ namespace OrganizationSetup.Forms
             this.label14 = new System.Windows.Forms.Label();
             this.orgParentTextBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.orgNameTextBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.orgIDTextBox = new System.Windows.Forms.TextBox();
             this.orgPrntIDTextBox = new System.Windows.Forms.TextBox();
@@ -504,8 +517,11 @@ namespace OrganizationSetup.Forms
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.orgDetailsPanel.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.accntSgmntsDataGridView)).BeginInit();
             this.toolStrip3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.noOfSgmntsNumUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orgLogoPictureBox)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.panel24.SuspendLayout();
@@ -754,6 +770,7 @@ namespace OrganizationSetup.Forms
             // orgDetailsPanel
             // 
             this.orgDetailsPanel.AutoScroll = true;
+            this.orgDetailsPanel.Controls.Add(this.groupBox12);
             this.orgDetailsPanel.Controls.Add(this.toolStrip3);
             this.orgDetailsPanel.Controls.Add(this.groupBox1);
             this.orgDetailsPanel.Controls.Add(this.groupBox4);
@@ -763,6 +780,96 @@ namespace OrganizationSetup.Forms
             this.orgDetailsPanel.Padding = new System.Windows.Forms.Padding(5);
             this.orgDetailsPanel.Size = new System.Drawing.Size(1048, 625);
             this.orgDetailsPanel.TabIndex = 0;
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.accntSgmntsDataGridView);
+            this.groupBox12.ForeColor = System.Drawing.Color.White;
+            this.groupBox12.Location = new System.Drawing.Point(6, 404);
+            this.groupBox12.MinimumSize = new System.Drawing.Size(600, 300);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(873, 342);
+            this.groupBox12.TabIndex = 4;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Account Segments";
+            // 
+            // accntSgmntsDataGridView
+            // 
+            this.accntSgmntsDataGridView.AllowUserToAddRows = false;
+            this.accntSgmntsDataGridView.AllowUserToDeleteRows = false;
+            this.accntSgmntsDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.accntSgmntsDataGridView.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.accntSgmntsDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.accntSgmntsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.accntSgmntsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column4,
+            this.Column5,
+            this.Column3,
+            this.Column6});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.accntSgmntsDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.accntSgmntsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.accntSgmntsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.accntSgmntsDataGridView.Location = new System.Drawing.Point(3, 17);
+            this.accntSgmntsDataGridView.Name = "accntSgmntsDataGridView";
+            this.accntSgmntsDataGridView.RowHeadersWidth = 30;
+            this.accntSgmntsDataGridView.Size = new System.Drawing.Size(867, 322);
+            this.accntSgmntsDataGridView.TabIndex = 3;
+            this.accntSgmntsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.accntSgmntsDataGridView_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Segment No.";
+            this.Column1.Name = "Column1";
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column1.Width = 75;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Segment Name / Prompt";
+            this.Column2.Name = "Column2";
+            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column2.Width = 450;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Natural Account Segment?";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 75;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "System Classification";
+            this.Column5.Items.AddRange(new object[] {
+            "BusinessGroup",
+            "CostCenter",
+            "Location",
+            "NaturalAccount",
+            "Currency",
+            "Other"});
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 120;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Attached Values";
+            this.Column3.Name = "Column3";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "SegmentID";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Visible = false;
             // 
             // toolStrip3
             // 
@@ -808,7 +915,7 @@ namespace OrganizationSetup.Forms
             this.toolStrip3.Location = new System.Drawing.Point(5, 5);
             this.toolStrip3.Margin = new System.Windows.Forms.Padding(3);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(1038, 25);
+            this.toolStrip3.Size = new System.Drawing.Size(1021, 25);
             this.toolStrip3.Stretch = true;
             this.toolStrip3.TabIndex = 0;
             this.toolStrip3.TabStop = true;
@@ -1080,6 +1187,10 @@ namespace OrganizationSetup.Forms
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.orgNameTextBox);
+            this.groupBox1.Controls.Add(this.delimiterComboBox);
+            this.groupBox1.Controls.Add(this.noOfSgmntsNumUpDown);
+            this.groupBox1.Controls.Add(this.label36);
+            this.groupBox1.Controls.Add(this.label35);
             this.groupBox1.Controls.Add(this.imprtOrgTmpltButton);
             this.groupBox1.Controls.Add(this.exprtOrgTmpltButton);
             this.groupBox1.Controls.Add(this.sloganTextBox);
@@ -1119,9 +1230,77 @@ namespace OrganizationSetup.Forms
             this.groupBox1.Controls.Add(this.crncyIDTextBox);
             this.groupBox1.Location = new System.Drawing.Point(6, 26);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(642, 489);
+            this.groupBox1.Size = new System.Drawing.Size(642, 378);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // orgNameTextBox
+            // 
+            this.orgNameTextBox.Location = new System.Drawing.Point(162, 15);
+            this.orgNameTextBox.MaxLength = 200;
+            this.orgNameTextBox.Name = "orgNameTextBox";
+            this.orgNameTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.orgNameTextBox.Size = new System.Drawing.Size(282, 21);
+            this.orgNameTextBox.TabIndex = 0;
+            // 
+            // delimiterComboBox
+            // 
+            this.delimiterComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.delimiterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.delimiterComboBox.FormattingEnabled = true;
+            this.delimiterComboBox.Items.AddRange(new object[] {
+            "None",
+            "Period (.)",
+            "hiphen(-)",
+            "Space ( )"});
+            this.delimiterComboBox.Location = new System.Drawing.Point(383, 348);
+            this.delimiterComboBox.Name = "delimiterComboBox";
+            this.delimiterComboBox.Size = new System.Drawing.Size(61, 21);
+            this.delimiterComboBox.TabIndex = 41;
+            // 
+            // noOfSgmntsNumUpDown
+            // 
+            this.noOfSgmntsNumUpDown.Location = new System.Drawing.Point(162, 347);
+            this.noOfSgmntsNumUpDown.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.noOfSgmntsNumUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.noOfSgmntsNumUpDown.Name = "noOfSgmntsNumUpDown";
+            this.noOfSgmntsNumUpDown.Size = new System.Drawing.Size(120, 21);
+            this.noOfSgmntsNumUpDown.TabIndex = 40;
+            this.noOfSgmntsNumUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.noOfSgmntsNumUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.noOfSgmntsNumUpDown.ValueChanged += new System.EventHandler(this.noOfSgmntsNumUpDown_ValueChanged);
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.ForeColor = System.Drawing.Color.White;
+            this.label36.Location = new System.Drawing.Point(289, 351);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(97, 13);
+            this.label36.TabIndex = 39;
+            this.label36.Text = "Segment Delimiter:";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.ForeColor = System.Drawing.Color.White;
+            this.label35.Location = new System.Drawing.Point(13, 351);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(133, 13);
+            this.label35.TabIndex = 37;
+            this.label35.Text = "No. of Account Segments:";
             // 
             // imprtOrgTmpltButton
             // 
@@ -1153,7 +1332,7 @@ namespace OrganizationSetup.Forms
             // 
             // sloganTextBox
             // 
-            this.sloganTextBox.Location = new System.Drawing.Point(162, 356);
+            this.sloganTextBox.Location = new System.Drawing.Point(162, 275);
             this.sloganTextBox.MaxLength = 300;
             this.sloganTextBox.Name = "sloganTextBox";
             this.sloganTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -1164,7 +1343,7 @@ namespace OrganizationSetup.Forms
             // 
             this.label60.AutoSize = true;
             this.label60.ForeColor = System.Drawing.Color.White;
-            this.label60.Location = new System.Drawing.Point(10, 360);
+            this.label60.Location = new System.Drawing.Point(10, 279);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(120, 13);
             this.label60.TabIndex = 35;
@@ -1172,19 +1351,19 @@ namespace OrganizationSetup.Forms
             // 
             // orgDescTextBox
             // 
-            this.orgDescTextBox.Location = new System.Drawing.Point(162, 383);
+            this.orgDescTextBox.Location = new System.Drawing.Point(162, 299);
             this.orgDescTextBox.MaxLength = 1000;
             this.orgDescTextBox.Multiline = true;
             this.orgDescTextBox.Name = "orgDescTextBox";
             this.orgDescTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.orgDescTextBox.Size = new System.Drawing.Size(470, 95);
+            this.orgDescTextBox.Size = new System.Drawing.Size(282, 45);
             this.orgDescTextBox.TabIndex = 11;
             // 
             // label30
             // 
             this.label30.AutoSize = true;
             this.label30.ForeColor = System.Drawing.Color.White;
-            this.label30.Location = new System.Drawing.Point(13, 383);
+            this.label30.Location = new System.Drawing.Point(10, 299);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(118, 13);
             this.label30.TabIndex = 34;
@@ -1207,7 +1386,7 @@ namespace OrganizationSetup.Forms
             // 
             this.orgEnabledCheckBox.AutoSize = true;
             this.orgEnabledCheckBox.ForeColor = System.Drawing.Color.White;
-            this.orgEnabledCheckBox.Location = new System.Drawing.Point(296, 220);
+            this.orgEnabledCheckBox.Location = new System.Drawing.Point(296, 157);
             this.orgEnabledCheckBox.Name = "orgEnabledCheckBox";
             this.orgEnabledCheckBox.Size = new System.Drawing.Size(122, 17);
             this.orgEnabledCheckBox.TabIndex = 6;
@@ -1219,7 +1398,7 @@ namespace OrganizationSetup.Forms
             // 
             this.orgTypButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.orgTypButton.ForeColor = System.Drawing.Color.Black;
-            this.orgTypButton.Location = new System.Drawing.Point(418, 72);
+            this.orgTypButton.Location = new System.Drawing.Point(418, 60);
             this.orgTypButton.Name = "orgTypButton";
             this.orgTypButton.Size = new System.Drawing.Size(28, 22);
             this.orgTypButton.TabIndex = 2;
@@ -1230,7 +1409,7 @@ namespace OrganizationSetup.Forms
             // orgTypTextBox
             // 
             this.orgTypTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.orgTypTextBox.Location = new System.Drawing.Point(162, 73);
+            this.orgTypTextBox.Location = new System.Drawing.Point(162, 61);
             this.orgTypTextBox.Multiline = true;
             this.orgTypTextBox.Name = "orgTypTextBox";
             this.orgTypTextBox.ReadOnly = true;
@@ -1244,7 +1423,7 @@ namespace OrganizationSetup.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(13, 77);
+            this.label1.Location = new System.Drawing.Point(10, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 13);
             this.label1.TabIndex = 28;
@@ -1253,7 +1432,7 @@ namespace OrganizationSetup.Forms
             // orgTypIDTextBox
             // 
             this.orgTypIDTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.orgTypIDTextBox.Location = new System.Drawing.Point(381, 73);
+            this.orgTypIDTextBox.Location = new System.Drawing.Point(381, 61);
             this.orgTypIDTextBox.Multiline = true;
             this.orgTypIDTextBox.Name = "orgTypIDTextBox";
             this.orgTypIDTextBox.ReadOnly = true;
@@ -1280,7 +1459,7 @@ namespace OrganizationSetup.Forms
             // 
             this.selPrntOrgButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selPrntOrgButton.ForeColor = System.Drawing.Color.Black;
-            this.selPrntOrgButton.Location = new System.Drawing.Point(418, 44);
+            this.selPrntOrgButton.Location = new System.Drawing.Point(418, 38);
             this.selPrntOrgButton.Name = "selPrntOrgButton";
             this.selPrntOrgButton.Size = new System.Drawing.Size(28, 21);
             this.selPrntOrgButton.TabIndex = 1;
@@ -1292,7 +1471,7 @@ namespace OrganizationSetup.Forms
             // 
             this.selCrncyButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.selCrncyButton.ForeColor = System.Drawing.Color.Black;
-            this.selCrncyButton.Location = new System.Drawing.Point(258, 217);
+            this.selCrncyButton.Location = new System.Drawing.Point(258, 154);
             this.selCrncyButton.Name = "selCrncyButton";
             this.selCrncyButton.Size = new System.Drawing.Size(28, 22);
             this.selCrncyButton.TabIndex = 5;
@@ -1337,7 +1516,7 @@ namespace OrganizationSetup.Forms
             // crncyCodeTextBox
             // 
             this.crncyCodeTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.crncyCodeTextBox.Location = new System.Drawing.Point(162, 218);
+            this.crncyCodeTextBox.Location = new System.Drawing.Point(162, 155);
             this.crncyCodeTextBox.Multiline = true;
             this.crncyCodeTextBox.Name = "crncyCodeTextBox";
             this.crncyCodeTextBox.ReadOnly = true;
@@ -1351,7 +1530,7 @@ namespace OrganizationSetup.Forms
             // 
             this.label20.AutoSize = true;
             this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(13, 222);
+            this.label20.Location = new System.Drawing.Point(10, 159);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(114, 13);
             this.label20.TabIndex = 16;
@@ -1369,7 +1548,7 @@ namespace OrganizationSetup.Forms
             // 
             // websiteTextBox
             // 
-            this.websiteTextBox.Location = new System.Drawing.Point(162, 188);
+            this.websiteTextBox.Location = new System.Drawing.Point(162, 131);
             this.websiteTextBox.MaxLength = 300;
             this.websiteTextBox.Multiline = true;
             this.websiteTextBox.Name = "websiteTextBox";
@@ -1380,7 +1559,7 @@ namespace OrganizationSetup.Forms
             // 
             this.label18.AutoSize = true;
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(10, 192);
+            this.label18.Location = new System.Drawing.Point(10, 136);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(50, 13);
             this.label18.TabIndex = 12;
@@ -1388,7 +1567,7 @@ namespace OrganizationSetup.Forms
             // 
             // contactNosTextBox
             // 
-            this.contactNosTextBox.Location = new System.Drawing.Point(162, 329);
+            this.contactNosTextBox.Location = new System.Drawing.Point(162, 251);
             this.contactNosTextBox.MaxLength = 300;
             this.contactNosTextBox.Name = "contactNosTextBox";
             this.contactNosTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -1399,7 +1578,7 @@ namespace OrganizationSetup.Forms
             // 
             this.label17.AutoSize = true;
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(13, 329);
+            this.label17.Location = new System.Drawing.Point(10, 251);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(94, 13);
             this.label17.TabIndex = 10;
@@ -1407,7 +1586,7 @@ namespace OrganizationSetup.Forms
             // 
             // emailAddrsTextBox
             // 
-            this.emailAddrsTextBox.Location = new System.Drawing.Point(162, 302);
+            this.emailAddrsTextBox.Location = new System.Drawing.Point(162, 227);
             this.emailAddrsTextBox.MaxLength = 300;
             this.emailAddrsTextBox.Name = "emailAddrsTextBox";
             this.emailAddrsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -1418,7 +1597,7 @@ namespace OrganizationSetup.Forms
             // 
             this.label16.AutoSize = true;
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(13, 302);
+            this.label16.Location = new System.Drawing.Point(10, 227);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(77, 13);
             this.label16.TabIndex = 8;
@@ -1426,7 +1605,7 @@ namespace OrganizationSetup.Forms
             // 
             // postalAddrsTextBox
             // 
-            this.postalAddrsTextBox.Location = new System.Drawing.Point(162, 248);
+            this.postalAddrsTextBox.Location = new System.Drawing.Point(162, 179);
             this.postalAddrsTextBox.MaxLength = 300;
             this.postalAddrsTextBox.Multiline = true;
             this.postalAddrsTextBox.Name = "postalAddrsTextBox";
@@ -1438,7 +1617,7 @@ namespace OrganizationSetup.Forms
             // 
             this.label15.AutoSize = true;
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(13, 248);
+            this.label15.Location = new System.Drawing.Point(10, 179);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(82, 13);
             this.label15.TabIndex = 6;
@@ -1446,19 +1625,19 @@ namespace OrganizationSetup.Forms
             // 
             // resAddrsTextBox
             // 
-            this.resAddrsTextBox.Location = new System.Drawing.Point(162, 103);
+            this.resAddrsTextBox.Location = new System.Drawing.Point(162, 84);
             this.resAddrsTextBox.MaxLength = 300;
             this.resAddrsTextBox.Multiline = true;
             this.resAddrsTextBox.Name = "resAddrsTextBox";
             this.resAddrsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.resAddrsTextBox.Size = new System.Drawing.Size(282, 76);
+            this.resAddrsTextBox.Size = new System.Drawing.Size(282, 45);
             this.resAddrsTextBox.TabIndex = 3;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(10, 103);
+            this.label14.Location = new System.Drawing.Point(10, 84);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(105, 13);
             this.label14.TabIndex = 4;
@@ -1467,7 +1646,7 @@ namespace OrganizationSetup.Forms
             // orgParentTextBox
             // 
             this.orgParentTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.orgParentTextBox.Location = new System.Drawing.Point(162, 44);
+            this.orgParentTextBox.Location = new System.Drawing.Point(162, 38);
             this.orgParentTextBox.Name = "orgParentTextBox";
             this.orgParentTextBox.ReadOnly = true;
             this.orgParentTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -1481,20 +1660,11 @@ namespace OrganizationSetup.Forms
             // 
             this.label13.AutoSize = true;
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(10, 48);
+            this.label13.Location = new System.Drawing.Point(10, 42);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(150, 13);
             this.label13.TabIndex = 2;
             this.label13.Text = "Name of Parent Organization:";
-            // 
-            // orgNameTextBox
-            // 
-            this.orgNameTextBox.Location = new System.Drawing.Point(162, 15);
-            this.orgNameTextBox.MaxLength = 200;
-            this.orgNameTextBox.Name = "orgNameTextBox";
-            this.orgNameTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.orgNameTextBox.Size = new System.Drawing.Size(282, 21);
-            this.orgNameTextBox.TabIndex = 0;
             // 
             // label12
             // 
@@ -1522,7 +1692,7 @@ namespace OrganizationSetup.Forms
             // orgPrntIDTextBox
             // 
             this.orgPrntIDTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.orgPrntIDTextBox.Location = new System.Drawing.Point(391, 44);
+            this.orgPrntIDTextBox.Location = new System.Drawing.Point(391, 38);
             this.orgPrntIDTextBox.Name = "orgPrntIDTextBox";
             this.orgPrntIDTextBox.ReadOnly = true;
             this.orgPrntIDTextBox.Size = new System.Drawing.Size(27, 21);
@@ -1534,7 +1704,7 @@ namespace OrganizationSetup.Forms
             // crncyIDTextBox
             // 
             this.crncyIDTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.crncyIDTextBox.Location = new System.Drawing.Point(217, 218);
+            this.crncyIDTextBox.Location = new System.Drawing.Point(217, 155);
             this.crncyIDTextBox.Multiline = true;
             this.crncyIDTextBox.Name = "crncyIDTextBox";
             this.crncyIDTextBox.ReadOnly = true;
@@ -1546,37 +1716,37 @@ namespace OrganizationSetup.Forms
             // 
             // groupBox4
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox4.Controls.Add(this.panel24);
             this.groupBox4.Controls.Add(this.orgDetTreeView);
-            this.groupBox4.Location = new System.Drawing.Point(687, 26);
+            this.groupBox4.ForeColor = System.Drawing.Color.White;
+            this.groupBox4.Location = new System.Drawing.Point(651, 26);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(291, 420);
+            this.groupBox4.Size = new System.Drawing.Size(228, 378);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Visible = false;
             // 
             // panel24
             // 
+            this.panel24.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel24.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel24.Controls.Add(this.glsLabel13);
             this.panel24.Location = new System.Drawing.Point(4, 9);
             this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(283, 39);
+            this.panel24.Size = new System.Drawing.Size(221, 39);
             this.panel24.TabIndex = 80;
             // 
             // glsLabel13
             // 
             this.glsLabel13.BottomFill = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(162)))), ((int)(((byte)(192)))));
-            this.glsLabel13.Caption = "Organizational Heirarchy";
+            this.glsLabel13.Caption = "Group Heirarchy";
             this.glsLabel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.glsLabel13.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.glsLabel13.ForeColor = System.Drawing.Color.White;
             this.glsLabel13.Location = new System.Drawing.Point(0, 0);
             this.glsLabel13.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.glsLabel13.Name = "glsLabel13";
-            this.glsLabel13.Size = new System.Drawing.Size(279, 35);
+            this.glsLabel13.Size = new System.Drawing.Size(217, 35);
             this.glsLabel13.TabIndex = 1;
             this.glsLabel13.TopFill = System.Drawing.Color.SteelBlue;
             // 
@@ -1609,7 +1779,8 @@ namespace OrganizationSetup.Forms
             treeNode13,
             treeNode14});
             this.orgDetTreeView.SelectedImageIndex = 1;
-            this.orgDetTreeView.Size = new System.Drawing.Size(285, 352);
+            this.orgDetTreeView.ShowNodeToolTips = true;
+            this.orgDetTreeView.Size = new System.Drawing.Size(222, 322);
             this.orgDetTreeView.TabIndex = 1;
             this.orgDetTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.orgDetTreeView_AfterSelect);
             // 
@@ -5162,10 +5333,13 @@ namespace OrganizationSetup.Forms
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.orgDetailsPanel.ResumeLayout(false);
+            this.groupBox12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.accntSgmntsDataGridView)).EndInit();
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.noOfSgmntsNumUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orgLogoPictureBox)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
@@ -5678,5 +5852,17 @@ namespace OrganizationSetup.Forms
     private System.Windows.Forms.TabPage tabPage4;
     private System.Windows.Forms.TabPage tabPage5;
     private System.Windows.Forms.TabPage tabPage6;
-  }
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.DataGridView accntSgmntsDataGridView;
+        private System.Windows.Forms.NumericUpDown noOfSgmntsNumUpDown;
+        private System.Windows.Forms.ComboBox delimiterComboBox;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewButtonColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+    }
 }

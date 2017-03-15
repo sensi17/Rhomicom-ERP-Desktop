@@ -105,6 +105,34 @@
             this.addChrgButton = new System.Windows.Forms.ToolStripButton();
             this.applyPrpymntButton = new System.Windows.Forms.ToolStripButton();
             this.smmryDataGridView = new System.Windows.Forms.DataGridView();
+            this.Column14 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.totalRecsLabel = new System.Windows.Forms.ToolStripLabel();
             this.cstmrButton = new System.Windows.Forms.Button();
@@ -169,6 +197,8 @@
             this.cstmrNmTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.openBatchButton = new System.Windows.Forms.Button();
+            this.pymntTermsButton = new System.Windows.Forms.Button();
             this.rgstrNumTextBox = new System.Windows.Forms.TextBox();
             this.rgstrButton = new System.Windows.Forms.Button();
             this.costCtgrButton = new System.Windows.Forms.Button();
@@ -198,34 +228,6 @@
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.Column14 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip3.SuspendLayout();
             this.balShtsMenuStrip.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -246,6 +248,7 @@
             this.imageList3.Images.SetKeyName(2, "edit32.png");
             this.imageList3.Images.SetKeyName(3, "refresh.bmp");
             this.imageList3.Images.SetKeyName(4, "tick_64.png");
+            this.imageList3.Images.SetKeyName(5, "openfileicon.png");
             // 
             // label20
             // 
@@ -666,11 +669,11 @@
             // pymntTermsTextBox
             // 
             this.pymntTermsTextBox.Location = new System.Drawing.Point(422, 64);
-            this.pymntTermsTextBox.MaxLength = 200;
+            this.pymntTermsTextBox.MaxLength = 9999999;
             this.pymntTermsTextBox.Multiline = true;
             this.pymntTermsTextBox.Name = "pymntTermsTextBox";
             this.pymntTermsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.pymntTermsTextBox.Size = new System.Drawing.Size(189, 57);
+            this.pymntTermsTextBox.Size = new System.Drawing.Size(158, 57);
             this.pymntTermsTextBox.TabIndex = 17;
             // 
             // label5
@@ -714,7 +717,7 @@
             this.glBatchNmTextBox.MaxLength = 200;
             this.glBatchNmTextBox.Name = "glBatchNmTextBox";
             this.glBatchNmTextBox.ReadOnly = true;
-            this.glBatchNmTextBox.Size = new System.Drawing.Size(189, 21);
+            this.glBatchNmTextBox.Size = new System.Drawing.Size(158, 21);
             this.glBatchNmTextBox.TabIndex = 21;
             // 
             // label13
@@ -962,6 +965,281 @@
             this.smmryDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.smmryDataGridView_CellContentClick);
             this.smmryDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.smmryDataGridView_CellValueChanged);
             this.smmryDataGridView.CurrentCellChanged += new System.EventHandler(this.smmryDataGridView_CurrentCellChanged);
+            // 
+            // Column14
+            // 
+            this.Column14.Frozen = true;
+            this.Column14.HeaderText = "Item Type";
+            this.Column14.Items.AddRange(new object[] {
+            "1Initial Amount",
+            "2Tax",
+            "3Discount",
+            "4Extra Charge",
+            "5Applied Prepayment",
+            "6Grand Total",
+            "7Total Payments Made",
+            "8Outstanding Balance"});
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column14.Width = 110;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewTextBoxColumn1.Frozen = true;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Item Description";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.dataGridViewTextBoxColumn1.Width = 160;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = "0";
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn6.DividerWidth = 3;
+            this.dataGridViewTextBoxColumn6.Frozen = true;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Entered Amount";
+            this.dataGridViewTextBoxColumn6.MaxInputLength = 21;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.dataGridViewTextBoxColumn6.Width = 85;
+            // 
+            // Column16
+            // 
+            this.Column16.FillWeight = 50F;
+            this.Column16.HeaderText = "Curr.";
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            this.Column16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column16.Width = 50;
+            // 
+            // Column17
+            // 
+            this.Column17.HeaderText = "curr_id";
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
+            this.Column17.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column17.Visible = false;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "summary_itm_id";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column10.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "code_behind_id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column1.Visible = false;
+            // 
+            // Column13
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.NullValue = false;
+            this.Column13.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column13.HeaderText = "Auto Calc";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column13.Width = 35;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Increase/ Decrease";
+            this.Column2.Items.AddRange(new object[] {
+            "Increase",
+            "Decrease"});
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column2.Width = 65;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Charge Account";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column3.Width = 140;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "costing_accnt_id";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column11.Visible = false;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "...";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 25;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Increase/ Decrease";
+            this.Column4.Items.AddRange(new object[] {
+            "Increase",
+            "Decrease"});
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column4.Width = 65;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Balancing Account";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column5.Width = 140;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "balancing_accnt_id";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column12.Visible = false;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "...";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Visible = false;
+            this.Column7.Width = 25;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Applied Prepayment Document Number";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column8.Width = 110;
+            // 
+            // Column18
+            // 
+            this.Column18.HeaderText = "prepymnt_doc_id";
+            this.Column18.Name = "Column18";
+            this.Column18.ReadOnly = true;
+            this.Column18.Visible = false;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "...";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Visible = false;
+            this.Column9.Width = 25;
+            // 
+            // Column19
+            // 
+            this.Column19.FillWeight = 150F;
+            this.Column19.HeaderText = "Func. Curr.  Rate";
+            this.Column19.Name = "Column19";
+            this.Column19.ReadOnly = true;
+            this.Column19.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column19.Width = 150;
+            // 
+            // Column20
+            // 
+            this.Column20.FillWeight = 150F;
+            this.Column20.HeaderText = "Charge Accnt Curr. Rate";
+            this.Column20.Name = "Column20";
+            this.Column20.ReadOnly = true;
+            this.Column20.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column20.Width = 150;
+            // 
+            // Column21
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = "0";
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column21.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column21.HeaderText = "Func. Curr. Amount";
+            this.Column21.Name = "Column21";
+            this.Column21.ReadOnly = true;
+            this.Column21.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Column23
+            // 
+            this.Column23.HeaderText = "Func. Curr.";
+            this.Column23.Name = "Column23";
+            this.Column23.ReadOnly = true;
+            this.Column23.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Column24
+            // 
+            this.Column24.HeaderText = "Func Curr ID";
+            this.Column24.Name = "Column24";
+            this.Column24.ReadOnly = true;
+            this.Column24.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column24.Visible = false;
+            // 
+            // Column22
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = "0";
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column22.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column22.HeaderText = "Charge Accnt Curr. Amount";
+            this.Column22.Name = "Column22";
+            this.Column22.ReadOnly = true;
+            this.Column22.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Column25
+            // 
+            this.Column25.HeaderText = "Charge Account Curr.";
+            this.Column25.Name = "Column25";
+            this.Column25.ReadOnly = true;
+            this.Column25.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Column26
+            // 
+            this.Column26.HeaderText = "Acnt Curr ID";
+            this.Column26.Name = "Column26";
+            this.Column26.ReadOnly = true;
+            this.Column26.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column26.Visible = false;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "Initial Amount Line ID";
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            this.Column15.Visible = false;
             // 
             // groupBox2
             // 
@@ -1579,6 +1857,8 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.openBatchButton);
+            this.groupBox10.Controls.Add(this.pymntTermsButton);
             this.groupBox10.Controls.Add(this.docIDTextBox);
             this.groupBox10.Controls.Add(this.rgstrNumTextBox);
             this.groupBox10.Controls.Add(this.rgstrButton);
@@ -1657,6 +1937,32 @@
             this.groupBox10.TabIndex = 3;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "DOCUMENT HEADER";
+            // 
+            // openBatchButton
+            // 
+            this.openBatchButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.openBatchButton.ForeColor = System.Drawing.Color.Black;
+            this.openBatchButton.ImageKey = "openfileicon.png";
+            this.openBatchButton.ImageList = this.imageList3;
+            this.openBatchButton.Location = new System.Drawing.Point(583, 175);
+            this.openBatchButton.Name = "openBatchButton";
+            this.openBatchButton.Size = new System.Drawing.Size(28, 23);
+            this.openBatchButton.TabIndex = 249;
+            this.openBatchButton.UseVisualStyleBackColor = true;
+            this.openBatchButton.Click += new System.EventHandler(this.openBatchButton_Click);
+            // 
+            // pymntTermsButton
+            // 
+            this.pymntTermsButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pymntTermsButton.ForeColor = System.Drawing.Color.Black;
+            this.pymntTermsButton.ImageKey = "edit32.png";
+            this.pymntTermsButton.ImageList = this.imageList3;
+            this.pymntTermsButton.Location = new System.Drawing.Point(583, 63);
+            this.pymntTermsButton.Name = "pymntTermsButton";
+            this.pymntTermsButton.Size = new System.Drawing.Size(28, 23);
+            this.pymntTermsButton.TabIndex = 248;
+            this.pymntTermsButton.UseVisualStyleBackColor = true;
+            this.pymntTermsButton.Click += new System.EventHandler(this.pymntTermsButton_Click);
             // 
             // rgstrNumTextBox
             // 
@@ -1879,7 +2185,7 @@
             this.glBatchIDTextBox.MaxLength = 200;
             this.glBatchIDTextBox.Name = "glBatchIDTextBox";
             this.glBatchIDTextBox.ReadOnly = true;
-            this.glBatchIDTextBox.Size = new System.Drawing.Size(55, 21);
+            this.glBatchIDTextBox.Size = new System.Drawing.Size(24, 21);
             this.glBatchIDTextBox.TabIndex = 196;
             // 
             // label16
@@ -1969,281 +2275,6 @@
             // printDialog1
             // 
             this.printDialog1.UseEXDialog = true;
-            // 
-            // Column14
-            // 
-            this.Column14.Frozen = true;
-            this.Column14.HeaderText = "Item Type";
-            this.Column14.Items.AddRange(new object[] {
-            "1Initial Amount",
-            "2Tax",
-            "3Discount",
-            "4Extra Charge",
-            "5Applied Prepayment",
-            "6Grand Total",
-            "7Total Payments Made",
-            "8Outstanding Balance"});
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column14.Width = 110;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewTextBoxColumn1.Frozen = true;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Item Description";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.dataGridViewTextBoxColumn1.Width = 160;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = "0";
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewTextBoxColumn6.DividerWidth = 3;
-            this.dataGridViewTextBoxColumn6.Frozen = true;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Entered Amount";
-            this.dataGridViewTextBoxColumn6.MaxInputLength = 21;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.dataGridViewTextBoxColumn6.Width = 85;
-            // 
-            // Column16
-            // 
-            this.Column16.FillWeight = 50F;
-            this.Column16.HeaderText = "Curr.";
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            this.Column16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column16.Width = 50;
-            // 
-            // Column17
-            // 
-            this.Column17.HeaderText = "curr_id";
-            this.Column17.Name = "Column17";
-            this.Column17.ReadOnly = true;
-            this.Column17.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column17.Visible = false;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "summary_itm_id";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column10.Visible = false;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "code_behind_id";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column1.Visible = false;
-            // 
-            // Column13
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.NullValue = false;
-            this.Column13.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column13.HeaderText = "Auto Calc";
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column13.Width = 35;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Increase/ Decrease";
-            this.Column2.Items.AddRange(new object[] {
-            "Increase",
-            "Decrease"});
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column2.Width = 65;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Charge Account";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column3.Width = 140;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "costing_accnt_id";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column11.Visible = false;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "...";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 25;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Increase/ Decrease";
-            this.Column4.Items.AddRange(new object[] {
-            "Increase",
-            "Decrease"});
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column4.Width = 65;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Balancing Account";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column5.Width = 140;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "balancing_accnt_id";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column12.Visible = false;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "...";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Visible = false;
-            this.Column7.Width = 25;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Applied Prepayment Document Number";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column8.Width = 110;
-            // 
-            // Column18
-            // 
-            this.Column18.HeaderText = "prepymnt_doc_id";
-            this.Column18.Name = "Column18";
-            this.Column18.ReadOnly = true;
-            this.Column18.Visible = false;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "...";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Visible = false;
-            this.Column9.Width = 25;
-            // 
-            // Column19
-            // 
-            this.Column19.FillWeight = 150F;
-            this.Column19.HeaderText = "Func. Curr.  Rate";
-            this.Column19.Name = "Column19";
-            this.Column19.ReadOnly = true;
-            this.Column19.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column19.Width = 150;
-            // 
-            // Column20
-            // 
-            this.Column20.FillWeight = 150F;
-            this.Column20.HeaderText = "Charge Accnt Curr. Rate";
-            this.Column20.Name = "Column20";
-            this.Column20.ReadOnly = true;
-            this.Column20.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column20.Width = 150;
-            // 
-            // Column21
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = "0";
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column21.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column21.HeaderText = "Func. Curr. Amount";
-            this.Column21.Name = "Column21";
-            this.Column21.ReadOnly = true;
-            this.Column21.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // Column23
-            // 
-            this.Column23.HeaderText = "Func. Curr.";
-            this.Column23.Name = "Column23";
-            this.Column23.ReadOnly = true;
-            this.Column23.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // Column24
-            // 
-            this.Column24.HeaderText = "Func Curr ID";
-            this.Column24.Name = "Column24";
-            this.Column24.ReadOnly = true;
-            this.Column24.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column24.Visible = false;
-            // 
-            // Column22
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = "0";
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column22.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column22.HeaderText = "Charge Accnt Curr. Amount";
-            this.Column22.Name = "Column22";
-            this.Column22.ReadOnly = true;
-            this.Column22.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // Column25
-            // 
-            this.Column25.HeaderText = "Charge Account Curr.";
-            this.Column25.Name = "Column25";
-            this.Column25.ReadOnly = true;
-            this.Column25.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // Column26
-            // 
-            this.Column26.HeaderText = "Acnt Curr ID";
-            this.Column26.Name = "Column26";
-            this.Column26.ReadOnly = true;
-            this.Column26.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column26.Visible = false;
-            // 
-            // Column15
-            // 
-            this.Column15.HeaderText = "Initial Amount Line ID";
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            this.Column15.Visible = false;
             // 
             // rcvblsDocsForm
             // 
@@ -2477,5 +2508,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column25;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column26;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.Button pymntTermsButton;
+        private System.Windows.Forms.Button openBatchButton;
     }
 }

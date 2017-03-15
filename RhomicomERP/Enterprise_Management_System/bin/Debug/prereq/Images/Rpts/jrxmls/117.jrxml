@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
-<!-- 2016-07-10T14:31:26 -->
+<!-- 2016-10-29T13:12:03 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Payables Invoice" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Local PG DB"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
@@ -78,23 +78,35 @@
 			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
 		</box>
 	</style>
+	<style name="Table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
 	<subDataset name="Dataset2" uuid="523e5f28-2612-4f05-a9e2-ad0302387474">
 		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Local PG DB"/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
 		<parameter name="P_INVOICE_ID" class="java.lang.Long">
 			<parameterDescription><![CDATA[Invoice ID:]]></parameterDescription>
 		</parameter>
 		<parameter name="P_INVOICE_TYPE" class="java.lang.String"/>
 		<queryString>
-			<![CDATA[
-SELECT a.pybls_smmry_id, a.pybls_smmry_desc, 
-a.pybls_smmry_amnt, a.code_id_behind, substr(a.pybls_smmry_type,2), a.auto_calc 
-FROM accb.accb_pybls_amnt_smmrys a 
-WHERE((a.src_pybls_hdr_id = $P{P_INVOICE_ID}) 
-	and (a.src_pybls_type=$P{P_INVOICE_TYPE}) 
-	and (substr(a.pybls_smmry_type,1,1) IN ('6','7','8'))) 
-       ORDER BY a.pybls_smmry_type
-    ]]>
+			<![CDATA[SELECT c.pybls_smmry_id, c.pybls_smmry_desc, 
+c.pybls_smmry_amnt, c.code_id_behind, c.substr, 
+c.auto_calc , REPLACE(REPLACE(c.pybls_smmry_type,'2Tax','3Tax'),'3Discount','2Discount') smtyp 
+ FROM (SELECT a.pybls_smmry_id, a.pybls_smmry_desc, 
+             a.pybls_smmry_amnt, a.code_id_behind, substr(a.pybls_smmry_type,2) substr, a.auto_calc, a.pybls_smmry_type
+                          FROM accb.accb_pybls_amnt_smmrys a 
+             WHERE((a.src_pybls_hdr_id = $P{P_INVOICE_ID}) and (a.src_pybls_type=$P{P_INVOICE_TYPE}) and (substr(a.pybls_smmry_type,1,1) IN ('6','7','8'))) 
+UNION
+SELECT 9999999, 'Amount Being Paid',next_part_payment, -1, 'Amount Being Paid' substr,'0', '9Amount Being Paid' 
+FROM accb.accb_pybls_invc_hdr  a
+WHERE((a.pybls_invc_hdr_id = $P{P_INVOICE_ID}) and (a.pybls_invc_type=$P{P_INVOICE_TYPE}))) c
+             ORDER BY 7]]>
 		</queryString>
 		<field name="pybls_smmry_id" class="java.lang.Long"/>
 		<field name="pybls_smmry_desc" class="java.lang.String"/>
@@ -102,6 +114,7 @@ WHERE((a.src_pybls_hdr_id = $P{P_INVOICE_ID})
 		<field name="code_id_behind" class="java.lang.Integer"/>
 		<field name="substr" class="java.lang.String"/>
 		<field name="auto_calc" class="java.lang.String"/>
+		<field name="smtyp" class="java.lang.String"/>
 	</subDataset>
 	<parameter name="P_INVOICE_ID" class="java.lang.Long">
 		<parameterDescription><![CDATA[Invoice ID:]]></parameterDescription>
@@ -139,13 +152,13 @@ a.pybls_smmry_id,
 a.pybls_smmry_desc,
 CASE WHEN substr(a.pybls_smmry_type,1,1) IN ('3','5') 
 THEN -1 * a.pybls_smmry_amnt ELSE a.pybls_smmry_amnt END amnt, 
-a.code_id_behind, a.pybls_smmry_type, a.auto_calc 
+a.code_id_behind, a.pybls_smmry_type, a.auto_calc,
+	    gst.get_pssbl_val(b.invc_curr_id) curr  
 FROM accb.accb_pybls_amnt_smmrys a, accb.accb_pybls_invc_hdr b 
       LEFT OUTER JOIN scm.scm_cstmr_suplr_sites f  ON (b.supplier_site_id =f.cust_sup_site_id)
 WHERE((a.src_pybls_hdr_id =$P{P_INVOICE_ID} and b.pybls_invc_hdr_id=a.src_pybls_hdr_id) 
  and (substr(a.pybls_smmry_type,1,1) NOT IN ('6','7','8'))
-) ORDER BY a.pybls_smmry_type 
-]]>
+) ORDER BY a.pybls_smmry_type]]>
 	</queryString>
 	<field name="pybls_invc_hdr_id" class="java.lang.Long"/>
 	<field name="invc_date" class="java.lang.String"/>
@@ -163,6 +176,7 @@ WHERE((a.src_pybls_hdr_id =$P{P_INVOICE_ID} and b.pybls_invc_hdr_id=a.src_pybls_
 	<field name="code_id_behind" class="java.lang.Integer"/>
 	<field name="pybls_smmry_type" class="java.lang.String"/>
 	<field name="auto_calc" class="java.lang.String"/>
+	<field name="curr" class="java.lang.String"/>
 	<variable name="Variable_1" class="java.math.BigDecimal" calculation="Sum">
 		<variableExpression><![CDATA[SUM($F{amnt} )]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
@@ -275,7 +289,7 @@ WHERE((a.src_pybls_hdr_id =$P{P_INVOICE_ID} and b.pybls_invc_hdr_id=a.src_pybls_
 				<textElement textAlignment="Left" verticalAlignment="Top"/>
 				<text><![CDATA[PV No.:]]></text>
 			</staticText>
-			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+			<textField isStretchWithOverflow="true" pattern="#00000.###;(#00000.###-)" isBlankWhenNull="true">
 				<reportElement x="430" y="161" width="127" height="20" uuid="957c282c-9d52-4d70-81af-34308f0efe0b"/>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
@@ -287,7 +301,7 @@ WHERE((a.src_pybls_hdr_id =$P{P_INVOICE_ID} and b.pybls_invc_hdr_id=a.src_pybls_
 	<columnHeader>
 		<band height="20">
 			<staticText>
-				<reportElement style="Column header" positionType="Float" mode="Opaque" x="1" y="0" width="414" height="20" forecolor="#FFFFFF" backcolor="#3E53DE" uuid="8b348c07-9c43-47e2-9c76-ba20c36879e2"/>
+				<reportElement style="Column header" positionType="Float" mode="Opaque" x="1" y="0" width="414" height="20" forecolor="#FFFFFF" backcolor="#3D80B8" uuid="8b348c07-9c43-47e2-9c76-ba20c36879e2"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -300,20 +314,13 @@ WHERE((a.src_pybls_hdr_id =$P{P_INVOICE_ID} and b.pybls_invc_hdr_id=a.src_pybls_
 				</textElement>
 				<text><![CDATA[Item Description]]></text>
 			</staticText>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" mode="Opaque" x="415" y="0" width="142" height="20" forecolor="#FFFFFF" backcolor="#3E53DE" uuid="fb241c18-438f-4096-be01-3bff2477fb7f"/>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement positionType="Float" mode="Opaque" x="415" y="0" width="142" height="20" forecolor="#FFFFFF" backcolor="#3D80B8" uuid="0cb1653b-2bd7-49e1-9e02-375196c8b2f9"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="12" isBold="true"/>
-					<paragraph leftIndent="2" rightIndent="2" spacingAfter="0"/>
 				</textElement>
-				<text><![CDATA[Amount]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA["Amount (" + $F{curr} + ") "]]></textFieldExpression>
+			</textField>
 		</band>
 	</columnHeader>
 	<detail>
@@ -369,7 +376,7 @@ WHERE((a.src_pybls_hdr_id =$P{P_INVOICE_ID} and b.pybls_invc_hdr_id=a.src_pybls_
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="136" splitType="Stretch">
+		<band height="219" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<staticText>
 				<reportElement positionType="Float" x="1" y="27" width="100" height="20" uuid="e8334610-e83a-48e2-b5e1-78151b84cfc2">
@@ -451,14 +458,22 @@ WHERE((a.src_pybls_hdr_id =$P{P_INVOICE_ID} and b.pybls_invc_hdr_id=a.src_pybls_
 				<text><![CDATA[]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
-				<reportElement positionType="Float" x="0" y="45" width="555" height="23" uuid="20666653-0b38-4612-abf2-19f431cb33b4"/>
+				<reportElement positionType="Float" x="0" y="45" width="555" height="23" uuid="20666653-0b38-4612-abf2-19f431cb33b4">
+					<printWhenExpression><![CDATA[LEN($F{payment_terms} )>0]]></printWhenExpression>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#ADADAD"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#ADADAD"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#ADADAD"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#ADADAD"/>
+				</box>
 				<textElement>
 					<font size="8" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{payment_terms}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="102" width="120" height="25" uuid="adc57847-b07e-4827-bd51-5a3cb87a8633">
+				<reportElement positionType="Float" x="0" y="103" width="120" height="25" uuid="adc57847-b07e-4827-bd51-5a3cb87a8633">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -468,7 +483,7 @@ WHERE((a.src_pybls_hdr_id =$P{P_INVOICE_ID} and b.pybls_invc_hdr_id=a.src_pybls_
 				<text><![CDATA[Prepared By:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="105" width="200" height="25" uuid="c5916d42-87de-46c0-b2d1-2c76854dcc48">
+				<reportElement positionType="Float" x="113" y="106" width="189" height="25" uuid="c5916d42-87de-46c0-b2d1-2c76854dcc48">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -478,7 +493,7 @@ WHERE((a.src_pybls_hdr_id =$P{P_INVOICE_ID} and b.pybls_invc_hdr_id=a.src_pybls_
 				<text><![CDATA[.................................]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="407" y="105" width="150" height="25" uuid="013a8ee1-5fe7-4471-a94e-55d916c745f7">
+				<reportElement positionType="Float" x="114" y="182" width="191" height="25" uuid="2968484d-8e69-4902-a864-fbf31ee3c6b5">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
@@ -488,14 +503,107 @@ WHERE((a.src_pybls_hdr_id =$P{P_INVOICE_ID} and b.pybls_invc_hdr_id=a.src_pybls_
 				<text><![CDATA[.................................]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="300" y="102" width="120" height="25" uuid="bef9d261-4061-4ee9-8a2d-646b547d1c44">
+				<reportElement positionType="Float" x="-1" y="180" width="131" height="25" uuid="44ebae77-de0a-4f74-a50b-b077b7c49687">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 				<textElement>
 					<font size="16" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Approved By:]]></text>
+				<text><![CDATA[Authorized By:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="138" width="120" height="25" uuid="631b2e83-8210-47f8-8730-37ff4141082a">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Checked By:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="113" y="141" width="150" height="25" uuid="e65ba499-e0c8-4b4c-ba02-a7778ca934d9">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[.................................]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" x="285" y="96" width="268" height="114" uuid="3ce1336d-7606-47f5-afbf-2be072bf738b"/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="291" y="104" width="89" height="25" uuid="a6f7e50c-cc0e-40e8-b581-0de4ffaf57ad">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="381" y="106" width="164" height="25" uuid="db75a2c6-1e6f-4934-b0a7-12aacd5cd4a3">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[.................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="285" y="70" width="111" height="25" uuid="a2c1e69e-805d-4c08-9b73-f6aa0aacbc6e">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Received By:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="291" y="140" width="89" height="25" uuid="7d2cee6e-5bdd-459f-b7fd-2b40f4315630">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Signature:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="381" y="142" width="164" height="25" uuid="9872deb0-babc-481f-a88b-7e7429743e2f">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[.................................]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="290" y="178" width="89" height="25" uuid="d77ddf94-2588-4ac8-9380-4aea95ab2d34">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="380" y="180" width="164" height="25" uuid="b7473bee-09a9-4b95-8423-522315288f55">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[.................................]]></text>
 			</staticText>
 		</band>
 	</summary>

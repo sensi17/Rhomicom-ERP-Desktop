@@ -688,6 +688,7 @@ pageWidth + 40, font5, g);
       {
         error = true;
       }
+
       if (error)
       {
         try

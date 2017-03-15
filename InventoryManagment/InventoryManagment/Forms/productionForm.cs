@@ -3494,7 +3494,7 @@ round(scm.get_prcs_ttl_cost({:process_run_id})/COALESCE(NULLIF(round(scm.get_prc
                         Global.createSalesDocLn(lineid, freeInvoiceID,
                           itmID, qty, price, storeID, crncyID, srclnID, taxID,
                           dscntID, chrgeID, "", cnsignIDs, orgnlSllngPrce, false, prsnID,
-                          "");
+                          "", -1, -1, -1, -1, -1);
                         this.inptDataGridView.Rows[i].Cells[13].Value = freeInvoiceID;
                         this.inptDataGridView.Rows[i].Cells[14].Value = lineid;
                     }
@@ -3503,7 +3503,7 @@ round(scm.get_prcs_ttl_cost({:process_run_id})/COALESCE(NULLIF(round(scm.get_prc
                         Global.updateSalesDocLn(lineid,
                   itmID, qty, price, storeID, crncyID, srclnID,
                   taxID, dscntID, chrgeID, "", cnsignIDs, orgnlSllngPrce, false, prsnID,
-                          "");
+                          "", -1, -1, -1, -1, -1);
                         this.inptDataGridView.Rows[i].Cells[13].Value = freeInvoiceID;
                         this.inptDataGridView.Rows[i].Cells[14].Value = lineid;
                     }
@@ -4229,26 +4229,75 @@ round(scm.get_prcs_ttl_cost({:process_run_id})/COALESCE(NULLIF(round(scm.get_prc
                     int taxID = int.Parse(dtst.Tables[0].Rows[i][9].ToString());
                     int dscntID = int.Parse(dtst.Tables[0].Rows[i][10].ToString());
                     int chrgeID = int.Parse(dtst.Tables[0].Rows[i][11].ToString());
-                    /*double.Parse(Global.mnFrm.cmCde.getGnrlRecNm(
-                      "inv.inv_itm_list", "item_id", "orgnl_selling_price", itmID))*/
-                    double orgnlSllngPrce = Math.Round((double)exchRate * Global.getUOMPriceLsTx(itmID, qty), 4);
-
+                    string slctdAccntIDs = dtst.Tables[0].Rows[i][27].ToString();
+                    char[] w = { ',' };
+                    string[] inbrghtIDs = slctdAccntIDs.Split(w);
+                    int itmInvAcntID = -1;
+                    int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("inv.inv_itm_subinventories", "subinv_id", "inv_asset_acct_id", storeID), out itmInvAcntID);
+                    int cogsID = -1;
+                    int salesRevID = -1;
+                    int salesRetID = -1;
+                    int purcRetID = -1;
+                    int expnsID = -1;
+                    for (int z = 0; z < inbrghtIDs.Length; z++)
+                    {
+                        switch (z)
+                        {
+                            case 0:
+                                cogsID = int.Parse(inbrghtIDs[z]);
+                                break;
+                            case 1:
+                                salesRevID = int.Parse(inbrghtIDs[z]);
+                                break;
+                            case 2:
+                                salesRetID = int.Parse(inbrghtIDs[z]);
+                                break;
+                            case 3:
+                                purcRetID = int.Parse(inbrghtIDs[z]);
+                                break;
+                            case 4:
+                                expnsID = int.Parse(inbrghtIDs[z]);
+                                break;
+                        }
+                    }
+                    if (itmInvAcntID <= 0)
+                    {
+                        itmInvAcntID = this.dfltInvAcntID;
+                    }
+                    if (cogsID <= 0)
+                    {
+                        cogsID = this.dfltCGSAcntID;
+                    }
+                    if (salesRevID <= 0)
+                    {
+                        salesRevID = this.dfltRvnuAcntID;
+                    }
+                    if (salesRetID <= 0)
+                    {
+                        salesRetID = this.dfltSRAcntID;
+                    }
+                    if (expnsID <= 0)
+                    {
+                        expnsID = this.dfltExpnsAcntID;
+                    }
+                    //double orgnlSllngPrce = Math.Round((double)exchRate * Global.getUOMPriceLsTx(itmID, qty), 4);
+                    double orgnlSllngPrce = double.Parse(dtst.Tables[0].Rows[i][14].ToString());
+                    string itmType = dtst.Tables[0].Rows[i][28].ToString();
                     long stckID = Global.getItemStockID(itmID, storeID);
                     string cnsgmntIDs = dtst.Tables[0].Rows[i][13].ToString();
-
+                    //MessageBox.Show(itmID + "|" + slctdAccntIDs);
                     if (itmID > 0)
                     {
                         this.generateItmAccntng(itmID, qty, cnsgmntIDs, taxID, dscntID, chrgeID,
                             doctype, docHdrID,
-                            srcDocID, this.dfltRcvblAcntID, this.dfltInvAcntID,
-                            this.dfltCGSAcntID, this.dfltExpnsAcntID, this.dfltRvnuAcntID, stckID,
-                            price, crncyID, lineid, this.dfltSRAcntID, this.dfltCashAcntID,
+                            srcDocID, this.dfltRcvblAcntID, itmInvAcntID,
+                            cogsID, expnsID, salesRevID, stckID,
+                            price, crncyID, lineid, salesRetID, this.dfltCashAcntID,
                             this.dfltCheckAcntID, srclnID, dateStr, docNum,
-                            invcCurrID, exchRate, this.dfltLbltyAccnt, srcDocType, cstmrNm, docDesc, itmDesc, storeID);
+                            invcCurrID, exchRate, this.dfltLbltyAccnt, srcDocType, cstmrNm,
+                            docDesc, itmDesc, storeID, itmType, orgnlSllngPrce);
                     }
                 }
-                //worker.ReportProgress(70);
-                //worker.ReportProgress(100);
             }
             catch (Exception ex)
             {
@@ -4728,7 +4777,8 @@ round(scm.get_prcs_ttl_cost({:process_run_id})/COALESCE(NULLIF(round(scm.get_prc
        int dfltSRAcntID, int dfltCashAcntID, int dfltCheckAcntID, long srcDocLnID,
        string dateStr, string docIDNum, int entrdCurrID,
          decimal exchngRate, int dfltLbltyAccnt, string strSrcDocType,
-         string cstmrNm, string docDesc, string itmDesc, int storeID)
+         string cstmrNm, string docDesc, string itmDesc, int storeID, string itmType,
+         double orgnlSllngPrce)
         {
             try
             {
@@ -4756,46 +4806,14 @@ round(scm.get_prcs_ttl_cost({:process_run_id})/COALESCE(NULLIF(round(scm.get_prc
                  * 12.Increase Sales Discounts by Discounts --3Discount
                  * 13.Decrease Receivables by Discounts --3Discount
                  */
-                int itmInvAcntID = -1;
-                int itmCGSAcntID = -1;
-                //For Sales Return, Item Issues-Unbilled Docs get the ff
-                int itmExpnsAcntID = -1;
-                //For Sales Invoice, Sales Return get the ff
-                int itmRvnuAcntID = -1;
-                //Genral
                 int txPyblAcntID = -1;
                 int chrgRvnuAcntID = -1;
                 int salesDscntAcntID = -1;
-
-                int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("inv.inv_itm_subinventories", "subinv_id", "inv_asset_acct_id", storeID), out itmInvAcntID);
-                //int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("inv.inv_itm_list", "item_id", "inv_asset_acct_id", itmID), out itmInvAcntID);
-
-                int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("inv.inv_itm_list", "item_id", "cogs_acct_id", itmID), out itmCGSAcntID);
-                //For Sales Return, Item Issues-Unbilled Docs get the ff
-                int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("inv.inv_itm_list", "item_id", "expense_accnt_id", itmID), out itmExpnsAcntID);
-                //For Sales Invoice, Sales Return get the ff
-                int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("inv.inv_itm_list", "item_id", "sales_rev_accnt_id", itmID), out itmRvnuAcntID);
-                //Genral
-                //int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "taxes_payables_accnt_id", txCodeID), out txPyblAcntID);
-                //int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "chrge_revnu_accnt_id", chrgCodeID), out chrgRvnuAcntID);
-                //int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "dscount_expns_accnt_id", dscntCodeID), out salesDscntAcntID);
-                if (itmInvAcntID > 0)
-                {
-                    dfltInvAcntID = itmInvAcntID;
-                }
-                if (itmCGSAcntID > 0)
-                {
-                    dfltCGSAcntID = itmCGSAcntID;
-                }
-                if (itmExpnsAcntID > 0)
-                {
-                    dfltExpnsAcntID = itmExpnsAcntID;
-                }
-                if (itmRvnuAcntID > 0)
-                {
-                    dfltRvnuAcntID = itmRvnuAcntID;
-                }
-
+                double funcCurrrate = Math.Round((double)1 / (double)exchngRate, 15);
+                double ttlSllngPrc = Math.Round(qnty * unitSllgPrc, 2);
+                //Get Net Selling Price = Selling Price - Taxes
+                double ttlRvnuAmnt = ttlSllngPrc;
+                //For Sales Invoice, Sales Return, Item Issues-Unbilled Docs get the ff
                 if (dfltRcvblAcntID <= 0
             || dfltInvAcntID <= 0
             || dfltCGSAcntID <= 0
@@ -4803,32 +4821,11 @@ round(scm.get_prcs_ttl_cost({:process_run_id})/COALESCE(NULLIF(round(scm.get_prc
             || dfltRvnuAcntID <= 0)
                 {
                     Global.mnFrm.cmCde.showMsg("You must first Setup all Default " +
-                      "Accounts before Accounting can be Created!", 0);
+                      "Accounts before Accounting can be Created!\r\n\r\n" +
+                      dfltRcvblAcntID + "," + dfltInvAcntID + "," + dfltCGSAcntID + ","
+                      + dfltExpnsAcntID + "," + dfltRvnuAcntID, 0);
                     return false;
                 }
-
-                string itmType = Global.mnFrm.cmCde.getGnrlRecNm("inv.inv_itm_list", "item_id", "item_type", itmID);
-                //        string dateStr = DateTime.ParseExact(
-                //Global.mnFrm.cmCde.getDB_Date_time(), "yyyy-MM-dd HH:mm:ss",
-                //System.Globalization.CultureInfo.InvariantCulture).ToString("dd-MMM-yyyy HH:mm:ss");
-                //     long SIDocID = -1;
-                //     long.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_sales_invc_hdr",
-                //"invc_hdr_id", "src_doc_hdr_id", docID),out SIDocID);
-                //Create a List of Consignment IDs, Quantity Used in this doc, Cost Price
-                //Get ttlSllngPrc, ttlTxAmnt, ttlChrgAmnt, ttlDsctAmnt for this item only
-
-                double funcCurrrate = Math.Round((double)1 / (double)exchngRate, 15);
-
-                double orgnlSllngPrce = double.Parse(Global.mnFrm.cmCde.getGnrlRecNm(
-                  "scm.scm_sales_invc_det", "invc_det_ln_id", "orgnl_selling_price", docLnID));
-                double sllngPrce = double.Parse(Global.mnFrm.cmCde.getGnrlRecNm(
-                  "scm.scm_sales_invc_det", "invc_det_ln_id", "unit_selling_price", docLnID));
-                double ttlSllngPrc = Math.Round(qnty * sllngPrce, 2);
-
-
-                //Get Net Selling Price = Selling Price - Taxes
-                double ttlRvnuAmnt = ttlSllngPrc;// -ttlChrgAmnt;// +ttlDsctAmnt;
-                //For Sales Invoice, Sales Return, Item Issues-Unbilled Docs get the ff
 
                 //Global.mnFrm.cmCde.showMsg("Type:" + itmType, 0);
                 if (itmType.Contains("Inventory")
@@ -5418,7 +5415,7 @@ round(scm.get_prcs_ttl_cost({:process_run_id})/COALESCE(NULLIF(round(scm.get_prc
 
             bool prv = this.obey_evnts;
             this.obey_evnts = false;
-            for (int i = 0; i < this.inptDataGridView.SelectedRows.Count; )
+            for (int i = 0; i < this.inptDataGridView.SelectedRows.Count;)
             {
                 long lnID = -1;
                 long inptID = -1;
@@ -5527,7 +5524,7 @@ round(scm.get_prcs_ttl_cost({:process_run_id})/COALESCE(NULLIF(round(scm.get_prc
 
             bool prv = this.obey_evnts;
             this.obey_evnts = false;
-            for (int i = 0; i < this.prcsStagesDataGridView.SelectedRows.Count; )
+            for (int i = 0; i < this.prcsStagesDataGridView.SelectedRows.Count;)
             {
                 long lnID = -1;
                 long inptID = -1;
@@ -5612,7 +5609,7 @@ round(scm.get_prcs_ttl_cost({:process_run_id})/COALESCE(NULLIF(round(scm.get_prc
 
             bool prv = this.obey_evnts;
             this.obey_evnts = false;
-            for (int i = 0; i < this.outptDataGridView.SelectedRows.Count; )
+            for (int i = 0; i < this.outptDataGridView.SelectedRows.Count;)
             {
                 long inptID = -1;
                 if (this.ppRadioButton.Checked)

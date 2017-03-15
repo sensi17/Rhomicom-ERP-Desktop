@@ -30,8 +30,8 @@ namespace SystemAdministration.Forms
 			{
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeVWContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.hideTreevwMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -121,6 +121,7 @@ namespace SystemAdministration.Forms
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader60 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader62 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.usersContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -380,10 +381,10 @@ namespace SystemAdministration.Forms
             this.expryDaysNmUpDown = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.policyNmTextBox = new System.Windows.Forms.TextBox();
             this.isDefltNoCheckBox = new System.Windows.Forms.CheckBox();
             this.isDefltYesCheckBox = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.policyNmTextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.plcyIDTextBox = new System.Windows.Forms.TextBox();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
@@ -393,6 +394,8 @@ namespace SystemAdministration.Forms
             this.toolStripSeparator57 = new System.Windows.Forms.ToolStripSeparator();
             this.savePlcyButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator55 = new System.Windows.Forms.ToolStripSeparator();
+            this.deletePolicyButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator60 = new System.Windows.Forms.ToolStripSeparator();
             this.refreshPlcyButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.vwSQLPlcyButton = new System.Windows.Forms.ToolStripButton();
@@ -433,6 +436,8 @@ namespace SystemAdministration.Forms
             this.toolStripSeparator112 = new System.Windows.Forms.ToolStripSeparator();
             this.saveEmlSvrButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator111 = new System.Windows.Forms.ToolStripSeparator();
+            this.deleteSrvrButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator52 = new System.Windows.Forms.ToolStripSeparator();
             this.refreshEmlSvrButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
             this.recHstryEmlSvrButton = new System.Windows.Forms.ToolStripButton();
@@ -502,12 +507,12 @@ namespace SystemAdministration.Forms
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.smtpClientTextBox = new System.Windows.Forms.TextBox();
             this.isDfltNoEmlSvrCheckBox = new System.Windows.Forms.CheckBox();
             this.isDfltYesEmlSvrCheckBox = new System.Windows.Forms.CheckBox();
             this.smtpPortNmUpDown = new System.Windows.Forms.NumericUpDown();
             this.emailPswdTextBox = new System.Windows.Forms.TextBox();
             this.emailUnameTextBox = new System.Windows.Forms.TextBox();
-            this.smtpClientTextBox = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -616,10 +621,6 @@ namespace SystemAdministration.Forms
             this.infoToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.deleteSrvrButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator52 = new System.Windows.Forms.ToolStripSeparator();
-            this.deletePolicyButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator60 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -1627,7 +1628,8 @@ namespace SystemAdministration.Forms
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader10,
-            this.columnHeader60});
+            this.columnHeader60,
+            this.columnHeader62});
             this.userListView.ContextMenuStrip = this.usersContextMenuStrip;
             this.userListView.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userListView.FullRowSelect = true;
@@ -1672,6 +1674,11 @@ namespace SystemAdministration.Forms
             // 
             this.columnHeader60.Text = "CustomerID";
             this.columnHeader60.Width = 0;
+            // 
+            // columnHeader62
+            // 
+            this.columnHeader62.Text = "Modules Needed";
+            this.columnHeader62.Width = 200;
             // 
             // usersContextMenuStrip
             // 
@@ -4120,6 +4127,16 @@ namespace SystemAdministration.Forms
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             // 
+            // policyNmTextBox
+            // 
+            this.policyNmTextBox.BackColor = System.Drawing.Color.Gainsboro;
+            this.policyNmTextBox.Location = new System.Drawing.Point(84, 16);
+            this.policyNmTextBox.MaxLength = 100;
+            this.policyNmTextBox.Name = "policyNmTextBox";
+            this.policyNmTextBox.ReadOnly = true;
+            this.policyNmTextBox.Size = new System.Drawing.Size(213, 21);
+            this.policyNmTextBox.TabIndex = 0;
+            // 
             // isDefltNoCheckBox
             // 
             this.isDefltNoCheckBox.AutoSize = true;
@@ -4153,16 +4170,6 @@ namespace SystemAdministration.Forms
             this.label11.Size = new System.Drawing.Size(59, 13);
             this.label11.TabIndex = 4;
             this.label11.Text = "Is Default?";
-            // 
-            // policyNmTextBox
-            // 
-            this.policyNmTextBox.BackColor = System.Drawing.Color.Gainsboro;
-            this.policyNmTextBox.Location = new System.Drawing.Point(84, 16);
-            this.policyNmTextBox.MaxLength = 100;
-            this.policyNmTextBox.Name = "policyNmTextBox";
-            this.policyNmTextBox.ReadOnly = true;
-            this.policyNmTextBox.Size = new System.Drawing.Size(213, 21);
-            this.policyNmTextBox.TabIndex = 0;
             // 
             // label10
             // 
@@ -4272,6 +4279,21 @@ namespace SystemAdministration.Forms
             // 
             this.toolStripSeparator55.Name = "toolStripSeparator55";
             this.toolStripSeparator55.Size = new System.Drawing.Size(6, 25);
+            // 
+            // deletePolicyButton
+            // 
+            this.deletePolicyButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.deletePolicyButton.Image = global::SystemAdministration.Properties.Resources.delete;
+            this.deletePolicyButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deletePolicyButton.Name = "deletePolicyButton";
+            this.deletePolicyButton.Size = new System.Drawing.Size(23, 22);
+            this.deletePolicyButton.Text = "DELETE";
+            this.deletePolicyButton.Click += new System.EventHandler(this.deletePolicyButton_Click);
+            // 
+            // toolStripSeparator60
+            // 
+            this.toolStripSeparator60.Name = "toolStripSeparator60";
+            this.toolStripSeparator60.Size = new System.Drawing.Size(6, 25);
             // 
             // refreshPlcyButton
             // 
@@ -4520,14 +4542,14 @@ namespace SystemAdministration.Forms
             this.smsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column8,
             this.Column9});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.smsDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.smsDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.smsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.smsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.smsDataGridView.Location = new System.Drawing.Point(3, 17);
@@ -4650,6 +4672,21 @@ namespace SystemAdministration.Forms
             // 
             this.toolStripSeparator111.Name = "toolStripSeparator111";
             this.toolStripSeparator111.Size = new System.Drawing.Size(6, 25);
+            // 
+            // deleteSrvrButton
+            // 
+            this.deleteSrvrButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.deleteSrvrButton.Image = global::SystemAdministration.Properties.Resources.delete;
+            this.deleteSrvrButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteSrvrButton.Name = "deleteSrvrButton";
+            this.deleteSrvrButton.Size = new System.Drawing.Size(23, 22);
+            this.deleteSrvrButton.Text = "DELETE";
+            this.deleteSrvrButton.Click += new System.EventHandler(this.deleteSrvrButton_Click);
+            // 
+            // toolStripSeparator52
+            // 
+            this.toolStripSeparator52.Name = "toolStripSeparator52";
+            this.toolStripSeparator52.Size = new System.Drawing.Size(6, 25);
             // 
             // refreshEmlSvrButton
             // 
@@ -4994,9 +5031,9 @@ namespace SystemAdministration.Forms
             // 
             this.loadLOVsButton.ForeColor = System.Drawing.Color.Black;
             this.loadLOVsButton.Image = global::SystemAdministration.Properties.Resources.action_go;
-            this.loadLOVsButton.Location = new System.Drawing.Point(203, 98);
+            this.loadLOVsButton.Location = new System.Drawing.Point(175, 98);
             this.loadLOVsButton.Name = "loadLOVsButton";
-            this.loadLOVsButton.Size = new System.Drawing.Size(174, 34);
+            this.loadLOVsButton.Size = new System.Drawing.Size(201, 34);
             this.loadLOVsButton.TabIndex = 143;
             this.loadLOVsButton.Text = "LOAD ROLES && PRIVILEDGES and REQUIRED LOVs";
             this.loadLOVsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -5006,9 +5043,9 @@ namespace SystemAdministration.Forms
             // restoreButton
             // 
             this.restoreButton.ForeColor = System.Drawing.Color.Black;
-            this.restoreButton.Location = new System.Drawing.Point(106, 98);
+            this.restoreButton.Location = new System.Drawing.Point(88, 98);
             this.restoreButton.Name = "restoreButton";
-            this.restoreButton.Size = new System.Drawing.Size(97, 34);
+            this.restoreButton.Size = new System.Drawing.Size(87, 34);
             this.restoreButton.TabIndex = 143;
             this.restoreButton.Text = "RESTORE DATABASE";
             this.restoreButton.UseVisualStyleBackColor = true;
@@ -5019,7 +5056,7 @@ namespace SystemAdministration.Forms
             this.bckpButton.ForeColor = System.Drawing.Color.Black;
             this.bckpButton.Location = new System.Drawing.Point(9, 98);
             this.bckpButton.Name = "bckpButton";
-            this.bckpButton.Size = new System.Drawing.Size(97, 34);
+            this.bckpButton.Size = new System.Drawing.Size(79, 34);
             this.bckpButton.TabIndex = 142;
             this.bckpButton.Text = "BACKUP DATABASE";
             this.bckpButton.UseVisualStyleBackColor = true;
@@ -5360,6 +5397,14 @@ namespace SystemAdministration.Forms
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "EMAIL SERVER";
             // 
+            // smtpClientTextBox
+            // 
+            this.smtpClientTextBox.Location = new System.Drawing.Point(101, 21);
+            this.smtpClientTextBox.MaxLength = 200;
+            this.smtpClientTextBox.Name = "smtpClientTextBox";
+            this.smtpClientTextBox.Size = new System.Drawing.Size(235, 21);
+            this.smtpClientTextBox.TabIndex = 0;
+            // 
             // isDfltNoEmlSvrCheckBox
             // 
             this.isDfltNoEmlSvrCheckBox.AutoSize = true;
@@ -5414,14 +5459,6 @@ namespace SystemAdministration.Forms
             this.emailUnameTextBox.Name = "emailUnameTextBox";
             this.emailUnameTextBox.Size = new System.Drawing.Size(158, 21);
             this.emailUnameTextBox.TabIndex = 1;
-            // 
-            // smtpClientTextBox
-            // 
-            this.smtpClientTextBox.Location = new System.Drawing.Point(101, 21);
-            this.smtpClientTextBox.MaxLength = 200;
-            this.smtpClientTextBox.Name = "smtpClientTextBox";
-            this.smtpClientTextBox.Size = new System.Drawing.Size(235, 21);
-            this.smtpClientTextBox.TabIndex = 0;
             // 
             // label32
             // 
@@ -5854,14 +5891,14 @@ namespace SystemAdministration.Forms
             this.Column1,
             this.Column7});
             this.auditTblsDataGridView.ContextMenuStrip = this.auditContextMenuStrip;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.auditTblsDataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.auditTblsDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.auditTblsDataGridView.Location = new System.Drawing.Point(2, 29);
             this.auditTblsDataGridView.MinimumSize = new System.Drawing.Size(300, 300);
             this.auditTblsDataGridView.Name = "auditTblsDataGridView";
@@ -6421,36 +6458,6 @@ namespace SystemAdministration.Forms
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // deleteSrvrButton
-            // 
-            this.deleteSrvrButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.deleteSrvrButton.Image = global::SystemAdministration.Properties.Resources.delete;
-            this.deleteSrvrButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.deleteSrvrButton.Name = "deleteSrvrButton";
-            this.deleteSrvrButton.Size = new System.Drawing.Size(23, 22);
-            this.deleteSrvrButton.Text = "DELETE";
-            this.deleteSrvrButton.Click += new System.EventHandler(this.deleteSrvrButton_Click);
-            // 
-            // toolStripSeparator52
-            // 
-            this.toolStripSeparator52.Name = "toolStripSeparator52";
-            this.toolStripSeparator52.Size = new System.Drawing.Size(6, 25);
-            // 
-            // deletePolicyButton
-            // 
-            this.deletePolicyButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.deletePolicyButton.Image = global::SystemAdministration.Properties.Resources.delete;
-            this.deletePolicyButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.deletePolicyButton.Name = "deletePolicyButton";
-            this.deletePolicyButton.Size = new System.Drawing.Size(23, 22);
-            this.deletePolicyButton.Text = "DELETE";
-            this.deletePolicyButton.Click += new System.EventHandler(this.deletePolicyButton_Click);
-            // 
-            // toolStripSeparator60
-            // 
-            this.toolStripSeparator60.Name = "toolStripSeparator60";
-            this.toolStripSeparator60.Size = new System.Drawing.Size(6, 25);
             // 
             // mainForm
             // 
@@ -7170,5 +7177,6 @@ namespace SystemAdministration.Forms
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator52;
         private System.Windows.Forms.ToolStripButton deletePolicyButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator60;
+        private System.Windows.Forms.ColumnHeader columnHeader62;
     }
 	}

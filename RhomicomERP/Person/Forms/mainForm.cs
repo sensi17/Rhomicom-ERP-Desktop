@@ -149,14 +149,7 @@ namespace BasicPersonData.Forms
             }
             this.prsnInfoTabPage.BackColor = clrs[0];
             this.educPanel.BackColor = clrs[0];
-            this.wrkExpPanel.BackColor = clrs[0];
-            this.skillsPanel.BackColor = clrs[0];
             this.basicAsgnmntsPanel.BackColor = clrs[0];
-            this.basicAsgnmnts1Panel.BackColor = clrs[0];
-            this.basicAsgnmnts2Panel.BackColor = clrs[0];
-            this.basicAsgnmnts3Panel.BackColor = clrs[0];
-            this.moneyAsgnmntsPanel.BackColor = clrs[0];
-            this.bankDetailsPanel.BackColor = clrs[0];
             this.othrInfoPanel.BackColor = clrs[0];
             this.extraDataTabPage.BackColor = clrs[0];
 
@@ -232,6 +225,7 @@ namespace BasicPersonData.Forms
             this.prsnTypComboBox.SelectedIndex = 0;
             this.loadOrgPersons();
             this.obey_prs_evnts = true;
+            this.prsNamesListView.MultiSelect = false;
         }
 
         #region "GENERAL..."
@@ -639,7 +633,7 @@ namespace BasicPersonData.Forms
                 Global.mnFrm.cmCde.showMsg("Please Save this Person First!", 0);
                 return;
             }
-            if (this.curTabIndx == "prsnInfoTabPage")
+            if (this.curTabIndx == "prsnInfoTabPage" || this.prsnTabControl.SelectedTab == this.prsnInfoTabPage)
             {
                 string orgType = Global.mnFrm.cmCde.getPssblValNm(int.Parse(Global.mnFrm.cmCde.getGnrlRecNm(
                   "org.org_details", "org_id", "org_typ_id", Global.mnFrm.cmCde.Org_id)));
@@ -654,20 +648,22 @@ namespace BasicPersonData.Forms
                 this.loadPersInfPanel();
                 this.loadPersExtDataPanel();
             }
-            else if (this.curTabIndx == "extraDataTabPage")
+            else if (this.curTabIndx == "extraDataTabPage" || this.prsnTabControl.SelectedTab == this.extraDataTabPage)
             {
                 this.loadPersExtDataPanel();
                 this.loadPersInfPanel();
             }
-            else if (this.curTabIndx == "educTabPage" || this.curTabIndx == "wrkExpTabPage" || this.curTabIndx == "skillTabPage")
+            else if (this.curTabIndx == "educTabPage"
+                 || this.prsnTabControl.SelectedTab == this.educTabPage)
             {
                 this.loadPersCVPanel();
             }
-            else if (this.curTabIndx == "bscAsgnTabPage" || this.curTabIndx == "bscAsgn1TabPage" || this.curTabIndx == "bscAsgn2TabPage" || this.curTabIndx == "bscAsgn3TabPage")
+            else if (this.curTabIndx == "bscAsgnTabPage"
+                 || this.prsnTabControl.SelectedTab == this.bscAsgnTabPage)
             {
                 this.loadPersBscAssgmnts();
             }
-            else if (this.curTabIndx == "otherInfoTabPage")
+            else if (this.curTabIndx == "otherInfoTabPage" || this.prsnTabControl.SelectedTab == this.otherInfoTabPage)
             {
                 this.loadOthrInfPanel();
                 //this.loadPersInfPanel();
@@ -742,29 +738,12 @@ namespace BasicPersonData.Forms
 
             this.prsnInfoTabPage.Enabled = this.vwPrs;
             this.educPanel.Enabled = this.vwCV;
-            this.wrkExpPanel.Enabled = this.vwCV;
-            this.skillsPanel.Enabled = this.vwCV;
-
-            this.basicAsgnmnts3Panel.Enabled = this.vwBscs;
-            this.basicAsgnmnts2Panel.Enabled = this.vwBscs;
-            this.basicAsgnmnts1Panel.Enabled = this.vwBscs;
             this.basicAsgnmntsPanel.Enabled = this.vwBscs;
-
-            this.moneyAsgnmntsPanel.Enabled = this.vwPyItmsPrs;
-            this.bankDetailsPanel.Enabled = this.vwBanks;
             this.othrInfoPanel.Enabled = this.vwPrs;
 
             this.prsnInfoTabPage.Visible = this.vwPrs;
             this.educPanel.Visible = this.vwCV;
-            this.wrkExpPanel.Visible = this.vwCV;
-            this.skillsPanel.Visible = this.vwCV;
-
-            this.basicAsgnmnts3Panel.Visible = this.vwBscs;
-            this.basicAsgnmnts2Panel.Visible = this.vwBscs;
-            this.basicAsgnmnts1Panel.Visible = this.vwBscs;
             this.basicAsgnmntsPanel.Visible = this.vwBscs;
-            this.moneyAsgnmntsPanel.Visible = this.vwPyItmsPrs;
-            this.bankDetailsPanel.Visible = this.vwBanks;
             this.othrInfoPanel.Visible = this.vwPrs;
 
             //Person's Details
@@ -2438,8 +2417,16 @@ namespace BasicPersonData.Forms
 
         private void addPrsButton_Click(object sender, EventArgs e)
         {
-            if (this.addPrsButton.Text == "ADD")
+            if (this.addPrsButton.Text == "NEW")
             {
+                if (this.editPrsButton.Text == "STOP")
+                {
+                    this.editPrsButton.PerformClick();
+                }
+                //if (this.savePrsButton.Enabled == true)
+                //{
+                //    this.savePrsButton.PerformClick();
+                //}
                 if (Global.mnFrm.cmCde.test_prmssns(Global.dfltPrvldgs[7]) == false)
                 {
                     Global.mnFrm.cmCde.showMsg("You don't have permission to perform" +
@@ -2657,9 +2644,9 @@ namespace BasicPersonData.Forms
                 this.editPrsn = true;
                 this.prpareForPrsEdit();
                 this.prpareForExtrDataEdit();
-                this.addPrsButton.Enabled = false;
+                //this.addPrsButton.Enabled = false;
                 //this.editPrsButton.Enabled = false;
-                this.deletePrsButton.Enabled = false;
+                //this.deletePrsButton.Enabled = false;
                 this.editPrsButton.Text = "STOP";
                 this.editPrsnMenuItem.Text = "STOP EDITING";
             }
@@ -3016,7 +3003,8 @@ DELETE FROM prs.prsn_names_nos WHERE person_id={:prsnID};";
                 this.savePrsButton.Enabled = true;
                 this.addPrsn = false;
                 this.editPrsn = true;
-                this.addPrsButton.Enabled = false;
+                this.addPrsButton.Enabled = true;
+                this.deletePrsButton.Enabled = true;
                 if (this.editPrsns == true)
                 {
                     this.editPrsButton.Enabled = true;
@@ -3075,10 +3063,8 @@ DELETE FROM prs.prsn_names_nos WHERE person_id={:prsnID};";
                 }
                 if (this.prsNamesListView.SelectedItems.Count == 1)
                 {
-                    Global.mnFrm.cmCde.getDBImageFile(this.prsNamesListView.SelectedItems[0].SubItems[4].Text,
-                 2, ref this.prsPictureBox);
-                    Global.mnFrm.cmCde.getDBImageFile(this.prsNamesListView.SelectedItems[0].SubItems[4].Text,
-                 2, ref this.prsnDetPictureBox);
+                    Global.mnFrm.cmCde.getDBImageFile(this.prsNamesListView.SelectedItems[0].SubItems[4].Text, 2, ref this.prsPictureBox);
+                    Global.mnFrm.cmCde.getDBImageFile(this.prsNamesListView.SelectedItems[0].SubItems[4].Text, 2, ref this.prsnDetPictureBox);
                 }
                 //}
 
@@ -3149,6 +3135,7 @@ DELETE FROM prs.prsn_names_nos WHERE person_id={:prsnID};";
             if (dgRes == DialogResult.OK)
             {
             }
+            this.populatePrsnType(long.Parse(this.prsnIDTextBox.Text));
         }
 
         private void otherInfoButton_Click(object sender, EventArgs e)
@@ -3335,6 +3322,7 @@ DELETE FROM prs.prsn_names_nos WHERE person_id={:prsnID};";
                  " this action!\nContact your System Administrator!", 0);
                 return;
             }
+            this.deletePrsButton_Click(this.deletePrsButton, e);
         }
 
         private void refreshPrsnMenuItem_Click(object sender, EventArgs e)
@@ -8144,6 +8132,7 @@ DELETE FROM prs.prsn_names_nos WHERE person_id={:prsnID};";
             {
                 Global.mnFrm.cmCde.listViewKeyDown(this.prsNamesListView, e);
             }
+            this.prsNamesListView.MultiSelect = false;
         }
 
         private void nationalityListView_KeyDown(object sender, KeyEventArgs e)
@@ -9603,8 +9592,8 @@ DELETE FROM prs.prsn_names_nos WHERE person_id={:prsnID};";
             if (e.ColumnIndex == 2
               || e.ColumnIndex == 3)
             {
-                this.sitesDataGridView.EndEdit();
-                System.Windows.Forms.Application.DoEvents();
+                //this.sitesDataGridView.EndEdit();
+                //System.Windows.Forms.Application.DoEvents();
                 string dtetmin = this.sitesDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
                 string dtetmout = this.sitesDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
                 if (e.ColumnIndex == 2 && dtetmin != "")
@@ -9652,8 +9641,8 @@ DELETE FROM prs.prsn_names_nos WHERE person_id={:prsnID};";
             if (e.ColumnIndex == 2
               || e.ColumnIndex == 3)
             {
-                this.sprvisrDataGridView.EndEdit();
-                System.Windows.Forms.Application.DoEvents();
+                //this.sprvisrDataGridView.EndEdit();
+                //System.Windows.Forms.Application.DoEvents();
                 string dtetmin = this.sprvisrDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
                 string dtetmout = this.sprvisrDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
                 if (e.ColumnIndex == 2 && dtetmin != "")
@@ -9700,8 +9689,8 @@ DELETE FROM prs.prsn_names_nos WHERE person_id={:prsnID};";
             if (e.ColumnIndex == 4
               || e.ColumnIndex == 5)
             {
-                this.divsDataGridView.EndEdit();
-                System.Windows.Forms.Application.DoEvents();
+                //this.divsDataGridView.EndEdit();
+                //System.Windows.Forms.Application.DoEvents();
                 string dtetmin = this.divsDataGridView.Rows[e.RowIndex].Cells[4].Value.ToString();
                 string dtetmout = this.divsDataGridView.Rows[e.RowIndex].Cells[5].Value.ToString();
                 if (e.ColumnIndex == 4 && dtetmin != "")
@@ -9748,8 +9737,8 @@ DELETE FROM prs.prsn_names_nos WHERE person_id={:prsnID};";
             if (e.ColumnIndex == 2
               || e.ColumnIndex == 3)
             {
-                this.jobsDataGridView.EndEdit();
-                System.Windows.Forms.Application.DoEvents();
+                //this.jobsDataGridView.EndEdit();
+                //System.Windows.Forms.Application.DoEvents();
                 string dtetmin = this.jobsDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
                 string dtetmout = this.jobsDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
                 if (e.ColumnIndex == 2 && dtetmin != "")
@@ -9795,8 +9784,8 @@ DELETE FROM prs.prsn_names_nos WHERE person_id={:prsnID};";
             if (e.ColumnIndex == 2
               || e.ColumnIndex == 3)
             {
-                this.gradesDataGridView.EndEdit();
-                System.Windows.Forms.Application.DoEvents();
+                //this.gradesDataGridView.EndEdit();
+                //System.Windows.Forms.Application.DoEvents();
                 string dtetmin = this.gradesDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
                 string dtetmout = this.gradesDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
                 if (e.ColumnIndex == 2 && dtetmin != "")
@@ -9843,8 +9832,8 @@ DELETE FROM prs.prsn_names_nos WHERE person_id={:prsnID};";
             if (e.ColumnIndex == 2
               || e.ColumnIndex == 3)
             {
-                this.positionDataGridView.EndEdit();
-                System.Windows.Forms.Application.DoEvents();
+                //this.positionDataGridView.EndEdit();
+                //System.Windows.Forms.Application.DoEvents();
                 string dtetmin = this.positionDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
                 string dtetmout = this.positionDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
                 if (e.ColumnIndex == 2 && dtetmin != "")
@@ -9878,12 +9867,27 @@ DELETE FROM prs.prsn_names_nos WHERE person_id={:prsnID};";
             bool prv = this.obeyEvnts;
             this.obeyEvnts = false;
 
-
+            if (this.positionDataGridView.Rows[e.RowIndex].Cells[0].Value == null)
+            {
+                this.positionDataGridView.Rows[e.RowIndex].Cells[0].Value = "";
+            }
             if (this.positionDataGridView.Rows[e.RowIndex].Cells[7].Value == null)
             {
                 this.positionDataGridView.Rows[e.RowIndex].Cells[7].Value = "";
             }
 
+            if (this.positionDataGridView.Rows[e.RowIndex].Cells[2].Value == null)
+            {
+                this.positionDataGridView.Rows[e.RowIndex].Cells[2].Value = "";
+            }
+            if (this.positionDataGridView.Rows[e.RowIndex].Cells[3].Value == null)
+            {
+                this.positionDataGridView.Rows[e.RowIndex].Cells[3].Value = "";
+            }
+            if (this.positionDataGridView.Rows[e.RowIndex].Cells[4].Value == null)
+            {
+                this.positionDataGridView.Rows[e.RowIndex].Cells[4].Value = "-1";
+            }
             if (this.positionDataGridView.Rows[e.RowIndex].Cells[8].Value == null)
             {
                 this.positionDataGridView.Rows[e.RowIndex].Cells[8].Value = "-1";
@@ -9947,7 +9951,14 @@ DELETE FROM prs.prsn_names_nos WHERE person_id={:prsnID};";
             {
                 this.sitesDataGridView.Rows[e.RowIndex].Cells[0].Value = "";
             }
-
+            if (this.sitesDataGridView.Rows[e.RowIndex].Cells[2].Value == null)
+            {
+                this.sitesDataGridView.Rows[e.RowIndex].Cells[2].Value = "";
+            }
+            if (this.sitesDataGridView.Rows[e.RowIndex].Cells[3].Value == null)
+            {
+                this.sitesDataGridView.Rows[e.RowIndex].Cells[3].Value = "";
+            }
             if (this.sitesDataGridView.Rows[e.RowIndex].Cells[4].Value == null)
             {
                 this.sitesDataGridView.Rows[e.RowIndex].Cells[4].Value = "-1";
@@ -9993,6 +10004,14 @@ DELETE FROM prs.prsn_names_nos WHERE person_id={:prsnID};";
                 this.sprvisrDataGridView.Rows[e.RowIndex].Cells[0].Value = "";
             }
 
+            if (this.sprvisrDataGridView.Rows[e.RowIndex].Cells[2].Value == null)
+            {
+                this.sprvisrDataGridView.Rows[e.RowIndex].Cells[2].Value = "";
+            }
+            if (this.sprvisrDataGridView.Rows[e.RowIndex].Cells[3].Value == null)
+            {
+                this.sprvisrDataGridView.Rows[e.RowIndex].Cells[3].Value = "";
+            }
             if (this.sprvisrDataGridView.Rows[e.RowIndex].Cells[4].Value == null)
             {
                 this.sprvisrDataGridView.Rows[e.RowIndex].Cells[4].Value = "-1";
@@ -10038,10 +10057,17 @@ DELETE FROM prs.prsn_names_nos WHERE person_id={:prsnID};";
             {
                 this.divsDataGridView.Rows[e.RowIndex].Cells[0].Value = "";
             }
-
             if (this.divsDataGridView.Rows[e.RowIndex].Cells[4].Value == null)
             {
-                this.divsDataGridView.Rows[e.RowIndex].Cells[4].Value = "-1";
+                this.divsDataGridView.Rows[e.RowIndex].Cells[4].Value = "";
+            }
+            if (this.divsDataGridView.Rows[e.RowIndex].Cells[5].Value == null)
+            {
+                this.divsDataGridView.Rows[e.RowIndex].Cells[5].Value = "";
+            }
+            if (this.divsDataGridView.Rows[e.RowIndex].Cells[6].Value == null)
+            {
+                this.divsDataGridView.Rows[e.RowIndex].Cells[6].Value = "-1";
             }
             if (e.ColumnIndex == 1)
             {
@@ -10086,7 +10112,14 @@ DELETE FROM prs.prsn_names_nos WHERE person_id={:prsnID};";
             {
                 this.jobsDataGridView.Rows[e.RowIndex].Cells[0].Value = "";
             }
-
+            if (this.jobsDataGridView.Rows[e.RowIndex].Cells[2].Value == null)
+            {
+                this.jobsDataGridView.Rows[e.RowIndex].Cells[2].Value = "";
+            }
+            if (this.jobsDataGridView.Rows[e.RowIndex].Cells[3].Value == null)
+            {
+                this.jobsDataGridView.Rows[e.RowIndex].Cells[3].Value = "";
+            }
             if (this.jobsDataGridView.Rows[e.RowIndex].Cells[4].Value == null)
             {
                 this.jobsDataGridView.Rows[e.RowIndex].Cells[4].Value = "-1";
@@ -10131,7 +10164,14 @@ DELETE FROM prs.prsn_names_nos WHERE person_id={:prsnID};";
             {
                 this.gradesDataGridView.Rows[e.RowIndex].Cells[0].Value = "";
             }
-
+            if (this.gradesDataGridView.Rows[e.RowIndex].Cells[2].Value == null)
+            {
+                this.gradesDataGridView.Rows[e.RowIndex].Cells[2].Value = "";
+            }
+            if (this.gradesDataGridView.Rows[e.RowIndex].Cells[3].Value == null)
+            {
+                this.gradesDataGridView.Rows[e.RowIndex].Cells[3].Value = "";
+            }
             if (this.gradesDataGridView.Rows[e.RowIndex].Cells[4].Value == null)
             {
                 this.gradesDataGridView.Rows[e.RowIndex].Cells[4].Value = "-1";

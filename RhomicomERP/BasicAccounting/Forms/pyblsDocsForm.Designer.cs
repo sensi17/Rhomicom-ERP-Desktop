@@ -30,12 +30,12 @@
     {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pyblsDocsForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pyblsDocListView = new System.Windows.Forms.ListView();
             this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader26 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -92,6 +92,10 @@
             this.imageList3 = new System.Windows.Forms.ImageList(this.components);
             this.glsLabel3 = new glsLabel.glsLabel();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.nextPaymentNumUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label23 = new System.Windows.Forms.Label();
+            this.openBatchButton = new System.Windows.Forms.Button();
+            this.pymntTermsButton = new System.Windows.Forms.Button();
             this.lnkdEventComboBox = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.rgstrNumTextBox = new System.Windows.Forms.TextBox();
@@ -191,14 +195,6 @@
             this.addChrgButton = new System.Windows.Forms.ToolStripButton();
             this.applyPrpymntButton = new System.Windows.Forms.ToolStripButton();
             this.smmryDataGridView = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.waitLabel = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.showUnpaidCheckBox = new System.Windows.Forms.CheckBox();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.Column14 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -227,11 +223,20 @@
             this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.waitLabel = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.showUnpaidCheckBox = new System.Windows.Forms.CheckBox();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.balShtsMenuStrip.SuspendLayout();
             this.panel7.SuspendLayout();
             this.toolStrip4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.groupBox10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nextPaymentNumUpDown)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -728,6 +733,7 @@
             this.imageList3.Images.SetKeyName(2, "edit32.png");
             this.imageList3.Images.SetKeyName(3, "refresh.bmp");
             this.imageList3.Images.SetKeyName(4, "tick_64.png");
+            this.imageList3.Images.SetKeyName(5, "openfileicon.png");
             // 
             // glsLabel3
             // 
@@ -745,6 +751,10 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.nextPaymentNumUpDown);
+            this.groupBox10.Controls.Add(this.label23);
+            this.groupBox10.Controls.Add(this.openBatchButton);
+            this.groupBox10.Controls.Add(this.pymntTermsButton);
             this.groupBox10.Controls.Add(this.lnkdEventComboBox);
             this.groupBox10.Controls.Add(this.label22);
             this.groupBox10.Controls.Add(this.rgstrNumTextBox);
@@ -823,6 +833,57 @@
             this.groupBox10.TabIndex = 1;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "DOCUMENT HEADER";
+            // 
+            // nextPaymentNumUpDown
+            // 
+            this.nextPaymentNumUpDown.DecimalPlaces = 2;
+            this.nextPaymentNumUpDown.Location = new System.Drawing.Point(724, 128);
+            this.nextPaymentNumUpDown.Maximum = new decimal(new int[] {
+            -1530494977,
+            232830,
+            0,
+            0});
+            this.nextPaymentNumUpDown.Name = "nextPaymentNumUpDown";
+            this.nextPaymentNumUpDown.Size = new System.Drawing.Size(168, 21);
+            this.nextPaymentNumUpDown.TabIndex = 253;
+            this.nextPaymentNumUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nextPaymentNumUpDown.ThousandsSeparator = true;
+            this.nextPaymentNumUpDown.ValueChanged += new System.EventHandler(this.nextPaymentNumUpDown_ValueChanged);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(612, 132);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(107, 13);
+            this.label23.TabIndex = 252;
+            this.label23.Text = "Next Payment Amnt:";
+            // 
+            // openBatchButton
+            // 
+            this.openBatchButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.openBatchButton.ForeColor = System.Drawing.Color.Black;
+            this.openBatchButton.ImageKey = "openfileicon.png";
+            this.openBatchButton.ImageList = this.imageList3;
+            this.openBatchButton.Location = new System.Drawing.Point(582, 179);
+            this.openBatchButton.Name = "openBatchButton";
+            this.openBatchButton.Size = new System.Drawing.Size(28, 23);
+            this.openBatchButton.TabIndex = 250;
+            this.openBatchButton.UseVisualStyleBackColor = true;
+            this.openBatchButton.Click += new System.EventHandler(this.openBatchButton_Click);
+            // 
+            // pymntTermsButton
+            // 
+            this.pymntTermsButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pymntTermsButton.ForeColor = System.Drawing.Color.Black;
+            this.pymntTermsButton.ImageKey = "edit32.png";
+            this.pymntTermsButton.ImageList = this.imageList3;
+            this.pymntTermsButton.Location = new System.Drawing.Point(582, 58);
+            this.pymntTermsButton.Name = "pymntTermsButton";
+            this.pymntTermsButton.Size = new System.Drawing.Size(28, 23);
+            this.pymntTermsButton.TabIndex = 249;
+            this.pymntTermsButton.UseVisualStyleBackColor = true;
+            this.pymntTermsButton.Click += new System.EventHandler(this.pymntTermsButton_Click);
             // 
             // lnkdEventComboBox
             // 
@@ -1067,7 +1128,7 @@
             // 
             this.docClsfctnButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docClsfctnButton.ForeColor = System.Drawing.Color.Black;
-            this.docClsfctnButton.Location = new System.Drawing.Point(892, 131);
+            this.docClsfctnButton.Location = new System.Drawing.Point(892, 150);
             this.docClsfctnButton.Name = "docClsfctnButton";
             this.docClsfctnButton.Size = new System.Drawing.Size(28, 22);
             this.docClsfctnButton.TabIndex = 33;
@@ -1079,25 +1140,26 @@
             // 
             this.docClsfctnTextBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.docClsfctnTextBox.ForeColor = System.Drawing.Color.Black;
-            this.docClsfctnTextBox.Location = new System.Drawing.Point(724, 132);
+            this.docClsfctnTextBox.Location = new System.Drawing.Point(724, 151);
             this.docClsfctnTextBox.Multiline = true;
             this.docClsfctnTextBox.Name = "docClsfctnTextBox";
             this.docClsfctnTextBox.ReadOnly = true;
             this.docClsfctnTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.docClsfctnTextBox.Size = new System.Drawing.Size(168, 46);
+            this.docClsfctnTextBox.Size = new System.Drawing.Size(168, 26);
             this.docClsfctnTextBox.TabIndex = 32;
             this.docClsfctnTextBox.TextChanged += new System.EventHandler(this.docDteTextBox_TextChanged);
             this.docClsfctnTextBox.Leave += new System.EventHandler(this.docDteTextBox_Leave);
             // 
             // label17
             // 
+            this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(612, 132);
+            this.label17.Location = new System.Drawing.Point(612, 157);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(98, 26);
+            this.label17.Size = new System.Drawing.Size(80, 13);
             this.label17.TabIndex = 201;
-            this.label17.Text = "Doc. Template / Classification:";
+            this.label17.Text = "Doc. Template:";
             // 
             // spplrsInvcNumTextBox
             // 
@@ -1114,7 +1176,7 @@
             this.glBatchNmTextBox.MaxLength = 200;
             this.glBatchNmTextBox.Name = "glBatchNmTextBox";
             this.glBatchNmTextBox.ReadOnly = true;
-            this.glBatchNmTextBox.Size = new System.Drawing.Size(189, 21);
+            this.glBatchNmTextBox.Size = new System.Drawing.Size(162, 21);
             this.glBatchNmTextBox.TabIndex = 22;
             // 
             // label13
@@ -1230,11 +1292,11 @@
             // pymntTermsTextBox
             // 
             this.pymntTermsTextBox.Location = new System.Drawing.Point(420, 59);
-            this.pymntTermsTextBox.MaxLength = 200;
+            this.pymntTermsTextBox.MaxLength = 9999999;
             this.pymntTermsTextBox.Multiline = true;
             this.pymntTermsTextBox.Name = "pymntTermsTextBox";
             this.pymntTermsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.pymntTermsTextBox.Size = new System.Drawing.Size(189, 73);
+            this.pymntTermsTextBox.Size = new System.Drawing.Size(162, 73);
             this.pymntTermsTextBox.TabIndex = 18;
             // 
             // label5
@@ -1397,7 +1459,7 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(612, 173);
+            this.label6.Location = new System.Drawing.Point(614, 180);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 35);
             this.label6.TabIndex = 146;
@@ -1535,7 +1597,7 @@
             this.glBatchIDTextBox.MaxLength = 200;
             this.glBatchIDTextBox.Name = "glBatchIDTextBox";
             this.glBatchIDTextBox.ReadOnly = true;
-            this.glBatchIDTextBox.Size = new System.Drawing.Size(55, 21);
+            this.glBatchIDTextBox.Size = new System.Drawing.Size(28, 21);
             this.glBatchIDTextBox.TabIndex = 196;
             // 
             // label16
@@ -1779,7 +1841,7 @@
             this.toolStrip2.Location = new System.Drawing.Point(6, 18);
             this.toolStrip2.Margin = new System.Windows.Forms.Padding(3);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(431, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(400, 25);
             this.toolStrip2.Stretch = true;
             this.toolStrip2.TabIndex = 0;
             this.toolStrip2.TabStop = true;
@@ -1897,14 +1959,14 @@
             this.Column25,
             this.Column26,
             this.Column15});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.smmryDataGridView.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.smmryDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.smmryDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.smmryDataGridView.Location = new System.Drawing.Point(3, 45);
             this.smmryDataGridView.Name = "smmryDataGridView";
@@ -1916,69 +1978,6 @@
             this.smmryDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.smmryDataGridView_CellValueChanged);
             this.smmryDataGridView.CurrentCellChanged += new System.EventHandler(this.smmryDataGridView_CurrentCellChanged);
             this.smmryDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pyblsDocsForm_KeyDown);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(12, 369);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(76, 100);
-            this.groupBox1.TabIndex = 95;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
-            // waitLabel
-            // 
-            this.waitLabel.BackColor = System.Drawing.Color.Green;
-            this.waitLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.waitLabel.ForeColor = System.Drawing.Color.White;
-            this.waitLabel.Location = new System.Drawing.Point(276, 261);
-            this.waitLabel.Name = "waitLabel";
-            this.waitLabel.Size = new System.Drawing.Size(701, 39);
-            this.waitLabel.TabIndex = 134;
-            this.waitLabel.Text = "VALIDATING THE ACCOUNTING LINE(S)...PLEASE WAIT...";
-            this.waitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.waitLabel.Visible = false;
-            // 
-            // toolTip1
-            // 
-            this.toolTip1.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.toolTip1.IsBalloon = true;
-            this.toolTip1.ShowAlways = true;
-            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.toolTip1.ToolTipTitle = "Rhomicom Hint!";
-            // 
-            // showUnpaidCheckBox
-            // 
-            this.showUnpaidCheckBox.AutoSize = true;
-            this.showUnpaidCheckBox.BackColor = System.Drawing.Color.Transparent;
-            this.showUnpaidCheckBox.ForeColor = System.Drawing.Color.White;
-            this.showUnpaidCheckBox.Location = new System.Drawing.Point(3, 34);
-            this.showUnpaidCheckBox.Name = "showUnpaidCheckBox";
-            this.showUnpaidCheckBox.Size = new System.Drawing.Size(144, 17);
-            this.showUnpaidCheckBox.TabIndex = 0;
-            this.showUnpaidCheckBox.Text = "Show Unpaid Documents";
-            this.showUnpaidCheckBox.UseVisualStyleBackColor = false;
-            this.showUnpaidCheckBox.CheckedChanged += new System.EventHandler(this.showUnapprvdCheckBox_CheckedChanged);
-            // 
-            // printDocument1
-            // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
-            // printPreviewDialog1
-            // 
-            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
-            this.printPreviewDialog1.Enabled = true;
-            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
-            this.printPreviewDialog1.Name = "printPreviewDialog1";
-            this.printPreviewDialog1.ShowIcon = false;
-            this.printPreviewDialog1.UseAntiAlias = true;
-            this.printPreviewDialog1.Visible = false;
-            // 
-            // printDialog1
-            // 
-            this.printDialog1.UseEXDialog = true;
             // 
             // Column14
             // 
@@ -2001,11 +2000,11 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "Item Description";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -2015,13 +2014,13 @@
             // 
             // dataGridViewTextBoxColumn6
             // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle14.Format = "N2";
-            dataGridViewCellStyle14.NullValue = "0";
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = "0";
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn6.DividerWidth = 3;
             this.dataGridViewTextBoxColumn6.Frozen = true;
             this.dataGridViewTextBoxColumn6.HeaderText = "Entered Amount";
@@ -2066,11 +2065,11 @@
             // 
             // Column13
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.NullValue = false;
-            this.Column13.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.NullValue = false;
+            this.Column13.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column13.HeaderText = "Auto Calc";
             this.Column13.Name = "Column13";
             this.Column13.ReadOnly = true;
@@ -2192,13 +2191,13 @@
             // 
             // Column21
             // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.Format = "N2";
-            dataGridViewCellStyle16.NullValue = "0";
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column21.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = "0";
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column21.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column21.HeaderText = "Func. Curr. Amount";
             this.Column21.Name = "Column21";
             this.Column21.ReadOnly = true;
@@ -2221,13 +2220,13 @@
             // 
             // Column22
             // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle17.Format = "N2";
-            dataGridViewCellStyle17.NullValue = "0";
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column22.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = "0";
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column22.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column22.HeaderText = "Charge Accnt Curr. Amount";
             this.Column22.Name = "Column22";
             this.Column22.ReadOnly = true;
@@ -2255,6 +2254,69 @@
             this.Column15.ReadOnly = true;
             this.Column15.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.Column15.Visible = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(12, 369);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(76, 100);
+            this.groupBox1.TabIndex = 95;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // waitLabel
+            // 
+            this.waitLabel.BackColor = System.Drawing.Color.Green;
+            this.waitLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.waitLabel.ForeColor = System.Drawing.Color.White;
+            this.waitLabel.Location = new System.Drawing.Point(276, 261);
+            this.waitLabel.Name = "waitLabel";
+            this.waitLabel.Size = new System.Drawing.Size(701, 39);
+            this.waitLabel.TabIndex = 134;
+            this.waitLabel.Text = "VALIDATING THE ACCOUNTING LINE(S)...PLEASE WAIT...";
+            this.waitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.waitLabel.Visible = false;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.toolTip1.IsBalloon = true;
+            this.toolTip1.ShowAlways = true;
+            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTip1.ToolTipTitle = "Rhomicom Hint!";
+            // 
+            // showUnpaidCheckBox
+            // 
+            this.showUnpaidCheckBox.AutoSize = true;
+            this.showUnpaidCheckBox.BackColor = System.Drawing.Color.Transparent;
+            this.showUnpaidCheckBox.ForeColor = System.Drawing.Color.White;
+            this.showUnpaidCheckBox.Location = new System.Drawing.Point(3, 34);
+            this.showUnpaidCheckBox.Name = "showUnpaidCheckBox";
+            this.showUnpaidCheckBox.Size = new System.Drawing.Size(144, 17);
+            this.showUnpaidCheckBox.TabIndex = 0;
+            this.showUnpaidCheckBox.Text = "Show Unpaid Documents";
+            this.showUnpaidCheckBox.UseVisualStyleBackColor = false;
+            this.showUnpaidCheckBox.CheckedChanged += new System.EventHandler(this.showUnapprvdCheckBox_CheckedChanged);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.ShowIcon = false;
+            this.printPreviewDialog1.UseAntiAlias = true;
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
             // 
             // pyblsDocsForm
             // 
@@ -2284,6 +2346,7 @@
             this.panel6.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nextPaymentNumUpDown)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.toolStrip3.ResumeLayout(false);
@@ -2489,5 +2552,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column25;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column26;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.Button pymntTermsButton;
+        private System.Windows.Forms.Button openBatchButton;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.NumericUpDown nextPaymentNumUpDown;
     }
 }

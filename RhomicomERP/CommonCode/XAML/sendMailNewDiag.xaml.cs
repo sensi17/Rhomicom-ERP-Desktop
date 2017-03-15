@@ -210,7 +210,7 @@ namespace CommonCode.XAML
             string slctdText = (e.AddedItems[0] as ComboBoxItem).Content as string;
             //cmnCde.showSQLNoPermsn(slctdText);
             if (slctdText == "Everyone"
-              || slctdText == "Currently Selected Person")
+              || slctdText == "Single Person")
             {
                 this.grpNmTextBox.IsReadOnly = true;
                 this.grpNmButton.IsEnabled = false;
@@ -226,9 +226,9 @@ namespace CommonCode.XAML
                 this.grpNmButton.IsEnabled = true;
                 this.grpNmIDTextBox.IsEnabled = true;
             }
-            if (this.prsnID > 0 && slctdText == "Currently Selected Person")
+            if (this.prsnID > 0 && slctdText == "Single Person")
             {
-                this.grpComboBox.SelectedItem = "Currently Selected Person";
+                this.grpComboBox.SelectedItem = "Single Person";
                 this.grpNmIDTextBox.Text = this.prsnID.ToString();
                 this.grpNmTextBox.Text = cmnCde.getPrsnName(this.prsnID) + " (" + cmnCde.getPrsnLocID(this.prsnID) + ")";
             }
@@ -471,7 +471,7 @@ namespace CommonCode.XAML
 
             //cmnCde.showSQLNoPermsn(slctdText);
             if (slctdText != "Everyone"
-        && slctdText != "Currently Selected Person")
+        && slctdText != "Single Person")
             {
                 if (this.grpNmIDTextBox.Text == "-1"
                 || this.grpNmTextBox.Text == "")
@@ -701,13 +701,22 @@ namespace CommonCode.XAML
                 openFileDialog1.Title = "Select a File to Attach";
                 if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
+                    string orgnlFileName = openFileDialog1.FileName;
+                    string baseNm = System.IO.Path.GetFileName(openFileDialog1.FileName);
                     if (this.attchMntsTextBox.Text == "")
                     {
-                        this.attchMntsTextBox.Text = openFileDialog1.FileName;
+                        this.attchMntsTextBox.Text = baseNm;
                     }
                     else
                     {
-                        this.attchMntsTextBox.AppendText(";" + openFileDialog1.FileName);
+                        this.attchMntsTextBox.AppendText(";" + baseNm);
+                    }
+                    if (cmnCde.myComputer.FileSystem.FileExists(orgnlFileName) == true)
+                    {
+                        if (cmnCde.copyAFileSpcl(cmnCde.getRptDrctry() + "\\mail_attachments", orgnlFileName) == true)
+                        {
+                            //DO Nothing
+                        }
                     }
                 }
             }
@@ -726,7 +735,8 @@ namespace CommonCode.XAML
                 cmnCde.showMsg("Please select a Message Type!", 0);
                 return;
             }
-            if (this.toTextBox.Text.Replace(",", ";").Replace("\r\n", "").Replace(" ", "") == "")
+            char[] sps = { ',', ';', ' ' };
+            if (this.toTextBox.Text.Replace(",", ";").Replace("\r\n", "").Replace(" ", "").Trim(sps) == "")
             {
                 MessageBox.Show("Receipient Address cannot be Empty!", "Rhomicom Message", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
@@ -745,11 +755,11 @@ namespace CommonCode.XAML
             //    ") Exceeds the Limit for SMS (160 Chars)", 0);
             //  return;
             //  //this.bodyTextBox.Text = this.bodyTextBox.Text.Substring(0, 160);
+            ////}
+            //if (this.msgTypComboBox.Text == "SMS")
+            //{
+            //    this.toTextBox.Text = this.toTextBox.Text + ";" + this.ccTextBox.Text + ";" + this.bccTextBox.Text;
             //}
-            if (this.msgTypComboBox.Text == "SMS")
-            {
-                this.toTextBox.Text = this.toTextBox.Text + ";" + this.ccTextBox.Text + ";" + this.bccTextBox.Text;
-            }
             this.toTextBox.Text = this.toTextBox.Text.Replace(",", ";").Replace("\r\n", "");
             this.ccTextBox.Text = this.ccTextBox.Text.Replace(",", ";").Replace("\r\n", "");
             this.bccTextBox.Text = this.bccTextBox.Text.Replace(",", ";").Replace("\r\n", "");
@@ -760,7 +770,7 @@ namespace CommonCode.XAML
                 this.mailLabel.Visibility = System.Windows.Visibility.Visible;
                 this.webBrowserEditor.Visibility = System.Windows.Visibility.Hidden;
                 TextBlock nw = new TextBlock();
-                nw.Text = "Sending Message...Please Wait...";
+                nw.Text = "Queuing Messages...Please Wait...";
                 this.mailLabel.Content = nw;
                 System.Windows.Forms.Application.DoEvents();
                 string[] spltChars = { ";" };
@@ -771,9 +781,12 @@ namespace CommonCode.XAML
                 //string[] attchMnts = this.attchMntsTextBox.Text.Replace(",", ";").Split(spltChars, StringSplitOptions.RemoveEmptyEntries);
                 int cntrnLmt = 0;
                 string mailLst = "";
-                bool emlRes = false;
-                string failedMails = "";
-                //string errMsg = "";
+                long msgBatchID = this.cmnCde.getMsgBatchID();
+                string reportTitle = "Send Outstanding Bulk Messages";
+
+                string reportName = "Send Outstanding Bulk Messages";
+                string paramRepsNVals = "{:msg_batch_id}~" + msgBatchID;
+
                 for (int i = 0; i < toEmails.Length; i++)
                 {
                     if (cntrnLmt == 0)
@@ -786,60 +799,32 @@ namespace CommonCode.XAML
                       || this.sendIndvdllyCheckBox.IsChecked == true)
                       && this.msgTypComboBox.Text != "SMS")
                     {
-                        //toEmails[i] mailLst.Trim(trmChars)
                         nw = new TextBlock();
-                        nw.Text = "Sending Messages...(" + (i + 1).ToString() + "/" + toEmails.Length + ")...Please Wait...";
+                        nw.Text = "Queuing Messages...(" + (i + 1).ToString() + "/" + toEmails.Length + ")...Please Wait...";
                         this.mailLabel.Content = nw;
                         System.Windows.Forms.Application.DoEvents();
-                        if (this.msgTypComboBox.Text == "Email")
-                        {
-                            emlRes = cmnCde.sendEmail(
-                              mailLst.Trim(trmChars),
-                              this.ccTextBox.Text.Replace(",", ";"),
-                              this.bccTextBox.Text.Replace(",", ";"),
-                              this.attchMntsTextBox.Text.Replace(",", ";"),
-                              this.subjTextBox.Text,
-                              innerHtml,
-                              ref errMsg);
-                        }
-                        else if (this.msgTypComboBox.Text == "SMS")
-                        {
-                        }
-                        else
-                        {
-
-                        }
-                        if (emlRes == false)
-                        {
-                            failedMails += mailLst.Trim(trmChars) + ";";
-                        }
+                        this.cmnCde.createMessageQueue(msgBatchID, mailLst.Trim(trmChars), this.ccTextBox.Text.Replace(",", ";"), this.bccTextBox.Text.Replace(",", ";"),
+                            innerHtml, this.subjTextBox.Text, this.attchMntsTextBox.Text.Replace(",", ";"), this.msgTypComboBox.Text);
                         cntrnLmt = 0;
                     }
-                    else if ((cntrnLmt == 1000 || i == toEmails.Length - 1)
+                    else if ((cntrnLmt == 50 || i == toEmails.Length - 1)
                       && this.msgTypComboBox.Text == "SMS")
                     {
                         nw = new TextBlock();
-                        nw.Text = "Sending Messages...(" + (i + 1).ToString() + "/" + toEmails.Length + ")...Please Wait...";
+                        nw.Text = "Queuing Messages...(" + (i + 1).ToString() + "/" + toEmails.Length + ")...Please Wait...";
                         this.mailLabel.Content = nw;
                         System.Windows.Forms.Application.DoEvents();
-                        emlRes = cmnCde.sendSMS(innerText,
-            mailLst.Trim(trmChars), ref errMsg);
-                        if (emlRes == false)
-                        {
-                            failedMails += mailLst.Trim(trmChars) + ";";
-                        }
+                        this.cmnCde.createMessageQueue(msgBatchID, mailLst.Trim(trmChars), this.ccTextBox.Text.Replace(",", ";"), this.bccTextBox.Text.Replace(",", ";"),
+                            innerText, this.subjTextBox.Text, this.attchMntsTextBox.Text.Replace(",", ";"), this.msgTypComboBox.Text);
                         cntrnLmt = 0;
                     }
+                    System.Threading.Thread.Sleep(20);
+                    if (i <= 0)
+                    {
+                        cmnCde.showRptParamsDiag(cmnCde.getRptID(reportName), cmnCde, paramRepsNVals, reportTitle);
+                    }
                 }
-                if (failedMails == "")
-                {
-                    cmnCde.showMsg("Message Successfully Sent to all Receipients!", 3);
-                }
-                else
-                {
-                    //errMsg +
-                    cmnCde.showSQLNoPermsn("Messages to some Receipients Failed!\r\n" + "\r\n" + failedMails);
-                }
+                cmnCde.showMsg("Messages to all Receipients Successfully Queued for Sending!", 3);
                 this.mailLabel.Visibility = System.Windows.Visibility.Hidden;
                 this.webBrowserEditor.Visibility = System.Windows.Visibility.Visible;
             }
@@ -857,7 +842,7 @@ namespace CommonCode.XAML
             this.grpNmTextBox.Text = "";
 
             if (this.grpComboBox.Text == "Everyone"
-              || this.grpComboBox.Text == "Currently Selected Person")
+              || this.grpComboBox.Text == "Single Person")
             {
                 this.grpNmTextBox.Background = Brushes.WhiteSmoke;
                 this.grpNmTextBox.IsEnabled = false;
@@ -869,9 +854,9 @@ namespace CommonCode.XAML
                 this.grpNmTextBox.IsEnabled = true;
                 this.grpNmButton.IsEnabled = true;
             }
-            if (this.prsnID > 0 && this.grpComboBox.Text == "Currently Selected Person")
+            if (this.prsnID > 0 && this.grpComboBox.Text == "Single Person")
             {
-                this.grpComboBox.SelectedItem = "Currently Selected Person";
+                this.grpComboBox.SelectedItem = "Single Person";
                 this.grpNmIDTextBox.Text = this.prsnID.ToString();
                 this.grpNmTextBox.Text = cmnCde.getPrsnName(this.prsnID) + " (" + cmnCde.getPrsnLocID(this.prsnID) + ")";
             }

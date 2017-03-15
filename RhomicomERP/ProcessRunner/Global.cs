@@ -19,6 +19,8 @@ using PdfSharp.Drawing.Layout;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Threading;
+using System.Text.RegularExpressions;
+using System.Net.Mime;
 
 namespace REMSProcessRunner
 {
@@ -121,6 +123,7 @@ namespace REMSProcessRunner
                 NpgsqlCommand delCmd = new NpgsqlCommand(@delSql, mycon);
                 delDtAdpt.DeleteCommand = delCmd;
                 delCmd.ExecuteNonQuery();
+                delCmd.Connection.Close();
                 //Global.storeAdtTrailInfo(delSql, 1);
                 mycon.Close();
                 return;
@@ -149,6 +152,7 @@ namespace REMSProcessRunner
                 NpgsqlCommand insCmd = new NpgsqlCommand(@insSql, mycon);
                 insDtAdpt.InsertCommand = insCmd;
                 insCmd.ExecuteNonQuery();
+                insCmd.Connection.Close();
                 mycon.Close();
                 return;
             }
@@ -176,6 +180,7 @@ namespace REMSProcessRunner
                 NpgsqlCommand updtCmd = new NpgsqlCommand(@updtSql, mycon);
                 updtDtAdpt.UpdateCommand = updtCmd;
                 updtCmd.ExecuteNonQuery();
+                updtCmd.Connection.Close();
                 mycon.Close();
                 //Global.storeAdtTrailInfo(updtSql, 0);
                 return;
@@ -201,6 +206,7 @@ namespace REMSProcessRunner
                 mycon.Open();
                 NpgsqlCommand gnrlCmd = new NpgsqlCommand(@genSql, mycon);
                 gnrlCmd.ExecuteNonQuery();
+                gnrlCmd.Connection.Close();
                 mycon.Close();
                 //Global.errorLog = genSql + "\r\n" + "\r\n\r\n";
                 //Global.writeToLog();
@@ -388,6 +394,18 @@ namespace REMSProcessRunner
                 return dtst.Tables[0].Rows[0][0].ToString();
             }
             return "";
+        }
+
+        public static int getRptID(string rptNm)
+        {
+            string strSql = "SELECT report_id " +
+                  "FROM rpt.rpt_reports WHERE report_name = '" + rptNm.Replace("'", "''") + "'";
+            DataSet dtst = Global.selectDataNoParams(strSql);
+            if (dtst.Tables[0].Rows.Count > 0)
+            {
+                return int.Parse(dtst.Tables[0].Rows[0][0].ToString());
+            }
+            return -1;
         }
 
         public static string get_Alert_SQL(long alertID)
@@ -4103,6 +4121,17 @@ and a.report_id IN (SELECT  a.report_id
             Global.updateDataNoParams(updateSQL);
         }
 
+        public static void updateBulkMsgSent(long msgSntID, string dteSent,
+         string sentStatus, string errMsg)
+        {
+            //string runDate = Global.getDB_Date_time();
+            string updateSQL = @"UPDATE alrt.bulk_msgs_sent SET 
+            date_sent='" + dteSent.Replace("'", "''") +
+                  "', sending_status='" + sentStatus + "', err_msg='" + errMsg + "' " +
+                  "WHERE msg_sent_id = " + msgSntID + "";
+            Global.updateDataNoParams(updateSQL);
+        }
+
         public static bool doesLstRnTmExcdIntvl(long rptID, string intrvl, long rn_ID)
         {
             string sqlStr = @"select age(now(), to_timestamp(CASE WHEN last_actv_date_tme='' 
@@ -4128,7 +4157,27 @@ and a.report_id IN (SELECT  a.report_id
                 return true;
             }
         }
-
+        public static bool doesDteTmExcdIntvl(string intrvl, string dteTme)
+        {
+            string sqlStr = @"select age(now(), to_timestamp('" + dteTme + @"', 'YYYY-MM-DD HH24:MI:SS'))
+        >= interval '" + intrvl + "'";
+            DataSet dtst = Global.selectDataNoParams(sqlStr);
+            if (dtst.Tables[0].Rows.Count > 0)
+            {
+                if (bool.Parse(dtst.Tables[0].Rows[0][0].ToString()) == true)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }
         public static string[] getFTPServerDet()
         {
             string selSQL = "select a.ftp_server_url, a.ftp_app_sub_directory, "
@@ -4228,7 +4277,7 @@ and a.report_id IN (SELECT  a.report_id
             string fullLocFileUrl = locfolderNm + @"/" + locfileNm;
             string userName = srvr[2];
             string password = Global.decrypt(srvr[3], Global.AppKey);
-            Global.threadTen = new Thread(() => Global.Uploadfunc(fullFtpFileFUrl, fullLocFileUrl,
+            Global.threadTen = new Thread(() => Global.Downloadfunc(fullFtpFileFUrl, fullLocFileUrl,
             userName, password));
             Global.threadTen.Name = "ThreadTen";
             Global.threadTen.Priority = ThreadPriority.Lowest;
@@ -4243,8 +4292,7 @@ and a.report_id IN (SELECT  a.report_id
         {
             try
             {
-                Global.DownloadFile(fullFtpFileFUrl, fullLocFileUrl,
-            userName, password);
+                Global.DownloadFile(fullFtpFileFUrl, fullLocFileUrl, userName, password);
             }
             catch (System.Threading.ThreadAbortException thex)
             {
@@ -4742,9 +4790,61 @@ and a.report_id IN (SELECT  a.report_id
             }
         }
 
+        public static bool CheckForInternetConnection()
+        {
+            try
+            {
+                using (var client = new WebClient())
+                {
+                    using (var stream = client.OpenRead("http://www.google.com"))
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static bool isEmailValid(string emailString, int lovID)
+        {
+            bool isEmailValid = Regex.IsMatch(emailString, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
+            if (isEmailValid == false)
+            {
+                Global.createSysLovsPssblVals1(emailString, lovID);
+            }
+            return isEmailValid;
+        }
+
+        public static void createSysLovsPssblVals1(string pssblVals, int lovID)
+        {
+            if (Global.getPssblValID(pssblVals, lovID) <= 0)
+            {
+                Global.createPssblValsForLov1(lovID, pssblVals, pssblVals, "1", "");
+            }
+        }
+
+        public static void createPssblValsForLov1(int lovID, string pssblVal,
+         string pssblValDesc, string isEnbld, string allwd)
+        {
+            string dateStr = Global.getDB_Date_time();
+            string sqlStr = "INSERT INTO gst.gen_stp_lov_values(" +
+                  "value_list_id, pssbl_value, pssbl_value_desc, " +
+                              "created_by, creation_date, last_update_by, " +
+                              "last_update_date, is_enabled, allowed_org_ids) " +
+              "VALUES (" + lovID + ", '" + pssblVal.Replace("'", "''") + "', '" +
+              pssblValDesc.Replace("'", "''") +
+              "', " + Global.rnUser_ID + ", '" + dateStr + "', " + Global.rnUser_ID +
+              ", '" + dateStr + "', '" + isEnbld.Replace("'", "''") +
+              "', '" + allwd.Replace("'", "''") + "')";
+            Global.insertDataNoParams(sqlStr);
+        }
+
         public static bool sendEmail(string toEml, string ccEml,
          string bccEml, string attchmnt, string sbjct,
-          string bdyTxt, ref string errMsgs)
+          string bdyTxt, string msgIdentifier, ref string errMsgs)
         {
             try
             {
@@ -4775,25 +4875,130 @@ and a.report_id IN (SELECT  a.report_id
                 string[] ccEmails = ccEml.Trim().Split(spltChars, StringSplitOptions.RemoveEmptyEntries);
                 string[] bccEmails = bccEml.Trim().Split(spltChars, StringSplitOptions.RemoveEmptyEntries);
                 string[] attchMnts = attchmnt.Trim().Split(spltChars, StringSplitOptions.RemoveEmptyEntries);
+
                 int i = 0;
+                int lovID = Global.getLovID("Email Addresses to Ignore");
+
                 for (i = 0; i < toEmails.Length; i++)
                 {
-                    mail.To.Add(toEmails[i]);
+                    if (Global.isEmailValid(toEmails[i], lovID))
+                    {
+                        if (Global.getEnbldPssblValID(toEmails[i], lovID) <= 0)
+                        {
+                            mail.To.Add(toEmails[i]);
+                        }
+                        else
+                        {
+                            errMsgs += "Address:" + toEmails[i] + " blacklisted by Admin!\r\n";
+                        }
+                    }
+                    else
+                    {
+                        errMsgs += "Address:" + toEmails[i] + " is Invalid!\r\n";
+                    }
                 }
+
                 for (i = 0; i < ccEmails.Length; i++)
                 {
-                    mail.CC.Add(ccEmails[i]);
+                    if (Global.isEmailValid(ccEmails[i], lovID))
+                    {
+                        if (Global.getEnbldPssblValID(ccEmails[i], lovID) <= 0)
+                        {
+                            mail.CC.Add(ccEmails[i]);
+                        }
+                        else
+                        {
+                            errMsgs += "Address:" + ccEmails[i] + " blacklisted by Admin!\r\n";
+                        }
+                    }
+                    else
+                    {
+                        errMsgs += "Address:" + ccEmails[i] + " is Invalid!\r\n";
+                    }
                 }
+
                 for (i = 0; i < bccEmails.Length; i++)
                 {
-                    mail.Bcc.Add(bccEmails[i]);
+                    if (Global.isEmailValid(bccEmails[i], lovID))
+                    {
+                        if (Global.getEnbldPssblValID(bccEmails[i], lovID) <= 0)
+                        {
+                            mail.Bcc.Add(bccEmails[i]);
+                        }
+                        else
+                        {
+                            errMsgs += "Address:" + bccEmails[i] + " blacklisted by Admin!\r\n";
+                        }
+                    }
+                    else
+                    {
+                        errMsgs += "Address:" + bccEmails[i] + " is Invalid!\r\n";
+                    }
                 }
+
                 for (i = 0; i < attchMnts.Length; i++)
                 {
                     Attachment attch1 = new Attachment(attchMnts[i]);
                     mail.Attachments.Add(attch1);
                 }
+                List<LinkedResource> resources = new List<LinkedResource>();
+                string[] imgLocation = new string[20];
+                int mtcIdx = 0;
+                string imgTagSrc = "";
+                foreach (Match mtch in Regex.Matches(bdyTxt, "<img.+?src=[\"'](.+?)[\"'].+?>", RegexOptions.IgnoreCase | RegexOptions.Multiline))
+                {
+                    try
+                    {
+                        imgLocation[mtcIdx] = mtch.Groups[1].Value;
+                        imgTagSrc = imgLocation[mtcIdx];
+                        if (imgLocation[mtcIdx].ToLower().Contains("http://")
+                            || imgLocation[mtcIdx].ToLower().Contains("https://"))
+                        {
+                            imgTagSrc = Global.getRptDrctry() + @"\mail_attachments\http_file_dwnld_" + msgIdentifier + "_" + (mtcIdx + 1).ToString() + Path.GetExtension(imgLocation[mtcIdx]);
+                            if (!System.IO.File.Exists(imgTagSrc))
+                            {
+                                WebClient Client = new WebClient();
+                                Client.DownloadFile(imgLocation[mtcIdx], imgTagSrc);
+                            }
+                        }
+                        if (imgLocation[mtcIdx].Contains("cid:"))
+                        {
+                            continue;
+                        }
+                        LinkedResource inline = new LinkedResource(imgLocation[mtcIdx].Replace("file:///", ""));
+                        inline.ContentId = "LnkdResource" + (mtcIdx + 1).ToString();
+                        bdyTxt = bdyTxt.Replace(imgLocation[mtcIdx], @"cid:" + inline.ContentId + @"");
+                        resources.Add(inline);
+                        mtcIdx++;
+                        if (mtcIdx == 20)
+                        {
+                            break;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        errMsgs += "Error Occured:" + ex.Message + "\r\nOldImgTagSrc" + imgLocation[mtcIdx] + "\r\nNewImgTagSrc:" + imgTagSrc;
+                        mtcIdx++;
+                        if (mtcIdx == 20)
+                        {
+                            break;
+                        }
+                    }
+                }
                 mail.Subject = sbjct;
+                if (bdyTxt.Contains("<body") == false
+                    || bdyTxt.Contains("</body>") == false)
+                {
+                    bdyTxt = "<body>" + bdyTxt + "</body>";
+                }
+                if (bdyTxt.Contains("<html") == false
+                        || bdyTxt.Contains("</html>") == false)
+                {
+                    bdyTxt = "<!DOCTYPE html><html lang=\"en\">" + bdyTxt + "</html>";
+                }
+                AlternateView avImages = AlternateView.CreateAlternateViewFromString(bdyTxt, null, MediaTypeNames.Text.Html);
+                resources.ForEach(x => avImages.LinkedResources.Add(x));
+                mail.AlternateViews.Add(avImages);
                 mail.Body = bdyTxt;
                 //mail.BodyEncoding
                 SmtpServer.Port = portNo;
@@ -4807,8 +5012,13 @@ and a.report_id IN (SELECT  a.report_id
                 //      this.showMsg("Test!\r\n" + SmtpServer.Host + "\r\n" + fromAddress.Address +
                 //"\r\n" + fromPassword + "\r\n" + SmtpServer.Port + "\r\n" + mail.From.Address + "\r\nTo Email:" + mail.To.ToString() + "\r\n", 3);
                 //      System.Windows.Forms.Application.DoEvents();
-                SmtpServer.Send(mail);
-                return true;
+                if (Global.CheckForInternetConnection())
+                {
+                    SmtpServer.Send(mail);
+                    return true;
+                }
+                errMsgs += "No Internet Connection";
+                return false;
             }
             catch (Exception ex)
             {
@@ -4819,7 +5029,11 @@ and a.report_id IN (SELECT  a.report_id
 
         public static bool sendSMS(string msgBody, string rcpntNo, ref string errMsg)
         {
-            //{"error":0,"response":1}
+            if (!Global.CheckForInternetConnection())
+            {
+                errMsg = "No Internet Connection";
+                return false;
+            }
             string response = "";
             msgBody = msgBody.Replace("\r\n", " ").Replace("\r", " ").Replace("\n", " ").Replace("|", "/");
             string succsTxt = "";
@@ -4828,7 +5042,7 @@ and a.report_id IN (SELECT  a.report_id
             char[] x = { ':' };
             char[] y = { '|' };
             System.Net.ServicePointManager.Expect100Continue = false;
-            string url = "";// "http://txtconnect.co/api/send/";
+            string url = "";
             System.Net.WebClient client = new System.Net.WebClient();
             System.Collections.Specialized.NameValueCollection postData = new
             System.Collections.Specialized.NameValueCollection();
@@ -4894,10 +5108,10 @@ and a.report_id IN (SELECT  a.report_id
             }
             if (response.ToLower().Contains(succsTxt.ToLower()))
             {
-                errMsg += "SMS Successful";
+                errMsg = "SMS Successful";
                 return true;
             }
-            errMsg += response;
+            errMsg = response;
             return false;
         }
 
@@ -5228,12 +5442,12 @@ to_char(to_timestamp(a.balance_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:M
         public static double getTrnsSum(int accntid, string strDte, string endDte, string ispsted)
         {
             strDte = DateTime.ParseExact(
-      strDte, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        strDte, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
 
             endDte = DateTime.ParseExact(
-      endDte, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        endDte, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
 
             string strSql = "";
             strSql = "SELECT SUM(a.net_amount) " +
@@ -5257,7 +5471,7 @@ to_char(to_timestamp(a.balance_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:M
              "FROM accb.accb_periods_det a " +
              "WHERE((a.period_hdr_id = " + prdHdrID +
              ") and (a.period_status='Open') and (to_timestamp('" + trnsDte + "','YYYY-MM-DD HH24:MI:SS') " +
-      @"between to_timestamp(a.period_start_date,'YYYY-MM-DD HH24:MI:SS')
+        @"between to_timestamp(a.period_start_date,'YYYY-MM-DD HH24:MI:SS')
        and to_timestamp(a.period_end_date,'YYYY-MM-DD HH24:MI:SS')))";
             DataSet dtst = Global.selectDataNoParams(strSql);
             if (dtst.Tables[0].Rows.Count == 1)
@@ -5305,12 +5519,12 @@ to_char(to_timestamp(a.balance_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:M
         public static string getAcntsBdgtdAmnt(long bdgtID, int accntID, string strtdate, string enddate)
         {
             strtdate = DateTime.ParseExact(
-      strtdate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        strtdate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
 
             enddate = DateTime.ParseExact(
-      enddate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        enddate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
 
             string strSql = "SELECT a.limit_amount " +
              "FROM accb.accb_budget_details a " +
@@ -5331,8 +5545,8 @@ to_char(to_timestamp(a.balance_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:M
         public static double getAcntsBdgtdAmnt(long bdgtID, int accntID, string trnsdate)
         {
             trnsdate = DateTime.ParseExact(
-      trnsdate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        trnsdate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
 
             string strSql = "SELECT a.limit_amount " +
              "FROM accb.accb_budget_details a " +
@@ -5354,8 +5568,8 @@ to_char(to_timestamp(a.balance_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:M
         public static string getAcntsBdgtLmtActn(long bdgtID, int accntID, string trnsdate)
         {
             trnsdate = DateTime.ParseExact(
-      trnsdate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        trnsdate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             string strSql = "SELECT a.action_if_limit_excded " +
              "FROM accb.accb_budget_details a " +
              "WHERE((a.budget_id = " + bdgtID +
@@ -5376,8 +5590,8 @@ to_char(to_timestamp(a.balance_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:M
         public static string getAcntsBdgtStrtDte(long bdgtID, int accntID, string trnsdate)
         {
             trnsdate = DateTime.ParseExact(
-      trnsdate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        trnsdate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             string strSql = "SELECT to_char(to_timestamp(a.start_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:SS') " +
              "FROM accb.accb_budget_details a " +
              "WHERE((a.budget_id = " + bdgtID +
@@ -5400,8 +5614,8 @@ to_char(to_timestamp(a.balance_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:M
         public static string getAcntsBdgtEndDte(long bdgtID, int accntID, string trnsdate)
         {
             trnsdate = DateTime.ParseExact(
-      trnsdate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        trnsdate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             string strSql = "SELECT to_char(to_timestamp(a.end_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:SS') " +
              "FROM accb.accb_budget_details a " +
              "WHERE((a.budget_id = " + bdgtID +
@@ -5577,8 +5791,8 @@ to_char(to_timestamp(a.balance_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:M
         }
 
         public static void createScmGLIntFcLn(int accntid, string trnsdesc, double dbtamnt,
-     string trnsdte, int crncyid, double crdtamnt, double netamnt, string srcDocTyp,
-     long srcDocID, long srcDocLnID, string dateStr, string trnsSrc)
+        string trnsdte, int crncyid, double crdtamnt, double netamnt, string srcDocTyp,
+        long srcDocID, long srcDocLnID, string dateStr, string trnsSrc)
         {
             if (accntid <= 0)
             {
@@ -5607,7 +5821,7 @@ to_char(to_timestamp(a.balance_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:M
 
 
         public static void createPayGLIntFcLn(int accntid, string trnsdesc, double dbtamnt,
-     string trnsdte, int crncyid, double crdtamnt, double netamnt, string dateStr, string trnsSrc)
+        string trnsdte, int crncyid, double crdtamnt, double netamnt, string dateStr, string trnsSrc)
         {
             if (accntid <= 0)
             {
@@ -5714,11 +5928,11 @@ age(now(),to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS')) > interval '
             return Math.Round(sumRes, 2);
         }
         public static bool hsTrnsUptdAcntBls(long actrnsid,
-     string trnsdate, int accnt_id)
+        string trnsdate, int accnt_id)
         {
             trnsdate = DateTime.ParseExact(
-      trnsdate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        trnsdate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             trnsdate = trnsdate.Substring(0, 10);
 
             string strSql = "SELECT a.daily_bals_id FROM accb.accb_accnt_daily_bals a " +
@@ -5735,8 +5949,8 @@ age(now(),to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS')) > interval '
         public static double get_Accnt_BalsTrnsSum(int accntID, string amntCol, string balsDte)
         {
             balsDte = DateTime.ParseExact(
-      balsDte, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        balsDte, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
 
             string strSql = "";
             strSql = "SELECT SUM(a." + amntCol + ") " +
@@ -5854,11 +6068,11 @@ FROM accb.accb_accnt_daily_bals a, accb.accb_chart_of_accnts b
         }
 
         public static bool hsTrnsUptdAcntCurrBls(long actrnsid,
-    string trnsdate, int accnt_id)
+        string trnsdate, int accnt_id)
         {
             trnsdate = DateTime.ParseExact(
-      trnsdate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        trnsdate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             trnsdate = trnsdate.Substring(0, 10);
 
             string strSql = "SELECT a.daily_cbals_id FROM accb.accb_accnt_crncy_daily_bals a " +
@@ -5876,8 +6090,8 @@ FROM accb.accb_accnt_daily_bals a, accb.accb_chart_of_accnts b
           double dbtAmnt, double crdtAmnt, double netAmnt, string trnsDate)
         {
             trnsDate = DateTime.ParseExact(
-      trnsDate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        trnsDate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             trnsDate = trnsDate.Substring(0, 10);
             string dateStr = Global.getDB_Date_time();
             string updtSQL = "UPDATE accb.accb_chart_of_accnts " +
@@ -5895,8 +6109,8 @@ FROM accb.accb_accnt_daily_bals a, accb.accb_chart_of_accnts b
          double dbtbals, double crdtbals, string balsDate)
         {
             balsDate = DateTime.ParseExact(
-      balsDate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        balsDate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             balsDate = balsDate.Substring(0, 10);
 
             string dateStr = Global.getDB_Date_time();
@@ -5914,8 +6128,8 @@ FROM accb.accb_accnt_daily_bals a, accb.accb_chart_of_accnts b
           double dbtbals, double crdtbals, string balsDate, int currID)
         {
             balsDate = DateTime.ParseExact(
-      balsDate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        balsDate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             balsDate = balsDate.Substring(0, 10);
 
             string dateStr = Global.getDB_Date_time();
@@ -5962,12 +6176,12 @@ FROM accb.accb_accnt_daily_bals a, accb.accb_chart_of_accnts b
         }
 
         public static void updtAccntDailyBals(string balsDate, int accntID,
-      double dbtAmnt, double crdtAmnt, double netAmnt, long src_trnsID,
+        double dbtAmnt, double crdtAmnt, double netAmnt, long src_trnsID,
           string act_typ)
         {
             balsDate = DateTime.ParseExact(
-      balsDate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        balsDate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             balsDate = balsDate.Substring(0, 10);
 
             string dateStr = Global.getDB_Date_time();
@@ -6073,12 +6287,12 @@ FROM accb.accb_accnt_daily_bals a, accb.accb_chart_of_accnts b
         }
 
         public static void updtAccntDailyCurrBals(string balsDate, int accntID,
-      double dbtAmnt, double crdtAmnt, double netAmnt, long src_trnsID,
+        double dbtAmnt, double crdtAmnt, double netAmnt, long src_trnsID,
           string act_typ, int currID)
         {
             balsDate = DateTime.ParseExact(
-      balsDate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        balsDate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             balsDate = balsDate.Substring(0, 10);
 
             string dateStr = Global.getDB_Date_time();
@@ -6216,8 +6430,8 @@ FROM accb.accb_accnt_daily_bals a, accb.accb_chart_of_accnts b
         public static double getAccntDailyNetBals(int accntID, string balsDate)
         {
             balsDate = DateTime.ParseExact(
-      balsDate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        balsDate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             balsDate = balsDate.Substring(0, 10);
 
             string strSql = "";
@@ -6241,8 +6455,8 @@ FROM accb.accb_accnt_daily_bals a, accb.accb_chart_of_accnts b
         {
             string dateStr = balsDate;
             balsDate = DateTime.ParseExact(
-      balsDate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        balsDate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             balsDate = balsDate.Substring(0, 10);
 
             string strSql = "";
@@ -6272,8 +6486,8 @@ to_char(to_timestamp(a.as_at_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:
         public static double getAccntLstDailyNetBals(int accntID, string balsDate)
         {
             balsDate = DateTime.ParseExact(
-      balsDate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        balsDate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             balsDate = balsDate.Substring(0, 10);
 
             string strSql = "";
@@ -6297,8 +6511,8 @@ to_char(to_timestamp(a.as_at_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:
         public static long getAccntDailyBalsID(int accntID, string balsDate)
         {
             balsDate = DateTime.ParseExact(
-      balsDate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        balsDate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             balsDate = balsDate.Substring(0, 10);
 
             string strSql = "";
@@ -6321,8 +6535,8 @@ to_char(to_timestamp(a.as_at_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:
         public static double getAccntLstDailyCrdtBals(int accntID, string balsDate)
         {
             balsDate = DateTime.ParseExact(
-      balsDate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        balsDate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             balsDate = balsDate.Substring(0, 10);
 
             string strSql = "";
@@ -6345,8 +6559,8 @@ to_char(to_timestamp(a.as_at_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:
         public static double getAccntLstDailyDbtBals(int accntID, string balsDate)
         {
             balsDate = DateTime.ParseExact(
-      balsDate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        balsDate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             balsDate = balsDate.Substring(0, 10);
 
             string strSql = "";
@@ -6369,8 +6583,8 @@ to_char(to_timestamp(a.as_at_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:
         public static double getAccntDailyDbtBals(int accntID, string balsDate)
         {
             balsDate = DateTime.ParseExact(
-      balsDate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        balsDate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             balsDate = balsDate.Substring(0, 10);
 
             string strSql = "";
@@ -6393,8 +6607,8 @@ to_char(to_timestamp(a.as_at_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:
         public static double getAccntDailyCrdtBals(int accntID, string balsDate)
         {
             balsDate = DateTime.ParseExact(
-      balsDate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        balsDate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             balsDate = balsDate.Substring(0, 10);
 
             string strSql = "";
@@ -6418,7 +6632,7 @@ to_char(to_timestamp(a.as_at_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:
         {
             string strSql = "";
             strSql = "WITH RECURSIVE subaccnt(accnt_id, prnt_accnt_id, accnt_num, accnt_name, debit_balance, credit_balance, net_balance, depth, path, cycle, space) AS " +
-      "( " +
+        "( " +
         "   SELECT e.accnt_id, e.prnt_accnt_id, e.accnt_num, e.accnt_name, e.debit_balance, e.credit_balance, e.net_balance, 1, ARRAY[e.accnt_id], false, '' FROM accb.accb_chart_of_accnts e WHERE e.prnt_accnt_id = " + prntAccntID +
         "   UNION ALL " +
           "  SELECT d.accnt_id, d.prnt_accnt_id, d.accnt_num, d.accnt_name, d.debit_balance, d.credit_balance, d.net_balance, sd.depth + 1, " +
@@ -6428,10 +6642,10 @@ to_char(to_timestamp(a.as_at_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:
               "    accb.accb_chart_of_accnts AS d, " +
                 "   subaccnt AS sd " +
                   "  WHERE d.prnt_accnt_id = sd.accnt_id AND NOT cycle " +
-      ") " +
-      "SELECT SUM(debit_balance), SUM(credit_balance), SUM(net_balance) " +
-      "FROM subaccnt " +
-      "WHERE accnt_num ilike '%'";
+        ") " +
+        "SELECT SUM(debit_balance), SUM(credit_balance), SUM(net_balance) " +
+        "FROM subaccnt " +
+        "WHERE accnt_num ilike '%'";
             DataSet dtst = Global.selectDataNoParams(strSql);
             return dtst;
         }
@@ -6439,8 +6653,8 @@ to_char(to_timestamp(a.as_at_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:
         public static long getAccntDailyCurrBalsID(int accntID, string balsDate)
         {
             balsDate = DateTime.ParseExact(
-      balsDate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        balsDate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             balsDate = balsDate.Substring(0, 10);
 
             string strSql = "";
@@ -6463,8 +6677,8 @@ to_char(to_timestamp(a.as_at_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:
         public static double getAccntLstDailyNetCurrBals(int accntID, string balsDate)
         {
             balsDate = DateTime.ParseExact(
-      balsDate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        balsDate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             balsDate = balsDate.Substring(0, 10);
 
             string strSql = "";
@@ -6488,8 +6702,8 @@ to_char(to_timestamp(a.as_at_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:
         public static double getAccntLstDailyCrdtCurrBals(int accntID, string balsDate)
         {
             balsDate = DateTime.ParseExact(
-      balsDate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        balsDate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             balsDate = balsDate.Substring(0, 10);
 
             string strSql = "";
@@ -6512,8 +6726,8 @@ to_char(to_timestamp(a.as_at_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:
         public static double getAccntLstDailyDbtCurrBals(int accntID, string balsDate)
         {
             balsDate = DateTime.ParseExact(
-      balsDate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        balsDate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             balsDate = balsDate.Substring(0, 10);
 
             string strSql = "";
@@ -6536,8 +6750,8 @@ to_char(to_timestamp(a.as_at_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:
         public static double getAccntDailyDbtCurrBals(int accntID, string balsDate)
         {
             balsDate = DateTime.ParseExact(
-      balsDate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        balsDate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             balsDate = balsDate.Substring(0, 10);
 
             string strSql = "";
@@ -6941,14 +7155,14 @@ to_char(to_timestamp(a.as_at_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:
         }
 
         public static void createTransaction(int accntid, string trnsDesc,
-    double dbtAmnt, string trnsDate, int crncyid,
-      long batchid, double crdtamnt, double netAmnt,
-      double entrdAmt, int entrdCurrID, double acntAmnt, int acntCurrID,
-      double funcExchRate, double acntExchRate, string dbtOrCrdt)
+        double dbtAmnt, string trnsDate, int crncyid,
+        long batchid, double crdtamnt, double netAmnt,
+        double entrdAmt, int entrdCurrID, double acntAmnt, int acntCurrID,
+        double funcExchRate, double acntExchRate, string dbtOrCrdt)
         {
             trnsDate = DateTime.ParseExact(
-      trnsDate, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        trnsDate, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             if (trnsDesc.Length > 500)
             {
                 trnsDesc = trnsDesc.Substring(0, 500);
@@ -7006,8 +7220,8 @@ to_char(to_timestamp(a.as_at_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:
         public static string getGLIntrfcIDs(int accntid, string trns_date, int crncy_id, string tblNme)
         {
             trns_date = DateTime.ParseExact(
-       trns_date, "dd-MMM-yyyy HH:mm:ss",
-       System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        trns_date, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             string strSql = "select distinct a.interface_id from " + tblNme + " a " +
             "where a.accnt_id = " + accntid + " and a.trnsctn_date = '" + trns_date +
             "' and a.func_cur_id = " + crncy_id + " and a.gl_batch_id = -1  " +
@@ -7100,11 +7314,11 @@ and '" + intrfcids + "' like '%,' || a.interface_id || ',%') ";
                 return;
             }
             trnsdte = DateTime.ParseExact(
-      trnsdte, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        trnsdte, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             dateStr = DateTime.ParseExact(
-      dateStr, "dd-MMM-yyyy HH:mm:ss",
-      System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+        dateStr, "dd-MMM-yyyy HH:mm:ss",
+        System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
             string insSQL = "INSERT INTO accb.accb_trnsctn_details(" +
                      "accnt_id, transaction_desc, dbt_amount, trnsctn_date, " +
                      "func_cur_id, created_by, creation_date, batch_id, crdt_amount, " +
@@ -7139,6 +7353,15 @@ and '" + intrfcids + "' like '%,' || a.interface_id || ',%') ";
             "last_update_date='" + dateStr + "' " +
             "WHERE a.gl_batch_id = -1 and EXISTS(select 1 from accb.accb_chart_of_accnts" +
             " m where a.accnt_id= m.accnt_id and m.org_id =" + orgID + ")";
+            Global.updateDataNoParams(updtSQL);
+        }
+
+        public static void zeroInterfaceValues(int orgID)
+        {
+            //Global.Extra_Adt_Trl_Info = "Clearing GL-Inventory Interface Values";
+            string updtSQL = @"UPDATE scm.scm_gl_interface
+   SET dbt_amount=0, crdt_amount=0, net_amount=0 
+ WHERE gl_batch_id<=0 and accnt_id IN (select b.accnt_id from accb.accb_chart_of_accnts b where b.org_id=" + orgID + ")";
             Global.updateDataNoParams(updtSQL);
         }
 

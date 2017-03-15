@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2016-10-06T21:03:11 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Invoice" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#EEEFF0"/>
+		</conditionalStyle>
+	</style>
+	<style name="Table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<leftPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#CACED0">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#D8D8D8"/>
+		</conditionalStyle>
+	</style>
+	<style name="Table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="P_ImageUrl" class="java.lang.String"/>
+	<parameter name="P_ReportTitle" class="java.lang.String"/>
+	<parameter name="P_OrgName" class="java.lang.String"/>
+	<parameter name="P_OrgAddress" class="java.lang.String"/>
+	<parameter name="P_ContactInfo" class="java.lang.String"/>
+	<parameter name="P_WebEmail" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select row_number() over (order by local_id_no ) as "No. ", local_id_no "ID No.   ", title ||' '||first_name||' '||other_names||' '||sur_name as "Full Name           ", 
+ppt.prsn_type "Person Type", 
+
+to_char(to_timestamp(ppt.valid_start_date,'YYYY-MM-DD'),'DD-Mon-YYYY') "Start Date ", 
+gender,  email, cntct_no_mobl,
+COALESCE(NULLIF(scm.get_cstmr_splr_name(pnn.lnkd_firm_org_id),''),'Unknown Workplace') "Institution " 
+FROM prs.prsn_names_nos pnn 
+  
+left outer join pasn.prsn_grades pg on pnn.person_id = pg.person_id
+  
+left outer join pasn.prsn_jobs pj on pnn.person_id = pj.person_id
+  
+left outer join pasn.prsn_prsntyps ppt on pnn.person_id = ppt.person_id
+  
+left outer join pasn.prsn_divs_groups pdg on pnn.person_id = pdg.person_id
+  
+left outer join pasn.prsn_positions pstn on pnn.person_id = pstn.person_id
+  
+left outer join prs.prsn_extra_data ped on ped.person_id = pnn.person_id 
+  
+where coalesce('' || pnn.local_id_no) = coalesce(NULLIF('',''), '' || pnn.local_id_no)
+  AND (coalesce('' || ped.data_col9) = coalesce(NULLIF('',''), '' || ped.data_col9) 
+or scm.get_cstmr_splr_name(pnn.lnkd_firm_org_id)=coalesce(NULLIF('',''), scm.get_cstmr_splr_name(pnn.lnkd_firm_org_id)))
+  AND '' || coalesce(pg.grade_id,-1) = coalesce(NULLIF('',''), '' || coalesce(pg.grade_id,-1))/*Grades*/
+  AND (coalesce(pg.valid_start_date, to_char((select now()),'YYYY-MM-DD')) is not null and ( pg.valid_end_date is null OR ((SELECT NOW())
+  between to_timestamp(pg.valid_start_date,'YYYY-MM-DD HH24:MI:SS') 
+  AND to_timestamp(pg.valid_end_date,'YYYY-MM-DD HH24:MI:SS'))))
+  AND '' || coalesce(pj.job_id,-1) = coalesce(NULLIF('',''), '' || coalesce(pj.job_id,-1))/*Jobs*/
+  AND (coalesce(pj.valid_start_date, to_char((select now()),'YYYY-MM-DD')) is not null and ( pj.valid_end_date is null OR ((SELECT NOW())
+  between to_timestamp(pj.valid_start_date,'YYYY-MM-DD HH24:MI:SS') 
+  AND to_timestamp(pj.valid_end_date,'YYYY-MM-DD HH24:MI:SS'))))  
+  AND '' || coalesce(ppt.prsn_type,'-1') = coalesce(NULLIF('',''), '' || coalesce(ppt.prsn_type,'-1'))/*Person Types*/
+  AND (coalesce(ppt.valid_start_date, to_char((select now()),'YYYY-MM-DD')) is not null and ( ppt.valid_end_date is null 
+  OR to_timestamp(COALESCE(NULLIF('2016-10-06',''),to_char(NOW(),'YYYY-MM-DD')),'YYYY-MM-DD')
+  between to_timestamp(ppt.valid_start_date,'YYYY-MM-DD HH24:MI:SS') 
+  AND to_timestamp(ppt.valid_end_date,'YYYY-MM-DD HH24:MI:SS')))   
+AND (CASE WHEN '' ='' THEN 1 
+          WHEN to_timestamp(COALESCE(NULLIF('',''),to_char(NOW(),'YYYY-MM-DD')),'YYYY-MM-DD')
+    <=to_timestamp(ppt.valid_start_date,'YYYY-MM-DD HH24:MI:SS') THEN 1
+    ELSE 0 END)=1
+  AND '' || coalesce(pdg.div_id,-1) = coalesce(NULLIF('',''), '' || coalesce(pdg.div_id,-1))/*Divisions and Groups*/
+  AND (coalesce(pdg.valid_start_date, to_char((select now()),'YYYY-MM-DD')) is not null and ( pdg.valid_end_date is null OR ((SELECT NOW())
+  between to_timestamp(pdg.valid_start_date,'YYYY-MM-DD HH24:MI:SS') 
+  AND to_timestamp(pdg.valid_end_date,'YYYY-MM-DD HH24:MI:SS'))))     
+  AND '' || coalesce(pstn.position_id,-1) = coalesce(NULLIF('',''), '' || coalesce(pstn.position_id,-1))/*Positions*/
+  AND (coalesce(pstn.valid_start_date, to_char((select now()),'YYYY-MM-DD')) is not null and ( pstn.valid_end_date is null OR ((SELECT NOW())
+  between to_timestamp(pstn.valid_start_date,'YYYY-MM-DD HH24:MI:SS') 
+  AND to_timestamp(pstn.valid_end_date,'YYYY-MM-DD HH24:MI:SS'))))     
+  AND '' || coalesce(ppt.prn_typ_asgnmnt_rsn ,'-1') = coalesce(NULLIF('',''), '' || coalesce(ppt.prn_typ_asgnmnt_rsn,'-1'))
+ ORDER BY local_id_no LIMIT 10 OFFSET 0]]>
+	</queryString>
+	<field name="No. " class="java.lang.Long"/>
+	<field name="ID No.   " class="java.lang.String"/>
+	<field name="Full Name           " class="java.lang.String"/>
+	<field name="Person Type" class="java.lang.String"/>
+	<field name="Start Date " class="java.lang.String"/>
+	<field name="gender" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="cntct_no_mobl" class="java.lang.String"/>
+	<field name="Institution " class="java.lang.String"/>
+	<variable name="Variable_2" class="java.util.Date">
+		<variableExpression><![CDATA[NOW( )]]></variableExpression>
+	</variable>
+	<title>
+		<band height="100" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<image hAlign="Center">
+				<reportElement x="0" y="-5" width="110" height="94" uuid="94883631-a913-43e2-b182-ab8d77d0181e"/>
+				<imageExpression><![CDATA[$P{P_ImageUrl}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="2" y="94" width="787" height="3" backcolor="#E6E8E9" uuid="d1bd9da3-dc55-4088-8101-6f59228fabd8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="0" width="679" height="25" uuid="8d112a47-c045-476c-81df-280719023b68"/>
+				<textElement textAlignment="Left">
+					<font size="19" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_ReportTitle}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="24" width="679" height="25" uuid="c47286b9-3550-4801-a71b-eb96a09d5a84"/>
+				<textElement textAlignment="Left">
+					<font size="19" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_OrgName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="49" width="679" height="15" uuid="493c0845-5cc0-4c34-b200-e82c88846d61"/>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="false" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_OrgAddress}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="64" width="679" height="15" uuid="bb14f426-8d50-4cca-bb9c-11352b4e0c87"/>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="false" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_ContactInfo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="79" width="679" height="15" uuid="e33375e4-cccb-443f-8a2a-231a43eb52e9"/>
+				<textElement textAlignment="Left">
+					<font size="10" isBold="false" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_WebEmail}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="50">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" mode="Opaque" x="100" y="0" width="140" height="40" forecolor="#FFFFFF" backcolor="#3D6CB8" uuid="8b348c07-9c43-47e2-9c76-ba20c36879e2"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[Full Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" mode="Opaque" x="240" y="0" width="90" height="40" forecolor="#FFFFFF" backcolor="#3D6CB8" uuid="af19b5af-e179-4165-9e28-0486f5011af7"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[Person Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" mode="Opaque" x="330" y="0" width="85" height="40" forecolor="#FFFFFF" backcolor="#3D6CB8" uuid="8a5b9996-5f43-4dba-9eec-618c70df93c0"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+					<paragraph leftIndent="2" spacingAfter="2"/>
+				</textElement>
+				<text><![CDATA[Start Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" mode="Opaque" x="415" y="0" width="142" height="40" forecolor="#FFFFFF" backcolor="#3D6CB8" uuid="fb241c18-438f-4096-be01-3bff2477fb7f"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+					<paragraph leftIndent="2" rightIndent="2" spacingAfter="0"/>
+				</textElement>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" mode="Opaque" x="2" y="0" width="98" height="40" forecolor="#FFFFFF" backcolor="#3D6CB8" uuid="33cd4aa1-aaeb-4c92-8757-8946b25797d6"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[ID Num.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" mode="Opaque" x="557" y="0" width="103" height="40" forecolor="#FFFFFF" backcolor="#3D6CB8" uuid="6dc86045-c7ee-4d6b-8015-57b5c4540345"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+					<paragraph leftIndent="2" rightIndent="2" spacingAfter="0"/>
+				</textElement>
+				<text><![CDATA[Contact No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" positionType="Float" mode="Opaque" x="660" y="0" width="130" height="40" forecolor="#FFFFFF" backcolor="#3D6CB8" uuid="563f8cb5-aa59-4a38-af51-087bec1a8d6d"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+					<paragraph leftIndent="2" rightIndent="2" spacingAfter="0"/>
+				</textElement>
+				<text><![CDATA[Institution]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="99" y="0" width="141" height="20" uuid="be4563ad-058f-4079-b33e-ae3c3801d749"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="false"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Full Name           }]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="240" y="0" width="90" height="20" uuid="bdf9d64b-556f-4644-8a75-ce81cc7a28ae"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="false"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Person Type}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="330" y="0" width="87" height="20" uuid="9ddd5c27-8dcc-498b-b07c-1e6b15dc73a7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="false"/>
+					<paragraph leftIndent="5" spacingAfter="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Start Date }]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="417" y="0" width="140" height="20" uuid="583d2640-5208-4469-bfc5-700c20b0c2f4"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="false"/>
+					<paragraph leftIndent="5" rightIndent="2" spacingAfter="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="2" y="0" width="98" height="20" uuid="c260e21d-24ea-4a0e-aff0-45d98081badf"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="false"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[CONCATENATE(TEXT($F{No. },"0"),  ". "  ,$F{ID No.   })]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="557" y="0" width="102" height="20" uuid="87504872-f867-4fad-8e73-e53cb9fdc93f"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="false"/>
+					<paragraph leftIndent="5" rightIndent="2" spacingAfter="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cntct_no_mobl}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0.00#" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="659" y="0" width="130" height="20" uuid="625aeeb5-4689-4d53-aafb-370943b798ff"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="false"/>
+					<paragraph leftIndent="5" rightIndent="2" spacingAfter="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Institution }]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="30">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<frame>
+				<reportElement mode="Opaque" x="1" y="3" width="789" height="24" forecolor="#D0B48E" backcolor="#F2F2F2" uuid="604d597e-5729-4244-9a67-dc4a70d612d1">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="733" y="2" width="40" height="20" forecolor="#736343" uuid="66e11882-de58-4750-94c7-ee5951ee7275"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="653" y="2" width="80" height="20" forecolor="#736343" uuid="25029683-bf23-444d-a374-5bbd2ad381ee"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="15" y="3" width="197" height="20" forecolor="#736343" uuid="25eeb335-d66b-4aa6-903b-1fc9e817b413"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{Variable_2}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="5" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement positionType="Float" mode="Opaque" x="1" y="-1" width="790" height="3" isPrintInFirstWholeBand="true" backcolor="#E6E8E9" uuid="85eec030-50c0-411e-9791-cb14549926c6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

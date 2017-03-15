@@ -250,7 +250,8 @@ GROUP BY customer_id,invc_curr_id";
           double qty, double untPrice, int storeID,
           int crncyID, long srclnID, int txCode, int dscntCde,
           int chrgeCde, string rtrnRsn, string cnsgmntIDs, double orgnlPrice,
-          bool dlvrd, long prsnID, string altrntNm)
+          bool dlvrd, long prsnID, string altrntNm, int cogsID, int salesRevID,
+          int salesRetID, int purcRetID, int expnsID)
         {
             string dateStr = Global.mnFrm.cmCde.getDB_Date_time();
             string insSQL = "INSERT INTO scm.scm_sales_invc_det(invc_det_ln_id, " +
@@ -258,7 +259,8 @@ GROUP BY customer_id,invc_curr_id";
                   "created_by, creation_date, last_update_by, last_update_date, " +
                   "store_id, crncy_id, src_line_id, tax_code_id, " +
                   @"dscnt_code_id, chrg_code_id, qty_trnsctd_in_dest_doc, 
-      rtrn_reason, consgmnt_ids, orgnl_selling_price,is_itm_delivered, lnkd_person_id,alternate_item_name) " +
+      rtrn_reason, consgmnt_ids, orgnl_selling_price,is_itm_delivered, lnkd_person_id, alternate_item_name,  
+            cogs_acct_id, sales_rev_accnt_id, sales_ret_accnt_id, purch_ret_accnt_id, expense_accnt_id) " +
                   "VALUES (" + lineid +
                   "," + docID +
                   ", " + itmID +
@@ -270,7 +272,12 @@ GROUP BY customer_id,invc_curr_id";
                   rtrnRsn.Replace("'", "''") + "', '" +
                   cnsgmntIDs.Replace("'", "''") + "', " + orgnlPrice +
                   ",'" + Global.mnFrm.cmCde.cnvrtBoolToBitStr(dlvrd) + "', " + prsnID +
-                  ",'" + altrntNm.Replace("'", "''") + "')";
+                  ",'" + altrntNm.Replace("'", "''") + "'," + cogsID +
+                  "," + salesRevID +
+                  "," + salesRetID +
+                  "," + purcRetID +
+                  "," + expnsID +
+                  ")";
             Global.mnFrm.cmCde.insertDataNoParams(insSQL);
         }
 
@@ -1083,7 +1090,8 @@ age(now(),to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS')) > interval '
           double qty, double untPrice, int storeID,
           int crncyID, long srclnID, int txCode, int dscntCde,
           int chrgeCde, string rtrnRsn, string cnsgmntIDs, double orgnlPrice,
-          bool dlvrd, long prsnID, string altrntNm)
+          bool dlvrd, long prsnID, string altrntNm, int cogsID, int salesRevID,
+          int salesRetID, int purcRetID, int expnsID)
         {
             Global.mnFrm.cmCde.Extra_Adt_Trl_Info = "";
             string dateStr = Global.mnFrm.cmCde.getDB_Date_time();
@@ -1103,7 +1111,12 @@ age(now(),to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS')) > interval '
                   "', consgmnt_ids ='" + cnsgmntIDs.Replace("'", "''") +
                   "', is_itm_delivered ='" + Global.mnFrm.cmCde.cnvrtBoolToBitStr(dlvrd) +
                   "', lnkd_person_id = " + prsnID +
-                  ", alternate_item_name = '" + altrntNm.Replace("'", "''") + "'" +
+                  ", alternate_item_name = '" + altrntNm.Replace("'", "''") +
+                  "', cogs_acct_id=" + cogsID +
+                  ", sales_rev_accnt_id=" + salesRevID +
+                  ", sales_ret_accnt_id =" + salesRetID +
+                  ", purch_ret_accnt_id =" + purcRetID +
+                  ", expense_accnt_id =" + expnsID +
                   " WHERE (invc_det_ln_id = " + lnID + ")";
             Global.mnFrm.cmCde.updateDataNoParams(updtSQL);
         }
@@ -1306,39 +1319,14 @@ age(now(),to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS')) > interval '
             Global.mnFrm.cmCde.updateDataNoParams(updtSQL);
         }
 
-        //public static void updtPymntAllGLIntrfcLnOrg(long glbatchid, int orgID)
-        //{
-        //    string dateStr = Global.mnFrm.cmCde.getDB_Date_time();
-        //    string updtSQL = "UPDATE scm.scm_gl_interface a " +
-        //    "SET gl_batch_id = " + glbatchid +
-        //    ", last_update_by=" + Global.myInv.user_id + ", " +
-        //    "last_update_date='" + dateStr + "' " +
-        //    "WHERE a.gl_batch_id = -1 and EXISTS(select f.transctn_id from accb.accb_trnsctn_details f, accb.accb_chart_of_accnts g " +
-        //    "where f.batch_id = " + glbatchid + " " +
-        //    "and f.source_trns_ids like '%,' || a.interface_id || ',%' and " +
-        //    "f.trnsctn_date=a.trnsctn_date and f.accnt_id= a.accnt_id and f.accnt_id= g.accnt_id and g.org_id = " + orgID + ") ";
-        //    Global.mnFrm.cmCde.updateDataNoParams(updtSQL);
-        //}
-
-        //public static void updtGLIntrfcLnSpclOrg(int orgID)
-        //{
-        //    //Used to update batch ids of interface lines that have gone to GL already
-        //    string dateStr = Global.mnFrm.cmCde.getDB_Date_time();
-        //    string updtSQL = "UPDATE scm.scm_gl_interface a " +
-        //    "SET gl_batch_id = (select f.batch_id from accb.accb_trnsctn_details f, accb.accb_chart_of_accnts h " +
-        //    "where f.batch_id IN (select g.batch_id from accb.accb_trnsctn_batches g " +
-        //    "where g.batch_name ilike '%Inventory%' and " +
-        //    "to_timestamp(g.creation_date,'YYYY-MM-DD HH24:MI:SS') between " +
-        //    "(to_timestamp(a.trnsctn_date,'YYYY-MM-DD HH24:MI:SS') - interval '6 months') " +
-        //    "and (to_timestamp(a.trnsctn_date,'YYYY-MM-DD HH24:MI:SS') + interval '6 months')) and " +
-        //    "f.source_trns_ids like '%,' || a.interface_id || ',%' and " +
-        //    "f.trnsctn_date=a.trnsctn_date and f.accnt_id= a.accnt_id and f.accnt_id= h.accnt_id and h.org_id = " + orgID + ")" +
-        //    ", last_update_by=" + Global.myInv.user_id + ", " +
-        //    "last_update_date='" + dateStr + "' " +
-        //    "WHERE a.gl_batch_id = -1 and EXISTS(select 1 from accb.accb_chart_of_accnts" +
-        //    " m where a.accnt_id= m.accnt_id and m.org_id =" + orgID + ")";
-        //    Global.mnFrm.cmCde.updateDataNoParams(updtSQL);
-        //}
+        public static void roundSmmryItms(long docHdrID, string docType)
+        {
+            Global.mnFrm.cmCde.Extra_Adt_Trl_Info = "";
+            string updtSQL = "UPDATE scm.scm_doc_amnt_smmrys SET " +
+                  "smmry_amnt = ROUND(smmry_amnt,2) WHERE (src_doc_hdr_id = " + docHdrID +
+                  " and src_doc_type='" + docType.Replace("'", "''") + "')";
+            Global.mnFrm.cmCde.updateDataNoParams(updtSQL);
+        }
         #endregion
 
         #region "DELETE STATEMENTS..."
@@ -2032,6 +2020,15 @@ from inv.inv_stock_daily_bals a, inv.inv_consgmt_rcpt_det b where a.stock_id =b.
 and (b.stock_id<=0 or b.subinv_id <=0));   
 ";
             Global.mnFrm.cmCde.deleteDataNoParams(delSQL);
+        }
+
+        public static void zeroInterfaceValues(int orgID)
+        {
+            Global.mnFrm.cmCde.Extra_Adt_Trl_Info = "Clearing GL-Inventory Interface Values";
+            string updtSQL = @"UPDATE scm.scm_gl_interface
+   SET dbt_amount=0, crdt_amount=0, net_amount=0 
+ WHERE gl_batch_id<=0 and accnt_id IN (select b.accnt_id from accb.accb_chart_of_accnts b where b.org_id=" + orgID + ")";
+            Global.mnFrm.cmCde.updateDataNoParams(updtSQL);
         }
 
         public static void correct_Cnsg_Stck_QtyImbals()
@@ -2968,13 +2965,29 @@ and a.is_enabled='1' ORDER BY a.pssbl_value_id LIMIT 1 OFFSET 0";
         , a.other_mdls_doc_id, a.other_mdls_doc_type, a.lnkd_person_id, 
       REPLACE(prs.get_prsn_surname(a.lnkd_person_id) || ' (' 
       || prs.get_prsn_loc_id(a.lnkd_person_id) || ')', ' ()', '') fullnm, 
-      CASE WHEN a.alternate_item_name='' THEN b.item_desc ELSE a.alternate_item_name END, d.cat_name " +
+      CASE WHEN a.alternate_item_name='' THEN b.item_desc ELSE a.alternate_item_name END, d.cat_name,
+        REPLACE(a.cogs_acct_id || ',' || a.sales_rev_accnt_id || ',' || a.sales_ret_accnt_id || ',' || a.purch_ret_accnt_id || ',' || a.expense_accnt_id,
+'-1,-1,-1,-1,-1', b.cogs_acct_id || ',' || b.sales_rev_accnt_id || ',' || b.sales_ret_accnt_id || ',' || b.purch_ret_accnt_id || ',' || b.expense_accnt_id) itm_accnts,
+      b.item_type " +
              "FROM scm.scm_sales_invc_det a, inv.inv_itm_list b, inv.unit_of_measure c, inv.inv_product_categories d " +
              "WHERE(a.invc_hdr_id = " + dochdrID +
              " and a.invc_hdr_id>0 and a.itm_id = b.item_id and b.base_uom_id = c.uom_id and d.cat_id = b.category_id) ORDER BY a.invc_det_ln_id, b.category_id";
             DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
             Global.invcFrm.recDt_SQL = strSql;
             return dtst;
+        }
+
+        public static string get_One_ItmAccnts(long itmID)
+        {
+            string strSql = "SELECT (b.cogs_acct_id || ',' || b.sales_rev_accnt_id || ',' || b.sales_ret_accnt_id || ',' || b.purch_ret_accnt_id || ',' || b.expense_accnt_id) itm_accnts " +
+             "FROM inv.inv_itm_list b " +
+             "WHERE(b.item_id = " + itmID + ")";
+            DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
+            if (dtst.Tables[0].Rows.Count > 0)
+            {
+                return dtst.Tables[0].Rows[0][0].ToString();
+            }
+            return "-1,-1,-1,-1,-1";
         }
 
         public static DataSet get_One_SalesDcLinesReq(long dochdrID)
@@ -3279,7 +3292,7 @@ ORDER BY " + ordrBy + @"";
                 ordrBy = "tbl1.col7, tbl1.col1 ASC";
             }
 
-            string strSql = ""; 
+            string strSql = "";
             string dateClause = "";
             string dateClauseR = "";
             string dateClauseM = "";
@@ -3307,18 +3320,18 @@ scm.get_doc_smry_typ_amnt(a.invc_hdr_id, a.invc_type, '3Discount') col3,
 COALESCE(z.amount_paid,0) col4, 
 scm.get_doc_smry_typ_amnt(a.invc_hdr_id, a.invc_type, '7Change/Balance') col5, 
 to_char(to_timestamp(" + dateClause + @",'YYYY-MM-DD HH24:MI:SS'),
-'DD-Mon-YYYY HH24:MI:SS')" + usrNmSect + @" col6,
-" + dateClause + @" col7 
+'DD-Mon-YYYY HH24:MI:SS')" + usrNmSect + @" col6, " + dateClause + @" col7 
 FROM scm.scm_sales_invc_hdr a 
-LEFT OUTER JOIN sec.sec_users y ON (a.created_by=y.user_id)
 LEFT OUTER JOIN accb.accb_rcvbls_invc_hdr x ON (x.src_doc_type=a.invc_type and x.src_doc_hdr_id = a.invc_hdr_id)
 LEFT OUTER JOIN accb.accb_payments z ON (z.src_doc_typ=x.rcvbls_invc_type and z.src_doc_id=x.rcvbls_invc_hdr_id and z.orgnl_pymnt_id<=0 and z.pymnt_vldty_status='VALID')
+LEFT OUTER JOIN sec.sec_users y ON (z.created_by=y.user_id)
 WHERE ((a.approval_status ilike 'Approved' or 
 (Select count(q.invc_det_ln_id) from scm.scm_sales_invc_det q 
-where q.invc_hdr_id = a.invc_hdr_id and q.is_itm_delivered='1')>0) AND (a.org_id = " + orgID + @") " + usrCls + " and (a.invc_type ilike '" + doctype.Replace("'", "''") + @"') 
-and (to_timestamp(" + dateClause + @",'YYYY-MM-DD HH24:MI:SS') between 
-to_timestamp('" + strtDte + @"','DD-Mon-YYYY HH24:MI:SS') AND 
-to_timestamp('" + endDte + @"','DD-Mon-YYYY HH24:MI:SS'))) 
+where q.invc_hdr_id = a.invc_hdr_id and q.is_itm_delivered='1') > 0) AND (a.org_id = " + orgID + @") " + usrCls + " and (a.invc_type ilike '" + doctype.Replace("'", "''") + @"') 
+and (to_timestamp(" + dateClause + @", 'YYYY-MM-DD HH24:MI:SS') between 
+to_timestamp('" + strtDte + @"', 'DD-Mon-YYYY HH24:MI:SS') AND 
+to_timestamp('" + endDte + @"', 'DD-Mon-YYYY HH24:MI:SS')) AND COALESCE(z.created_by,-123)=y.user_id 
+AND COALESCE(z.prepay_doc_id, -123)<0) 
 UNION
 SELECT a.rcvbls_invc_number  || ' (' || COALESCE(scm.get_cstmr_splr_name(a.customer_id),'Unspecified') || ')-' || gst.get_pssbl_val(a.invc_curr_id) col1, 
 CASE WHEN a.advc_pay_ifo_doc_id<=0 THEN accb.get_rcvbl_smry_typ_amnt(a.rcvbls_invc_hdr_id, a.rcvbls_invc_type, '6Grand Total') + 
@@ -3328,16 +3341,17 @@ COALESCE(z.amount_paid,0) col4,
 accb.get_rcvbl_smry_typ_amnt(a.rcvbls_invc_hdr_id, a.rcvbls_invc_type, '8Outstanding Balance') col5, 
 to_char(to_timestamp(" + dateClauseR + @",'YYYY-MM-DD HH24:MI:SS'),
 'DD-Mon-YYYY HH24:MI:SS')" + usrNmSect + @" col6, " + dateClauseR + @" col7 
-FROM accb.accb_rcvbls_invc_hdr a 
-LEFT OUTER JOIN sec.sec_users y ON (a.created_by=y.user_id) 
-LEFT OUTER JOIN accb.accb_payments z ON (z.src_doc_typ=a.rcvbls_invc_type and z.src_doc_id=a.rcvbls_invc_hdr_id and z.orgnl_pymnt_id<=0 and z.pymnt_vldty_status='VALID')
+FROM accb.accb_rcvbls_invc_hdr a
+LEFT OUTER JOIN accb.accb_payments z ON (z.src_doc_typ=a.rcvbls_invc_type and z.src_doc_id=a.rcvbls_invc_hdr_id and z.orgnl_pymnt_id<=0 and z.pymnt_vldty_status='VALID') 
+LEFT OUTER JOIN sec.sec_users y ON (z.created_by=y.user_id) 
 WHERE ((a.approval_status ilike 'Approved') AND (a.org_id = " + orgID + @") " + usrCls + @" and ((a.src_doc_hdr_id||'.'||a.src_doc_type) " +
-    "NOT IN (Select v.invc_hdr_id||'.'||v.invc_type from scm.scm_sales_invc_hdr v where v.org_id = " + orgID +
-    @" and v.invc_type ilike '" + doctype.Replace("'", "''") + @"')) 
-and a.invc_amnt_appld_elswhr <= 0 
+"NOT IN (Select v.invc_hdr_id||'.'||v.invc_type from scm.scm_sales_invc_hdr v where v.org_id = " + orgID +
+@" and v.invc_type ilike '" + doctype.Replace("'", "''") + @"')) 
+/*and a.invc_amnt_appld_elswhr <= 0*/ 
 and (to_timestamp(" + dateClauseR + @",'YYYY-MM-DD HH24:MI:SS') between 
 to_timestamp('" + strtDte + @"','DD-Mon-YYYY HH24:MI:SS') AND 
-to_timestamp('" + endDte + @"','DD-Mon-YYYY HH24:MI:SS')))
+to_timestamp('" + endDte + @"','DD-Mon-YYYY HH24:MI:SS')) AND COALESCE(z.created_by,-123)=y.user_id 
+AND COALESCE(z.prepay_doc_id, -123)<0)
 UNION
 SELECT a.mass_pay_name col1, 
 pay.get_intrnlpay_salesamnt(a.mass_pay_id) col2, 
@@ -3359,8 +3373,6 @@ ORDER BY " + ordrBy + @"";
 
         public static DataSet get_ItemsSold(long UsrID, string doctype, string strtDte, string endDte, int orgID, string ordrBy)
         {
-            /*
-         y.user_name ""Sales Agent"",*/
             string usrCls = "";
 
             if (UsrID > 0)
@@ -3875,11 +3887,11 @@ and round(f.smmry_amnt,2)>0 and a.invc_hdr_id=f.src_doc_hdr_id and f.src_doc_typ
 
         public static DataSet get_DocSmryLns(long dochdrID, string docTyp)
         {
-            string strSql = "SELECT a.smmry_id, a.smmry_name, " +
-             "a.smmry_amnt, a.code_id_behind, a.smmry_type, a.auto_calc " +
+            string strSql = "SELECT a.smmry_id, CASE WHEN a.smmry_type='3Discount' THEN 'Discount' ELSE a.smmry_name END, " +
+             "a.smmry_amnt, a.code_id_behind, a.smmry_type, a.auto_calc,REPLACE(REPLACE(a.smmry_type,'2Tax','3Tax'),'3Discount','2Discount') smtyp " +
              "FROM scm.scm_doc_amnt_smmrys a " +
              "WHERE((a.src_doc_hdr_id = " + dochdrID +
-             ") and (a.src_doc_type='" + docTyp + "')) ORDER BY a.smmry_type";
+             ") and (a.src_doc_type='" + docTyp + "')) ORDER BY 7";
             DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
             if (Global.pOdrFrm != null)
             {
@@ -4853,7 +4865,6 @@ FROM org.org_pay_items a
 WHERE a.item_code_name = '" + ItemName.Replace("'", "''") + "' AND a.org_id = " + Global.mnFrm.cmCde.Org_id + @"";
 
             string strSql = "";
-            string whereCls = "";
             strSql = @"SELECT -1, tbl1.item_code_name, tbl1.item_value_uom, tbl1.trns_typ, 
      tbl1.item_id, pay.get_first_itmval_id(tbl1.item_id), 
       b.item_maj_type, b.item_min_type, b.inv_item_id, inv.get_invitm_name(b.inv_item_id), 
@@ -4861,9 +4872,69 @@ WHERE a.item_code_name = '" + ItemName.Replace("'", "''") + "' AND a.org_id = " 
                     "FROM (" + itmSQL + ") tbl1, org.org_pay_items b, inv.inv_itm_list c " +
                     "WHERE ((tbl1.item_id = b.item_id and b.inv_item_id = c.item_id) and (b.is_enabled = '1')) " +
           "ORDER BY b.pay_run_priority ";
-
+            //Global.mnFrm.cmCde.showSQLNoPermsn(strSql);
             DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
             return dtst;
+        }
+
+        public static long getFirstItmValID(long itmID)
+        {
+            string strSql = @"Select a.pssbl_value_id FROM org.org_pay_items_values a 
+      where((a.item_id = " + itmID + ")) ORDER BY 1 LIMIT 1 OFFSET 0";
+            DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
+            if (dtst.Tables[0].Rows.Count > 0)
+            {
+                return long.Parse(dtst.Tables[0].Rows[0][0].ToString());
+            }
+            return -1;
+        }
+
+        public static double getBlsItmLtstDailyBals(long balsItmID, long prsn_id, string balsDate)
+        {
+            string orgnlDte = balsDate;
+            balsDate = DateTime.ParseExact(
+         balsDate, "dd-MMM-yyyy HH:mm:ss",
+         System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm:ss");
+            balsDate = balsDate.Substring(0, 10);
+
+            double res = 0;
+            string strSql = "";
+            string usesSQL = Global.mnFrm.cmCde.getGnrlRecNm("org.org_pay_items",
+         "item_id", "uses_sql_formulas", balsItmID);
+            if (usesSQL != "1")
+            {
+                strSql = "SELECT a.bals_amount " +
+                   "FROM pay.pay_balsitm_bals a " +
+                   "WHERE(to_timestamp(a.bals_date,'YYYY-MM-DD') <=  to_timestamp('" + balsDate +
+                   "','YYYY-MM-DD') and a.bals_itm_id = " + balsItmID + " and a.person_id = " + prsn_id +
+                   ") ORDER BY to_timestamp(a.bals_date,'YYYY-MM-DD') DESC LIMIT 1 OFFSET 0";
+                //Global.mnFrm.cmCde.showSQLNoPermsn(strSql);
+                DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
+                if (dtst.Tables[0].Rows.Count > 0)
+                {
+                    double.TryParse(dtst.Tables[0].Rows[0][0].ToString(), out res);
+                }
+            }
+            else
+            {
+                string valSQL = Global.mnFrm.cmCde.getItmValSQL(Global.getPrsnItmVlID(prsn_id, balsItmID, orgnlDte));
+                if (valSQL == "")
+                {
+                }
+                else
+                {
+                    try
+                    {
+                        res = Global.mnFrm.cmCde.exctItmValSQL(
+                          valSQL, prsn_id,
+                          Global.mnFrm.cmCde.Org_id, balsDate);
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+                }
+            }
+            return res;
         }
 
         public static DataSet get_One_ItmStDet(int itmStID)
@@ -6144,6 +6215,16 @@ incrs_dcrs, costing_accnt_id, auto_calc, code_behind_id
             Global.mnFrm.cmCde.updateDataNoParams(insSQL);
         }
 
+        public static void roundScmRcvblsDocAmnts(long hdrID, string docType)
+        {
+            Global.mnFrm.cmCde.Extra_Adt_Trl_Info = "";
+            string dateStr = Global.mnFrm.cmCde.getDB_Date_time();
+            string insSQL = @"UPDATE scm.scm_rcvbl_amnt_smmrys
+   SET rcvbl_smmry_amnt = ROUND(rcvbl_smmry_amnt, 2), func_curr_amount=ROUND(func_curr_amount,2), accnt_curr_amnt=ROUND(func_curr_amount,2) " +
+                  " WHERE src_rcvbl_hdr_id = " + hdrID + " and src_rcvbl_type='" + docType.Replace("'", "''") + "'";
+            Global.mnFrm.cmCde.updateDataNoParams(insSQL);
+        }
+
         public static void deleteScmRcvblsDocDets(long valLnid, int cdeBhnd)
         {
             Global.mnFrm.cmCde.Extra_Adt_Trl_Info = "";
@@ -6336,6 +6417,20 @@ incrs_dcrs, costing_accnt_id, auto_calc, code_behind_id
             delSQL = "DELETE FROM accb.accb_rcvbls_invc_hdr WHERE rcvbls_invc_hdr_id = " + valLnid;
             //Global.mnFrm.cmCde.showSQLNoPermsn(delSQL);
             Global.mnFrm.cmCde.deleteDataNoParams(delSQL);
+        }
+
+        public static string getRcvblsDocLastUpdate(long dochdrID, string docType)
+        {
+            string strSql = "select to_char(to_timestamp(MAX(y.last_update_date),'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:SS') dte " +
+              "from accb.accb_payments y " +
+              "where y.src_doc_id = " + dochdrID + " and y.src_doc_typ = '" + docType.Replace("'", "''") + "'";
+            DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
+
+            if (dtst.Tables[0].Rows.Count > 0)
+            {
+                return dtst.Tables[0].Rows[0][0].ToString();
+            }
+            return Global.mnFrm.cmCde.getFrmtdDB_Date_time();
         }
 
         public static void deleteRcvblsDocDetails(long valLnid, string docNum)
@@ -9298,11 +9393,11 @@ WHERE z.process_run_id=b.process_run_id) outputs_cost  " +
         "Suppliers", "Customer/Supplier Sites", "Users' Sales Stores","Approved Pro-Forma Invoices",
         "Approved Sales Orders","Approved Internal Item Requests",
         "Customers", "Approved Sales Invoices/Item Issues", "Customer Names for Reports","Supplier Names for Reports"};
-            string[] sysLovsDynQrys = { "", "", 
-        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'EX' and is_prnt_accnt = '0' and is_enabled = '1' and is_contra = '1') order by accnt_num", 
-        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'R' and is_prnt_accnt = '0' and is_enabled = '1' and is_contra = '1') order by accnt_num", 
-        "", "", 
-        "select distinct trim(to_char(code_id,'999999999999999999999999999999')) a, code_name b, '' c, org_id d from scm.scm_tax_codes where (itm_type = 'Tax' and is_enabled = '1') order by code_name", 
+            string[] sysLovsDynQrys = { "", "",
+        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'EX' and is_prnt_accnt = '0' and is_enabled = '1' and is_contra = '1') order by accnt_num",
+        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'R' and is_prnt_accnt = '0' and is_enabled = '1' and is_contra = '1') order by accnt_num",
+        "", "",
+        "select distinct trim(to_char(code_id,'999999999999999999999999999999')) a, code_name b, '' c, org_id d from scm.scm_tax_codes where (itm_type = 'Tax' and is_enabled = '1') order by code_name",
         "select distinct trim(to_char(code_id,'999999999999999999999999999999')) a, code_name b, '' c, org_id d from scm.scm_tax_codes where (itm_type = 'Discount' and is_enabled = '1') order by code_name",
         "select distinct trim(to_char(code_id,'999999999999999999999999999999')) a, code_name b, '' c, org_id d from scm.scm_tax_codes where (itm_type = 'Extra Charge' and is_enabled = '1') order by code_name",
         "select distinct trim(to_char(y.prchs_doc_hdr_id,'999999999999999999999999999999')) a, y.purchase_doc_num b, '' c, y.org_id d, y.prchs_doc_hdr_id g " +
@@ -9337,15 +9432,15 @@ WHERE z.process_run_id=b.process_run_id) outputs_cost  " +
         "select distinct cust_sup_name a, cust_sup_name b, '' c, org_id d from scm.scm_cstmr_suplr where (cust_or_sup ilike '%Customer%') order by 2",
         "select distinct cust_sup_name a, cust_sup_name b, '' c, org_id d from scm.scm_cstmr_suplr where (cust_or_sup ilike '%Supplier%') order by 2"
         };
-            string[] pssblVals = { 
+            string[] pssblVals = {
         "4", "Retail Customer", "Retail Customer"
-		   ,"4", "Wholesale customer", "Wholesale customer",
+           ,"4", "Wholesale customer", "Wholesale customer",
         "4", "Individual", "Individual Person"
-		   ,"4", "Organisation", "Company/Organisation",
+           ,"4", "Organisation", "Company/Organisation",
         "5", "Service Provider", "Service Provider"
-		   ,"5", "Goods Provider", "Goods Provider",
+           ,"5", "Goods Provider", "Goods Provider",
         "5", "Service and Goods Provider", "Service and Goods Provider"
-		   ,"5", "Consultant", "Consultant"
+           ,"5", "Consultant", "Consultant"
       ,"5", "Training Provider", "Training Provider"};
 
             Global.mnFrm.cmCde.createSysLovs(sysLovs, sysLovsDynQrys, sysLovsDesc);
@@ -9361,11 +9456,11 @@ WHERE z.process_run_id=b.process_run_id) outputs_cost  " +
         "Tax Codes","Discount Codes","Extra Charges","Approved Requisitions","Suppliers", "Supplier Sites",
           "Shelves","Categories","Stores","Item Templates","Purchase Orders","Items Stores","Consignment Conditions",
           "Receipt Return Reasons", "Unit Of Measures", "Store Shelves", "Inventory Items"};
-            string[] sysLovsDynQrys1 = { "", "", 
-        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'EX' and is_prnt_accnt = '0' and is_enabled = '1' and is_contra = '1') order by accnt_num", 
-        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'R' and is_prnt_accnt = '0' and is_enabled = '1' and is_contra = '1') order by accnt_num", 
-        "", "", 
-        "select distinct trim(to_char(code_id,'999999999999999999999999999999')) a, code_name b, '' c, org_id d from scm.scm_tax_codes where (itm_type = 'Tax' and is_enabled = '1') order by code_name", 
+            string[] sysLovsDynQrys1 = { "", "",
+        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'EX' and is_prnt_accnt = '0' and is_enabled = '1' and is_contra = '1') order by accnt_num",
+        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'R' and is_prnt_accnt = '0' and is_enabled = '1' and is_contra = '1') order by accnt_num",
+        "", "",
+        "select distinct trim(to_char(code_id,'999999999999999999999999999999')) a, code_name b, '' c, org_id d from scm.scm_tax_codes where (itm_type = 'Tax' and is_enabled = '1') order by code_name",
         "select distinct trim(to_char(code_id,'999999999999999999999999999999')) a, code_name b, '' c, org_id d from scm.scm_tax_codes where (itm_type = 'Discount' and is_enabled = '1') order by code_name",
         "select distinct trim(to_char(code_id,'999999999999999999999999999999')) a, code_name b, '' c, org_id d from scm.scm_tax_codes where (itm_type = 'Extra Charge' and is_enabled = '1') order by code_name",
         "select distinct trim(to_char(prchs_doc_hdr_id,'999999999999999999999999999999')) a, purchase_doc_num b, '' c, org_id d from scm.scm_prchs_docs_hdr where (purchase_doc_type = 'Purchase Requisition' and approval_status = 'Approved') order by purchase_doc_num DESC",
@@ -9376,7 +9471,7 @@ WHERE z.process_run_id=b.process_run_id) outputs_cost  " +
           "select distinct trim(to_char(subinv_id,'999999999999999999999999999999')) a, subinv_name b, '' c, org_id d from inv.inv_itm_subinventories where (enabled_flag = '1') order by subinv_name",
           "select distinct trim(to_char(item_type_id,'999999999999999999999999999999')) a, item_type_name b, '' c, org_id d from inv.inv_itm_type_templates where (is_tmplt_enabled_flag = '1') order by item_type_name",
           "select distinct trim(to_char(prchs_doc_hdr_id,'999999999999999999999999999999')) a, purchase_doc_num b, '' c, org_id d from scm.scm_prchs_docs_hdr where approval_status = 'Approved' order by purchase_doc_num",
-          "select distinct trim(to_char(y.subinv_id,'999999999999999999999999999999')) a, y.subinv_name b, '' c, y.org_id d, trim(to_char(z.itm_id,'999999999999999999999999999999')) e from inv.inv_itm_subinventories y, inv.inv_stock z " + 
+          "select distinct trim(to_char(y.subinv_id,'999999999999999999999999999999')) a, y.subinv_name b, '' c, y.org_id d, trim(to_char(z.itm_id,'999999999999999999999999999999')) e from inv.inv_itm_subinventories y, inv.inv_stock z " +
               " where y.subinv_id = z.subinv_id and to_date(z.start_date,'YYYY-MM-DD') <= now()::Date and (to_date(z.end_date,'YYYY-MM-DD') >= now()::Date or end_date = '')  order by 2",
           "","",
           "select distinct trim(to_char(uom_id,'999999999999999999999999999999')) a, uom_name b, '' c, org_id d from inv.unit_of_measure where (enabled_flag = '1') order by uom_name",
@@ -9384,24 +9479,24 @@ WHERE z.process_run_id=b.process_run_id) outputs_cost  " +
           "WHERE pssbl_value_id = y.shelf_id) b, '' c, store_id d from inv.inv_shelf y order by 1",
           "SELECT distinct trim(to_char(item_id,'999999999999999999999999999999')) a, item_desc || '(' || item_code || ')' b, '' c, org_id d FROM inv.inv_itm_list order by 2"};
 
-            string[] pssblVals1 = { 
+            string[] pssblVals1 = {
         "4", "Retail Customer", "Retail Customer"
-	       ,"4", "Wholesale customer", "Wholesale customer",
+           ,"4", "Wholesale customer", "Wholesale customer",
         "4", "Individual", "Individual Person"
-	       ,"4", "Organisation", "Company/Organisation",
+           ,"4", "Organisation", "Company/Organisation",
         "5", "Service Provider", "Service Provider"
-	       ,"5", "Goods Provider", "Goods Provider",
+           ,"5", "Goods Provider", "Goods Provider",
         "5", "Service and Goods Provider", "Service and Goods Provider"
-	       ,"5", "Consultant", "Consultant"
+           ,"5", "Consultant", "Consultant"
       ,"5", "Training Provider", "Training Provider",
           "12", "Shelf 1A", "First Floor shelf A"
-	       ,"12", "Shelf 1B", "First Floor shelf B",
+           ,"12", "Shelf 1B", "First Floor shelf B",
         "12", "Shelf 1C", "First Floor shelf C"
-	       ,"12", "Shelf 2A", "Second Floor shelf A",
+           ,"12", "Shelf 2A", "Second Floor shelf A",
         "12", "Shelf 2B", "Second Floor shelf B"
-	       ,"12", "Shelf 2C", "Second Floor shelf C",
+           ,"12", "Shelf 2C", "Second Floor shelf C",
        "12", "Shelf 3A", "Third Floor shelf A"
-	       ,"12", "Shelf 3B", "Third Floor shelf B"
+           ,"12", "Shelf 3B", "Third Floor shelf B"
         ,"12", "Shelf 3C", "Third Floor shelf C"
           ,"18", "Excellent", "In Execellent Condition"
           ,"18", "Very Good", "In Very Good Condition"

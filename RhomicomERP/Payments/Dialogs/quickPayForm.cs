@@ -205,7 +205,7 @@ namespace InternalPayments.Dialogs
         private void populateItms()
         {
             if (this.grpComboBox.Text != "Everyone"
-              && this.grpComboBox.Text != "Currently Selected Person")
+              && this.grpComboBox.Text != "Single Person")
             {
                 if (this.grpNmIDTextBox.Text == "-1"
                 || this.grpNmTextBox.Text == "")
@@ -333,11 +333,10 @@ namespace InternalPayments.Dialogs
                 || itmMin == "Deductions")
                     {
                         ttlAmntLoaded += payItmAmnt;
-                        if (outstandgAdvcAmnt > 0 && itmMin == "Bills/Charges")
+                        if (outstandgAdvcAmnt > 0 && (itmMin == "Bills/Charges" || itmMin == "Deductions"))
                         {
                             Object[] testArry = new Object[17];
                             decimal advPymnt = 0;
-
                             testArry[0] = "Advance Payments Amount Applied";
                             if (payItmAmnt > outstandgAdvcAmnt)
                             {
@@ -391,7 +390,6 @@ namespace InternalPayments.Dialogs
                             testArry[15] = prsnName;
                             testArry[16] = dtst.Tables[0].Rows[i][8].ToString();
                             advncsToApply.Add(testArry);
-
                         }
                         trnsDesc = "Payment of " + dtst.Tables[0].Rows[i][1].ToString() + " by " + prsnName;//;;
                     }
@@ -637,7 +635,7 @@ namespace InternalPayments.Dialogs
             this.mspID = -1;
 
             if (this.grpComboBox.Text != "Everyone"
-              && this.grpComboBox.Text != "Currently Selected Person")
+              && this.grpComboBox.Text != "Single Person")
             {
                 if (this.grpNmIDTextBox.Text == "-1"
                 || this.grpNmTextBox.Text == "")
@@ -1102,7 +1100,7 @@ namespace InternalPayments.Dialogs
                 for (int i = 0; i < selVals.Length; i++)
                 {
                     this.locIDTextBox.Text = selVals[i];
-                    this.grpComboBox.SelectedItem = "Currently Selected Person";
+                    this.grpComboBox.SelectedItem = "Single Person";
                 }
             }
             if (this.trnsDateTextBox.Text != "" && this.msPyItmStIDTextBox.Text != ""
@@ -1880,12 +1878,12 @@ namespace InternalPayments.Dialogs
         {
             this.grpNmIDTextBox.Text = "-1";
             this.grpNmTextBox.Text = "";
-            if (this.grpComboBox.Text != "Currently Selected Person")
+            if (this.grpComboBox.Text != "Single Person")
             {
                 this.locIDTextBox.Text = "";
             }
             if (this.grpComboBox.Text == "Everyone"
-              || this.grpComboBox.Text == "Currently Selected Person")
+              || this.grpComboBox.Text == "Single Person")
             {
                 this.grpNmTextBox.BackColor = Color.WhiteSmoke;
                 this.grpNmTextBox.Enabled = false;
@@ -1897,9 +1895,9 @@ namespace InternalPayments.Dialogs
                 this.grpNmTextBox.Enabled = true;
                 this.grpNmButton.Enabled = true;
             }
-            //if (this.prsnIDs[0] > 0 && this.grpComboBox.Text == "Currently Selected Person")
+            //if (this.prsnIDs[0] > 0 && this.grpComboBox.Text == "Single Person")
             //{
-            //  this.grpComboBox.SelectedItem = "Currently Selected Person";
+            //  this.grpComboBox.SelectedItem = "Single Person";
             //  this.grpNmTextBox.Text = Global.mnFrm.cmCde.getPrsnName(this.prsnIDs[0]);
             //}
         }

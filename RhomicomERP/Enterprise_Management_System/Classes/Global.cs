@@ -158,7 +158,7 @@ namespace Enterprise_Management_System.Classes
         {
           Global.recordFailedLogin("John");
         }
-        System.Windows.Forms.Application.DoEvents();
+        //System.Windows.Forms.Application.DoEvents();
       }
     }
 

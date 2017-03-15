@@ -28,7 +28,7 @@ namespace CommonCode
       {
         Color[] clrs = cmnCde.getColors();
         this.BackColor = clrs[0];
-        this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+        /*this.webBrowser1 = new System.Windows.Forms.WebBrowser();
         this.splitContainer1.Panel2.Controls.Add(this.webBrowser1);
         // 
         // webBrowser1
@@ -37,7 +37,7 @@ namespace CommonCode
         this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
         this.webBrowser1.Name = "webBrowser1";
         this.webBrowser1.Size = new System.Drawing.Size(288, 250);
-        this.webBrowser1.TabIndex = 1;
+        this.webBrowser1.TabIndex = 1;*/
         if (this.inrptOutput == "VIEW LOG"
           || this.inrptOutput.ToLower() == "none")
         {
@@ -58,7 +58,7 @@ namespace CommonCode
       catch (Exception ex)
       {
         System.Threading.Thread.Sleep(3000);
-        this.printPrvwButton.PerformClick();
+        //this.printPrvwButton.PerformClick();
       }
       finally
       {

@@ -68,7 +68,7 @@ namespace Enterprise_Management_System.Classes
         {
           this.AddModule(fileOn);
         }
-        System.Windows.Forms.Application.DoEvents();
+        //System.Windows.Forms.Application.DoEvents();
       }
     }
 

@@ -100,8 +100,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Global3.cs" />
     <Compile Include="Classes\Global.cs" />
     <Compile Include="Classes\InternalPayments.cs" />
+    <Compile Include="Classes\MyDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\StoresAndInventoryManager.cs" />
     <Compile Include="Dialogs\addBalItmDiag.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +143,12 @@
     <Compile Include="Dialogs\massPayValuesDiag.Designer.cs">
       <DependentUpon>massPayValuesDiag.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\payeRatesDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\payeRatesDiag.Designer.cs">
+      <DependentUpon>payeRatesDiag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\questionMassPayDiag.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,11 +161,53 @@
     <Compile Include="Dialogs\quickPayForm.designer.cs">
       <DependentUpon>quickPayForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\addAttchmntDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\addAttchmntDiag.designer.cs">
+      <DependentUpon>addAttchmntDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\attchmntsDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\attchmntsDiag.designer.cs">
+      <DependentUpon>attchmntsDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\extraInfoDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\extraInfoDiag.designer.cs">
+      <DependentUpon>extraInfoDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\invoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\invoiceForm.designer.cs">
+      <DependentUpon>invoiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\itmSearchDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\itmSearchDiag.designer.cs">
+      <DependentUpon>itmSearchDiag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\mainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\mainForm.Designer.cs">
       <DependentUpon>mainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\rptParamsDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\rptParamsDiag.designer.cs">
+      <DependentUpon>rptParamsDiag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\uomConversion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\uomConversion.Designer.cs">
+      <DependentUpon>uomConversion.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -188,6 +241,9 @@
       <DependentUpon>massPayValuesDiag.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\payeRatesDiag.resx">
+      <DependentUpon>payeRatesDiag.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\questionMassPayDiag.resx">
       <DependentUpon>questionMassPayDiag.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -196,9 +252,30 @@
       <DependentUpon>quickPayForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\addAttchmntDiag.resx">
+      <DependentUpon>addAttchmntDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\attchmntsDiag.resx">
+      <DependentUpon>attchmntsDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\extraInfoDiag.resx">
+      <DependentUpon>extraInfoDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\invoiceForm.resx">
+      <DependentUpon>invoiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\itmSearchDiag.resx">
+      <DependentUpon>itmSearchDiag.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\mainForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>mainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\rptParamsDiag.resx">
+      <DependentUpon>rptParamsDiag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\uomConversion.resx">
+      <DependentUpon>uomConversion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
@@ -298,6 +375,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\adjunto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mi_scare_report.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

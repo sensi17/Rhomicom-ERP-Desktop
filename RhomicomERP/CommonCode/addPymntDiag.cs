@@ -60,6 +60,7 @@ namespace CommonCode
         public bool txtChngd = false;
         public int entrdCurrID = -1;
         public double amntToPay = 0;
+        public double amntGiven = 0;
         public int pymntMthdID = -1;
         public string docTypes = "";
         public string srcDocType = "";
@@ -1200,10 +1201,13 @@ a.pay_means_other_info, a.cheque_card_name, a.expiry_date, a.cheque_card_num, a.
             string dateStr = cmnCde.getDB_Date_time();
             string updtSQL = "UPDATE accb.accb_pybls_invc_hdr SET " +
                   "amnt_paid=amnt_paid + " + amntPaid +
-                  ", last_update_by=" + cmnCde.User_id +
+                  ", next_part_payment=next_part_payment - " + amntPaid + ", last_update_by=" + cmnCde.User_id +
                   ", last_update_date='" + dateStr +
                   "' WHERE (pybls_invc_hdr_id = " +
                   docid + ")";
+            cmnCde.updateDataNoParams(updtSQL);
+            updtSQL = "UPDATE accb.accb_pybls_invc_hdr SET " +
+                 "next_part_payment=0 WHERE (next_part_payment<0)";
             cmnCde.updateDataNoParams(updtSQL);
         }
 
@@ -2848,7 +2852,6 @@ this.docTypeComboBox.Text, cmnCde.Org_id);*/
             this.curCode = cmnCde.getPssblValNm(this.curid);
             this.dteRcvdTextBox.Text = cmnCde.getFrmtdDB_Date_time();
             this.amntToPayNumUpDwn.Value = (decimal)this.amntToPay;
-
             this.crncyIDTextBox.Text = this.entrdCurrID.ToString();
             this.crncyTextBox.Text = cmnCde.getPssblValNm(this.entrdCurrID);
             this.curr1TextBox.Text = this.crncyTextBox.Text;
@@ -2871,6 +2874,11 @@ this.docTypeComboBox.Text, cmnCde.Org_id);*/
             "accb.accb_pybls_invc_hdr", "pybls_invc_hdr_id", "comments_desc",
             this.srcDocID);
                 this.lnkdDocID = -1;
+                if (this.orgnlPymntID <= 0)
+                {
+                    this.pymntCmmntsTextBox.Text = ("Payment of Invoice No. (" + this.docNum +
+                      ") (" + this.docDesc + ")").Replace("()", "");
+                }
             }
             else
             {
@@ -2886,16 +2894,16 @@ this.docTypeComboBox.Text, cmnCde.Org_id);*/
                 this.lnkdDocID = long.Parse(cmnCde.getGnrlRecNm(
             "accb.accb_rcvbls_invc_hdr", "rcvbls_invc_hdr_id", "src_doc_hdr_id",
             this.srcDocID));
+                if (this.orgnlPymntID <= 0)
+                {
+                    this.pymntCmmntsTextBox.Text = ("Receipt of Payment on Invoice No. (" + this.docNum +
+                      ") (" + this.docDesc + ")").Replace("()", "");
+                }
             }
             if (this.docStatus == "Cancelled")
             {
                 this.dsablPayments = true;
                 this.createPrepay = false;
-            }
-            if (this.orgnlPymntID <= 0)
-            {
-                this.pymntCmmntsTextBox.Text = ("Payment for Invoice No. (" + this.docNum +
-                  ") (" + this.docDesc + ")").Replace("()", "");
             }
             if (this.orgnlPymntID <= 0)
             {
@@ -2978,13 +2986,13 @@ this.docTypeComboBox.Text, cmnCde.Org_id);*/
                 if (docTypes == "Supplier Payments")
                 {
                     this.Text = "Supplier Advance Payments (Deposits)";
-                    this.pymntCmmntsTextBox.Text = "Deposit (Advance Payment) from Supplier (" + cmnCde.getGnrlRecNm(
+                    this.pymntCmmntsTextBox.Text = "Payment of Deposit (Advance Payment) to Supplier (" + cmnCde.getGnrlRecNm(
                       "scm.scm_cstmr_suplr", "cust_sup_id", "cust_sup_name", this.spplrID) + ")";
                 }
                 else
                 {
                     this.Text = "Customer Advance Payments (Deposits)";
-                    this.pymntCmmntsTextBox.Text = "Deposit (Advance Payment) from Customer (" + cmnCde.getGnrlRecNm(
+                    this.pymntCmmntsTextBox.Text = "Receipt of Deposit (Advance Payment) from Customer (" + cmnCde.getGnrlRecNm(
                       "scm.scm_cstmr_suplr", "cust_sup_id", "cust_sup_name", this.spplrID) + ")";
                 }
                 this.amntToPay = 0;
@@ -3005,6 +3013,10 @@ this.docTypeComboBox.Text, cmnCde.Org_id);*/
             {
                 this.obey_evnts = true;
                 this.amntRcvdNumUpDown.Value = (decimal)this.amntToPay;
+            }
+            else if (this.amntRcvdNumUpDown.Value == 0 && this.amntGiven > 0)
+            {
+                this.amntRcvdNumUpDown.Value = (decimal)this.amntGiven;
             }
             this.obey_evnts = true;
         }
@@ -3540,7 +3552,6 @@ this.docTypeComboBox.Text, cmnCde.Org_id);*/
                 this.dsablPayments = false;
                 this.createPrepay = false;
                 this.amntToPay = (double)this.amntPaidNumUpDown.Value;
-
                 this.addPymntDiag_Load(this, e);
             }
 
@@ -3561,6 +3572,14 @@ this.docTypeComboBox.Text, cmnCde.Org_id);*/
             long pymntBatchID = -1;
             string glBatchPrfx = "";
             string glBatchSrc = "";
+            if (this.srcDocID <= 0)
+            {
+                cmnCde.showMsg(
+                 "No Source Receivable or Payable Document Available!\r\nPlease check your document and try again!", 0);
+                this.processPayButton.Enabled = true;
+                this.prcsngPay = false;
+                return;
+            }
             if (this.docTypes == "Supplier Payments")
             {
                 glBatchPrfx = "PYMNT_SPPLR-";
@@ -3568,9 +3587,6 @@ this.docTypeComboBox.Text, cmnCde.Org_id);*/
                 pymntBatchName = "SPPLR_PYMNT-" +
                  DateTime.Parse(cmnCde.getFrmtdDB_Date_time()).ToString("yyMMdd-HHmmss")
                           + "-" + cmnCde.getRandomInt(10, 100);
-
-                /*cmnCde.getDB_Date_time().Substring(11, 8).Replace(":", "").Replace("-", "").Replace(" ", "") + "-" +
-               this.getNewPymntBatchID().ToString().PadLeft(4, '0');*/
 
                 docClsftn = cmnCde.getGnrlRecNm(
                      "accb.accb_pybls_invc_hdr", "pybls_invc_hdr_id", "doc_tmplt_clsfctn",
@@ -3582,14 +3598,11 @@ this.docTypeComboBox.Text, cmnCde.Org_id);*/
             }
             else
             {
-                glBatchPrfx = "PYMNT_CSTMR-";
-                glBatchSrc = "Payment for Receivables Invoice";
-                pymntBatchName = "CSTMR_PYMNT-" +
+                glBatchPrfx = "RCPT_CSTMR-";
+                glBatchSrc = "Receipt of Payment on Receivables Invoice";
+                pymntBatchName = "CSTMR_RCPT-" +
                  DateTime.Parse(cmnCde.getFrmtdDB_Date_time()).ToString("yyMMdd-HHmmss")
                           + "-" + cmnCde.getRandomInt(10, 100);
-
-                /*cmnCde.getDB_Date_time().Substring(11, 8).Replace(":", "").Replace("-", "").Replace(" ", "") + "-" +
-            this.getNewPymntBatchID().ToString().PadLeft(4, '0');*/
 
                 docClsftn = cmnCde.getGnrlRecNm(
                      "accb.accb_rcvbls_invc_hdr", "rcvbls_invc_hdr_id", "doc_tmplt_clsfctn",
@@ -3625,9 +3638,6 @@ this.docTypeComboBox.Text, cmnCde.Org_id);*/
             string glBatchName = glBatchPrfx +
               DateTime.Parse(cmnCde.getFrmtdDB_Date_time()).ToString("yyMMdd-HHmmss")
                        + "-" + cmnCde.getRandomInt(10, 100);
-
-            /*cmnCde.getDB_Date_time().Substring(11, 8).Replace(":", "").Replace("-", "").Replace(" ", "") + "-" +
-         this.getNewBatchID().ToString().PadLeft(4, '0');*/
             long glBatchID = cmnCde.getGnrlRecID("accb.accb_trnsctn_batches",
               "batch_name", "batch_id", glBatchName, cmnCde.Org_id);
 
@@ -4139,11 +4149,7 @@ this.docTypeComboBox.Text, cmnCde.Org_id);*/
 
         private void rvrsPymntButton_Click(object sender, EventArgs e)
         {
-            if (!cmnCde.isTransPrmttd(
-        cmnCde.get_DfltCashAcnt(cmnCde.Org_id), this.dteRcvdTextBox.Text, 200))
-            {
-                return;
-            }
+
             if (this.docStatus == "Cancelled")
             {
                 cmnCde.showMsg("Cannot Reverse Payments on Cancelled Documents!", 0);
@@ -4340,7 +4346,24 @@ this.docTypeComboBox.Text, cmnCde.Org_id);*/
             //  this.docTypes = "Customer Payments";
             //}
             //this.pymntTypeComboBox_SelectedIndexChanged(this.pymntTypeComboBox, e);
-            this.dteRcvdTextBox.Text = dteRcvd;
+            DateTime trnsDte = DateTime.ParseExact(dteRcvd, "dd-MMM-yyyy HH:mm:ss",
+            System.Globalization.CultureInfo.InvariantCulture);
+            long prdHdrID = cmnCde.getPrdHdrID(cmnCde.Org_id);
+            if (cmnCde.getTrnsDteOpenPrdLnID(prdHdrID, trnsDte.ToString("yyyy-MM-dd HH:mm:ss")) < 0)
+            {
+                this.dteRcvdTextBox.Text = cmnCde.getLtstOpenPrdAfterDate(trnsDte.ToString("yyyy-MM-dd HH:mm:ss"));
+                this.dteRcvdTextBox.Text = DateTime.ParseExact(this.dteRcvdTextBox.Text, "yyyy-MM-dd HH:mm:ss",
+            System.Globalization.CultureInfo.InvariantCulture).ToString("dd-MMM-yyyy HH:mm:ss");
+            }
+            else
+            {
+                this.dteRcvdTextBox.Text = dteRcvd;
+            }
+            if (!cmnCde.isTransPrmttd(
+        cmnCde.get_DfltCashAcnt(cmnCde.Org_id), this.dteRcvdTextBox.Text, 200))
+            {
+                return;
+            }
             this.processPayButton.PerformClick();
             this.docNum = cmnCde.getGnrlRecNm("accb.accb_payments", "pymnt_id", "accb.get_src_doc_num(src_doc_id, src_doc_typ)", pymntID);
             if (srcdocTyp.ToLower().Contains("supplier"))

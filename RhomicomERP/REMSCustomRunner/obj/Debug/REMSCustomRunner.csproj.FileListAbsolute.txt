@@ -72,3 +72,12 @@ C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\RhomicomERP\REMSCustomRunner\obj
 C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\RhomicomERP\REMSCustomRunner\obj\Debug\REMSCustomRunner.csproj.GenerateResource.Cache
 C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\RhomicomERP\REMSCustomRunner\obj\Debug\REMSCustomRunner.exe
 C:\1_DESIGNS\MYAPPS\GITHUB\Rhomicom-ERP-Desktop\RhomicomERP\REMSCustomRunner\obj\Debug\REMSCustomRunner.pdb
+C:\1_DESIGNS\MYAPPS\GITHUB\RHO_ERP_DESKTOP\RhomicomERP\REMSCustomRunner\bin\Debug\REMSCustomRunner.exe.config
+C:\1_DESIGNS\MYAPPS\GITHUB\RHO_ERP_DESKTOP\RhomicomERP\REMSCustomRunner\bin\Debug\REMSCustomRunner.exe
+C:\1_DESIGNS\MYAPPS\GITHUB\RHO_ERP_DESKTOP\RhomicomERP\REMSCustomRunner\bin\Debug\REMSCustomRunner.pdb
+C:\1_DESIGNS\MYAPPS\GITHUB\RHO_ERP_DESKTOP\RhomicomERP\REMSCustomRunner\bin\Debug\stdole.dll
+C:\1_DESIGNS\MYAPPS\GITHUB\RHO_ERP_DESKTOP\RhomicomERP\REMSCustomRunner\obj\Debug\REMSCustomRunner.csprojResolveAssemblyReference.cache
+C:\1_DESIGNS\MYAPPS\GITHUB\RHO_ERP_DESKTOP\RhomicomERP\REMSCustomRunner\obj\Debug\REMSCustomRunner.Properties.Resources.resources
+C:\1_DESIGNS\MYAPPS\GITHUB\RHO_ERP_DESKTOP\RhomicomERP\REMSCustomRunner\obj\Debug\REMSCustomRunner.csproj.GenerateResource.Cache
+C:\1_DESIGNS\MYAPPS\GITHUB\RHO_ERP_DESKTOP\RhomicomERP\REMSCustomRunner\obj\Debug\REMSCustomRunner.exe
+C:\1_DESIGNS\MYAPPS\GITHUB\RHO_ERP_DESKTOP\RhomicomERP\REMSCustomRunner\obj\Debug\REMSCustomRunner.pdb

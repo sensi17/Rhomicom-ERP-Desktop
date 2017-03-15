@@ -18,7 +18,7 @@ namespace AcademicsManagement.Classes
 		RhoModuleHost myHost = null;
 		int putUnder = 2;
   String myName = "Learning/Performance Management";
-  string myDesc = "This module helps you to manage your organization's Learning/Performance Needs!";
+  string myDesc = "This module helps you to manage your organization's Learning/Performance Assessment Needs!";
     string audit_tbl_name = "aca.aca_audit_trail_tbl";
 		WeifenLuo.WinFormsUI.Docking.DockContent myMainInterface = new mainForm();
   String vwroleName = "View Learning/Performance Management";

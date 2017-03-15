@@ -321,7 +321,7 @@ namespace CommonCode
             "Position",
             "Site/Location",
             "Person Type",
-            "Currently Selected Person",
+            "Single Person",
             "Companies/Institutions"});
       this.grpComboBox.Location = new System.Drawing.Point(105, 39);
       this.grpComboBox.Name = "grpComboBox";

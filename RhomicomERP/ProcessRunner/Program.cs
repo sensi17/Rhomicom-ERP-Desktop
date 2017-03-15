@@ -209,8 +209,6 @@ namespace REMSProcessRunner
                                 }
                                 threadFive.Start();
                             }
-                            // Allow counting for 10 seconds.
-                            //Thread.Sleep(1000);
                         }
                     }
                 }
@@ -785,7 +783,7 @@ namespace REMSProcessRunner
                                     if (alertType == "Email")
                                     {
                                         if (Global.sendEmail(toMails.Replace(";", ",").Trim(seps1), ccMails.Replace(",", ";").Trim(seps1),
-                                          bccMails.Replace(",", ";").Trim(seps1), attchMns.Replace(",", ";").Trim(seps1), sbjct, msgBdy, ref errMsg) == false)
+                                          bccMails.Replace(",", ";").Trim(seps1), attchMns.Replace(",", ";").Trim(seps1), sbjct, msgBdy, nwMsgSntID.ToString()+"Alrt", ref errMsg) == false)
                                         {
                                             Global.updateAlertMsgSent(nwMsgSntID, dateStr, "0", errMsg);
                                         }
@@ -839,10 +837,10 @@ namespace REMSProcessRunner
                             if (wrngDtst.Tables[0].Rows.Count > 0)
                             {
                                 Global.updateLogMsg(msg_id,
-                "\r\n\r\nCannot Post this Batch Since Some Accounts have wrong Balances!" +
-                "\r\nPlease correct the Imbalance First!!\r\nUser Org ID=" + Global.UsrsOrg_ID +
-                "\r\nNumber of Records Involved=" + wrngDtst.Tables[0].Rows.Count + "\r\n\r\n",
-                log_tbl, dateStr, Global.rnUser_ID);
+                    "\r\n\r\nCannot Post this Batch Since Some Accounts have wrong Balances!" +
+                    "\r\nPlease correct the Imbalance First!!\r\nUser Org ID=" + Global.UsrsOrg_ID +
+                    "\r\nNumber of Records Involved=" + wrngDtst.Tables[0].Rows.Count + "\r\n\r\n",
+                    log_tbl, dateStr, Global.rnUser_ID);
 
                                 Program.correctImblns();
 
@@ -908,6 +906,7 @@ namespace REMSProcessRunner
                             while (isAnyRnng == true);
 
                             Global.updtActnPrcss(prcID);
+
                             if (Program.sendJournalsToGL(dtst, rqrdParamVal, prcID, ref errmsg))
                             {
                                 Global.updateLogMsg(msg_id,
@@ -918,6 +917,106 @@ namespace REMSProcessRunner
                                 Global.updateLogMsg(msg_id,
                                   "\r\n\r\nFailed to send Journals to GL!\r\n" + errmsg, log_tbl, dateStr, Global.rnUser_ID);
                             }
+                        }
+                        else if (rpt_id == Global.getRptID("Send Outstanding Bulk Messages")
+                            || rpt_id == Global.getRptID("Send Outstanding Bulk Messages-Scheduled"))
+                        {
+                            string lastTimeChckd = Global.getDB_Date_time();
+                            int lstChckCnt = 0;
+                            int row_cntr = 0;
+                            errMsg = "";
+                            bool tmeUp = false;
+                            Char[] seprs = { ';' };
+                            do
+                            {
+                                dateStr = lastTimeChckd;
+                                if (lstChckCnt > 0)
+                                {
+                                    dtst = Global.selectDataNoParams(rpt_SQL.Replace("\r\n", " ").Replace("\n", " ").Replace("\r", " "));
+                                }
+                                row_cntr = dtst.Tables[0].Rows.Count;
+                                for (int v = 0; v < row_cntr; v++)
+                                {
+                                    errMsg = "";
+                                    attchMns = dtst.Tables[0].Rows[v][12].ToString().Replace(",", ";");
+                                    if (attchMns != "")
+                                    {
+                                        string[] atchs = attchMns.Split(seprs, StringSplitOptions.RemoveEmptyEntries);
+                                        for (int q1 = 0; q1 < atchs.Length; q1++)
+                                        {
+                                            string fullLocFileUrl = Global.getRptDrctry() + @"\mail_attachments\" + atchs[q1];
+                                            if (System.IO.File.Exists(fullLocFileUrl) == true)
+                                            {
+                                                if (System.IO.File.GetCreationTime(fullLocFileUrl) >= DateTime.Now.AddHours(-1))
+                                                {
+                                                    Global.updateLogMsg(msg_id, "\r\n\r\nFile: " + (fullLocFileUrl).Replace(";", ",") + " Exists hence won't be downloaded again!\r\n" + errMsg, log_tbl, dateStr, Global.rnUser_ID);
+                                                }
+                                                else
+                                                {
+                                                    Global.dwnldImgsFTP(9, Global.getRptDrctry() + @"\mail_attachments\", atchs[q1]);
+                                                }
+                                            }
+                                            else
+                                            {
+                                                Global.dwnldImgsFTP(9, Global.getRptDrctry() + @"\mail_attachments\", atchs[q1]);
+                                            }
+                                            atchs[q1] = Global.getRptDrctry() + @"\mail_attachments\" + atchs[q1];
+                                        }
+                                        attchMns = string.Join(";", atchs);
+                                    }
+                                    string msgTyp = dtst.Tables[0].Rows[v][13].ToString();
+                                    toMails = dtst.Tables[0].Rows[v][2].ToString();
+                                    ccMails = dtst.Tables[0].Rows[v][3].ToString();
+                                    bccMails = dtst.Tables[0].Rows[v][7].ToString();
+                                    sbjct = dtst.Tables[0].Rows[v][6].ToString();
+                                    msgBdy = dtst.Tables[0].Rows[v][4].ToString();
+                                    nwMsgSntID = long.Parse(dtst.Tables[0].Rows[v][0].ToString());
+                                    if (msgTyp == "Email")
+                                    {
+                                        if (Global.sendEmail(toMails.Replace(";", ",").Trim(seps1), ccMails.Replace(",", ";").Trim(seps1),
+                                          bccMails.Replace(",", ";").Trim(seps1), attchMns.Replace(",", ";").Trim(seps1), sbjct, msgBdy, nwMsgSntID.ToString() + "Bulk", ref errMsg) == false)
+                                        {
+                                            Global.updateBulkMsgSent(nwMsgSntID, dateStr, "0", errMsg);
+                                            Global.updateLogMsg(msg_id, "\r\n\r\nMessage to " + (toMails + ";" + ccMails + ";" + bccMails).Replace(";", ",") + " Failed!\r\n" + errMsg, log_tbl, dateStr, Global.rnUser_ID);
+                                        }
+                                        else
+                                        {
+                                            Global.updateBulkMsgSent(nwMsgSntID, dateStr, "1", "");
+                                            Global.updateLogMsg(msg_id,
+                                                    "\r\n\r\nMessage to " + (toMails + ";" + ccMails + ";" + bccMails).Replace(";", ",") + " Successfully Sent!\r\n", log_tbl, dateStr, Global.rnUser_ID);
+                                        }
+                                    }
+                                    else if (msgTyp == "SMS")
+                                    {
+                                        if (Global.sendSMS(msgBdy, (toMails + ";" + ccMails + ";" + bccMails).Replace(";", ",").Trim(seps1), ref errMsg) == false)
+                                        {
+                                            Global.updateBulkMsgSent(nwMsgSntID, dateStr, "0", errMsg);
+                                            Global.updateLogMsg(msg_id, "\r\n\r\nMessage to " + (toMails + ";" + ccMails + ";" + bccMails).Replace(";", ",") + " Failed!\r\n" + errMsg, log_tbl, dateStr, Global.rnUser_ID);
+                                        }
+                                        else
+                                        {
+                                            Global.updateBulkMsgSent(nwMsgSntID, dateStr, "1", "");
+                                            Global.updateLogMsg(msg_id, "\r\n\r\nMessage to " + (toMails + ";" + ccMails + ";" + bccMails).Replace(";", ",") + " Successfully Sent!\r\n", log_tbl, dateStr, Global.rnUser_ID);
+                                        }
+                                    }
+                                    else
+                                    {
+
+                                    }
+                                    if (v == (row_cntr - 1))
+                                    {
+                                        lastTimeChckd = Global.getDB_Date_time();
+                                    }
+                                    Thread.Sleep(25);
+                                    Global.errorLog = "\r\nMessages to " + (toMails + ";" + ccMails + ";" + bccMails) + " worked on";
+                                    Global.writeToLog();
+                                }
+                                lstChckCnt++;
+                                Thread.Sleep(5000);
+                                tmeUp = Global.doesDteTmExcdIntvl("30 second", lastTimeChckd);
+                            } while (tmeUp == false);
+                            Global.updateLogMsg(msg_id,
+                                    "\r\n\r\nFinished Sending all Messages!\r\n", log_tbl, dateStr, Global.rnUser_ID);
                         }
                         int totl = 0;
                         if (dtst != null)
@@ -1023,6 +1122,7 @@ namespace REMSProcessRunner
                                 {
                                     //Show detail STANDARD Report
                                 }
+
                                 if (islast)
                                 {
                                     writeAFile(Global.getRptDrctry() + @"\" + rpt_run_id.ToString() + ".txt", rptOutpt);
@@ -1080,7 +1180,10 @@ namespace REMSProcessRunner
                             Global.updateRptRnOutpt(rpt_run_id, rptOutpt);
                             Global.updateLogMsg(msg_id,
                   "\r\n\r\nSuccessfully Saved Report Output...", log_tbl, dateStr, Global.rnUser_ID);
-
+                            if (System.IO.File.Exists(uptFileUrl))
+                            {
+                                Global.upldImgsFTP(9, System.IO.Path.GetDirectoryName(uptFileUrl), System.IO.Path.GetFileName(uptFileUrl));
+                            }
                             if (msgSentID > 0)
                             {
                                 Global.updateRptRn(rpt_run_id, "Sending Output...", 81);
@@ -1102,7 +1205,7 @@ namespace REMSProcessRunner
                                 {
                                     if (Global.sendEmail(toMails.Replace(";", ",").Trim(seps1), ccMails.Replace(",", ";").Trim(seps1),
                                                        bccMails.Replace(",", ";").Trim(seps1), attchMns.Replace(",", ";").Trim(seps1),
-                                                       sbjct, msgBdy, ref errMsg) == false)
+                                                       sbjct, msgBdy, nwMsgSntID.ToString() + "Alrt", ref errMsg) == false)
                                     {
                                         Global.updateAlertMsgSent(nwMsgSntID, dateStr, "0", errMsg);
                                     }
@@ -3334,6 +3437,11 @@ namespace REMSProcessRunner
         {
             try
             {
+                if (Global.getEnbldPssblValID("NO", Global.getLovID("Allow Inventory to be Costed")) > 0)
+                {
+                    Global.zeroInterfaceValues(Global.UsrsOrg_ID);
+                }
+
                 Program.correctIntrfcImbals(intrfcTblNme);
                 //Check if Dataset Trns are balanced before calling this func
                 Global.updtActnPrcss(prcID);

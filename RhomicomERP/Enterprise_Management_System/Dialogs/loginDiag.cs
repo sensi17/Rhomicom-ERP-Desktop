@@ -24,7 +24,7 @@ namespace Enterprise_Management_System.Dialogs
         #endregion
 
         #region "EVENT HANDLERS..."
-        private void okButton_Click(object sender, EventArgs e)
+        public void okButton_Click(object sender, EventArgs e)
         {
             if (this.unameTextBox.Text == "" || this.pwdTextBox.Text == "")
             {
@@ -38,17 +38,7 @@ namespace Enterprise_Management_System.Dialogs
                 return;
             }
 
-            int lvid = Global.myNwMainFrm.cmnCdMn.getLovID("Rhomicom Sotfware Licenses");
-            if (lvid > 0)
-            {
-
-            }
-            else
-            {
-                Global.myNwMainFrm.cmnCdMn.createLovNm("Rhomicom Sotfware Licenses", "Rhomicom Sotfware Licenses", false, "", "SYS", true);
-                lvid = Global.myNwMainFrm.cmnCdMn.getLovID("Rhomicom Sotfware Licenses");
-                Global.myNwMainFrm.cmnCdMn.createPssblValsForLov(lvid, "Min User ID to Allow", Global.myNwMainFrm.cmnCdMn.encrypt1("1000000", CommonCode.CommonCodes.AppKey), true, Global.myNwMainFrm.cmnCdMn.get_all_OrgIDs());
-            }
+            int lvid = Global.myNwMainFrm.cmnCdMn.getLovID("Rhomicom Software Licenses");
             long blcID = -1;
             long.TryParse(Global.myNwMainFrm.cmnCdMn.decrypt(Global.myNwMainFrm.cmnCdMn.getEnbldPssblValDesc("Min User ID to Allow", lvid), CommonCode.CommonCodes.AppKey), out blcID);
             if (Global.getUserID(this.unameTextBox.Text) > blcID)
@@ -70,9 +60,43 @@ namespace Enterprise_Management_System.Dialogs
             }
             if (Global.isLoginInfoCorrct(this.unameTextBox.Text, this.pwdTextBox.Text))
             {
+
+                Global.myNwMainFrm.statusLoadLabel.Visible = true;
+                Global.myNwMainFrm.statusLoadPictureBox.Visible = true;
+                //System.Windows.Forms.Application.DoEvents();
+
+                Global.homeFrm.loginPanel.Visible = false;
+                Global.homeFrm.connectDBPanel.Visible = false;
+                Global.homeFrm.dsplayInfoPanel.Dock = DockStyle.Fill;
+                Global.homeFrm.dsplayInfoPanel.Visible = true;
                 //Update successful logins table
                 Global.recordSuccflLogin(this.unameTextBox.Text);
                 this.login_result = this.checkAftrSccsflLgnRequirmnts();
+
+                Global.login_result = this.login_result;
+                if (Global.login_result == "select role")
+                {
+                    //Update homepage labels and menu item texts/icons
+                    //Launch select role set dialog
+                    Global.myNwMainFrm.updateLoginLabels();
+                    Global.myNwMainFrm.switchRoleSetToolStripMenuItem.PerformClick();
+                    //this.updateLoginLabels();
+                }
+                else if (Global.login_result == "change password")
+                {
+                    //Update homepage labels and menu item texts/icons
+                    Global.myNwMainFrm.updateLoginLabels();
+                    Global.myNwMainFrm.statusLoadLabel.Visible = false;
+                    Global.myNwMainFrm.statusLoadPictureBox.Visible = false;
+                    //System.Windows.Forms.Application.DoEvents();
+                    Global.myNwMainFrm.changeMyPasswordToolStripMenuItem.PerformClick();
+                }
+                else if (Global.login_result == "logout")
+                {
+                    Global.myNwMainFrm.logoutActions();
+                }
+                Global.refreshRqrdVrbls();
+
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -81,6 +105,10 @@ namespace Enterprise_Management_System.Dialogs
                 //Update failed logins table
                 Global.recordFailedLogin(this.unameTextBox.Text);
                 Global.myNwMainFrm.cmnCdMn.showMsg("Invalid Username or Password!", 0);
+
+                Global.myNwMainFrm.statusLoadLabel.Visible = false;
+                Global.myNwMainFrm.statusLoadPictureBox.Visible = false;
+                //System.Windows.Forms.Application.DoEvents();
                 return;
             }
         }
@@ -154,7 +182,7 @@ namespace Enterprise_Management_System.Dialogs
 
         private void loginDiag_Load(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.DoEvents();
+            //System.Windows.Forms.Application.DoEvents();
             Color[] clrs = Global.myNwMainFrm.cmnCdMn.getColors();
             this.BackColor = clrs[0];
         }

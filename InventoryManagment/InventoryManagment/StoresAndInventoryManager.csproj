@@ -155,6 +155,12 @@
     <Compile Include="Dialogs\balUomConvDetails.Designer.cs">
       <DependentUpon>balUomConvDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\changeAccountsDiag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\changeAccountsDiag.Designer.cs">
+      <DependentUpon>changeAccountsDiag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\sQLFormulaDiag.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -450,6 +456,9 @@
     <EmbeddedResource Include="Dialogs\balUomConvDetails.resx">
       <DependentUpon>balUomConvDetails.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\changeAccountsDiag.resx">
+      <DependentUpon>changeAccountsDiag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\sQLFormulaDiag.resx">
       <DependentUpon>sQLFormulaDiag.cs</DependentUpon>

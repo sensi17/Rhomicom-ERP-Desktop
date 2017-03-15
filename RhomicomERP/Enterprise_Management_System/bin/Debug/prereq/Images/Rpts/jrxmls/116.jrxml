@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
-<!-- 2016-07-10T14:11:51 -->
+<!-- 2016-10-18T20:55:43 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Receivables Invoice" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Local PG DB"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
@@ -80,21 +80,20 @@
 	</style>
 	<subDataset name="Dataset2" uuid="523e5f28-2612-4f05-a9e2-ad0302387474">
 		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Local PG DB"/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
 		<parameter name="P_INVOICE_ID" class="java.lang.Long">
 			<parameterDescription><![CDATA[Invoice ID:]]></parameterDescription>
 		</parameter>
 		<parameter name="P_INVOICE_TYPE" class="java.lang.String"/>
 		<queryString>
-			<![CDATA[
-SELECT a.rcvbl_smmry_id, a.rcvbl_smmry_desc, 
-a.rcvbl_smmry_amnt, a.code_id_behind, substr(a.rcvbl_smmry_type,2), a.auto_calc 
+			<![CDATA[SELECT a.rcvbl_smmry_id, a.rcvbl_smmry_desc, 
+a.rcvbl_smmry_amnt, a.code_id_behind, substr(a.rcvbl_smmry_type,2), 
+a.auto_calc , REPLACE(REPLACE(a.rcvbl_smmry_type,'2Tax','3Tax'),'3Discount','2Discount') smtyp 
 FROM accb.accb_rcvbl_amnt_smmrys a 
 WHERE((a.src_rcvbl_hdr_id = $P{P_INVOICE_ID}) 
 	and (a.src_rcvbl_type=$P{P_INVOICE_TYPE}) 
 	and (substr(a.rcvbl_smmry_type,1,1) IN ('6','7','8'))) 
-       ORDER BY a.rcvbl_smmry_type
-    ]]>
+       ORDER BY 7]]>
 		</queryString>
 		<field name="rcvbl_smmry_id" class="java.lang.Long"/>
 		<field name="rcvbl_smmry_desc" class="java.lang.String"/>
@@ -102,6 +101,7 @@ WHERE((a.src_rcvbl_hdr_id = $P{P_INVOICE_ID})
 		<field name="code_id_behind" class="java.lang.Integer"/>
 		<field name="substr" class="java.lang.String"/>
 		<field name="auto_calc" class="java.lang.String"/>
+		<field name="smtyp" class="java.lang.String"/>
 	</subDataset>
 	<parameter name="P_INVOICE_ID" class="java.lang.Long">
 		<parameterDescription><![CDATA[Invoice ID:]]></parameterDescription>
@@ -139,7 +139,8 @@ a.rcvbl_smmry_id,
 a.rcvbl_smmry_desc,
 CASE WHEN substr(a.rcvbl_smmry_type,1,1) IN ('3','5') 
 THEN -1 * a.rcvbl_smmry_amnt ELSE a.rcvbl_smmry_amnt END amnt, 
-a.code_id_behind, a.rcvbl_smmry_type, a.auto_calc 
+a.code_id_behind, a.rcvbl_smmry_type, a.auto_calc,
+	    gst.get_pssbl_val(b.invc_curr_id) curr  
 FROM accb.accb_rcvbl_amnt_smmrys a, accb.accb_rcvbls_invc_hdr b 
       LEFT OUTER JOIN scm.scm_cstmr_suplr_sites f  ON (b.customer_site_id =f.cust_sup_site_id)
 WHERE((a.src_rcvbl_hdr_id =$P{P_INVOICE_ID}  and b.rcvbls_invc_hdr_id=a.src_rcvbl_hdr_id) 
@@ -162,6 +163,7 @@ WHERE((a.src_rcvbl_hdr_id =$P{P_INVOICE_ID}  and b.rcvbls_invc_hdr_id=a.src_rcvb
 	<field name="code_id_behind" class="java.lang.Integer"/>
 	<field name="rcvbl_smmry_type" class="java.lang.String"/>
 	<field name="auto_calc" class="java.lang.String"/>
+	<field name="curr" class="java.lang.String"/>
 	<variable name="Variable_1" class="java.math.BigDecimal" calculation="Sum">
 		<variableExpression><![CDATA[SUM($F{amnt} )]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
@@ -273,7 +275,7 @@ WHERE((a.src_rcvbl_hdr_id =$P{P_INVOICE_ID}  and b.rcvbls_invc_hdr_id=a.src_rcvb
 	<columnHeader>
 		<band height="20">
 			<staticText>
-				<reportElement style="Column header" positionType="Float" mode="Opaque" x="1" y="0" width="414" height="20" forecolor="#FFFFFF" backcolor="#3E53DE" uuid="8b348c07-9c43-47e2-9c76-ba20c36879e2"/>
+				<reportElement style="Column header" positionType="Float" mode="Opaque" x="1" y="0" width="414" height="20" forecolor="#FFFFFF" backcolor="#3D80B8" uuid="8b348c07-9c43-47e2-9c76-ba20c36879e2"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -286,20 +288,13 @@ WHERE((a.src_rcvbl_hdr_id =$P{P_INVOICE_ID}  and b.rcvbls_invc_hdr_id=a.src_rcvb
 				</textElement>
 				<text><![CDATA[Item Description]]></text>
 			</staticText>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" mode="Opaque" x="415" y="0" width="142" height="20" forecolor="#FFFFFF" backcolor="#3E53DE" uuid="fb241c18-438f-4096-be01-3bff2477fb7f"/>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement positionType="Float" mode="Opaque" x="415" y="0" width="142" height="20" forecolor="#FFFFFF" backcolor="#3D80B8" uuid="bea17879-b594-4172-8620-daadc283e5bf"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="12" isBold="true"/>
-					<paragraph leftIndent="2" rightIndent="2" spacingAfter="0"/>
 				</textElement>
-				<text><![CDATA[Amount]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA["Amount (" + $F{curr} + ") "]]></textFieldExpression>
+			</textField>
 		</band>
 	</columnHeader>
 	<detail>
@@ -355,7 +350,7 @@ WHERE((a.src_rcvbl_hdr_id =$P{P_INVOICE_ID}  and b.rcvbls_invc_hdr_id=a.src_rcvb
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="105" splitType="Stretch">
+		<band height="142" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<staticText>
 				<reportElement positionType="Float" x="1" y="27" width="100" height="20" uuid="e8334610-e83a-48e2-b5e1-78151b84cfc2">
@@ -368,7 +363,7 @@ WHERE((a.src_rcvbl_hdr_id =$P{P_INVOICE_ID}  and b.rcvbls_invc_hdr_id=a.src_rcvb
 				<text><![CDATA[NOTES]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" mode="Opaque" x="0" y="70" width="557" height="30" backcolor="#EDE8E8" uuid="cef30955-5d29-4891-8662-7ee990f79474"/>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="109" width="557" height="30" backcolor="#EDE8E8" uuid="cef30955-5d29-4891-8662-7ee990f79474"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true" isItalic="true"/>
 				</textElement>
@@ -444,12 +439,40 @@ WHERE((a.src_rcvbl_hdr_id =$P{P_INVOICE_ID}  and b.rcvbls_invc_hdr_id=a.src_rcvb
 				<text><![CDATA[]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
-				<reportElement positionType="Float" x="0" y="45" width="555" height="23" uuid="20666653-0b38-4612-abf2-19f431cb33b4"/>
+				<reportElement key="" positionType="Float" x="0" y="45" width="555" height="23" uuid="20666653-0b38-4612-abf2-19f431cb33b4">
+					<printWhenExpression><![CDATA[LEN($F{payment_terms} )>0]]></printWhenExpression>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#ADADAD"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#ADADAD"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#ADADAD"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#ADADAD"/>
+				</box>
 				<textElement>
 					<font size="8" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{payment_terms}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="352" y="83" width="85" height="25" uuid="5db47760-6d4d-4f4a-a89c-24e2d7943019">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="16" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Signature:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="432" y="85" width="127" height="25" uuid="c3267f9d-7bdc-410b-9067-0b018ad16a5f">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Times New Roman" size="16" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[.................................]]></text>
+			</staticText>
 		</band>
 	</summary>
 </jasperReport>

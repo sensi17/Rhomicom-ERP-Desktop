@@ -28,7 +28,6 @@
     /// </summary>
     private void InitializeComponent()
     {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -73,6 +72,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.saveLabel = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.smmryDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,7 +81,7 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.smmryContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.smmryContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
             this.exptExSmryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rfrshSmryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vwSQLSmryMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,7 +98,6 @@
             this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
             this.addChrgButton = new System.Windows.Forms.ToolStripButton();
             this.autoBalscheckBox = new System.Windows.Forms.CheckBox();
-            this.saveLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.itemsDataGridView = new EventsAndAttendance.Classes.MyDataGridView();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -131,7 +130,7 @@
             this.Column29 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.docDtContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.docDtContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
             this.addDtMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.delDtMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
@@ -203,7 +202,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.docContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.docContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
             this.addMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.delMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -215,10 +214,10 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList2 = new System.Windows.Forms.ImageList();
             this.badDebtButton = new System.Windows.Forms.Button();
             this.settleBillButton = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList();
             this.takeDepositsButton = new System.Windows.Forms.Button();
             this.cmplntsButton = new System.Windows.Forms.Button();
             this.checkInButton = new System.Windows.Forms.Button();
@@ -251,7 +250,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.attnRegisterButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.otherInfoTextBox = new System.Windows.Forms.TextBox();
+            this.pymntTermsButton = new System.Windows.Forms.Button();
+            this.pymntTermsTextBox = new System.Windows.Forms.TextBox();
             this.exchRateLabel = new System.Windows.Forms.Label();
             this.exchRateNumUpDwn = new System.Windows.Forms.NumericUpDown();
             this.docStatusTextBox = new System.Windows.Forms.TextBox();
@@ -364,10 +364,10 @@
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.panel1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -394,8 +394,8 @@
             // 
             this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.saveLabel);
+            this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.toolStrip1);
             this.panel1.Controls.Add(this.groupBox8);
@@ -406,6 +406,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1133, 634);
             this.panel1.TabIndex = 0;
+            // 
+            // saveLabel
+            // 
+            this.saveLabel.BackColor = System.Drawing.Color.Green;
+            this.saveLabel.Font = new System.Drawing.Font("Times New Roman", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveLabel.ForeColor = System.Drawing.Color.White;
+            this.saveLabel.Location = new System.Drawing.Point(113, 233);
+            this.saveLabel.Name = "saveLabel";
+            this.saveLabel.Size = new System.Drawing.Size(906, 28);
+            this.saveLabel.TabIndex = 7;
+            this.saveLabel.Text = "VALIDATING && APPROVING DOCUMENT....PLEASE WAIT....";
+            this.saveLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.saveLabel.Visible = false;
             // 
             // groupBox4
             // 
@@ -699,19 +712,6 @@
             this.autoBalscheckBox.Text = "Auto Bals";
             this.autoBalscheckBox.UseVisualStyleBackColor = true;
             this.autoBalscheckBox.CheckedChanged += new System.EventHandler(this.autoBalscheckBox_CheckedChanged);
-            // 
-            // saveLabel
-            // 
-            this.saveLabel.BackColor = System.Drawing.Color.Green;
-            this.saveLabel.Font = new System.Drawing.Font("Times New Roman", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveLabel.ForeColor = System.Drawing.Color.White;
-            this.saveLabel.Location = new System.Drawing.Point(113, 233);
-            this.saveLabel.Name = "saveLabel";
-            this.saveLabel.Size = new System.Drawing.Size(906, 28);
-            this.saveLabel.TabIndex = 7;
-            this.saveLabel.Text = "VALIDATING && APPROVING DOCUMENT....PLEASE WAIT....";
-            this.saveLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.saveLabel.Visible = false;
             // 
             // groupBox1
             // 
@@ -1932,6 +1932,7 @@
             this.imageList2.Images.SetKeyName(4, "pdf.png");
             this.imageList2.Images.SetKeyName(5, "blocked.png");
             this.imageList2.Images.SetKeyName(6, "undo_256.png");
+            this.imageList2.Images.SetKeyName(7, "edit32.png");
             // 
             // badDebtButton
             // 
@@ -2355,7 +2356,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.otherInfoTextBox);
+            this.groupBox2.Controls.Add(this.pymntTermsButton);
+            this.groupBox2.Controls.Add(this.pymntTermsTextBox);
             this.groupBox2.Controls.Add(this.exchRateLabel);
             this.groupBox2.Controls.Add(this.exchRateNumUpDwn);
             this.groupBox2.Controls.Add(this.docStatusTextBox);
@@ -2392,15 +2394,28 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Customer Information";
             // 
-            // otherInfoTextBox
+            // pymntTermsButton
             // 
-            this.otherInfoTextBox.Location = new System.Drawing.Point(83, 133);
-            this.otherInfoTextBox.MaxLength = 400;
-            this.otherInfoTextBox.Multiline = true;
-            this.otherInfoTextBox.Name = "otherInfoTextBox";
-            this.otherInfoTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.otherInfoTextBox.Size = new System.Drawing.Size(196, 43);
-            this.otherInfoTextBox.TabIndex = 11;
+            this.pymntTermsButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pymntTermsButton.ForeColor = System.Drawing.Color.Black;
+            this.pymntTermsButton.ImageKey = "edit32.png";
+            this.pymntTermsButton.ImageList = this.imageList2;
+            this.pymntTermsButton.Location = new System.Drawing.Point(251, 132);
+            this.pymntTermsButton.Name = "pymntTermsButton";
+            this.pymntTermsButton.Size = new System.Drawing.Size(28, 23);
+            this.pymntTermsButton.TabIndex = 249;
+            this.pymntTermsButton.UseVisualStyleBackColor = true;
+            this.pymntTermsButton.Click += new System.EventHandler(this.pymntTermsButton_Click);
+            // 
+            // pymntTermsTextBox
+            // 
+            this.pymntTermsTextBox.Location = new System.Drawing.Point(70, 133);
+            this.pymntTermsTextBox.MaxLength = 9999999;
+            this.pymntTermsTextBox.Multiline = true;
+            this.pymntTermsTextBox.Name = "pymntTermsTextBox";
+            this.pymntTermsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.pymntTermsTextBox.Size = new System.Drawing.Size(181, 43);
+            this.pymntTermsTextBox.TabIndex = 11;
             // 
             // exchRateLabel
             // 
@@ -3627,7 +3642,7 @@
     private System.Windows.Forms.TextBox createdByTextBox;
     private System.Windows.Forms.Label label4;
     private System.Windows.Forms.Label label14;
-    private System.Windows.Forms.TextBox otherInfoTextBox;
+    private System.Windows.Forms.TextBox pymntTermsTextBox;
     private System.Windows.Forms.Label label8;
     private System.Windows.Forms.Button cmplntsButton;
     private System.Windows.Forms.GroupBox groupBox5;
@@ -3864,6 +3879,6 @@
     private System.Windows.Forms.Label label6;
     private System.Windows.Forms.ToolStripButton customInvoiceButton;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
-
-  }
+        private System.Windows.Forms.Button pymntTermsButton;
+    }
 }

@@ -32,12 +32,42 @@ namespace DBConfig
             this.Height = 280;
             this.groupBox3.Visible = false;
             this.groupBox2.Visible = false;
+            this.pwdTextBox.Focus();
+            this.pwdTextBox.SelectAll();
             System.Windows.Forms.Application.DoEvents();
-            Color[] clrs = this.getColors();
-            this.BackColor = clrs[0];
             this.Text = "Database Configuration for " + patchVrsnNm;
             this.waitLabel.Visible = false;
             this.loadDfltsButton_Click(this.loadDfltsButton, e);
+            Color[] clrs = this.getColors();
+            this.BackColor = clrs[0];
+            this.timer1.Enabled = true;
+        }
+
+        private void readConnFile()
+        {
+            StreamReader fileReader;
+
+            string fileLoc = "";
+            fileLoc = @"DBInfo\ActiveDB.rho";
+            if (cmnCde.myComputer.FileSystem.FileExists(fileLoc))
+            {
+                fileReader = cmnCde.myComputer.FileSystem.OpenTextFileReader(fileLoc);
+                try
+                {
+                    this.hostTextBox.Text = cmnCde.decrypt(fileReader.ReadLine(), CommonCode.CommonCodes.OrgnlAppKey);
+                    string tst1 = cmnCde.decrypt(fileReader.ReadLine(), CommonCode.CommonCodes.OrgnlAppKey);
+                    this.unameTextBox.Text = cmnCde.decrypt(fileReader.ReadLine(), CommonCode.CommonCodes.OrgnlAppKey);
+                    this.restoreDBNmTextBox.Text = cmnCde.decrypt(fileReader.ReadLine(), CommonCode.CommonCodes.OrgnlAppKey);
+                    this.portTextBox.Text = cmnCde.decrypt(fileReader.ReadLine(), CommonCode.CommonCodes.OrgnlAppKey);
+                    fileReader.Close();
+                    fileReader = null;
+                }
+                catch
+                {
+                    fileReader.Close();
+                    fileReader = null;
+                }
+            }
         }
 
         public Color[] getColors()
@@ -54,6 +84,18 @@ namespace DBConfig
             CommonCode.CommonCodes.myFrmClrs = clrs;
             string fileLoc = "";
             fileLoc = @"DBInfo\Default.rtheme";
+            if (this.patchDBTextBox.Text.Contains("test")
+          || this.patchDBTextBox.Text.Contains("try")
+          || this.patchDBTextBox.Text.Contains("trial")
+          || this.patchDBTextBox.Text.Contains("train")
+          || this.patchDBTextBox.Text.Contains("sample"))
+            {
+                fileLoc = @"DBInfo\Default_Test.rtheme";
+            }
+            else
+            {
+                fileLoc = @"DBInfo\Default.rtheme";
+            }
             if (this.myComputer.FileSystem.FileExists(fileLoc))
             {
                 fileReader = this.myComputer.FileSystem.OpenTextFileReader(fileLoc);
@@ -430,14 +472,47 @@ namespace DBConfig
 
                 string dbnm = this.emptyDBNmTextBox.Text;
                 //string timeStr = this.getDB_Date_time().Replace(" ", "").Replace(":", "").Replace("-", "").ToLower();
+                // bool rs = this.doesDBNmExst(dbnm);
+                // if (rs == false)
+                // {
+                //     this.executeGnrlSQL("CREATE DATABASE " + dbnm + " " +
+                //"WITH OWNER = postgres " +
+                //    "ENCODING = 'UTF8' " +
+                //    "TABLESPACE = pg_default " +
+                //    "CONNECTION LIMIT = -1");
+                // }
                 bool rs = this.doesDBNmExst(dbnm);
-                if (rs == false)
+                if (!rs)
                 {
                     this.executeGnrlSQL("CREATE DATABASE " + dbnm + " " +
                "WITH OWNER = postgres " +
                    "ENCODING = 'UTF8' " +
                    "TABLESPACE = pg_default " +
                    "CONNECTION LIMIT = -1");
+                    //rs = this.doesDBNmExst(dbnm);
+                }
+                else
+                {
+                    /*SELECT pg_terminate_backend(pg_stat_activity.pid)
+FROM pg_stat_activity
+WHERE pg_stat_activity.datname = 'TARGET_DB'
+  AND pid <> pg_backend_pid();*/
+                    this.executeGnrlSQL("SELECT pg_terminate_backend(pg_stat_activity.pid) " +
+                    "FROM pg_stat_activity " +
+                    "WHERE pg_stat_activity.datname = '" + dbnm.Replace("'", "''") + "';");
+                    System.Threading.Thread.Sleep(3000);
+                    this.executeGnrlSQL("DROP DATABASE " + dbnm + "");
+                    System.Threading.Thread.Sleep(2000);
+                    rs = this.doesDBNmExst(dbnm);
+                    if (!rs)
+                    {
+                        this.executeGnrlSQL("CREATE DATABASE " + dbnm + " " +
+                   "WITH OWNER = postgres " +
+                       "ENCODING = 'UTF8' " +
+                       "TABLESPACE = pg_default " +
+                       "CONNECTION LIMIT = -1");
+                        //rs = this.doesDBNmExst(dbnm);
+                    }
                 }
                 strSB.Append("pg_restore.exe --host " + this.myCon.Host + " " +
                   " --port " + this.myCon.Port +
@@ -456,10 +531,10 @@ namespace DBConfig
                 }
                 while (!processDB.HasExited);
                 rs = this.doesDBNmExst(dbnm);
-                if (!rs)
+                if (rs)
                 {
                     this.createRqrdLOVs(this.emptyDBNmTextBox.Text);
-                    MessageBox.Show("Restoration of Backup File to Database " + dbnm.ToUpper() + " Completed", "Error");
+                    MessageBox.Show("Restoration of Backup File to Database " + dbnm.ToUpper() + " Completed", "Success");
                 }
                 this.createEmptyButton.Enabled = true;
             }
@@ -583,6 +658,29 @@ namespace DBConfig
                    "CONNECTION LIMIT = -1");
                     //rs = this.doesDBNmExst(dbnm);
                 }
+                else
+                {
+                    /*SELECT pg_terminate_backend(pg_stat_activity.pid)
+FROM pg_stat_activity
+WHERE pg_stat_activity.datname = 'TARGET_DB'
+  AND pid <> pg_backend_pid();*/
+                    this.executeGnrlSQL("SELECT pg_terminate_backend(pg_stat_activity.pid) " +
+                    "FROM pg_stat_activity " +
+                    "WHERE pg_stat_activity.datname = '" + dbnm.Replace("'", "''") + "';");
+                    System.Threading.Thread.Sleep(3000);
+                    this.executeGnrlSQL("DROP DATABASE " + dbnm + "");
+                    System.Threading.Thread.Sleep(2000);
+                    rs = this.doesDBNmExst(dbnm);
+                    if (!rs)
+                    {
+                        this.executeGnrlSQL("CREATE DATABASE " + dbnm + " " +
+                   "WITH OWNER = postgres " +
+                       "ENCODING = 'UTF8' " +
+                       "TABLESPACE = pg_default " +
+                       "CONNECTION LIMIT = -1");
+                        //rs = this.doesDBNmExst(dbnm);
+                    }
+                }
                 if (srcFile != dataSrcFile)
                 {
                     strSB.Append("pg_restore.exe --host " + this.myCon.Host + " " +
@@ -618,7 +716,7 @@ namespace DBConfig
                 }
                 while (!processDB.HasExited);
                 rs = this.doesDBNmExst(dbnm);
-                if (!rs)
+                if (rs)
                 {
                     this.createRqrdLOVs(this.restoreDBNmTextBox.Text);
                     MessageBox.Show("Restoration of Backup File to Database " + dbnm.ToUpper() + " Completed", "Success");
@@ -737,7 +835,7 @@ namespace DBConfig
                 this.groupBox2.Visible = true;
                 this.groupBox3.Visible = true;
                 this.groupBox5.Visible = true;
-                this.Height = 590;
+                this.Height = 600;
             }
         }
 
@@ -761,14 +859,19 @@ namespace DBConfig
             this.groupBox3.Visible = false;
             this.groupBox2.Visible = false;
             this.groupBox5.Visible = false;
-            this.hostTextBox.Text = "localhost";
+            this.readConnFile();
             this.dbaseTextBox.Text = "postgres";
-            this.portTextBox.Text = "5432";
-            this.unameTextBox.Text = "postgres";
-            this.statusLabel.Text = "Not Connected!";
-            this.statusLabel.BackColor = Color.Red;
-            this.emptyDBNmTextBox.Text = "live_database";
-            this.restoreDBNmTextBox.Text = "test_database";
+            if (this.hostTextBox.Text == "")
+            {
+                this.hostTextBox.Text = "localhost";
+                this.portTextBox.Text = "5432";
+                this.unameTextBox.Text = "postgres";
+                this.statusLabel.Text = "Not Connected!";
+                this.statusLabel.BackColor = Color.Red;
+                this.emptyDBNmTextBox.Text = "live_database";
+                this.restoreDBNmTextBox.Text = "test_database";
+            }
+            this.patchDBTextBox.Text = this.restoreDBNmTextBox.Text;
             this.myCon = new NpgsqlConnection();
             this.installPath = Application.StartupPath; //this.get64RegistryVal("InstallPath", this.AppName);
             if (CommonCode.CommonCodes.is64BitOperatingSystem == true)
@@ -793,6 +896,8 @@ namespace DBConfig
             {
                 this.pgDirTextBox.Text += @"\bin\";
             }
+            this.pwdTextBox.Focus();
+            this.pwdTextBox.SelectAll();
         }
 
         private void pwdTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -970,6 +1075,11 @@ namespace DBConfig
                 MessageBox.Show("Please indicate the Name of the Database!", "Error!");
                 return;
             }
+            if (this.modulesBaughtComboBox.Text == "")
+            {
+                MessageBox.Show("Please indicate the Modules to Activate!", "Error!");
+                return;
+            }
             this.do_connection_ptch();
             if (this.myCon.State == ConnectionState.Open)
             {
@@ -980,11 +1090,10 @@ namespace DBConfig
             }
 
             string[] dbPatchesDesc = { "1. No DB Patch Available. Database must be restored using this APP!" };
-            MessageBox.Show("This will make the ff Changes to the Database!\r\n\r\n" +
-              string.Join("\r\n", dbPatchesDesc), "Message");
+            /* MessageBox.Show("This will make the ff Changes to the Database!\r\n\r\n" +
+               string.Join("\r\n", dbPatchesDesc), "Message");*/
 
-            if (MessageBox.Show(
-         "Are you sure you want to proceed?", "Message!")
+            if (MessageBox.Show("Are you sure you want to proceed?", "Message!")
          == DialogResult.No)
             {
                 //MessageBox.Show("Operation cancelled!", "Error!");
@@ -1021,6 +1130,75 @@ namespace DBConfig
                          "', '" + this.getDB_Date_time() + "', '" + this.patchVrsnNm + "')";
                 this.executeGnrlDDLSQL(gnrlSQL);
             }
+            int lvid = cmnCde.getLovID("Security Keys");
+            string apKey = cmnCde.getEnbldPssblValDesc(
+              "AppKey", lvid);
+
+            if (apKey != "" && lvid > 0)
+            {
+                CommonCode.CommonCodes.AppKey = apKey;
+            }
+            else if (lvid <= 0)
+            {
+                apKey = "ROMeRRTRREMhbnsdGeneral KeyZzfor Rhomi|com Systems "
+        + "Tech. !Ltd Enterpise/Organization @763542ERPorbjkSOFTWARE"
+        + "asdbhi68103weuikTESTfjnsdfRSTLU../";
+                CommonCode.CommonCodes.AppKey = apKey;
+                cmnCde.createLovNm("Security Keys", "Security Keys", false, "", "SYS", true);
+                lvid = cmnCde.getLovID("Security Keys");
+                if (lvid > 0)
+                {
+                    cmnCde.createPssblValsForLov(lvid, "AppKey", apKey, true, cmnCde.get_all_OrgIDs());
+                }
+            }
+
+            lvid = cmnCde.getLovID("Rhomicom Software Licenses");
+            if (lvid > 0)
+            {
+                int pvalID = cmnCde.getEnbldPssblValID("Modules/Packages Needed", lvid);
+                if (pvalID <= 0)
+                {
+                    cmnCde.createPssblValsForLov(lvid, "Min User ID to Allow", cmnCde.encrypt1("1000000", CommonCode.CommonCodes.AppKey), true, cmnCde.get_all_OrgIDs());
+                }
+                else
+                {
+                    cmnCde.updatePssblValsForLov(pvalID, "Min User ID to Allow", cmnCde.encrypt1("1000000", CommonCode.CommonCodes.AppKey), true, cmnCde.get_all_OrgIDs());
+                }
+                CommonCode.CommonCodes.ModulesNeeded = this.modulesBaughtComboBox.Text;
+                pvalID = cmnCde.getEnbldPssblValID("Modules/Packages Needed", lvid);
+                if (pvalID <= 0)
+                {
+                    cmnCde.createPssblValsForLov(lvid, "Modules/Packages Needed", cmnCde.encrypt1(CommonCode.CommonCodes.ModulesNeeded, CommonCode.CommonCodes.AppKey), true, cmnCde.get_all_OrgIDs());
+                }
+                else
+                {
+                    cmnCde.updatePssblValsForLov(pvalID, "Modules/Packages Needed", cmnCde.encrypt1(CommonCode.CommonCodes.ModulesNeeded, CommonCode.CommonCodes.AppKey), true, cmnCde.get_all_OrgIDs());
+                }
+            }
+            else
+            {
+                cmnCde.createLovNm("Rhomicom Software Licenses", "Rhomicom Software Licenses", false, "", "SYS", true);
+                lvid = cmnCde.getLovID("Rhomicom Software Licenses");
+                int pvalID = cmnCde.getEnbldPssblValID("Modules/Packages Needed", lvid);
+                if (pvalID <= 0)
+                {
+                    cmnCde.createPssblValsForLov(lvid, "Min User ID to Allow", cmnCde.encrypt1("1000000", CommonCode.CommonCodes.AppKey), true, cmnCde.get_all_OrgIDs());
+                }
+                else
+                {
+                    cmnCde.updatePssblValsForLov(pvalID, "Min User ID to Allow", cmnCde.encrypt1("1000000", CommonCode.CommonCodes.AppKey), true, cmnCde.get_all_OrgIDs());
+                }
+                CommonCode.CommonCodes.ModulesNeeded = this.modulesBaughtComboBox.Text;
+                pvalID = cmnCde.getEnbldPssblValID("Modules/Packages Needed", lvid);
+                if (pvalID <= 0)
+                {
+                    cmnCde.createPssblValsForLov(lvid, "Modules/Packages Needed", cmnCde.encrypt1(CommonCode.CommonCodes.ModulesNeeded, CommonCode.CommonCodes.AppKey), true, cmnCde.get_all_OrgIDs());
+                }
+                else
+                {
+                    cmnCde.updatePssblValsForLov(pvalID, "Modules/Packages Needed", cmnCde.encrypt1(CommonCode.CommonCodes.ModulesNeeded, CommonCode.CommonCodes.AppKey), true, cmnCde.get_all_OrgIDs());
+                }
+            }
             this.waitLabel.Visible = false;
             MessageBox.Show("Patch Applied Successfully!", "Message!");
             this.dbPatchesButton.Enabled = true;
@@ -1037,7 +1215,31 @@ namespace DBConfig
             this.do_connection_ptch();
             if (this.myCon.State == ConnectionState.Open)
             {
-                MessageBox.Show(this.get_LastPatchVrsn(), "System Message!");
+                int lvid = cmnCde.getLovID("Security Keys");
+                string apKey = cmnCde.getEnbldPssblValDesc(
+                  "AppKey", lvid);
+
+                if (apKey != "" && lvid > 0)
+                {
+                    CommonCode.CommonCodes.AppKey = apKey;
+                }
+                else if (lvid <= 0)
+                {
+                    apKey = "ROMeRRTRREMhbnsdGeneral KeyZzfor Rhomi|com Systems "
+            + "Tech. !Ltd Enterpise/Organization @763542ERPorbjkSOFTWARE"
+            + "asdbhi68103weuikTESTfjnsdfRSTLU../";
+                    CommonCode.CommonCodes.AppKey = apKey;
+                    cmnCde.createLovNm("Security Keys", "Security Keys", false, "", "SYS", true);
+                    lvid = cmnCde.getLovID("Security Keys");
+                    if (lvid > 0)
+                    {
+                        cmnCde.createPssblValsForLov(lvid, "AppKey", apKey, true, cmnCde.get_all_OrgIDs());
+                    }
+                }
+
+                lvid = cmnCde.getLovID("Rhomicom Software Licenses");
+                String neededMdls = cmnCde.decrypt(cmnCde.getEnbldPssblValDesc("Modules/Packages Needed", lvid), CommonCode.CommonCodes.AppKey);
+                MessageBox.Show(this.get_LastPatchVrsn() + "\r\nModules Needed:" + neededMdls, "System Message!");
             }
         }
 
@@ -1247,6 +1449,22 @@ namespace DBConfig
             else if (mytxt.Name == "patchDBTextBox")
             {
                 this.patchDBTextBox.SelectAll();
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.timer1.Enabled = false;
+            string fileLoc = "";
+            fileLoc = @"DBInfo\ActiveDB.rho";
+            if (cmnCde.myComputer.FileSystem.FileExists(fileLoc))
+            {
+                this.pwdTextBox.Focus();
+                this.pwdTextBox.SelectAll();
+            }
+            else
+            {
+                this.loadDfltsButton.Focus();
             }
         }
     }

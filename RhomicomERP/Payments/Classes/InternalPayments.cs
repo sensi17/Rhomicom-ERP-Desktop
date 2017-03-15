@@ -135,7 +135,7 @@ namespace InternalPayments.Classes
 			//Put anything needed to start with here first
 			Global.myPay = this;
       //Global.mnFrm = (mainForm)this.mainInterface;
-			}
+        }
 
 		public void Dispose()
 			{

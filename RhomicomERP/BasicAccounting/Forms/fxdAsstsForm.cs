@@ -550,7 +550,7 @@ namespace Accounting.Forms
             int rwcnt = dtst.Tables[0].Rows.Count;
             for (int i = 0; i < rwcnt; i++)
             {
-                if (this.editRec == true && long.Parse(dtst.Tables[0].Rows[i][10].ToString()) > 0)
+                if ((this.editRec == true || this.addRec == true) && long.Parse(dtst.Tables[0].Rows[i][10].ToString()) > 0)
                 {
                     continue;
                 }

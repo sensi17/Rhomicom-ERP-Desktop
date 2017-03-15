@@ -21,7 +21,7 @@ namespace Enterprise_Management_System.Dialogs
 		#region "EVENT HANDLERS..."
 		private void chngPswdDiag_Load(object sender, EventArgs e)
 			{
-        System.Windows.Forms.Application.DoEvents();
+        //System.Windows.Forms.Application.DoEvents();
         Color[] clrs = Global.myNwMainFrm.cmnCdMn.getColors();
         this.BackColor = clrs[0];
         this.unameTextBox.Text = Global.myNwMainFrm.cmnCdMn.get_user_name(Global.usr_id);

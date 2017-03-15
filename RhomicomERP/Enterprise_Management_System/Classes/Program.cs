@@ -29,7 +29,8 @@ object sender, ThreadExceptionEventArgs e)
       // The exception object is contained in e.Exception.
       // e.Exception.GetType().ToString() + "\r\n" +
       MessageBox.Show(e.Exception.Message + "\r\n" + e.Exception.InnerException + "\r\n" + e.Exception.StackTrace/**/, 
-        "Rhomicom Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        "System Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
     }
+
   }
 }

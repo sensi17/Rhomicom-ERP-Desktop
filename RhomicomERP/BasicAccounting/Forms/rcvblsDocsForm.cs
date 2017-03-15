@@ -2504,7 +2504,7 @@ namespace Accounting.Forms
                     string smmryNm = Global.mnFrm.cmCde.getGnrlRecNm(
                       "scm.scm_tax_codes", "code_id", "code_name",
                       int.Parse(selVals[i]));
-                    this.createRcvblsDocRows(1, "3Discount", smmryNm, int.Parse(selVals[i]), -1,-1);
+                    this.createRcvblsDocRows(1, "3Discount", smmryNm, int.Parse(selVals[i]), -1, -1);
                 }
             }
         }
@@ -2538,7 +2538,7 @@ namespace Accounting.Forms
                     string smmryNm = Global.mnFrm.cmCde.getGnrlRecNm(
                       "scm.scm_tax_codes", "code_id", "code_name",
                       int.Parse(selVals[i]));
-                    this.createRcvblsDocRows(1, "4Extra Charge", smmryNm, int.Parse(selVals[i]), -1,-1);
+                    this.createRcvblsDocRows(1, "4Extra Charge", smmryNm, int.Parse(selVals[i]), -1, -1);
                 }
             }
         }
@@ -3077,7 +3077,7 @@ namespace Accounting.Forms
                 for (int i = 0; i < selVals.Length; i++)
                 {
                     string smmryNm = "Applied Prepayment";
-                    this.createRcvblsDocRows(1, "5Applied Prepayment", smmryNm, -1, long.Parse(selVals[i]),-1);
+                    this.createRcvblsDocRows(1, "5Applied Prepayment", smmryNm, -1, long.Parse(selVals[i]), -1);
                 }
             }
         }
@@ -3410,7 +3410,7 @@ namespace Accounting.Forms
                   smmryNm, grndAmnt, int.Parse(this.invcCurrIDTextBox.Text),
                   -1, srcDocType, true, "Increase",
                   -1, "Increase", -1, -1, "VALID", -1, -1,
-                  -1, 0, 0, 0, 0,-1);
+                  -1, 0, 0, 0, 0, -1);
             }
             else
             {
@@ -3418,7 +3418,7 @@ namespace Accounting.Forms
                   smmryNm, grndAmnt, int.Parse(this.invcCurrIDTextBox.Text),
                   -1, srcDocType, true, "Increase",
                   -1, "Increase", -1, -1, "VALID", -1, -1,
-                  -1, 0, 0, 0, 0,-1);
+                  -1, 0, 0, 0, 0, -1);
             }
 
             //7Total Payments Received
@@ -3434,7 +3434,7 @@ namespace Accounting.Forms
                   smmryNm, pymntsAmnt, int.Parse(this.invcCurrIDTextBox.Text),
                   -1, srcDocType, true, "Increase",
                   -1, "Increase", -1, -1, "VALID", -1, -1,
-                  -1, 0, 0, 0, 0,-1);
+                  -1, 0, 0, 0, 0, -1);
             }
             else
             {
@@ -3442,9 +3442,13 @@ namespace Accounting.Forms
                   smmryNm, pymntsAmnt, int.Parse(this.invcCurrIDTextBox.Text),
                   -1, srcDocType, true, "Increase",
                   -1, "Increase", -1, -1, "VALID", -1, -1,
-                  -1, 0, 0, 0, 0,-1);
+                  -1, 0, 0, 0, 0, -1);
             }
-
+            //MessageBox.Show(pymntsAmnt.ToString("#,##0.00") +"|"+ this.amntPaidTextBox.Text);
+            if (pymntsAmnt.ToString("#,##0.00") != this.amntPaidTextBox.Text)
+            {
+                Global.updtRcvblsHdrAmntPaid(srcDocID, pymntsAmnt);
+            }
             //7Total Payments Received
             smmryNm = "Outstanding Balance";
             smmryID = Global.getRcvblsSmmryItmID("8Outstanding Balance", -1,
@@ -3457,7 +3461,7 @@ namespace Accounting.Forms
                   smmryNm, outstndngAmnt, int.Parse(this.invcCurrIDTextBox.Text),
                   -1, srcDocType, true, "Increase",
                   -1, "Increase", -1, -1, "VALID", -1, -1,
-                  -1, 0, 0, 0, 0,-1);
+                  -1, 0, 0, 0, 0, -1);
             }
             else
             {
@@ -3465,7 +3469,7 @@ namespace Accounting.Forms
                   smmryNm, outstndngAmnt, int.Parse(this.invcCurrIDTextBox.Text),
                   -1, srcDocType, true, "Increase",
                   -1, "Increase", -1, -1, "VALID", -1, -1,
-                  -1, 0, 0, 0, 0,-1);
+                  -1, 0, 0, 0, 0, -1);
             }
             //if (long.Parse(this.srcDocIDTextBox.Text) > 0)
             //{
@@ -3474,265 +3478,6 @@ namespace Accounting.Forms
             //  this.reCalcSalesDocSmmrys(long.Parse(this.srcDocIDTextBox.Text), salesDoctype, srcDocID, srcDocType);
             //}
         }
-
-        // public void reCalcSalesDocSmmrys(long srcDocID, string srcDocType, long rcvblHdrID, string rcvblDoctype)
-        // {
-        //   DataSet dtst = Global.get_One_SalesDcLines(srcDocID);
-        //   double grndAmnt = Math.Round(Global.getSalesDocGrndAmnt(srcDocID), 2);
-        //   // Grand Total
-        //   string smmryNm = "Grand Total";
-        //   long smmryID = Global.getSalesSmmryItmID("5Grand Total", -1,
-        //     srcDocID, srcDocType);
-        //   if (smmryID <= 0)
-        //   {
-        //     Global.createSmmryItm("5Grand Total", smmryNm, grndAmnt, -1,
-        //       srcDocType, srcDocID, true);
-        //   }
-        //   else
-        //   {
-        //     Global.updateSmmryItm(smmryID, "5Grand Total", grndAmnt, true, smmryNm);
-        //   }
-
-        //   //Total Payments
-        //   double blsAmnt = 0;
-        //   double pymntsAmnt = 0;
-        //   long SIDocID = -1;
-        //   long.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_sales_invc_hdr",
-        //      "invc_hdr_id", "src_doc_hdr_id", srcDocID), out SIDocID);
-        //   string strSrcDocType = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_sales_invc_hdr",
-        //     "invc_hdr_id", "invc_type", SIDocID);
-
-        //   //long rcvblHdrID = Global.get_ScmRcvblsDocHdrID(srcDocID, srcDocType, Global.mnFrm.cmCde.Org_id);
-        //   //string rcvblDoctype = Global.mnFrm.cmCde.getGnrlRecNm("accb.accb_rcvbls_invc_hdr",
-        //   //  "rcvbls_invc_hdr_id", "rcvbls_invc_type", rcvblHdrID);
-
-        //   if (srcDocType == "Sales Invoice")
-        //   {
-
-        //     pymntsAmnt = Math.Round(Global.getRcvblsDocTtlPymnts(rcvblHdrID, rcvblDoctype), 2);
-        //     //pymntsAmnt = Global.getSalesDocRcvdPymnts(srcDocID, srcDocType);
-        //     smmryNm = "Total Payments Received";
-        //     smmryID = Global.getSalesSmmryItmID("6Total Payments Received", -1,
-        //       srcDocID, srcDocType);
-        //     if (smmryID <= 0)
-        //     {
-        //       Global.createSmmryItm("6Total Payments Received", smmryNm, pymntsAmnt, -1,
-        //         srcDocType, srcDocID, true);
-        //     }
-        //     else
-        //     {
-        //       Global.updateSmmryItm(smmryID, "6Total Payments Received", pymntsAmnt, true, smmryNm);
-        //     }
-        //   }
-        //   else if (srcDocType == "Sales Return" && strSrcDocType == "Sales Invoice")
-        //   {
-        //     pymntsAmnt = Math.Round(Global.getRcvblsDocTtlPymnts(rcvblHdrID, rcvblDoctype), 2);
-        //     //pymntsAmnt = Global.getSalesDocRcvdPymnts(srcDocID, srcDocType);
-        //     smmryNm = "Total Amount Refunded";
-        //     smmryID = Global.getSalesSmmryItmID("6Total Payments Received", -1,
-        //       srcDocID, srcDocType);
-        //     if (smmryID <= 0)
-        //     {
-        //       Global.createSmmryItm("6Total Payments Received", smmryNm, pymntsAmnt, -1,
-        //         srcDocType, srcDocID, true);
-        //     }
-        //     else
-        //     {
-        //       Global.updateSmmryItm(smmryID, "6Total Payments Received", pymntsAmnt, true, smmryNm);
-        //     }
-        //   }
-        //   int codeCntr = 0;
-        //   //Tax Codes
-        //   double txAmnts = 0;
-        //   double dscntAmnts = 0;
-        //   double extrChrgAmnts = 0;
-        //   string txSmmryNm = "";
-        //   string dscntSmmryNm = "";
-        //   string chrgSmmryNm = "";
-        //   for (int i = 0; i < dtst.Tables[0].Rows.Count; i++)
-        //   {
-        //     int txID = int.Parse(dtst.Tables[0].Rows[i][9].ToString());
-        //     int dscntID = int.Parse(dtst.Tables[0].Rows[i][10].ToString());
-        //     int chrgID = int.Parse(dtst.Tables[0].Rows[i][11].ToString());
-        //     double unitAmnt = double.Parse(dtst.Tables[0].Rows[i][14].ToString());
-        //     double qnty = double.Parse(dtst.Tables[0].Rows[i][2].ToString());
-        //     string tmp = "";
-        //     double snglDscnt = 0;
-        //     if (dscntID > 0)
-        //     {
-        //       snglDscnt = Math.Round(Global.getSalesDocCodesAmnt(dscntID, unitAmnt, 1), 2);
-        //       dscntAmnts += Math.Round(Global.getSalesDocCodesAmnt(dscntID, unitAmnt, qnty), 2);
-        //       tmp = Global.mnFrm.cmCde.getGnrlRecNm(
-        //  "scm.scm_tax_codes", "code_id", "code_name", dscntID);
-        //       if (!dscntSmmryNm.Contains(tmp))
-        //       {
-        //         dscntSmmryNm += tmp + " + ";
-        //       }
-        //       codeCntr++;
-        //     }
-
-        //     if (txID > 0)
-        //     {
-        //       txAmnts += Math.Round(Global.getSalesDocCodesAmnt(txID, unitAmnt - snglDscnt, qnty), 2);
-        //       tmp = Global.mnFrm.cmCde.getGnrlRecNm(
-        //   "scm.scm_tax_codes", "code_id", "code_name", txID);
-        //       if (!txSmmryNm.Contains(tmp))
-        //       {
-        //         txSmmryNm += tmp + " + ";
-        //       }
-        //       codeCntr++;
-        //     }
-
-        //     if (chrgID > 0)
-        //     {
-        //       extrChrgAmnts += Math.Round(Global.getSalesDocCodesAmnt(chrgID, unitAmnt, qnty), 2);
-        //       tmp = Global.mnFrm.cmCde.getGnrlRecNm(
-        //  "scm.scm_tax_codes", "code_id", "code_name", chrgID);
-        //       if (!chrgSmmryNm.Contains(tmp))
-        //       {
-        //         chrgSmmryNm += tmp + " + ";
-        //       }
-        //       codeCntr++;
-        //     }
-        //   }
-        //   char[] trm = { '+' };
-        //   txSmmryNm = txSmmryNm.Trim().Trim(trm).Trim();
-        //   dscntSmmryNm = dscntSmmryNm.Trim().Trim(trm).Trim();
-        //   chrgSmmryNm = chrgSmmryNm.Trim().Trim(trm).Trim();
-
-        //   smmryID = Global.getSalesSmmryItmID("2Tax", -1,
-        //srcDocID, srcDocType);
-        //   if (smmryID <= 0 && txAmnts > 0)
-        //   {
-        //     Global.createSmmryItm("2Tax", txSmmryNm, txAmnts, -1,
-        //       srcDocType, srcDocID, true);
-        //   }
-        //   else if (txAmnts > 0)
-        //   {
-        //     Global.updateSmmryItm(smmryID, "2Tax", txAmnts, true, txSmmryNm);
-        //   }
-        //   else if (txAmnts <= 0)
-        //   {
-        //     Global.deleteSalesSmmryItm(srcDocID, srcDocType, "2Tax");
-        //   }
-
-        //   smmryID = Global.getSalesSmmryItmID("3Discount", -1,
-        //srcDocID, srcDocType);
-        //   if (smmryID <= 0 && dscntAmnts > 0)
-        //   {
-        //     Global.createSmmryItm("3Discount", dscntSmmryNm, dscntAmnts, -1,
-        //       srcDocType, srcDocID, true);
-        //   }
-        //   else if (dscntAmnts > 0)
-        //   {
-        //     Global.updateSmmryItm(smmryID, "3Discount", dscntAmnts, true, dscntSmmryNm);
-        //   }
-        //   else if (dscntAmnts <= 0)
-        //   {
-        //     Global.deleteSalesSmmryItm(srcDocID, srcDocType, "3Discount");
-        //   }
-        //   smmryID = Global.getSalesSmmryItmID("4Extra Charge", -1,
-        //srcDocID, srcDocType);
-        //   if (smmryID <= 0 && extrChrgAmnts > 0)
-        //   {
-        //     Global.createSmmryItm("4Extra Charge", chrgSmmryNm, extrChrgAmnts, -1,
-        //       srcDocType, srcDocID, true);
-        //   }
-        //   else if (extrChrgAmnts > 0)
-        //   {
-        //     Global.updateSmmryItm(smmryID, "4Extra Charge", extrChrgAmnts, true, chrgSmmryNm);
-        //   }
-        //   else if (extrChrgAmnts <= 0)
-        //   {
-        //     Global.deleteSalesSmmryItm(srcDocID, srcDocType, "4Extra Charge");
-        //   }
-        //   //Initial Amount
-        //   double initAmnt = 0;
-        //   if (txAmnts <= 0 && dscntAmnts <= 0 && extrChrgAmnts <= 0)
-        //   {
-        //     Global.deleteSalesSmmryItm(srcDocID, srcDocType, "1Initial Amount");
-        //   }
-        //   else if (codeCntr > 0)
-        //   {
-        //     smmryNm = "Initial Amount";
-        //     smmryID = Global.getSalesSmmryItmID("1Initial Amount", -1,
-        //       srcDocID, srcDocType);
-        //     initAmnt = grndAmnt;// Math.Round(Global.getSalesDocBscAmnt(srcDocID, srcDocType), 2);
-        //     if (smmryID <= 0)
-        //     {
-        //       Global.createSmmryItm("1Initial Amount", smmryNm, initAmnt, -1,
-        //         srcDocType, srcDocID, true);
-        //     }
-        //     else
-        //     {
-        //       Global.updateSmmryItm(smmryID, "1Initial Amount", initAmnt, true, smmryNm);
-        //     }
-        //   }
-
-        //   // Grand Total
-        //   grndAmnt = Math.Round(grndAmnt + txAmnts + extrChrgAmnts - dscntAmnts, 2);
-        //   smmryNm = "Grand Total";
-        //   smmryID = Global.getSalesSmmryItmID("5Grand Total", -1,
-        //     srcDocID, srcDocType);
-        //   if (smmryID <= 0)
-        //   {
-        //     Global.createSmmryItm("5Grand Total", smmryNm, grndAmnt, -1,
-        //       srcDocType, srcDocID, true);
-        //   }
-        //   else
-        //   {
-        //     Global.updateSmmryItm(smmryID, "5Grand Total", grndAmnt, true, smmryNm);
-        //   }
-        //   //Total Payments     
-        //   if (srcDocType == "Sales Invoice")
-        //   {
-        //     //Change Given/Outstanding Balance
-        //     blsAmnt = Math.Round(grndAmnt - pymntsAmnt, 2);
-        //     if (blsAmnt < 0)
-        //     {
-        //       smmryNm = "Change Given to Customer";
-        //     }
-        //     else
-        //     {
-        //       smmryNm = "Outstanding Balance";
-        //     }
-        //     smmryID = Global.getSalesSmmryItmID("7Change/Balance", -1,
-        //       srcDocID, srcDocType);
-        //     if (smmryID <= 0)
-        //     {
-        //       Global.createSmmryItm("7Change/Balance", smmryNm, blsAmnt, -1,
-        //         srcDocType, srcDocID, true);
-        //     }
-        //     else
-        //     {
-        //       Global.updateSmmryItm(smmryID, "7Change/Balance", blsAmnt, true, smmryNm);
-        //     }
-        //   }
-        //   else if (srcDocType == "Sales Return" && strSrcDocType == "Sales Invoice")
-        //   {
-        //     //Change Given/Outstanding Balance
-        //     blsAmnt = Math.Round(grndAmnt - pymntsAmnt, 2);
-        //     if (blsAmnt < 0)
-        //     {
-        //       smmryNm = "Change Received from Customer";
-        //     }
-        //     else
-        //     {
-        //       smmryNm = "Outstanding Balance";
-        //     }
-        //     smmryID = Global.getSalesSmmryItmID("7Change/Balance", -1,
-        //       srcDocID, srcDocType);
-        //     if (smmryID <= 0)
-        //     {
-        //       Global.createSmmryItm("7Change/Balance", smmryNm, blsAmnt, -1,
-        //         srcDocType, srcDocID, true);
-        //     }
-        //     else
-        //     {
-        //       Global.updateSmmryItm(smmryID, "7Change/Balance", blsAmnt, true, smmryNm);
-        //     }
-        //   }
-        // }
 
         public bool validateLns(long docHdrID, string docType)
         {
@@ -4423,6 +4168,11 @@ namespace Accounting.Forms
             this.calcSmryButton_Click(this.calcSmryButton, e);
             this.populateDet(long.Parse(this.docIDTextBox.Text));
             this.populateLines(long.Parse(this.docIDTextBox.Text), this.docTypeComboBox.Text);
+
+            if (createPrepay)
+            {
+                this.rfrshButton.PerformClick();
+            }
         }
 
         private void pymntHstryButton_Click(object sender, EventArgs e)
@@ -5179,7 +4929,63 @@ namespace Accounting.Forms
             }
             offsetY = hgstOffst;
             offsetY += font2Hght + 5;
-            //offsetY += font2Hght;
+            //  //offsetY += font2Hght;
+            //  if (this.pymntTermsTextBox.Text != "")
+            //  {
+            //      if (offsetY >= pageHeight - 30)
+            //      {
+            //          e.HasMorePages = true;
+            //          offsetY = 0;
+            //          this.pageNo++;
+            //          return;
+            //      }
+            //      g.DrawLine(aPen, startX, startY + offsetY, startX + lnLength,
+            //  startY + offsetY);
+            //      g.DrawString("TERMS", font2, Brushes.Black, startX, startY + offsetY);
+            //      g.DrawLine(aPen, startX, startY + offsetY, startX,
+            //startY + offsetY + font2Hght);
+            //      g.DrawLine(aPen, startX + lnLength, startY + offsetY, startX + lnLength,
+            //startY + offsetY + font2Hght);
+            //      offsetY += font2Hght;
+            //      g.DrawLine(aPen, startX, startY + offsetY, startX + lnLength,
+            //startY + offsetY);
+
+            //      float trmHgth = 0;
+            //      nwLn = Global.mnFrm.cmCde.breakTxtDown(
+            //    this.pymntTermsTextBox.Text,
+            //    startX + pageWidth - 150, font3, g);
+            //      orgOffstY = offsetY;
+            //      offsetY += 5;
+            //      for (int i = 0; i < nwLn.Length; i++)
+            //      {
+            //          //if (i == 0)
+            //          //{
+            //          //}
+            //          g.DrawString(nwLn[i]
+            //          , font3, Brushes.Black, startX, startY + offsetY);
+            //          trmHgth += g.MeasureString(nwLn[i], font3).Height + 5;
+            //          offsetY += font3Hght;
+            //          if (hgstOffst <= offsetY)
+            //          {
+            //              hgstOffst = offsetY;
+            //          }
+            //          if (i == nwLn.Length - 1)
+            //          {
+            //              g.DrawLine(aPen, startX, startY + orgOffstY, startX,
+            //    startY + orgOffstY + trmHgth);
+            //              g.DrawLine(aPen, startX + lnLength, startY + orgOffstY, startX + lnLength,
+            //    startY + orgOffstY + trmHgth);
+            //              g.DrawLine(aPen, startX, startY + orgOffstY + trmHgth, startX + lnLength,
+            //    startY + orgOffstY + trmHgth);
+            //          }
+            //      }
+            //  }
+            //  //offsetY += font4Hght;
+            //  if (this.pymntTermsTextBox.Text != "")
+            //  {
+            //      offsetY = hgstOffst;
+            //      offsetY += font2Hght + 5;
+            //  }
             if (this.pymntTermsTextBox.Text != "")
             {
                 if (offsetY >= pageHeight - 30)
@@ -5201,7 +5007,7 @@ namespace Accounting.Forms
           startY + offsetY);
 
                 float trmHgth = 0;
-                nwLn = Global.mnFrm.cmCde.breakTxtDown(
+                nwLn = Global.mnFrm.cmCde.breakTxtDownML(
               this.pymntTermsTextBox.Text,
               startX + pageWidth - 150, font3, g);
                 orgOffstY = offsetY;
@@ -5213,7 +5019,7 @@ namespace Accounting.Forms
                     //}
                     g.DrawString(nwLn[i]
                     , font3, Brushes.Black, startX, startY + offsetY);
-                    trmHgth += g.MeasureString(nwLn[i], font3).Height + 5;
+                    trmHgth += g.MeasureString(nwLn[i], font3).Height + 0.0F;
                     offsetY += font3Hght;
                     if (hgstOffst <= offsetY)
                     {
@@ -5221,6 +5027,7 @@ namespace Accounting.Forms
                     }
                     if (i == nwLn.Length - 1)
                     {
+                        trmHgth += 5;
                         g.DrawLine(aPen, startX, startY + orgOffstY, startX,
               startY + orgOffstY + trmHgth);
                         g.DrawLine(aPen, startX + lnLength, startY + orgOffstY, startX + lnLength,
@@ -5235,6 +5042,7 @@ namespace Accounting.Forms
             {
                 offsetY = hgstOffst;
                 offsetY += font2Hght + 5;
+                offsetY += 40;
             }
             //offsetY += font2Hght;
             string sgntryCols = Global.getDocSgntryCols("Invoices Signatories");
@@ -5460,6 +5268,39 @@ namespace Accounting.Forms
             //Global.mnFrm.cmCde.showSQLNoPermsn(reportName + "\r\n" + paramRepsNVals);
             Global.mnFrm.cmCde.showRptParamsDiag(Global.mnFrm.cmCde.getRptID(reportName), Global.mnFrm.cmCde, paramRepsNVals, reportTitle);
 
+        }
+
+        private void pymntTermsButton_Click(object sender, EventArgs e)
+        {
+            string txtStr = this.pymntTermsTextBox.Text;
+            if (this.editRec || this.addRec)
+            {
+                Global.mnFrm.cmCde.showTxtNoPermsn(ref txtStr);
+                this.pymntTermsTextBox.Text = txtStr;
+            }
+            else
+            {
+                Global.mnFrm.cmCde.showSQLNoPermsn(txtStr);
+            }
+        }
+
+        private void openBatchButton_Click(object sender, EventArgs e)
+        {
+            if (this.glBatchNmTextBox.Text == "")
+            {
+                Global.mnFrm.cmCde.showMsg("Please select a Transaction Batch First!", 0);
+                return;
+            }
+            string btchN = this.glBatchNmTextBox.Text;
+            Global.mnFrm.searchForTrnsTextBox.Text = btchN;
+            Global.mnFrm.searchInTrnsComboBox.SelectedItem = "Batch Name";
+            Global.mnFrm.loadCorrectPanel("Journal Entries");
+            Global.mnFrm.showUnpostedCheckBox.Checked = false;
+            if (Global.mnFrm.shwMyBatchesCheckBox.Enabled == true)
+            {
+                Global.mnFrm.shwMyBatchesCheckBox.Checked = false;
+            }
+            Global.mnFrm.rfrshTrnsButton.PerformClick();
         }
     }
 }

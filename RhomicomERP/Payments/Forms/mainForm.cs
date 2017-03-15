@@ -24,6 +24,7 @@ namespace InternalPayments.Forms
     {
         #region "GLOBAL VARIABLES..."
         public CommonCode.CommonCodes cmCde = new CommonCode.CommonCodes();
+        public CommonCode.CommonCodes cmCde1 = new CommonCode.CommonCodes();
         cadmaFunctions.NavFuncs myNav = new cadmaFunctions.NavFuncs();
         cadmaFunctions.NavFuncs myNav1 = new cadmaFunctions.NavFuncs();
         //public NpgsqlConnection gnrlSQLConn = new NpgsqlConnection();
@@ -242,6 +243,23 @@ namespace InternalPayments.Forms
             Global.mnFrm.cmCde.Org_id = this.Og_id;
             this.hideAllPanels();
             Global.refreshRqrdVrbls();
+
+            Global3.myInv.Initialize();
+            Global3.mnFrm = this;
+            //Global.mnFrm.cmCde.pgSqlConn = this.gnrlSQLConn;
+            Global3.mnFrm.cmCde1.Login_number = this.lgn_num;
+            Global3.mnFrm.cmCde1.Role_Set_IDs = this.role_st_id;
+            Global3.mnFrm.cmCde1.User_id = this.usr_id;
+            Global3.mnFrm.cmCde1.Org_id = this.Og_id;
+            Global3.refreshRqrdVrbls();
+
+            this.storeIDTextBox.Text = Global3.getUserStoreID().ToString();
+            Global3.selectedStoreID = int.Parse(this.storeIDTextBox.Text);
+
+            this.storeNmTextBox.Text = Global.mnFrm.cmCde.getGnrlRecNm(
+              "inv.inv_itm_subinventories", "subinv_id", "subinv_name",
+              long.Parse(this.storeIDTextBox.Text));
+
             System.Windows.Forms.Application.DoEvents();
             Color[] clrs = Global.mnFrm.cmCde.getColors();
             this.BackColor = clrs[0];
@@ -1126,7 +1144,7 @@ namespace InternalPayments.Forms
             if (this.prsNamesListView.SelectedItems.Count > 0)
             {
                 nwDiag.locIDTextBox.Text = this.prsNamesListView.SelectedItems[0].SubItems[1].Text;
-                nwDiag.grpComboBox.SelectedItem = "Currently Selected Person";
+                nwDiag.grpComboBox.SelectedItem = "Single Person";
             }
 
             nwDiag.msPyItmStIDTextBox.Text = this.itmStIDMnlTextBox.Text;
@@ -6801,7 +6819,6 @@ namespace InternalPayments.Forms
                 }
                 else
                 {
-
                     //Loop through all items to pay them for this person only
                     outstandgAdvcAmnt = (decimal)Global.getBlsItmLtstDailyBals(advBlsItmID,
                             long.Parse(prsDtSt.Tables[0].Rows[i][0].ToString()), trDte);
@@ -8018,11 +8035,11 @@ namespace InternalPayments.Forms
                 Global.mnFrm.cmCde.showMsg("Please enter a Mass Pay Run GL Date!", 0);
                 return;
             }
-            //if (this.msPyPrsStIDTextBox.Text == "" || this.msPyPrsStIDTextBox.Text == "-1")
-            //{
-            //  Global.mnFrm.cmCde.showMsg("Please select a Mass Pay Person Set!", 0);
-            //  return;
-            //}
+            if (Global.get_MsPyInvoiceID(long.Parse(this.msPyIDTextBox.Text)) > 0)
+            {
+                Global.mnFrm.cmCde.showMsg("Cannot Roll Back a Pay Run that was Generated from Sales!\r\nCancel the Source Sales Document Instead!", 0);
+                return;
+            }
             if (this.msPyItmStIDTextBox.Text == "" || this.msPyItmStIDTextBox.Text == "-1")
             {
                 Global.mnFrm.cmCde.showMsg("Please select a Mass Pay Item Set!", 0);
@@ -10048,6 +10065,13 @@ namespace InternalPayments.Forms
                 }
                 this.blsAccntComboBox.SelectedItem = dtst.Tables[0].Rows[i][15].ToString();
 
+                if (this.edititm == false && this.additm == false)
+                {
+                    this.effectOnOrgDebtComboBox.Items.Clear();
+                    this.effectOnOrgDebtComboBox.Items.Add(dtst.Tables[0].Rows[i][22].ToString());
+                }
+                this.effectOnOrgDebtComboBox.SelectedItem = dtst.Tables[0].Rows[i][22].ToString();
+
                 this.costAcntIDTextBox.Text = dtst.Tables[0].Rows[i][7].ToString();
                 this.costAcntNmTextBox.Text = Global.mnFrm.cmCde.getAccntNum(int.Parse(dtst.Tables[0].Rows[i][7].ToString())) +
                     "." + Global.mnFrm.cmCde.getAccntName(int.Parse(dtst.Tables[0].Rows[i][7].ToString()));
@@ -10106,7 +10130,7 @@ namespace InternalPayments.Forms
             this.costAccntComboBox.Items.Clear();
             this.blsAccntComboBox.Items.Clear();
             this.balsTypComboBox.Items.Clear();
-
+            this.effectOnOrgDebtComboBox.Items.Clear();
             this.salesItemIDTextBox.Text = "-1";
             this.salesItemTextBox.Text = "";
 
@@ -10225,7 +10249,15 @@ namespace InternalPayments.Forms
             {
                 this.blsAccntComboBox.SelectedItem = selItm;
             }
-
+            selItm = this.effectOnOrgDebtComboBox.Text;
+            this.effectOnOrgDebtComboBox.Items.Clear();
+            this.effectOnOrgDebtComboBox.Items.Add("Increase");
+            this.effectOnOrgDebtComboBox.Items.Add("Decrease");
+            this.effectOnOrgDebtComboBox.Items.Add("None");
+            if (this.edititm == true)
+            {
+                this.effectOnOrgDebtComboBox.SelectedItem = selItm;
+            }
             selItm = this.balsTypComboBox.Text;
             this.balsTypComboBox.Items.Clear();
             this.balsTypComboBox.Items.Add("");
@@ -10548,6 +10580,11 @@ namespace InternalPayments.Forms
                 Global.mnFrm.cmCde.showMsg("Cannot Provide Feed Items for a Balance Item whose \r\nBalance is Generated Dynamically!", 0);
                 return;
             }
+            if (this.effectOnOrgDebtComboBox.Text == "")
+            {
+                Global.mnFrm.cmCde.showMsg("Effect on Person's Organisational Debt Cannot be Empty!", 0);
+                return;
+            }
             if ((this.itmMajTypComboBox.Text == "Balance Item"
               || this.itmMajTypComboBox.Text == "") &&
               (long.Parse(this.retroIDTextBox.Text) > 0 ||
@@ -10566,7 +10603,7 @@ namespace InternalPayments.Forms
                     (double)this.priorityNumUpDown.Value, this.costAccntComboBox.Text,
                     this.blsAccntComboBox.Text, this.balsTypComboBox.Text, itmMnTypID,
                     this.isRetroCheckBox.Checked, int.Parse(this.retroIDTextBox.Text),
-                    int.Parse(this.salesItemIDTextBox.Text), this.allwEditCheckBox.Checked, this.createsAccntngCheckBox.Checked);
+                    int.Parse(this.salesItemIDTextBox.Text), this.allwEditCheckBox.Checked, this.createsAccntngCheckBox.Checked, this.effectOnOrgDebtComboBox.Text);
 
                 if (this.itmMajTypComboBox.Text == "Balance Item")
                 {
@@ -10639,7 +10676,7 @@ namespace InternalPayments.Forms
                     , this.freqComboBox.Text, this.locClassTextBox.Text, (double)this.priorityNumUpDown.Value,
                     this.costAccntComboBox.Text, this.blsAccntComboBox.Text, this.balsTypComboBox.Text, itmMnTypID,
                     this.isRetroCheckBox.Checked, int.Parse(this.retroIDTextBox.Text),
-                    int.Parse(this.salesItemIDTextBox.Text), this.allwEditCheckBox.Checked, this.createsAccntngCheckBox.Checked);
+                    int.Parse(this.salesItemIDTextBox.Text), this.allwEditCheckBox.Checked, this.createsAccntngCheckBox.Checked, this.effectOnOrgDebtComboBox.Text);
 
                 if (this.itemListView.SelectedItems.Count > 0)
                 {
@@ -17000,6 +17037,103 @@ Are you sure you want to VOID/DELETE Concerned GL Transactions?", 1)
             string reportTitle = "Pay Slip";
             string paramRepsNVals = "{:fromDate}~" + trnsDate + "|{:orgID}~" + Global.mnFrm.cmCde.Org_id + "|{:toDate}~" + trnsDate + "|{:documentTitle}~" + reportTitle;
             Global.mnFrm.cmCde.showRptParamsDiag(Global.mnFrm.cmCde.getRptID(reportName), Global.mnFrm.cmCde, paramRepsNVals, reportTitle);
+        }
+
+        private void payeTaxRatesButton_Click(object sender, EventArgs e)
+        {
+            payeRatesDiag nwDiag = new payeRatesDiag();
+            if (nwDiag.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+        }
+
+        private void newInvoiceButton_Click(object sender, EventArgs e)
+        {
+            /*if (Global.mnFrm.cmCde.test_prmssns(Global.dfltPrvldgs[9]) == false)
+            {
+                Global.mnFrm.cmCde.showMsg("You don't have permission to perform" +
+                  " this action!\nContact your System Administrator!", 0);
+                return;
+            }*/
+            //Global3.refreshRqrdVrbls();
+            invoiceForm nwDiag = new invoiceForm();
+            long ctmrID = -1;
+            if (this.prsNamesListView.SelectedItems.Count > 0)
+            {
+                ctmrID = this.checkNCreateCstmr(long.Parse(this.prsNamesListView.SelectedItems[0].SubItems[3].Text));
+                nwDiag.inputCstmrID = ctmrID;
+                nwDiag.inputItemSetNm = this.itmStNmMnlTextBox.Text;
+                nwDiag.Show();
+            }
+            else
+            {
+                Global.mnFrm.cmCde.showMsg("Please select a Person First!", 0);
+                return;
+            }
+        }
+
+        private long checkNCreateCstmr(long prsnID)
+        {
+            long cstmrID = -1;
+            long.TryParse(Global.mnFrm.cmCde.getGnrlRecNm(
+      "scm.scm_cstmr_suplr", "lnkd_prsn_id", "cust_sup_id",
+      prsnID), out cstmrID);
+            if (cstmrID <= 0)
+            {
+                DataSet prsDtst = Global3.get_PrsnCstmrDet(prsnID);
+                if (prsDtst.Tables[0].Rows.Count > 0)
+                {
+                    string fllnm = prsDtst.Tables[0].Rows[0][0].ToString();
+                    string gndr = prsDtst.Tables[0].Rows[0][1].ToString();
+
+                    string dob = prsDtst.Tables[0].Rows[0][2].ToString();
+
+                    string telNos = prsDtst.Tables[0].Rows[0][3].ToString();
+                    string eml = prsDtst.Tables[0].Rows[0][4].ToString();
+                    string siteNm = "OFFICE";// Global.mnFrm.cmCde.getOrgName(Global.mnFrm.cmCde.Org_id);
+                    string bllng = prsDtst.Tables[0].Rows[0][5].ToString();
+                    string shpAdrs = prsDtst.Tables[0].Rows[0][6].ToString();
+
+                    string ntnlty = prsDtst.Tables[0].Rows[0][7].ToString();
+
+                    Global3.createCstSplrRec(Global.mnFrm.cmCde.Org_id, fllnm, fllnm, "Customer", "Individual",
+                      Global3.get_DfltSalesLbltyAcnt(Global.mnFrm.cmCde.Org_id),
+                      Global3.get_DfltRcvblAcnt(Global.mnFrm.cmCde.Org_id), prsnID, gndr, dob, true, "",
+                      "", "", "", "", "", "", "", 0, "", "");
+                    long.TryParse(Global3.mnFrm.cmCde1.getGnrlRecNm(
+          "scm.scm_cstmr_suplr", "lnkd_prsn_id", "cust_sup_id",
+          prsnID), out cstmrID);
+                    if (cstmrID > 0)
+                    {
+                        Global3.createCstSplrSiteRec(cstmrID, siteNm, siteNm, fllnm, telNos,
+                          eml, "", "", "", bllng, shpAdrs, -1,
+                          -1, "", ntnlty, "", "", "", "", "", true, "", -1);
+                    }
+                }
+            }
+            return cstmrID;
+        }
+
+        private void storeButton_Click(object sender, EventArgs e)
+        {
+            string[] selVals = new string[1];
+            selVals[0] = this.storeIDTextBox.Text;
+            DialogResult dgRes = Global3.mnFrm.cmCde.showPssblValDiag(
+                Global3.mnFrm.cmCde.getLovID("Users' Sales Stores"), ref selVals,
+                true, false, Global3.mnFrm.cmCde.Org_id,
+                Global3.myInv.user_id.ToString(), "");
+            if (dgRes == DialogResult.OK)
+            {
+                for (int i = 0; i < selVals.Length; i++)
+                {
+                    this.storeIDTextBox.Text = selVals[i];
+                    this.storeNmTextBox.Text = Global3.mnFrm.cmCde.getGnrlRecNm(
+                      "inv.inv_itm_subinventories", "subinv_id", "subinv_name",
+                      long.Parse(selVals[i]));
+                    Global3.selectedStoreID = int.Parse(selVals[i]);
+                }
+            }
         }
     }
 }

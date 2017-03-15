@@ -1622,6 +1622,11 @@ namespace Accounting.Forms
             {
                 Global.mnFrm.cmCde.listViewKeyDown(this.accntStmntListView, e);
             }
+
+            for (int i = 0; i < this.accntStmntListView.SelectedItems.Count; i++)
+            {
+                this.accntStmntListView.SelectedItems[i].Checked = true;
+            }
         }
 
         private void accntStmntTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -1716,10 +1721,28 @@ namespace Accounting.Forms
                 if (e.Item.Checked)
                 {
                     e.Item.Checked = false;
+                    e.Item.UseItemStyleForSubItems = true;
+                    e.Item.ForeColor = Color.Black;
+                    if (e.Item.SubItems[17].Text == "VOID"
+                  || e.Item.SubItems[18].Text != "-1")
+                    {
+                        e.Item.BackColor = Color.Red;
+                    }
+                    else if (e.Item.SubItems[11].Text == "1")
+                    {
+                        e.Item.BackColor = Color.Lime;
+                    }
+                    else
+                    {
+                        e.Item.BackColor = Color.LightPink;
+                    }
                 }
                 else
                 {
                     e.Item.Checked = true;
+                    e.Item.UseItemStyleForSubItems = true;
+                    e.Item.BackColor = Color.CornflowerBlue;
+                    e.Item.ForeColor = Color.White;
                 }
             }
         }
@@ -1744,7 +1767,6 @@ namespace Accounting.Forms
         {
             int curAccntID = int.Parse(this.acctIDStmntTextBox.Text);
             string accntNum1 = Global.mnFrm.cmCde.getAccntNum(curAccntID);
-            //        int accntID = Global.mnFrm.cmCde.getAccntID(accntNum, Global.mnFrm.cmCde.Org_id);
 
             if (curAccntID <= 0)
             {
@@ -1752,7 +1774,6 @@ namespace Accounting.Forms
                 return;
             }
             int destAccntID = -1;
-
             string[] selVals = new string[1];
             selVals[0] = destAccntID.ToString();
             DialogResult dgRes = Global.mnFrm.cmCde.showPssblValDiag(
@@ -1779,6 +1800,15 @@ namespace Accounting.Forms
             this.statusLoadLabel.Visible = true;
             this.statusLoadPictureBox.Visible = true;
             System.Windows.Forms.Application.DoEvents();
+
+            this.batchid = Global.getBatchID(this.batchNameTextBox.Text, Global.mnFrm.cmCde.Org_id);
+            if (this.batchid > 0)
+            {
+                if (Global.mnFrm.cmCde.getGnrlRecNm("accb.accb_trnsctn_batches", "batch_id", "batch_status", this.batchid) == "1")
+                {
+                    this.resetRcnclButton_Click(this.resetRcnclButton, e);
+                }
+            }
             //Call createTrnsTmp passing onto it values from the Checked List View Items
             for (int i = 0; i < this.accntStmntListView.CheckedItems.Count;)
             {

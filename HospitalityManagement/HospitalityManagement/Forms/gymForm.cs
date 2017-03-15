@@ -208,13 +208,7 @@ namespace HospitalityManagement.Forms
 
                 this.srvcTypeIDTextBox.Text = dtst.Tables[0].Rows[i][6].ToString();
                 this.srvcTypeTextBox.Text = dtst.Tables[0].Rows[i][7].ToString();
-                //this.tblIDTextBox.Text = dtst.Tables[0].Rows[i][8].ToString();
-                //this.tblNumTextBox.Text = dtst.Tables[0].Rows[i][9].ToString();
-
-                //this.roomIDTextBox.Text = dtst.Tables[0].Rows[i][8].ToString();
-                //this.roomNumTextBox.Text = dtst.Tables[0].Rows[i][9].ToString();
-
-                //this.prsnsSeatedNumUpDown.Value = decimal.Parse(dtst.Tables[0].Rows[i][10].ToString());
+                this.pymntTermsTextBox.Text = dtst.Tables[0].Rows[i][34].ToString();
 
                 this.createdByTextBox.Text = Global.mnFrm.cmCde.get_user_name(
                   long.Parse(dtst.Tables[0].Rows[i][19].ToString())).ToUpper();
@@ -380,7 +374,7 @@ namespace HospitalityManagement.Forms
             this.srvcTypeTextBox.Text = "";
             this.chckInIDTextBox.Text = "-1";
             this.chckInNumTextBox.Text = "";
-
+            this.pymntTermsTextBox.Text = "";
             //this.tblIDTextBox.Text = "-1";
             //this.tblNumTextBox.Text = "";
 
@@ -429,6 +423,9 @@ namespace HospitalityManagement.Forms
 
             this.endDteTextBox.ReadOnly = false;
             this.endDteTextBox.BackColor = Color.FromArgb(255, 255, 128);
+
+            this.pymntTermsTextBox.ReadOnly = false;
+            this.pymntTermsTextBox.BackColor = Color.White;
 
             this.chckInNumTextBox.ReadOnly = true;
             this.chckInNumTextBox.BackColor = Color.WhiteSmoke;
@@ -513,7 +510,8 @@ namespace HospitalityManagement.Forms
 
             this.chckInNumTextBox.ReadOnly = true;
             this.chckInNumTextBox.BackColor = Color.WhiteSmoke;
-
+            this.pymntTermsTextBox.ReadOnly = true;
+            this.pymntTermsTextBox.BackColor = Color.WhiteSmoke;
             //this.tblNumTextBox.ReadOnly = true;
             //this.tblNumTextBox.BackColor = Color.WhiteSmoke;
 
@@ -1298,7 +1296,7 @@ namespace HospitalityManagement.Forms
             this.loadPanel();
             this.reCalcSmmrys(long.Parse(this.salesDocIDTextBox.Text),
         this.salesDocTypeTextBox.Text, int.Parse(this.sponsorIDTextBox.Text),
-        int.Parse(this.invcCurrIDTextBox.Text));
+        int.Parse(this.invcCurrIDTextBox.Text), this.salesApprvlStatusTextBox.Text);
             //this.loadDetPanel();
         }
 
@@ -1474,21 +1472,13 @@ namespace HospitalityManagement.Forms
             dfltCGSAcntID, dfltExpnsAcntID, dfltRvnuAcntID, stckID,
             price, crncyID, lineid, dfltSRAcntID, dfltCashAcntID,
             dfltCheckAcntID, srclnID, dateStr, docNum,
-            invcCurrID, exchRate, dfltLbltyAccnt, srcDocType, cstmrNm, docDesc, itmDesc);
-
-                        //this.generateItmAccntng(itmID, qty, cnsgmntIDs, taxID, dscntID, chrgeID,
-                        //    doctype, docHdrID,
-                        //    srcDocID, dfltRcvblAcntID, dfltInvAcntID,
-                        //    dfltCGSAcntID, dfltExpnsAcntID, dfltRvnuAcntID, stckID,
-                        //    price, crncyID, lineid, dfltSRAcntID, dfltCashAcntID,
-                        //    dfltCheckAcntID, srclnID, dateStr, docNum,
-                        //    invcCurrID, exchRate, dfltLbltyAccnt, srcDocType);
+            invcCurrID, exchRate, dfltLbltyAccnt, srcDocType, cstmrNm, docDesc, itmDesc, storeID);
                     }
                 }
 
                 if (this.autoBalscheckBox.Checked)
                 {
-                    this.autoBals();
+                    this.autoBals(doctype);
                 }
 
                 worker.ReportProgress(70);
@@ -4016,7 +4006,7 @@ namespace HospitalityManagement.Forms
             //System.Threading.Thread.Sleep(1000);
 
             this.reCalcSmmrys(long.Parse(this.salesDocIDTextBox.Text), this.salesDocTypeTextBox.Text,
-              int.Parse(this.sponsorIDTextBox.Text), int.Parse(this.invcCurrIDTextBox.Text));
+              int.Parse(this.sponsorIDTextBox.Text), int.Parse(this.invcCurrIDTextBox.Text), this.salesApprvlStatusTextBox.Text);
             this.populateSmmry(long.Parse(this.salesDocIDTextBox.Text), this.salesDocTypeTextBox.Text);
             this.docSaved = true;
             this.saveLabel.Visible = false;
@@ -4140,7 +4130,7 @@ namespace HospitalityManagement.Forms
 
             this.reCalcSmmrys(long.Parse(this.salesDocIDTextBox.Text),
         this.salesDocTypeTextBox.Text,
-        int.Parse(this.sponsorIDTextBox.Text), int.Parse(this.invcCurrIDTextBox.Text));
+        int.Parse(this.sponsorIDTextBox.Text), int.Parse(this.invcCurrIDTextBox.Text), this.salesApprvlStatusTextBox.Text);
             this.populateSmmry(long.Parse(this.salesDocIDTextBox.Text),
               this.salesDocTypeTextBox.Text);
 
@@ -4443,7 +4433,7 @@ namespace HospitalityManagement.Forms
                 {
                     Global.createSalesDocHdr(Global.mnFrm.cmCde.Org_id, this.salesDocNumTextBox.Text,
                       this.cmntDesc, this.salesDocTypeTextBox.Text, this.strtDteTextBox.Text.Substring(0, 11)
-                      , "", int.Parse(this.sponsorIDTextBox.Text),
+                      , this.pymntTermsTextBox.Text, int.Parse(this.sponsorIDTextBox.Text),
                       int.Parse(this.sponsorSiteIDTextBox.Text), "Not Validated",
                       "Approve", -1, this.dfltRcvblAcntID,
                       int.Parse(this.pymntMthdIDTextBox.Text), int.Parse(this.invcCurrIDTextBox.Text),
@@ -4516,7 +4506,7 @@ namespace HospitalityManagement.Forms
                 {
                     Global.createSalesDocHdr(Global.mnFrm.cmCde.Org_id, this.salesDocNumTextBox.Text,
                       this.cmntDesc, this.salesDocTypeTextBox.Text, this.strtDteTextBox.Text.Substring(0, 11)
-                      , "", int.Parse(this.sponsorIDTextBox.Text),
+                      , this.pymntTermsTextBox.Text, int.Parse(this.sponsorIDTextBox.Text),
                       int.Parse(this.sponsorSiteIDTextBox.Text), "Not Validated",
                       "Approve", -1, this.dfltRcvblAcntID,
                       int.Parse(this.pymntMthdIDTextBox.Text), int.Parse(this.invcCurrIDTextBox.Text),
@@ -4536,7 +4526,7 @@ namespace HospitalityManagement.Forms
                 {
                     Global.updtSalesDocHdr(long.Parse(this.salesDocIDTextBox.Text), this.salesDocNumTextBox.Text,
                       this.cmntDesc, this.salesDocTypeTextBox.Text, this.strtDteTextBox.Text.Substring(0, 11)
-                      , "", int.Parse(this.sponsorIDTextBox.Text),
+                      , this.pymntTermsTextBox.Text, int.Parse(this.sponsorIDTextBox.Text),
                       int.Parse(this.sponsorSiteIDTextBox.Text), "Not Validated",
                       "Approve", -1,
                       int.Parse(this.pymntMthdIDTextBox.Text), int.Parse(this.invcCurrIDTextBox.Text),
@@ -4659,7 +4649,7 @@ namespace HospitalityManagement.Forms
             if (this.salesDocIDTextBox.Text != "" && this.salesDocIDTextBox.Text != "-1")
             {
                 this.reCalcSmmrys(long.Parse(this.salesDocIDTextBox.Text), this.salesDocTypeTextBox.Text,
-                int.Parse(this.sponsorIDTextBox.Text), int.Parse(this.invcCurrIDTextBox.Text));
+                int.Parse(this.sponsorIDTextBox.Text), int.Parse(this.invcCurrIDTextBox.Text), this.salesApprvlStatusTextBox.Text);
                 this.populateSmmry(long.Parse(this.salesDocIDTextBox.Text), this.salesDocTypeTextBox.Text);
             }
             else
@@ -4671,8 +4661,17 @@ namespace HospitalityManagement.Forms
             }
         }
 
-        public void reCalcSmmrys(long srcDocID, string srcDocType, int cstmrID, int invCurID)
+
+        public void reCalcSmmrys(long srcDocID, string srcDocType, int cstmrID, int invCurID, string docStatus)
         {
+            long rcvblHdrID = Global.get_ScmRcvblsDocHdrID(srcDocID, srcDocType, Global.mnFrm.cmCde.Org_id);
+            string rcvblDoctype = Global.mnFrm.cmCde.getGnrlRecNm("accb.accb_rcvbls_invc_hdr",
+              "rcvbls_invc_hdr_id", "rcvbls_invc_type", rcvblHdrID);
+
+            if (docStatus == "Approved" && Global.mnFrm.cmCde.doesDteTmeExceedIntrvl(Global.getRcvblsDocLastUpdate(rcvblHdrID, rcvblDoctype), "1 day"))
+            {
+                return;
+            }
             DataSet dtst = Global.get_One_SalesDcLines(srcDocID);
             double grndAmnt = Global.getSalesDocGrndAmnt(srcDocID);
             // Grand Total
@@ -4697,15 +4696,10 @@ namespace HospitalityManagement.Forms
                "invc_hdr_id", "src_doc_hdr_id", srcDocID), out SIDocID);
             string strSrcDocType = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_sales_invc_hdr",
               "invc_hdr_id", "invc_type", SIDocID);
-
-            long rcvblHdrID = Global.get_ScmRcvblsDocHdrID(srcDocID, srcDocType, Global.mnFrm.cmCde.Org_id);
-            string rcvblDoctype = Global.mnFrm.cmCde.getGnrlRecNm("accb.accb_rcvbls_invc_hdr",
-              "rcvbls_invc_hdr_id", "rcvbls_invc_type", rcvblHdrID);
-
             if (srcDocType == "Sales Invoice")
             {
 
-                pymntsAmnt = Math.Round(Global.getRcvblsDocTtlPymnts(rcvblHdrID, rcvblDoctype), 2);
+                pymntsAmnt = Global.getRcvblsDocTtlPymnts(rcvblHdrID, rcvblDoctype);
                 //pymntsAmnt = Global.getSalesDocRcvdPymnts(srcDocID, srcDocType);
                 smmryNm = "Total Payments Received";
                 smmryID = Global.getSalesSmmryItmID("6Total Payments Received", -1,
@@ -4722,7 +4716,7 @@ namespace HospitalityManagement.Forms
             }
             else if (srcDocType == "Sales Return" && strSrcDocType == "Sales Invoice")
             {
-                pymntsAmnt = Math.Round(Global.getRcvblsDocTtlPymnts(rcvblHdrID, rcvblDoctype), 2);
+                pymntsAmnt = Global.getRcvblsDocTtlPymnts(rcvblHdrID, rcvblDoctype);
                 //pymntsAmnt = Global.getSalesDocRcvdPymnts(srcDocID, srcDocType);
                 smmryNm = "Total Amount Refunded";
                 smmryID = Global.getSalesSmmryItmID("6Total Payments Received", -1,
@@ -4772,8 +4766,8 @@ namespace HospitalityManagement.Forms
                         {
                             if (int.Parse(codeIDs[j]) > 0)
                             {
-                                snglDscnt += Math.Round(Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), unitAmnt, 1), 2);
-                                dscntAmnts1 = Math.Round(Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), unitAmnt, qnty), 2);
+                                snglDscnt += this.getDscntLessTax(txID, Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), unitAmnt, 1));
+                                dscntAmnts1 = this.getDscntLessTax(txID, Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), unitAmnt, qnty));
                                 dscntAmnts += dscntAmnts1;
                                 tmp = Global.mnFrm.cmCde.getGnrlRecNm(
                            "scm.scm_tax_codes", "code_id", "code_name", int.Parse(codeIDs[j]));
@@ -4781,8 +4775,7 @@ namespace HospitalityManagement.Forms
                        srcDocID, srcDocType);
                                 if (smmryID <= 0 && dscntAmnts1 > 0)
                                 {
-                                    Global.createSmmryItm("3Discount", tmp, dscntAmnts1, int.Parse(codeIDs[j]),
-                                      srcDocType, srcDocID, true);
+                                    Global.createSmmryItm("3Discount", tmp, dscntAmnts1, int.Parse(codeIDs[j]), srcDocType, srcDocID, true);
                                 }
                                 else if (dscntAmnts1 > 0)
                                 {
@@ -4794,8 +4787,8 @@ namespace HospitalityManagement.Forms
                     }
                     else
                     {
-                        snglDscnt = Math.Round(Global.getSalesDocCodesAmnt(dscntID, unitAmnt, 1), 2);
-                        dscntAmnts1 = Math.Round(Global.getSalesDocCodesAmnt(dscntID, unitAmnt, qnty), 2);
+                        snglDscnt = this.getDscntLessTax(txID, Global.getSalesDocCodesAmnt(dscntID, unitAmnt, 1));
+                        dscntAmnts1 = this.getDscntLessTax(txID, Global.getSalesDocCodesAmnt(dscntID, unitAmnt, qnty));
                         dscntAmnts += dscntAmnts1;
                         tmp = Global.mnFrm.cmCde.getGnrlRecNm(
                    "scm.scm_tax_codes", "code_id", "code_name", dscntID);
@@ -4803,8 +4796,7 @@ namespace HospitalityManagement.Forms
                srcDocID, srcDocType);
                         if (smmryID <= 0 && dscntAmnts1 > 0)
                         {
-                            Global.createSmmryItm("3Discount", tmp, dscntAmnts1, dscntID,
-                              srcDocType, srcDocID, true);
+                            Global.createSmmryItm("3Discount", tmp, dscntAmnts1, dscntID, srcDocType, srcDocID, true);
                         }
                         else if (dscntAmnts1 > 0)
                         {
@@ -4826,7 +4818,7 @@ namespace HospitalityManagement.Forms
                         {
                             if (int.Parse(codeIDs[j]) > 0)
                             {
-                                txAmnts1 = Math.Round(Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), unitAmnt - snglDscnt, qnty), 2);
+                                txAmnts1 = Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), unitAmnt - snglDscnt, qnty);
                                 txAmnts += txAmnts1;
                                 tmp = Global.mnFrm.cmCde.getGnrlRecNm(
                            "scm.scm_tax_codes", "code_id", "code_name", int.Parse(codeIDs[j]));
@@ -4847,7 +4839,7 @@ namespace HospitalityManagement.Forms
                     }
                     else
                     {
-                        txAmnts1 = Math.Round(Global.getSalesDocCodesAmnt(txID, unitAmnt - snglDscnt, qnty), 2);
+                        txAmnts1 = Global.getSalesDocCodesAmnt(txID, unitAmnt - snglDscnt, qnty);
                         txAmnts += txAmnts1;
                         tmp = Global.mnFrm.cmCde.getGnrlRecNm(
                     "scm.scm_tax_codes", "code_id", "code_name", txID);
@@ -4878,7 +4870,7 @@ namespace HospitalityManagement.Forms
                         {
                             if (int.Parse(codeIDs[j]) > 0)
                             {
-                                extrChrgAmnts1 = Math.Round(Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), unitAmnt, qnty), 2);
+                                extrChrgAmnts1 = Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), unitAmnt, qnty);
                                 extrChrgAmnts += extrChrgAmnts1;
                                 tmp = Global.mnFrm.cmCde.getGnrlRecNm(
                            "scm.scm_tax_codes", "code_id", "code_name", int.Parse(codeIDs[j]));
@@ -4899,7 +4891,7 @@ namespace HospitalityManagement.Forms
                     }
                     else
                     {
-                        extrChrgAmnts1 = Math.Round(Global.getSalesDocCodesAmnt(chrgID, unitAmnt, qnty), 2);
+                        extrChrgAmnts1 = Global.getSalesDocCodesAmnt(chrgID, unitAmnt, qnty);
                         extrChrgAmnts += extrChrgAmnts1;
                         tmp = Global.mnFrm.cmCde.getGnrlRecNm(
                    "scm.scm_tax_codes", "code_id", "code_name", chrgID);
@@ -4950,7 +4942,7 @@ namespace HospitalityManagement.Forms
                 smmryNm = "Initial Amount";
                 smmryID = Global.getSalesSmmryItmID("1Initial Amount", -1,
                   srcDocID, srcDocType);
-                initAmnt = grndAmnt; //Math.Round(Global.getSalesDocBscAmnt(srcDocID, srcDocType), 2);
+                initAmnt = grndAmnt;
                 if (smmryID <= 0)
                 {
                     Global.createSmmryItm("1Initial Amount", smmryNm, initAmnt, -1,
@@ -4963,7 +4955,7 @@ namespace HospitalityManagement.Forms
             }
 
             // Grand Total
-            grndAmnt = Math.Round(grndAmnt + txAmnts + extrChrgAmnts - dscntAmnts, 2);
+            grndAmnt = grndAmnt + txAmnts + extrChrgAmnts - dscntAmnts;
             smmryNm = "Grand Total";
             smmryID = Global.getSalesSmmryItmID("5Grand Total", -1,
               srcDocID, srcDocType);
@@ -4980,14 +4972,14 @@ namespace HospitalityManagement.Forms
             if (srcDocType == "Sales Invoice")
             {
                 //Change Given/Outstanding Balance
-                blsAmnt = Math.Round(grndAmnt - pymntsAmnt, 2);
-                if (blsAmnt < 0)
+                blsAmnt = grndAmnt - pymntsAmnt;
+                if (Math.Round(blsAmnt, 2) >= 0.00)
                 {
-                    smmryNm = "Change Given to Customer";
+                    smmryNm = "Outstanding Balance";
                 }
                 else
                 {
-                    smmryNm = "Outstanding Balance";
+                    smmryNm = "Change Given to Customer";
                 }
                 smmryID = Global.getSalesSmmryItmID("7Change/Balance", -1,
                   srcDocID, srcDocType);
@@ -5016,14 +5008,14 @@ namespace HospitalityManagement.Forms
                 }
 
                 //Actual Change or Balance
-                double actlblsAmnt = Math.Round(blsAmnt - ttlDpsts, 2);
-                if (actlblsAmnt < 0)
+                double actlblsAmnt = blsAmnt - ttlDpsts;
+                if (Math.Round(actlblsAmnt, 2) >= 0.00)
                 {
-                    smmryNm = "Amount to be Refunded to Customer";
+                    smmryNm = "Actual Outstanding Balance";
                 }
                 else
                 {
-                    smmryNm = "Actual Outstanding Balance";
+                    smmryNm = "Amount to be Refunded to Customer";
                 }
                 smmryID = Global.getSalesSmmryItmID("9Actual_Change/Balance", -1,
                   srcDocID, srcDocType);
@@ -5040,14 +5032,14 @@ namespace HospitalityManagement.Forms
             else if (srcDocType == "Sales Return" && strSrcDocType == "Sales Invoice")
             {
                 //Change Given/Outstanding Balance
-                blsAmnt = Math.Round(grndAmnt - pymntsAmnt, 2);
-                if (blsAmnt < 0)
+                blsAmnt = grndAmnt - pymntsAmnt;
+                if (Math.Round(blsAmnt, 2) >= 0.00)
                 {
-                    smmryNm = "Change Received from Customer";
+                    smmryNm = "Outstanding Balance";
                 }
                 else
                 {
-                    smmryNm = "Outstanding Balance";
+                    smmryNm = "Change Received from Customer";
                 }
                 smmryID = Global.getSalesSmmryItmID("7Change/Balance", -1,
                   srcDocID, srcDocType);
@@ -5061,310 +5053,50 @@ namespace HospitalityManagement.Forms
                     Global.updateSmmryItm(smmryID, "7Change/Balance", blsAmnt, true, smmryNm);
                 }
             }
-
-            if (this.autoBalscheckBox.Checked/*Global.getSalesChrgsSum(srcDocID, srcDocType) > 0*/)
+            Global.roundSmmryItms(srcDocID, srcDocType);
+            if (this.autoBalscheckBox.Checked)
             {
-                this.autoBals();
+                this.autoBals(this.salesDocTypeTextBox.Text);
             }
 
         }
 
-        /* public void reCalcSmmrys(long srcDocID, string srcDocType, int cstmrID, int invCurID)
-         {
-           DataSet dtst = Global.get_One_SalesDcLines(srcDocID);
-           double grndAmnt = Global.getSalesDocGrndAmnt(srcDocID);
-           // Grand Total
-           string smmryNm = "Grand Total";
-           long smmryID = Global.getSalesSmmryItmID("5Grand Total", -1,
-             srcDocID, srcDocType);
-           if (smmryID <= 0)
-           {
-             Global.createSmmryItm("5Grand Total", smmryNm, grndAmnt, -1,
-               srcDocType, srcDocID, true);
-           }
-           else
-           {
-             Global.updateSmmryItm(smmryID, "5Grand Total", grndAmnt, true, smmryNm);
-           }
+        private double getDscntLessTax(int txID, double orgnlDscnt)
+        {
+            char[] w = { ',' };
+            double txAmnts = 0;
+            double txAmnts1 = 0;
+            if (txID > 0)
+            {
+                string isParnt = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "is_parent", txID);
+                if (isParnt == "1")
+                {
+                    string[] codeIDs = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "child_code_ids", txID).Split(w, StringSplitOptions.RemoveEmptyEntries);
+                    for (int j = 0; j < codeIDs.Length; j++)
+                    {
+                        if (int.Parse(codeIDs[j]) > 0)
+                        {
+                            txAmnts1 = Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), 1, 1);
+                            txAmnts1 = orgnlDscnt / (1.0 + txAmnts1);
+                            txAmnts += txAmnts1;
+                        }
+                    }
+                }
+                else
+                {
+                    txAmnts1 = Global.getSalesDocCodesAmnt(txID, 1, 1);
+                    txAmnts1 = orgnlDscnt / (1.0 + txAmnts1);
+                    txAmnts += txAmnts1;
+                }
+            }
+            else
+            {
+                txAmnts = orgnlDscnt;
+            }
+            return txAmnts;
+        }
 
-           //Total Payments
-           double blsAmnt = 0;
-           double pymntsAmnt = 0;
-           long SIDocID = -1;
-           long.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_sales_invc_hdr",
-              "invc_hdr_id", "src_doc_hdr_id", srcDocID), out SIDocID);
-           string strSrcDocType = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_sales_invc_hdr",
-             "invc_hdr_id", "invc_type", SIDocID);
-
-           long rcvblHdrID = Global.get_ScmRcvblsDocHdrID(srcDocID, srcDocType, Global.mnFrm.cmCde.Org_id);
-           string rcvblDoctype = Global.mnFrm.cmCde.getGnrlRecNm("accb.accb_rcvbls_invc_hdr",
-             "rcvbls_invc_hdr_id", "rcvbls_invc_type", rcvblHdrID);
-
-           if (srcDocType == "Sales Invoice")
-           {
-
-             pymntsAmnt = Math.Round(Global.getRcvblsDocTtlPymnts(rcvblHdrID, rcvblDoctype), 2);
-             //pymntsAmnt = Global.getSalesDocRcvdPymnts(srcDocID, srcDocType);
-             smmryNm = "Total Payments Received";
-             smmryID = Global.getSalesSmmryItmID("6Total Payments Received", -1,
-               srcDocID, srcDocType);
-             if (smmryID <= 0)
-             {
-               Global.createSmmryItm("6Total Payments Received", smmryNm, pymntsAmnt, -1,
-                 srcDocType, srcDocID, true);
-             }
-             else
-             {
-               Global.updateSmmryItm(smmryID, "6Total Payments Received", pymntsAmnt, true, smmryNm);
-             }
-           }
-           else if (srcDocType == "Sales Return" && strSrcDocType == "Sales Invoice")
-           {
-             pymntsAmnt = Math.Round(Global.getRcvblsDocTtlPymnts(rcvblHdrID, rcvblDoctype), 2);
-             //pymntsAmnt = Global.getSalesDocRcvdPymnts(srcDocID, srcDocType);
-             smmryNm = "Total Amount Refunded";
-             smmryID = Global.getSalesSmmryItmID("6Total Payments Received", -1,
-               srcDocID, srcDocType);
-             if (smmryID <= 0)
-             {
-               Global.createSmmryItm("6Total Payments Received", smmryNm, pymntsAmnt, -1,
-                 srcDocType, srcDocID, true);
-             }
-             else
-             {
-               Global.updateSmmryItm(smmryID, "6Total Payments Received", pymntsAmnt, true, smmryNm);
-             }
-           }
-           int codeCntr = 0;
-           //Tax Codes
-           double txAmnts = 0;
-           double dscntAmnts = 0;
-           double extrChrgAmnts = 0;
-           string txSmmryNm = "";
-           string dscntSmmryNm = "";
-           string chrgSmmryNm = "";
-           for (int i = 0; i < dtst.Tables[0].Rows.Count; i++)
-           {
-             int txID = int.Parse(dtst.Tables[0].Rows[i][9].ToString());
-             int dscntID = int.Parse(dtst.Tables[0].Rows[i][10].ToString());
-             int chrgID = int.Parse(dtst.Tables[0].Rows[i][11].ToString());
-             double unitAmnt = double.Parse(dtst.Tables[0].Rows[i][14].ToString());
-             double qnty = double.Parse(dtst.Tables[0].Rows[i][2].ToString());
-             string tmp = "";
-             double snglDscnt = 0;
-             if (dscntID > 0)
-             {
-               snglDscnt = Math.Round(Global.getSalesDocCodesAmnt(dscntID, unitAmnt, 1), 2);
-               dscntAmnts += Math.Round(Global.getSalesDocCodesAmnt(dscntID, unitAmnt, qnty), 2);
-               tmp = Global.mnFrm.cmCde.getGnrlRecNm(
-          "scm.scm_tax_codes", "code_id", "code_name", dscntID);
-               if (!dscntSmmryNm.Contains(tmp))
-               {
-                 dscntSmmryNm += tmp + " + ";
-               }
-               codeCntr++;
-             }
-
-             if (txID > 0)
-             {
-               txAmnts += Math.Round(Global.getSalesDocCodesAmnt(txID, unitAmnt - snglDscnt, qnty), 2);
-               tmp = Global.mnFrm.cmCde.getGnrlRecNm(
-           "scm.scm_tax_codes", "code_id", "code_name", txID);
-               if (!txSmmryNm.Contains(tmp))
-               {
-                 txSmmryNm += tmp + " + ";
-               }
-               codeCntr++;
-             }
-
-             if (chrgID > 0)
-             {
-               extrChrgAmnts += Math.Round(Global.getSalesDocCodesAmnt(chrgID, unitAmnt, qnty), 2);
-               tmp = Global.mnFrm.cmCde.getGnrlRecNm(
-          "scm.scm_tax_codes", "code_id", "code_name", chrgID);
-               if (!chrgSmmryNm.Contains(tmp))
-               {
-                 chrgSmmryNm += tmp + " + ";
-               }
-               codeCntr++;
-             }
-           }
-           char[] trm = { '+' };
-           txSmmryNm = txSmmryNm.Trim().Trim(trm).Trim();
-           dscntSmmryNm = dscntSmmryNm.Trim().Trim(trm).Trim();
-           chrgSmmryNm = chrgSmmryNm.Trim().Trim(trm).Trim();
-
-           smmryID = Global.getSalesSmmryItmID("2Tax", -1,
-        srcDocID, srcDocType);
-           if (smmryID <= 0 && txAmnts > 0)
-           {
-             Global.createSmmryItm("2Tax", txSmmryNm, txAmnts, -1,
-               srcDocType, srcDocID, true);
-           }
-           else if (txAmnts > 0)
-           {
-             Global.updateSmmryItm(smmryID, "2Tax", txAmnts, true, txSmmryNm);
-           }
-           else if (txAmnts <= 0)
-           {
-             Global.deleteSalesSmmryItm(srcDocID, srcDocType, "2Tax");
-           }
-
-           smmryID = Global.getSalesSmmryItmID("3Discount", -1,
-        srcDocID, srcDocType);
-           if (smmryID <= 0 && dscntAmnts > 0)
-           {
-             Global.createSmmryItm("3Discount", dscntSmmryNm, dscntAmnts, -1,
-               srcDocType, srcDocID, true);
-           }
-           else if (dscntAmnts > 0)
-           {
-             Global.updateSmmryItm(smmryID, "3Discount", dscntAmnts, true, dscntSmmryNm);
-           }
-           else if (dscntAmnts <= 0)
-           {
-             Global.deleteSalesSmmryItm(srcDocID, srcDocType, "3Discount");
-           }
-           smmryID = Global.getSalesSmmryItmID("4Extra Charge", -1,
-        srcDocID, srcDocType);
-           if (smmryID <= 0 && extrChrgAmnts > 0)
-           {
-             Global.createSmmryItm("4Extra Charge", chrgSmmryNm, extrChrgAmnts, -1,
-               srcDocType, srcDocID, true);
-           }
-           else if (extrChrgAmnts > 0)
-           {
-             Global.updateSmmryItm(smmryID, "4Extra Charge", extrChrgAmnts, true, chrgSmmryNm);
-           }
-           else if (extrChrgAmnts <= 0)
-           {
-             Global.deleteSalesSmmryItm(srcDocID, srcDocType, "4Extra Charge");
-           }
-           //Initial Amount
-           double initAmnt = 0;
-           if (txAmnts <= 0 && dscntAmnts <= 0 && extrChrgAmnts <= 0)
-           {
-             Global.deleteSalesSmmryItm(srcDocID, srcDocType, "1Initial Amount");
-           }
-           else if (codeCntr > 0)
-           {
-             smmryNm = "Initial Amount";
-             smmryID = Global.getSalesSmmryItmID("1Initial Amount", -1,
-               srcDocID, srcDocType);
-             initAmnt = grndAmnt; //Math.Round(Global.getSalesDocBscAmnt(srcDocID, srcDocType), 2);
-             if (smmryID <= 0)
-             {
-               Global.createSmmryItm("1Initial Amount", smmryNm, initAmnt, -1,
-                 srcDocType, srcDocID, true);
-             }
-             else
-             {
-               Global.updateSmmryItm(smmryID, "1Initial Amount", initAmnt, true, smmryNm);
-             }
-           }
-
-           // Grand Total
-           grndAmnt = Math.Round(grndAmnt + txAmnts + extrChrgAmnts - dscntAmnts, 2);
-           smmryNm = "Grand Total";
-           smmryID = Global.getSalesSmmryItmID("5Grand Total", -1,
-             srcDocID, srcDocType);
-           if (smmryID <= 0)
-           {
-             Global.createSmmryItm("5Grand Total", smmryNm, grndAmnt, -1,
-               srcDocType, srcDocID, true);
-           }
-           else
-           {
-             Global.updateSmmryItm(smmryID, "5Grand Total", grndAmnt, true, smmryNm);
-           }
-           //Total Payments     
-           if (srcDocType == "Sales Invoice")
-           {
-             //Change Given/Outstanding Balance
-             blsAmnt = Math.Round(grndAmnt - pymntsAmnt, 2);
-             if (blsAmnt < 0)
-             {
-               smmryNm = "Change Given to Customer";
-             }
-             else
-             {
-               smmryNm = "Outstanding Balance";
-             }
-             smmryID = Global.getSalesSmmryItmID("7Change/Balance", -1,
-               srcDocID, srcDocType);
-             if (smmryID <= 0)
-             {
-               Global.createSmmryItm("7Change/Balance", smmryNm, blsAmnt, -1,
-                 srcDocType, srcDocID, true);
-             }
-             else
-             {
-               Global.updateSmmryItm(smmryID, "7Change/Balance", blsAmnt, true, smmryNm);
-             }
-             //Customer's Total Deposits
-             double ttlDpsts = Global.getCstmrDpsts(cstmrID, invCurID);
-             smmryNm = "Total Deposits";
-             smmryID = Global.getSalesSmmryItmID("8Deposits", -1,
-               srcDocID, srcDocType);
-             if (smmryID <= 0)
-             {
-               Global.createSmmryItm("8Deposits", smmryNm, ttlDpsts, -1,
-                 srcDocType, srcDocID, true);
-             }
-             else
-             {
-               Global.updateSmmryItm(smmryID, "8Deposits", ttlDpsts, true, smmryNm);
-             }
-
-             //Actual Change or Balance
-             double actlblsAmnt = Math.Round(blsAmnt - ttlDpsts, 2);
-             if (actlblsAmnt < 0)
-             {
-               smmryNm = "Amount to be Refunded to Customer";
-             }
-             else
-             {
-               smmryNm = "Actual Outstanding Balance";
-             }
-             smmryID = Global.getSalesSmmryItmID("9Actual_Change/Balance", -1,
-               srcDocID, srcDocType);
-             if (smmryID <= 0)
-             {
-               Global.createSmmryItm("9Actual_Change/Balance", smmryNm, actlblsAmnt, -1,
-                 srcDocType, srcDocID, true);
-             }
-             else
-             {
-               Global.updateSmmryItm(smmryID, "9Actual_Change/Balance", actlblsAmnt, true, smmryNm);
-             }
-           }
-           else if (srcDocType == "Sales Return" && strSrcDocType == "Sales Invoice")
-           {
-             //Change Given/Outstanding Balance
-             blsAmnt = Math.Round(grndAmnt - pymntsAmnt, 2);
-             if (blsAmnt < 0)
-             {
-               smmryNm = "Change Received from Customer";
-             }
-             else
-             {
-               smmryNm = "Outstanding Balance";
-             }
-             smmryID = Global.getSalesSmmryItmID("7Change/Balance", -1,
-               srcDocID, srcDocType);
-             if (smmryID <= 0)
-             {
-               Global.createSmmryItm("7Change/Balance", smmryNm, blsAmnt, -1,
-                 srcDocType, srcDocID, true);
-             }
-             else
-             {
-               Global.updateSmmryItm(smmryID, "7Change/Balance", blsAmnt, true, smmryNm);
-             }
-           }
-         }
-     */
-        private void autoBals()
+        private void autoBals(string srcDocType)
         {
             //DataSet dtst = Global.get_DocSmryLns(docHdrID, docTyp);
             //for (int i = 0; i < dtst.Tables[0].Rows.Count; i++)
@@ -5372,7 +5104,6 @@ namespace HospitalityManagement.Forms
 
             //}
             long srcDocID = long.Parse(this.salesDocIDTextBox.Text);
-            string srcDocType = this.salesDocTypeTextBox.Text;
             /*,
               int.Parse(this.sponsorIDTextBox.Text), int.Parse(this.invcCurrIDTextBox.Text)*/
             if (this.editRecs == false)
@@ -5594,9 +5325,6 @@ namespace HospitalityManagement.Forms
                 Global.mnFrm.cmCde.showMsg("Operation Cancelled!", 4);
                 return;
             }
-            //Global.deleteSalesSmmryItm(long.Parse(this.salesDocIDTextBox.Text),
-            //  this.salesDocTypeTextBox.Text,
-            //  this.smmryDataGridView.SelectedRows[0].Cells[5].Value.ToString());
 
             Global.deleteSalesSmmryItm(long.Parse(this.salesDocIDTextBox.Text),
         this.salesDocTypeTextBox.Text,
@@ -5605,14 +5333,15 @@ namespace HospitalityManagement.Forms
 
             this.reCalcSmmrys(long.Parse(this.salesDocIDTextBox.Text),
               this.salesDocTypeTextBox.Text,
-              int.Parse(this.sponsorIDTextBox.Text), int.Parse(this.invcCurrIDTextBox.Text));
+              int.Parse(this.sponsorIDTextBox.Text), int.Parse(this.invcCurrIDTextBox.Text), this.salesApprvlStatusTextBox.Text);
             this.populateSmmry(long.Parse(this.salesDocIDTextBox.Text),
               this.salesDocTypeTextBox.Text);
         }
 
         private void printPrvwRcptButton_Click(object sender, EventArgs e)
         {
-            //    DataSet dtst = Global.get_LastScmPay_Trns(
+            this.calcSmryButton.PerformClick();
+            //DataSet dtst = Global.get_LastScmPay_Trns(
             //long.Parse(this.docIDTextBox.Text), "Restaurant Order", Global.mnFrm.cmCde.Org_id);
             long rcvblHdrID = Global.get_ScmRcvblsDocHdrID(long.Parse(this.salesDocIDTextBox.Text),
               this.salesDocTypeTextBox.Text, Global.mnFrm.cmCde.Org_id);
@@ -6775,8 +6504,8 @@ namespace HospitalityManagement.Forms
             offsetY = hgstOffst;
             offsetY += font2Hght + 5;
             //offsetY += font2Hght;
-            string pyTerms = "";
-            if (pyTerms != "")
+
+            if (this.pymntTermsTextBox.Text != "")
             {
                 if (offsetY >= pageHeight - 30)
                 {
@@ -6797,8 +6526,8 @@ namespace HospitalityManagement.Forms
           startY + offsetY);
 
                 float trmHgth = 0;
-                nwLn = Global.mnFrm.cmCde.breakTxtDown(
-              pyTerms,
+                nwLn = Global.mnFrm.cmCde.breakTxtDownML(
+              this.pymntTermsTextBox.Text,
               startX + pageWidth - 150, font3, g);
                 orgOffstY = offsetY;
                 offsetY += 5;
@@ -6809,7 +6538,7 @@ namespace HospitalityManagement.Forms
                     //}
                     g.DrawString(nwLn[i]
                     , font3, Brushes.Black, startX, startY + offsetY);
-                    trmHgth += g.MeasureString(nwLn[i], font3).Height + 5;
+                    trmHgth += g.MeasureString(nwLn[i], font3).Height + 0.0F;
                     offsetY += font3Hght;
                     if (hgstOffst <= offsetY)
                     {
@@ -6817,6 +6546,7 @@ namespace HospitalityManagement.Forms
                     }
                     if (i == nwLn.Length - 1)
                     {
+                        trmHgth += 5;
                         g.DrawLine(aPen, startX, startY + orgOffstY, startX,
               startY + orgOffstY + trmHgth);
                         g.DrawLine(aPen, startX + lnLength, startY + orgOffstY, startX + lnLength,
@@ -6827,10 +6557,11 @@ namespace HospitalityManagement.Forms
                 }
             }
             //offsetY += font4Hght;
-            if (pyTerms != "")
+            if (this.pymntTermsTextBox.Text != "")
             {
                 offsetY = hgstOffst;
                 offsetY += font2Hght + 5;
+                offsetY += 40;
             }
             //offsetY += font2Hght;
             string sgntryCols = Global.getDocSgntryCols("Invoices Signatories");
@@ -7356,6 +7087,7 @@ namespace HospitalityManagement.Forms
 
         private void prvwInvoiceButton_Click(object sender, EventArgs e)
         {
+            this.calcSmryButton.PerformClick();
             this.pageNo = 1;
             this.prntIdx = 0;
             this.prntIdx1 = 0;
@@ -8038,529 +7770,15 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
             }
         }
 
-        // private bool generateItmAccntng(long itmID, double qnty, string cnsgmntIDs,
-        //int txCodeID, int dscntCodeID, int chrgCodeID,
-        //string docTyp, long docID, long srcDocID, int dfltRcvblAcntID,
-        //int dfltInvAcntID, int dfltCGSAcntID, int dfltExpnsAcntID, int dfltRvnuAcntID,
-        //long stckID, double unitSllgPrc, int crncyID, long docLnID,
-        //int dfltSRAcntID, int dfltCashAcntID, int dfltCheckAcntID, long srcDocLnID,
-        //string dateStr, string docIDNum, int entrdCurrID, decimal exchngRate, int dfltLbltyAccnt, string strSrcDocType)
-        // {
-        //   try
-        //   {
-        //     bool succs = true;
-        //     /*For each Item in a Sales Invoice
-        //      * 1. Get Items Consgnmnt Cost Prices using all selected consignments and their used qtys
-        //      * 2. Decrease Inv Account by Cost Price --0Inventory
-        //      * 3. Increase Cost of Goods Sold by Cost Price --0Inventory
-        //      * 4. Get Selling Price, Taxes, Extra Charges, Discounts
-        //      * 5. Get Net Selling Price = (Selling Price - Taxes - Extra Charges + Discounts)*Qty
-        //      * 6. Increase Revenue Account by Net Selling Price --1Initial Amount
-        //      * 7. Increase Receivables account by Net Selling price --1Initial Amount
-        //      * 8. Increase Taxes Payable by Taxes  --2Tax
-        //      * 9. Increase Receivables account by Taxes --2Tax
-        //      * 10.Increase Extra Charges Revenue by Extra Charges --4Extra Charge
-        //      * 11.Increase Receivables account by Extra Charges --4Extra Charge
-        //      * 12.Increase Sales Discounts by Discounts --3Discount
-        //      * 13.Decrease Receivables by Discounts --3Discount
-        //      */
-        //     int itmInvAcntID = -1;
-        //     int itmCGSAcntID = -1;
-        //     //For Sales Return, Item Issues-Unbilled Docs get the ff
-        //     int itmExpnsAcntID = -1;
-        //     //For Sales Invoice, Sales Return get the ff
-        //     int itmRvnuAcntID = -1;
-        //     //Genral
-        //     int txPyblAcntID = -1;
-        //     int chrgRvnuAcntID = -1;
-        //     int salesDscntAcntID = -1;
-
-        //     int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("inv.inv_itm_subinventories", "subinv_id", "inv_asset_acct_id", Global.selectedStoreID), out itmInvAcntID);
-        //     //int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("inv.inv_itm_list", "item_id", "inv_asset_acct_id", itmID), out itmInvAcntID);
-
-        //     //int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("inv.inv_itm_list", "item_id", "cogs_acct_id", itmID), out itmCGSAcntID);
-        //     //For Sales Return, Item Issues-Unbilled Docs get the ff
-        //     int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("inv.inv_itm_list", "item_id", "expense_accnt_id", itmID), out itmExpnsAcntID);
-        //     //For Sales Invoice, Sales Return get the ff
-        //     int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("inv.inv_itm_list", "item_id", "sales_rev_accnt_id", itmID), out itmRvnuAcntID);
-        //     //Genral
-        //     //int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "taxes_payables_accnt_id", txCodeID), out txPyblAcntID);
-        //     //int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "chrge_revnu_accnt_id", chrgCodeID), out chrgRvnuAcntID);
-        //     //int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "dscount_expns_accnt_id", dscntCodeID), out salesDscntAcntID);
-        //     if (itmInvAcntID > 0)
-        //     {
-        //       dfltInvAcntID = itmInvAcntID;
-        //     }
-        //     if (itmCGSAcntID > 0)
-        //     {
-        //       dfltCGSAcntID = itmCGSAcntID;
-        //     }
-        //     if (itmExpnsAcntID > 0)
-        //     {
-        //       dfltExpnsAcntID = itmExpnsAcntID;
-        //     }
-        //     if (itmRvnuAcntID > 0)
-        //     {
-        //       dfltRvnuAcntID = itmRvnuAcntID;
-        //     }
-
-        //     if (dfltRcvblAcntID <= 0
-        // || dfltInvAcntID <= 0
-        // || dfltCGSAcntID <= 0
-        // || dfltExpnsAcntID <= 0
-        // || dfltRvnuAcntID <= 0)
-        //     {
-        //       Global.mnFrm.cmCde.showMsg("You must first Setup all Default " +
-        //         "Accounts before Accounting can be Created!", 0);
-        //       return false;
-        //     }
-
-        //     string itmType = Global.mnFrm.cmCde.getGnrlRecNm("inv.inv_itm_list", "item_id", "item_type", itmID);
-        //     //        string dateStr = DateTime.ParseExact(
-        //     //Global.mnFrm.cmCde.getDB_Date_time(), "yyyy-MM-dd HH:mm:ss",
-        //     //System.Globalization.CultureInfo.InvariantCulture).ToString("dd-MMM-yyyy HH:mm:ss");
-        //     //     long SIDocID = -1;
-        //     //     long.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_sales_invc_hdr",
-        //     //"invc_hdr_id", "src_doc_hdr_id", docID),out SIDocID);
-        //     //Create a List of Consignment IDs, Quantity Used in this doc, Cost Price
-        //     //Get ttlSllngPrc, ttlTxAmnt, ttlChrgAmnt, ttlDsctAmnt for this item only
-
-        //     double funcCurrrate = Math.Round((double)1 / (double)exchngRate, 15);
-
-        //     double orgnlSllngPrce = double.Parse(Global.mnFrm.cmCde.getGnrlRecNm(
-        //       "scm.scm_sales_invc_det", "invc_det_ln_id", "orgnl_selling_price", docLnID));
-        //     double ttlSllngPrc = Math.Round(qnty * orgnlSllngPrce, 2);
-
-
-        //     //Get Net Selling Price = Selling Price - Taxes - Extra Charges + Discounts
-        //     double ttlRvnuAmnt = ttlSllngPrc;// -ttlTxAmnt;// -ttlChrgAmnt;// +ttlDsctAmnt;
-        //     //For Sales Invoice, Sales Return, Item Issues-Unbilled Docs get the ff
-        //     if (itmType.Contains("Inventory")
-        //       || itmType.Contains("Fixed Assets"))
-        //     {
-        //       List<string[]> csngmtData;
-        //       if (docTyp != "Sales Return")
-        //       {
-        //         csngmtData = Global.getItmCnsgmtVals(qnty, cnsgmntIDs);
-        //       }
-        //       else
-        //       {
-        //         csngmtData = Global.getSRItmCnsgmtVals(
-        //           docLnID, qnty, cnsgmntIDs, srcDocLnID);
-        //       }
-        //       //From the List get Total Cost Price of the Item
-
-        //       double ttlCstPrice = 0;
-        //       for (int i = 0; i < csngmtData.Count; i++)
-        //       {
-        //         string[] ary = csngmtData[i];
-        //         double fig1Qty = 0;
-        //         double fig2Prc = 0;
-        //         double.TryParse(ary[1], out fig1Qty);
-        //         double.TryParse(ary[2], out fig2Prc);
-        //         ttlCstPrice += fig1Qty * fig2Prc;
-        //       }
-        //       if (dfltInvAcntID > 0 && dfltCGSAcntID > 0 && docTyp == "Sales Invoice")
-        //       {
-        //         succs = this.sendToGLInterfaceMnl(
-        //           dfltInvAcntID, "D", ttlCstPrice, dateStr,
-        //            "Sale of Inventory Items", crncyID, dateStr,
-        //            docTyp, docID, docLnID);
-        //         if (!succs)
-        //         {
-        //           return succs;
-        //         }
-        //         succs = this.sendToGLInterfaceMnl(dfltCGSAcntID, "I", ttlCstPrice, dateStr,
-        //             "Sale of Inventory Items", crncyID, dateStr,
-        //             docTyp, docID, docLnID);
-        //         if (!succs)
-        //         {
-        //           return succs;
-        //         }
-        //       }
-        //       else if (dfltInvAcntID > 0 && dfltCGSAcntID > 0 && docTyp == "Sales Return" && strSrcDocType == "Sales Invoice")
-        //       {
-        //         succs = this.sendToGLInterfaceMnl(dfltInvAcntID, "I", ttlCstPrice, dateStr,
-        //           "Return of Sold Inventory Items", crncyID, dateStr,
-        //           docTyp, docID, docLnID);
-        //         if (!succs)
-        //         {
-        //           return succs;
-        //         }
-        //         succs = this.sendToGLInterfaceMnl(dfltCGSAcntID, "D", ttlCstPrice, dateStr,
-        //           "Return of Sold Inventory Items", crncyID, dateStr,
-        //           docTyp, docID, docLnID);
-        //         if (!succs)
-        //         {
-        //           return succs;
-        //         }
-        //       }
-        //       else if (docTyp == "Item Issue-Unbilled")
-        //       {
-        //         if (dfltInvAcntID > 0 && dfltExpnsAcntID > 0)
-        //         {
-        //           succs = this.sendToGLInterfaceMnl(dfltInvAcntID, "D", ttlCstPrice, dateStr,
-        //             "Issue Out of Inventory Items", crncyID, dateStr,
-        //             docTyp, docID, docLnID);
-        //           if (!succs)
-        //           {
-        //             return succs;
-        //           }
-        //           succs = this.sendToGLInterfaceMnl(dfltExpnsAcntID, "I", ttlCstPrice, dateStr,
-        //             "Issue Out of Inventory Items", crncyID, dateStr,
-        //             docTyp, docID, docLnID);
-        //           if (!succs)
-        //           {
-        //             return succs;
-        //           }
-        //         }
-        //       }
-        //       else if (docTyp == "Sales Return" && strSrcDocType == "Item Issue-Unbilled")
-        //       {
-        //         if (dfltInvAcntID > 0 && dfltExpnsAcntID > 0)
-        //         {
-        //           succs = this.sendToGLInterfaceMnl(dfltInvAcntID, "I", ttlCstPrice, dateStr,
-        //             "Return of Inventory Items Issued Out", crncyID, dateStr,
-        //             docTyp, docID, docLnID);
-        //           if (!succs)
-        //           {
-        //             return succs;
-        //           }
-        //           succs = this.sendToGLInterfaceMnl(dfltExpnsAcntID, "D", ttlCstPrice, dateStr,
-        //             "Return of Inventory Items Issued Out", crncyID, dateStr,
-        //             docTyp, docID, docLnID);
-        //           if (!succs)
-        //           {
-        //             return succs;
-        //           }
-        //         }
-        //       }
-        //     }
-        //     char[] w = { ',' };
-        //     double snglDscnt = 0;
-        //     string isParnt = "";
-        //     int accntCurrID = this.curid;
-        //     double accntCurrRate = funcCurrrate;
-
-        //     if (docTyp == "Sales Invoice")
-        //     {
-        //       if (dfltRvnuAcntID > 0 && dfltRcvblAcntID > 0)
-        //       {
-        //         Global.createScmRcvblsDocDet(docID, "1Initial Amount",
-        //   "Revenue from Sales Invoice (" + docIDNum + ")",
-        //   ttlRvnuAmnt, entrdCurrID, -1, docTyp, false, "Increase", dfltRvnuAcntID,
-        //   "Increase", dfltRcvblAcntID, -1, "VALID", -1, this.curid, accntCurrID,
-        //   funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlRvnuAmnt, 2),
-        //   Math.Round(accntCurrRate * ttlRvnuAmnt, 2));
-        //       }
-        //       snglDscnt = 0;
-        //       if (dscntCodeID > 0)
-        //       {
-        //         isParnt = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "is_parent", dscntCodeID);
-        //         if (isParnt == "1")
-        //         {
-        //           string[] codeIDs = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "child_code_ids", dscntCodeID).Split(w, StringSplitOptions.RemoveEmptyEntries);
-        //           snglDscnt = 0;
-        //           for (int j = 0; j < codeIDs.Length; j++)
-        //           {
-        //             if (int.Parse(codeIDs[j]) > 0)
-        //             {
-        //               salesDscntAcntID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "dscount_expns_accnt_id", int.Parse(codeIDs[j])));
-        //               if (salesDscntAcntID > 0 && dfltRcvblAcntID > 0)
-        //               {
-        //                 string dscntCodeNm = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "code_name", int.Parse(codeIDs[j]));
-        //                 double ttlDsctAmnt = Math.Round(Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce, qnty), 2);
-        //                 snglDscnt += Math.Round(Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce, 1), 2);
-
-        //                 Global.createScmRcvblsDocDet(docID, "3Discount",
-        //           "Discounts (" + dscntCodeNm + ") on Sales Invoice (" + docIDNum + ")",
-        //           ttlDsctAmnt, entrdCurrID, int.Parse(codeIDs[j]), docTyp, false, "Increase", salesDscntAcntID,
-        //           "Decrease", dfltRcvblAcntID, -1, "VALID", -1, this.curid, accntCurrID,
-        //           funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlDsctAmnt, 2),
-        //           Math.Round(accntCurrRate * ttlDsctAmnt, 2));
-        //               }
-        //             }
-        //           }
-        //         }
-        //         else
-        //         {
-        //           salesDscntAcntID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "dscount_expns_accnt_id", dscntCodeID));
-        //           if (salesDscntAcntID > 0 && dfltRcvblAcntID > 0)
-        //           {
-        //             string dscntCodeNm = Global.mnFrm.cmCde.getGnrlRecNm(
-        //      "scm.scm_tax_codes", "code_id", "code_name",
-        //      dscntCodeID);
-        //             double ttlDsctAmnt = Math.Round(Global.getSalesDocCodesAmnt(
-        //         dscntCodeID, orgnlSllngPrce, qnty), 2);
-        //             snglDscnt = Math.Round(Global.getSalesDocCodesAmnt(dscntCodeID, orgnlSllngPrce, 1), 2);
-
-        //             Global.createScmRcvblsDocDet(docID, "3Discount",
-        //       "Discounts (" + dscntCodeNm + ") on Sales Invoice (" + docIDNum + ")",
-        //       ttlDsctAmnt, entrdCurrID, dscntCodeID, docTyp, false, "Increase", salesDscntAcntID,
-        //       "Decrease", dfltRcvblAcntID, -1, "VALID", -1, this.curid, accntCurrID,
-        //       funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlDsctAmnt, 2),
-        //       Math.Round(accntCurrRate * ttlDsctAmnt, 2));
-        //           }
-        //         }
-        //       }
-
-        //       if (txCodeID > 0)
-        //       {
-        //         isParnt = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "is_parent", txCodeID);
-        //         if (isParnt == "1")
-        //         {
-        //           string[] codeIDs = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "child_code_ids", txCodeID).Split(w, StringSplitOptions.RemoveEmptyEntries);
-        //           for (int j = 0; j < codeIDs.Length; j++)
-        //           {
-        //             if (int.Parse(codeIDs[j]) > 0)
-        //             {
-        //               double ttlTxAmnt = Math.Round(Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce - snglDscnt, qnty), 2);
-        //               string txCodeNm = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "code_name", int.Parse(codeIDs[j]));
-        //               txPyblAcntID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "taxes_payables_accnt_id", int.Parse(codeIDs[j])));
-        //               if (txPyblAcntID > 0 && dfltRcvblAcntID > 0)
-        //               {
-        //                 Global.createScmRcvblsDocDet(docID, "2Tax",
-        //                 "Taxes (" + txCodeNm + ") on Sales Invoice (" + docIDNum + ")",
-        //                 ttlTxAmnt, entrdCurrID, int.Parse(codeIDs[j]), docTyp, false, "Increase", txPyblAcntID,
-        //                 "Increase", dfltRcvblAcntID, -1, "VALID", -1, this.curid, accntCurrID,
-        //                 funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlTxAmnt, 2),
-        //                 Math.Round(accntCurrRate * ttlTxAmnt, 2));
-        //               }
-        //             }
-        //           }
-        //         }
-        //         else
-        //         {
-        //           txPyblAcntID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "taxes_payables_accnt_id", txCodeID));
-        //           if (txPyblAcntID > 0 && dfltRcvblAcntID > 0)
-        //           {
-        //             double ttlTxAmnt = Math.Round(Global.getSalesDocCodesAmnt(txCodeID, orgnlSllngPrce - snglDscnt, qnty), 2);
-        //             string txCodeNm = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "code_name", txCodeID);
-        //             Global.createScmRcvblsDocDet(docID, "2Tax",
-        //     "Taxes (" + txCodeNm + ") on Sales Invoice (" + docIDNum + ")",
-        //     ttlTxAmnt, entrdCurrID, txCodeID, docTyp, false, "Increase", txPyblAcntID,
-        //     "Increase", dfltRcvblAcntID, -1, "VALID", -1, this.curid, accntCurrID,
-        //     funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlTxAmnt, 2),
-        //     Math.Round(accntCurrRate * ttlTxAmnt, 2));
-        //           }
-        //         }
-        //       }
-
-        //       if (chrgCodeID > 0)
-        //       {
-        //         isParnt = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "is_parent", chrgCodeID);
-        //         if (isParnt == "1")
-        //         {
-        //           string[] codeIDs = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id",
-        //             "child_code_ids", chrgCodeID).Split(w, StringSplitOptions.RemoveEmptyEntries);
-        //           for (int j = 0; j < codeIDs.Length; j++)
-        //           {
-        //             if (int.Parse(codeIDs[j]) > 0)
-        //             {
-        //               double ttlChrgAmnt = Math.Round(Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce, qnty), 2);
-        //               string chrgCodeNm = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "code_name", int.Parse(codeIDs[j]));
-        //               chrgRvnuAcntID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "chrge_revnu_accnt_id", int.Parse(codeIDs[j])));
-
-        //               if (chrgRvnuAcntID > 0 && dfltRcvblAcntID > 0)
-        //               {
-        //                 Global.createScmRcvblsDocDet(docID, "4Extra Charge",
-        //           "Extra Charges (" + chrgCodeNm + ") on Sales Invoice (" + docIDNum + ")",
-        //           ttlChrgAmnt, entrdCurrID, int.Parse(codeIDs[j]), docTyp, false, "Increase", chrgRvnuAcntID,
-        //           "Increase", dfltRcvblAcntID, -1, "VALID", -1, this.curid, accntCurrID,
-        //           funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlChrgAmnt, 2),
-        //           Math.Round(accntCurrRate * ttlChrgAmnt, 2));
-        //               }
-        //             }
-        //           }
-        //         }
-        //         else
-        //         {
-        //           chrgRvnuAcntID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "chrge_revnu_accnt_id", chrgCodeID));
-        //           if (chrgRvnuAcntID > 0 && dfltRcvblAcntID > 0)
-        //           {
-        //             double ttlChrgAmnt = Math.Round(Global.getSalesDocCodesAmnt(chrgCodeID, orgnlSllngPrce, qnty), 2);
-        //             string chrgCodeNm = Global.mnFrm.cmCde.getGnrlRecNm(
-        //         "scm.scm_tax_codes", "code_id", "code_name",
-        //         chrgCodeID);
-
-        //             Global.createScmRcvblsDocDet(docID, "4Extra Charge",
-        //       "Extra Charges (" + chrgCodeNm + ") on Sales Invoice (" + docIDNum + ")",
-        //       ttlChrgAmnt, entrdCurrID, chrgCodeID, docTyp, false, "Increase", chrgRvnuAcntID,
-        //       "Increase", dfltRcvblAcntID, -1, "VALID", -1, this.curid, accntCurrID,
-        //       funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlChrgAmnt, 2),
-        //       Math.Round(accntCurrRate * ttlChrgAmnt, 2));
-        //           }
-        //         }
-        //       }
-        //     }
-        //     else if (docTyp == "Sales Return" && strSrcDocType == "Sales Invoice")
-        //     {
-        //       if (dfltRvnuAcntID > 0 && dfltLbltyAccnt > 0)
-        //       {
-        //         Global.createScmRcvblsDocDet(docID, "1Initial Amount",
-        //   "Refund from Sales Return (" + docIDNum + ")",
-        //   ttlRvnuAmnt, entrdCurrID, -1, docTyp, false, "Decrease", dfltRvnuAcntID,
-        //   "Increase", dfltLbltyAccnt, -1, "VALID", -1, this.curid, accntCurrID,
-        //   funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlRvnuAmnt, 2),
-        //   Math.Round(accntCurrRate * ttlRvnuAmnt, 2));
-        //       }
-        //       if (dscntCodeID > 0)
-        //       {
-        //         isParnt = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "is_parent", dscntCodeID);
-        //         if (isParnt == "1")
-        //         {
-        //           string[] codeIDs = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "child_code_ids", dscntCodeID).Split(w, StringSplitOptions.RemoveEmptyEntries);
-        //           snglDscnt = 0;
-        //           for (int j = 0; j < codeIDs.Length; j++)
-        //           {
-        //             if (int.Parse(codeIDs[j]) > 0)
-        //             {
-        //               salesDscntAcntID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "dscount_expns_accnt_id", int.Parse(codeIDs[j])));
-        //               if (salesDscntAcntID > 0 && dfltLbltyAccnt > 0)
-        //               {
-        //                 string dscntCodeNm = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "code_name", int.Parse(codeIDs[j]));
-        //                 double ttlDsctAmnt = Math.Round(Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce, qnty), 2);
-        //                 snglDscnt += Math.Round(Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce, 1), 2);
-
-        //                 Global.createScmRcvblsDocDet(docID, "3Discount",
-        //   "Take Back Discounts (" + dscntCodeNm + ") on Sales Return (" + docIDNum + ")",
-        //   ttlDsctAmnt, entrdCurrID, int.Parse(codeIDs[j]), docTyp, false, "Decrease", salesDscntAcntID,
-        //   "Decrease", dfltLbltyAccnt, -1, "VALID", -1, this.curid, accntCurrID,
-        //   funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlDsctAmnt, 2),
-        //   Math.Round(accntCurrRate * ttlDsctAmnt, 2));
-        //               }
-        //             }
-        //           }
-        //         }
-        //         else
-        //         {
-        //           salesDscntAcntID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "dscount_expns_accnt_id", dscntCodeID));
-        //           if (salesDscntAcntID > 0 && dfltLbltyAccnt > 0)
-        //           {
-        //             string dscntCodeNm = Global.mnFrm.cmCde.getGnrlRecNm(
-        //      "scm.scm_tax_codes", "code_id", "code_name",
-        //      dscntCodeID);
-        //             double ttlDsctAmnt = Math.Round(Global.getSalesDocCodesAmnt(
-        //         dscntCodeID, orgnlSllngPrce, qnty), 2);
-        //             snglDscnt = Math.Round(Global.getSalesDocCodesAmnt(dscntCodeID, orgnlSllngPrce, 1), 2);
-
-        //             Global.createScmRcvblsDocDet(docID, "3Discount",
-        //   "Take Back Discounts (" + dscntCodeNm + ") on Sales Return (" + docIDNum + ")",
-        //   ttlDsctAmnt, entrdCurrID, dscntCodeID, docTyp, false, "Decrease", salesDscntAcntID,
-        //   "Decrease", dfltLbltyAccnt, -1, "VALID", -1, this.curid, accntCurrID,
-        //   funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlDsctAmnt, 2),
-        //   Math.Round(accntCurrRate * ttlDsctAmnt, 2));
-        //           }
-        //         }
-        //       }
-
-        //       if (txCodeID > 0)
-        //       {
-        //         isParnt = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "is_parent", txCodeID);
-        //         if (isParnt == "1")
-        //         {
-        //           string[] codeIDs = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "child_code_ids", txCodeID).Split(w, StringSplitOptions.RemoveEmptyEntries);
-        //           for (int j = 0; j < codeIDs.Length; j++)
-        //           {
-        //             if (int.Parse(codeIDs[j]) > 0)
-        //             {
-        //               double ttlTxAmnt = Math.Round(Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce - snglDscnt, qnty), 2);
-        //               string txCodeNm = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "code_name", int.Parse(codeIDs[j]));
-        //               txPyblAcntID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "taxes_payables_accnt_id", int.Parse(codeIDs[j])));
-        //               if (txPyblAcntID > 0 && dfltLbltyAccnt > 0)
-        //               {
-        //                 Global.createScmRcvblsDocDet(docID, "2Tax",
-        //   "Refund Taxes (" + txCodeNm + ") on Sales Return (" + docIDNum + ")",
-        //   ttlTxAmnt, entrdCurrID, int.Parse(codeIDs[j]), docTyp, false, "Decrease", txPyblAcntID,
-        //   "Increase", dfltLbltyAccnt, -1, "VALID", -1, this.curid, accntCurrID,
-        //   funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlTxAmnt, 2),
-        //   Math.Round(accntCurrRate * ttlTxAmnt, 2));
-        //               }
-        //             }
-        //           }
-        //         }
-        //         else
-        //         {
-        //           txPyblAcntID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "taxes_payables_accnt_id", txCodeID));
-        //           if (txPyblAcntID > 0 && dfltLbltyAccnt > 0)
-        //           {
-        //             double ttlTxAmnt = Math.Round(Global.getSalesDocCodesAmnt(txCodeID, orgnlSllngPrce - snglDscnt, qnty), 2);
-        //             string txCodeNm = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "code_name", txCodeID);
-        //             Global.createScmRcvblsDocDet(docID, "2Tax",
-        //   "Refund Taxes (" + txCodeNm + ") on Sales Return (" + docIDNum + ")",
-        //   ttlTxAmnt, entrdCurrID, txCodeID, docTyp, false, "Decrease", txPyblAcntID,
-        //   "Increase", dfltLbltyAccnt, -1, "VALID", -1, this.curid, accntCurrID,
-        //   funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlTxAmnt, 2),
-        //   Math.Round(accntCurrRate * ttlTxAmnt, 2));
-        //           }
-        //         }
-        //       }
-
-        //       if (chrgCodeID > 0)
-        //       {
-        //         isParnt = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "is_parent", chrgCodeID);
-        //         if (isParnt == "1")
-        //         {
-        //           string[] codeIDs = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id",
-        //             "child_code_ids", chrgCodeID).Split(w, StringSplitOptions.RemoveEmptyEntries);
-        //           for (int j = 0; j < codeIDs.Length; j++)
-        //           {
-        //             if (int.Parse(codeIDs[j]) > 0)
-        //             {
-        //               double ttlChrgAmnt = Math.Round(Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce, qnty), 2);
-        //               string chrgCodeNm = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "code_name", int.Parse(codeIDs[j]));
-        //               chrgRvnuAcntID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "chrge_revnu_accnt_id", int.Parse(codeIDs[j])));
-
-        //               if (chrgRvnuAcntID > 0 && dfltLbltyAccnt > 0)
-        //               {
-        //                 Global.createScmRcvblsDocDet(docID, "4Extra Charge",
-        //   "Refund Extra Charges (" + chrgCodeNm + ") on Sales Return (" + docIDNum + ")",
-        //   ttlChrgAmnt, entrdCurrID, int.Parse(codeIDs[j]), docTyp, false, "Decrease", chrgRvnuAcntID,
-        //   "Increase", dfltLbltyAccnt, -1, "VALID", -1, this.curid, accntCurrID,
-        //   funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlChrgAmnt, 2),
-        //   Math.Round(accntCurrRate * ttlChrgAmnt, 2));
-        //               }
-        //             }
-        //           }
-        //         }
-        //         else
-        //         {
-        //           chrgRvnuAcntID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "chrge_revnu_accnt_id", chrgCodeID));
-        //           if (chrgRvnuAcntID > 0 && dfltLbltyAccnt > 0)
-        //           {
-        //             double ttlChrgAmnt = Math.Round(Global.getSalesDocCodesAmnt(chrgCodeID, orgnlSllngPrce, qnty), 2);
-        //             string chrgCodeNm = Global.mnFrm.cmCde.getGnrlRecNm(
-        //         "scm.scm_tax_codes", "code_id", "code_name",
-        //         chrgCodeID);
-
-        //             Global.createScmRcvblsDocDet(docID, "4Extra Charge",
-        //   "Refund Extra Charges (" + chrgCodeNm + ") on Sales Return (" + docIDNum + ")",
-        //   ttlChrgAmnt, entrdCurrID, chrgCodeID, docTyp, false, "Decrease", chrgRvnuAcntID,
-        //   "Increase", dfltLbltyAccnt, -1, "VALID", -1, this.curid, accntCurrID,
-        //   funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlChrgAmnt, 2),
-        //   Math.Round(accntCurrRate * ttlChrgAmnt, 2));
-        //           }
-        //         }
-        //       }
-        //     }
-        //     return succs;
-        //   }
-        //   catch (Exception ex)
-        //   {
-        //     Global.mnFrm.cmCde.showMsg(ex.InnerException + "\r\n" + ex.StackTrace + "\r\n" + ex.Message, 0);
-        //     return false;
-        //   }
-        // }
-
         private bool generateItmAccntng(long itmID, double qnty, string cnsgmntIDs,
-       int txCodeID, int dscntCodeID, int chrgCodeID,
-       string docTyp, long docID, long srcDocID, int dfltRcvblAcntID,
-       int dfltInvAcntID, int dfltCGSAcntID, int dfltExpnsAcntID, int dfltRvnuAcntID,
-       long stckID, double unitSllgPrc, int crncyID, long docLnID,
-       int dfltSRAcntID, int dfltCashAcntID, int dfltCheckAcntID, long srcDocLnID,
-       string dateStr, string docIDNum, int entrdCurrID,
-         decimal exchngRate, int dfltLbltyAccnt, string strSrcDocType,
-         string cstmrNm, string docDesc, string itmDesc)
+     int txCodeID, int dscntCodeID, int chrgCodeID,
+     string docTyp, long docID, long srcDocID, int dfltRcvblAcntID,
+     int dfltInvAcntID, int dfltCGSAcntID, int dfltExpnsAcntID, int dfltRvnuAcntID,
+     long stckID, double unitSllgPrc, int crncyID, long docLnID,
+     int dfltSRAcntID, int dfltCashAcntID, int dfltCheckAcntID, long srcDocLnID,
+     string dateStr, string docIDNum, int entrdCurrID,
+       decimal exchngRate, int dfltLbltyAccnt, string strSrcDocType,
+       string cstmrNm, string docDesc, string itmDesc, int storeID)
         {
             try
             {
@@ -8568,12 +7786,14 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                 {
                     cstmrNm = "Unspecified Customer";
                 }
+
                 if (docDesc == "")
                 {
                     docDesc = "Unstated Purpose";
                 }
+
                 bool succs = true;
-                /*For each Item in a Sales Invoice
+                /* For each Item in a Sales Invoice
                  * 1. Get Items Consgnmnt Cost Prices using all selected consignments and their used qtys
                  * 2. Decrease Inv Account by Cost Price --0Inventory
                  * 3. Increase Cost of Goods Sold by Cost Price --0Inventory
@@ -8599,7 +7819,7 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                 int chrgRvnuAcntID = -1;
                 int salesDscntAcntID = -1;
 
-                int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("inv.inv_itm_subinventories", "subinv_id", "inv_asset_acct_id", Global.selectedStoreID), out itmInvAcntID);
+                int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("inv.inv_itm_subinventories", "subinv_id", "inv_asset_acct_id", storeID), out itmInvAcntID);
                 //int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("inv.inv_itm_list", "item_id", "inv_asset_acct_id", itmID), out itmInvAcntID);
 
                 int.TryParse(Global.mnFrm.cmCde.getGnrlRecNm("inv.inv_itm_list", "item_id", "cogs_acct_id", itmID), out itmCGSAcntID);
@@ -8655,12 +7875,12 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                   "scm.scm_sales_invc_det", "invc_det_ln_id", "orgnl_selling_price", docLnID));
                 double sllngPrce = double.Parse(Global.mnFrm.cmCde.getGnrlRecNm(
                   "scm.scm_sales_invc_det", "invc_det_ln_id", "unit_selling_price", docLnID));
-                double ttlSllngPrc = Math.Round(qnty * sllngPrce, 2);
+                double ttlSllngPrc = (qnty * sllngPrce);
 
 
                 //Get Net Selling Price = Selling Price - Taxes
-                double ttlRvnuAmnt = ttlSllngPrc;// -ttlChrgAmnt;// +ttlDsctAmnt;
-                                                 //For Sales Invoice, Sales Return, Item Issues-Unbilled Docs get the ff
+                double ttlRvnuAmnt = ttlSllngPrc;
+
                 if (itmType.Contains("Inventory")
                   || itmType.Contains("Fixed Assets"))
                 {
@@ -8762,8 +7982,11 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                         }
                     }
                 }
+
                 char[] w = { ',' };
                 double snglDscnt = 0;
+                double initialDscnt = 0;
+                double ttlDscntTax = 0;
                 string isParnt = "";
                 int accntCurrID = this.curid;
                 double accntCurrRate = funcCurrrate;
@@ -8786,15 +8009,18 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                                     if (salesDscntAcntID > 0 && dfltRcvblAcntID > 0)
                                     {
                                         string dscntCodeNm = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "code_name", int.Parse(codeIDs[j]));
-                                        double ttlDsctAmnt = Math.Round(Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce, qnty), 2);
-                                        snglDscnt += Math.Round(Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce, 1), 2);
+                                        initialDscnt = Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce, qnty);
+                                        double ttlDsctAmnt = this.getDscntLessTax(txCodeID, initialDscnt);
+                                        snglDscnt += this.getDscntLessTax(txCodeID, Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce, 1));
+                                        ttlDscntTax = initialDscnt - ttlDsctAmnt;
 
                                         Global.createScmRcvblsDocDet(docID, "3Discount",
-                                  "Discounts (" + dscntCodeNm + ") on Sales Invoice (" + docIDNum + ") IRO " + itmDesc + " to " + cstmrNm + " (" + docDesc + ")",
-                                  ttlDsctAmnt, entrdCurrID, int.Parse(codeIDs[j]), docTyp, false, "Increase", salesDscntAcntID,
-                                  "Decrease", dfltRcvblAcntID, -1, "VALID", -1, this.curid, accntCurrID,
-                                  funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlDsctAmnt, 2),
-                                  Math.Round(accntCurrRate * ttlDsctAmnt, 2));
+                                          "Discounts (" + dscntCodeNm + ") on Sales Invoice (" + docIDNum + ") IRO " + itmDesc + " to " + cstmrNm + " (" + docDesc + ")",
+                                          ttlDsctAmnt, entrdCurrID, int.Parse(codeIDs[j]), docTyp, false, "Increase", salesDscntAcntID,
+                                          "Decrease", dfltRcvblAcntID, -1, "VALID", -1, this.curid, accntCurrID,
+                                          funcCurrrate, accntCurrRate, funcCurrrate * ttlDsctAmnt,
+                                          accntCurrRate * ttlDsctAmnt);
+                                        ttlRvnuAmnt -= ttlDscntTax;
                                     }
                                 }
                             }
@@ -8807,16 +8033,19 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                                 string dscntCodeNm = Global.mnFrm.cmCde.getGnrlRecNm(
                          "scm.scm_tax_codes", "code_id", "code_name",
                          dscntCodeID);
-                                double ttlDsctAmnt = Math.Round(Global.getSalesDocCodesAmnt(
-                            dscntCodeID, orgnlSllngPrce, qnty), 2);
-                                snglDscnt = Math.Round(Global.getSalesDocCodesAmnt(dscntCodeID, orgnlSllngPrce, 1), 2);
+                                initialDscnt = Global.getSalesDocCodesAmnt(dscntCodeID, orgnlSllngPrce, qnty);
+                                double ttlDsctAmnt = this.getDscntLessTax(txCodeID, initialDscnt);
+
+                                snglDscnt = this.getDscntLessTax(txCodeID, Global.getSalesDocCodesAmnt(dscntCodeID, orgnlSllngPrce, 1));
+                                ttlDscntTax = initialDscnt - ttlDsctAmnt;
 
                                 Global.createScmRcvblsDocDet(docID, "3Discount",
                           "Discounts (" + dscntCodeNm + ") on Sales Invoice (" + docIDNum + ") IRO " + itmDesc + " to " + cstmrNm + " (" + docDesc + ")",
                           ttlDsctAmnt, entrdCurrID, dscntCodeID, docTyp, false, "Increase", salesDscntAcntID,
                           "Decrease", dfltRcvblAcntID, -1, "VALID", -1, this.curid, accntCurrID,
-                          funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlDsctAmnt, 2),
-                          Math.Round(accntCurrRate * ttlDsctAmnt, 2));
+                          funcCurrrate, accntCurrRate, funcCurrrate * ttlDsctAmnt,
+                          accntCurrRate * ttlDsctAmnt);
+                                ttlRvnuAmnt -= ttlDscntTax;
                             }
                         }
                     }
@@ -8831,7 +8060,7 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                             {
                                 if (int.Parse(codeIDs[j]) > 0)
                                 {
-                                    double ttlTxAmnt = Math.Round(Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce - snglDscnt, qnty), 2);
+                                    double ttlTxAmnt = Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce - snglDscnt, qnty);
                                     string txCodeNm = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "code_name", int.Parse(codeIDs[j]));
                                     txPyblAcntID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "taxes_payables_accnt_id", int.Parse(codeIDs[j])));
                                     if (txPyblAcntID > 0 && dfltRcvblAcntID > 0)
@@ -8840,8 +8069,8 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                                         "Taxes (" + txCodeNm + ") on Sales Invoice (" + docIDNum + ") IRO " + itmDesc + " to " + cstmrNm + " (" + docDesc + ")",
                                         ttlTxAmnt, entrdCurrID, int.Parse(codeIDs[j]), docTyp, false, "Increase", txPyblAcntID,
                                         "Increase", dfltRcvblAcntID, -1, "VALID", -1, this.curid, accntCurrID,
-                                        funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlTxAmnt, 2),
-                                        Math.Round(accntCurrRate * ttlTxAmnt, 2));
+                                        funcCurrrate, accntCurrRate, funcCurrrate * ttlTxAmnt,
+                                        accntCurrRate * ttlTxAmnt);
                                         ttlRvnuAmnt -= ttlTxAmnt;
                                     }
                                 }
@@ -8852,14 +8081,14 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                             txPyblAcntID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "taxes_payables_accnt_id", txCodeID));
                             if (txPyblAcntID > 0 && dfltRcvblAcntID > 0)
                             {
-                                double ttlTxAmnt = Math.Round(Global.getSalesDocCodesAmnt(txCodeID, orgnlSllngPrce - snglDscnt, qnty), 2);
+                                double ttlTxAmnt = Global.getSalesDocCodesAmnt(txCodeID, orgnlSllngPrce - snglDscnt, qnty);
                                 string txCodeNm = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "code_name", txCodeID);
                                 Global.createScmRcvblsDocDet(docID, "2Tax",
                         "Taxes (" + txCodeNm + ") on Sales Invoice (" + docIDNum + ") IRO " + itmDesc + " to " + cstmrNm + " (" + docDesc + ")",
                         ttlTxAmnt, entrdCurrID, txCodeID, docTyp, false, "Increase", txPyblAcntID,
                         "Increase", dfltRcvblAcntID, -1, "VALID", -1, this.curid, accntCurrID,
-                        funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlTxAmnt, 2),
-                        Math.Round(accntCurrRate * ttlTxAmnt, 2));
+                        funcCurrrate, accntCurrRate, funcCurrrate * ttlTxAmnt,
+                       accntCurrRate * ttlTxAmnt);
                                 ttlRvnuAmnt -= ttlTxAmnt;
                             }
                         }
@@ -8876,7 +8105,7 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                             {
                                 if (int.Parse(codeIDs[j]) > 0)
                                 {
-                                    double ttlChrgAmnt = Math.Round(Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce, qnty), 2);
+                                    double ttlChrgAmnt = Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce, qnty);
                                     string chrgCodeNm = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "code_name", int.Parse(codeIDs[j]));
                                     chrgRvnuAcntID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "chrge_revnu_accnt_id", int.Parse(codeIDs[j])));
 
@@ -8886,8 +8115,8 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                                   "Extra Charges (" + chrgCodeNm + ") on Sales Invoice (" + docIDNum + ") IRO " + itmDesc + " to " + cstmrNm + " (" + docDesc + ")",
                                   ttlChrgAmnt, entrdCurrID, int.Parse(codeIDs[j]), docTyp, false, "Increase", chrgRvnuAcntID,
                                   "Increase", dfltRcvblAcntID, -1, "VALID", -1, this.curid, accntCurrID,
-                                  funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlChrgAmnt, 2),
-                                  Math.Round(accntCurrRate * ttlChrgAmnt, 2));
+                                  funcCurrrate, accntCurrRate, funcCurrrate * ttlChrgAmnt,
+                                  accntCurrRate * ttlChrgAmnt);
                                     }
                                 }
                             }
@@ -8897,7 +8126,7 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                             chrgRvnuAcntID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "chrge_revnu_accnt_id", chrgCodeID));
                             if (chrgRvnuAcntID > 0 && dfltRcvblAcntID > 0)
                             {
-                                double ttlChrgAmnt = Math.Round(Global.getSalesDocCodesAmnt(chrgCodeID, orgnlSllngPrce, qnty), 2);
+                                double ttlChrgAmnt = Global.getSalesDocCodesAmnt(chrgCodeID, orgnlSllngPrce, qnty);
                                 string chrgCodeNm = Global.mnFrm.cmCde.getGnrlRecNm(
                             "scm.scm_tax_codes", "code_id", "code_name",
                             chrgCodeID);
@@ -8906,20 +8135,19 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                           "Extra Charges (" + chrgCodeNm + ") on Sales Invoice (" + docIDNum + ") IRO " + itmDesc + " to " + cstmrNm + " (" + docDesc + ")",
                           ttlChrgAmnt, entrdCurrID, chrgCodeID, docTyp, false, "Increase", chrgRvnuAcntID,
                           "Increase", dfltRcvblAcntID, -1, "VALID", -1, this.curid, accntCurrID,
-                          funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlChrgAmnt, 2),
-                          Math.Round(accntCurrRate * ttlChrgAmnt, 2));
+                          funcCurrrate, accntCurrRate, funcCurrrate * ttlChrgAmnt,
+                         accntCurrRate * ttlChrgAmnt);
                             }
                         }
                     }
-
                     if (dfltRvnuAcntID > 0 && dfltRcvblAcntID > 0)
                     {
                         Global.createScmRcvblsDocDet(docID, "1Initial Amount",
                   "Revenue from Sales Invoice (" + docIDNum + ") IRO " + itmDesc + " to " + cstmrNm + " (" + docDesc + ")",
                   ttlRvnuAmnt, entrdCurrID, -1, docTyp, false, "Increase", dfltRvnuAcntID,
                   "Increase", dfltRcvblAcntID, -1, "VALID", -1, this.curid, accntCurrID,
-                  funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlRvnuAmnt, 2),
-                  Math.Round(accntCurrRate * ttlRvnuAmnt, 2));
+                  funcCurrrate, accntCurrRate, funcCurrrate * ttlRvnuAmnt,
+                  accntCurrRate * ttlRvnuAmnt);
                     }
                 }
                 else if (docTyp == "Sales Return" && strSrcDocType == "Sales Invoice")
@@ -8939,15 +8167,19 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                                     if (salesDscntAcntID > 0 && dfltLbltyAccnt > 0)
                                     {
                                         string dscntCodeNm = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "code_name", int.Parse(codeIDs[j]));
-                                        double ttlDsctAmnt = Math.Round(Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce, qnty), 2);
-                                        snglDscnt += Math.Round(Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce, 1), 2);
+                                        initialDscnt = Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce, qnty);
+                                        double ttlDsctAmnt = this.getDscntLessTax(txCodeID, initialDscnt);
+                                        snglDscnt += this.getDscntLessTax(txCodeID, Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce, 1));
+                                        ttlDscntTax = initialDscnt - ttlDsctAmnt;
 
                                         Global.createScmRcvblsDocDet(docID, "3Discount",
-                          "Take Back Discounts (" + dscntCodeNm + ") on Sales Return (" + docIDNum + ") IRO " + itmDesc + " by " + cstmrNm + " (" + docDesc + ")",
-                          ttlDsctAmnt, entrdCurrID, int.Parse(codeIDs[j]), docTyp, false, "Decrease", salesDscntAcntID,
-                          "Decrease", dfltLbltyAccnt, -1, "VALID", -1, this.curid, accntCurrID,
-                          funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlDsctAmnt, 2),
-                          Math.Round(accntCurrRate * ttlDsctAmnt, 2));
+                                      "Take Back Discounts (" + dscntCodeNm + ") on Sales Return (" + docIDNum + ") IRO " + itmDesc +
+                                      " by " + cstmrNm + " (" + docDesc + ")",
+                                      ttlDsctAmnt, entrdCurrID, int.Parse(codeIDs[j]), docTyp, false, "Decrease", salesDscntAcntID,
+                                      "Decrease", dfltLbltyAccnt, -1, "VALID", -1, this.curid, accntCurrID,
+                                      funcCurrrate, accntCurrRate, (funcCurrrate * ttlDsctAmnt),
+                                      (accntCurrRate * ttlDsctAmnt));
+                                        ttlRvnuAmnt -= ttlDscntTax;
                                     }
                                 }
                             }
@@ -8960,16 +8192,18 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                                 string dscntCodeNm = Global.mnFrm.cmCde.getGnrlRecNm(
                          "scm.scm_tax_codes", "code_id", "code_name",
                          dscntCodeID);
-                                double ttlDsctAmnt = Math.Round(Global.getSalesDocCodesAmnt(
-                            dscntCodeID, orgnlSllngPrce, qnty), 2);
-                                snglDscnt = Math.Round(Global.getSalesDocCodesAmnt(dscntCodeID, orgnlSllngPrce, 1), 2);
+                                initialDscnt = Global.getSalesDocCodesAmnt(dscntCodeID, orgnlSllngPrce, qnty);
+                                double ttlDsctAmnt = this.getDscntLessTax(txCodeID, initialDscnt);
+                                snglDscnt = this.getDscntLessTax(txCodeID, Global.getSalesDocCodesAmnt(dscntCodeID, orgnlSllngPrce, 1));
+                                ttlDscntTax = initialDscnt - ttlDsctAmnt;
 
                                 Global.createScmRcvblsDocDet(docID, "3Discount",
                       "Take Back Discounts (" + dscntCodeNm + ") on Sales Return (" + docIDNum + ") IRO " + itmDesc + " by " + cstmrNm + " (" + docDesc + ")",
                       ttlDsctAmnt, entrdCurrID, dscntCodeID, docTyp, false, "Decrease", salesDscntAcntID,
                       "Decrease", dfltLbltyAccnt, -1, "VALID", -1, this.curid, accntCurrID,
-                      funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlDsctAmnt, 2),
-                      Math.Round(accntCurrRate * ttlDsctAmnt, 2));
+                      funcCurrrate, accntCurrRate, (funcCurrrate * ttlDsctAmnt),
+                      (accntCurrRate * ttlDsctAmnt));
+                                ttlRvnuAmnt -= ttlDscntTax;
                             }
                         }
                     }
@@ -8984,7 +8218,7 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                             {
                                 if (int.Parse(codeIDs[j]) > 0)
                                 {
-                                    double ttlTxAmnt = Math.Round(Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce - snglDscnt, qnty), 2);
+                                    double ttlTxAmnt = Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce - snglDscnt, qnty);
                                     string txCodeNm = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "code_name", int.Parse(codeIDs[j]));
                                     txPyblAcntID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "taxes_payables_accnt_id", int.Parse(codeIDs[j])));
                                     if (txPyblAcntID > 0 && dfltLbltyAccnt > 0)
@@ -8993,8 +8227,8 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                           "Refund Taxes (" + txCodeNm + ") on Sales Return (" + docIDNum + ") IRO " + itmDesc + " by " + cstmrNm + " (" + docDesc + ")",
                           ttlTxAmnt, entrdCurrID, int.Parse(codeIDs[j]), docTyp, false, "Decrease", txPyblAcntID,
                           "Increase", dfltLbltyAccnt, -1, "VALID", -1, this.curid, accntCurrID,
-                          funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlTxAmnt, 2),
-                          Math.Round(accntCurrRate * ttlTxAmnt, 2));
+                          funcCurrrate, accntCurrRate, (funcCurrrate * ttlTxAmnt),
+                          (accntCurrRate * ttlTxAmnt));
                                         ttlRvnuAmnt -= ttlTxAmnt;
                                     }
                                 }
@@ -9005,14 +8239,14 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                             txPyblAcntID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "taxes_payables_accnt_id", txCodeID));
                             if (txPyblAcntID > 0 && dfltLbltyAccnt > 0)
                             {
-                                double ttlTxAmnt = Math.Round(Global.getSalesDocCodesAmnt(txCodeID, orgnlSllngPrce - snglDscnt, qnty), 2);
+                                double ttlTxAmnt = Global.getSalesDocCodesAmnt(txCodeID, orgnlSllngPrce - snglDscnt, qnty);
                                 string txCodeNm = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "code_name", txCodeID);
                                 Global.createScmRcvblsDocDet(docID, "2Tax",
                       "Refund Taxes (" + txCodeNm + ") on Sales Return (" + docIDNum + ") IRO " + itmDesc + " by " + cstmrNm + " (" + docDesc + ")",
                       ttlTxAmnt, entrdCurrID, txCodeID, docTyp, false, "Decrease", txPyblAcntID,
                       "Increase", dfltLbltyAccnt, -1, "VALID", -1, this.curid, accntCurrID,
-                      funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlTxAmnt, 2),
-                      Math.Round(accntCurrRate * ttlTxAmnt, 2));
+                      funcCurrrate, accntCurrRate, (funcCurrrate * ttlTxAmnt),
+                      (accntCurrRate * ttlTxAmnt));
                                 ttlRvnuAmnt -= ttlTxAmnt;
                             }
                         }
@@ -9029,7 +8263,7 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                             {
                                 if (int.Parse(codeIDs[j]) > 0)
                                 {
-                                    double ttlChrgAmnt = Math.Round(Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce, qnty), 2);
+                                    double ttlChrgAmnt = Global.getSalesDocCodesAmnt(int.Parse(codeIDs[j]), orgnlSllngPrce, qnty);
                                     string chrgCodeNm = Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "code_name", int.Parse(codeIDs[j]));
                                     chrgRvnuAcntID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "chrge_revnu_accnt_id", int.Parse(codeIDs[j])));
 
@@ -9039,8 +8273,8 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                           "Refund Extra Charges (" + chrgCodeNm + ") on Sales Return (" + docIDNum + ") IRO " + itmDesc + " by " + cstmrNm + " (" + docDesc + ")",
                           ttlChrgAmnt, entrdCurrID, int.Parse(codeIDs[j]), docTyp, false, "Decrease", chrgRvnuAcntID,
                           "Increase", dfltLbltyAccnt, -1, "VALID", -1, this.curid, accntCurrID,
-                          funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlChrgAmnt, 2),
-                          Math.Round(accntCurrRate * ttlChrgAmnt, 2));
+                          funcCurrrate, accntCurrRate, (funcCurrrate * ttlChrgAmnt),
+                          (accntCurrRate * ttlChrgAmnt));
                                     }
                                 }
                             }
@@ -9050,7 +8284,7 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                             chrgRvnuAcntID = int.Parse(Global.mnFrm.cmCde.getGnrlRecNm("scm.scm_tax_codes", "code_id", "chrge_revnu_accnt_id", chrgCodeID));
                             if (chrgRvnuAcntID > 0 && dfltLbltyAccnt > 0)
                             {
-                                double ttlChrgAmnt = Math.Round(Global.getSalesDocCodesAmnt(chrgCodeID, orgnlSllngPrce, qnty), 2);
+                                double ttlChrgAmnt = Global.getSalesDocCodesAmnt(chrgCodeID, orgnlSllngPrce, qnty);
                                 string chrgCodeNm = Global.mnFrm.cmCde.getGnrlRecNm(
                             "scm.scm_tax_codes", "code_id", "code_name",
                             chrgCodeID);
@@ -9059,8 +8293,8 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                       "Refund Extra Charges (" + chrgCodeNm + ") on Sales Return (" + docIDNum + ") IRO " + itmDesc + " by " + cstmrNm + " (" + docDesc + ")",
                       ttlChrgAmnt, entrdCurrID, chrgCodeID, docTyp, false, "Decrease", chrgRvnuAcntID,
                       "Increase", dfltLbltyAccnt, -1, "VALID", -1, this.curid, accntCurrID,
-                      funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlChrgAmnt, 2),
-                      Math.Round(accntCurrRate * ttlChrgAmnt, 2));
+                      funcCurrrate, accntCurrRate, (funcCurrrate * ttlChrgAmnt),
+                      (accntCurrRate * ttlChrgAmnt));
                             }
                         }
                     }
@@ -9070,10 +8304,11 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                   "Refund from Sales Return (" + docIDNum + ") IRO " + itmDesc + " to " + cstmrNm + " (" + docDesc + ")",
                   ttlRvnuAmnt, entrdCurrID, -1, docTyp, false, "Decrease", dfltRvnuAcntID,
                   "Increase", dfltLbltyAccnt, -1, "VALID", -1, this.curid, accntCurrID,
-                  funcCurrrate, accntCurrRate, Math.Round(funcCurrrate * ttlRvnuAmnt, 2),
-                  Math.Round(accntCurrRate * ttlRvnuAmnt, 2));
+                  funcCurrrate, accntCurrRate, (funcCurrrate * ttlRvnuAmnt),
+                  (accntCurrRate * ttlRvnuAmnt));
                     }
                 }
+                Global.roundScmRcvblsDocAmnts(docID, docTyp);
                 return succs;
             }
             catch (Exception ex)
@@ -9082,7 +8317,6 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
                 return false;
             }
         }
-
 
         private bool udateItemBalances(long itmID, double qnty, string cnsgmntIDs,
           int txCodeID, int dscntCodeID, int chrgCodeID,
@@ -9549,7 +8783,7 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
               || this.salesApprvlStatusTextBox.Text == "Cancelled" || this.salesApprvlStatusTextBox.Text == "Declared Bad Debt"
               || this.docStatusTextBox.Text != "Suscribed")
             {
-                Global.mnFrm.cmCde.showMsg("Document is alreadly Closed!", 0);
+                Global.mnFrm.cmCde.showMsg("Document is already Closed!", 0);
                 return;
             }
             //if (this.itemsDataGridView.Rows.Count <= 0)
@@ -9576,7 +8810,7 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
             {
                 this.saveButton.PerformClick();
             }
-            
+
             this.shwMsg = true;
             this.chckOut = false;
             if (MessageBox.Show("Are you sure you want to " + msgPart + " the selected Document?" +
@@ -9657,6 +8891,7 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
             else
             {
                 //if validated users must reject and redo validation and approval
+                //this.rejectDoc();
                 Global.mnFrm.cmCde.showMsg("Please Review this Document and Submit for Approval Again!", 0);
                 this.saveLabel.Visible = false;
                 Cursor.Current = Cursors.Default;
@@ -11029,6 +10264,7 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
 
         private void customInvoiceButton_Click(object sender, EventArgs e)
         {
+            this.calcSmryButton.PerformClick();
             string reportName = Global.mnFrm.cmCde.getEnbldPssblValDesc("Check-Ins Invoice",
       Global.mnFrm.cmCde.getLovID("Document Custom Print Process Names"));
             string reportTitle = "Customer Bill/Invoice";
@@ -11038,5 +10274,18 @@ AND to_timestamp(end_date,'YYYY-MM-DD HH24:MI:SS'))))";
             Global.mnFrm.cmCde.showRptParamsDiag(Global.mnFrm.cmCde.getRptID(reportName), Global.mnFrm.cmCde, paramRepsNVals, reportTitle);
         }
 
+        private void pymntTermsButton_Click(object sender, EventArgs e)
+        {
+            string txtStr = this.pymntTermsTextBox.Text;
+            if (this.editRec || this.addRec)
+            {
+                Global.mnFrm.cmCde.showTxtNoPermsn(ref txtStr);
+                this.pymntTermsTextBox.Text = txtStr;
+            }
+            else
+            {
+                Global.mnFrm.cmCde.showSQLNoPermsn(txtStr);
+            }
+        }
     }
 }

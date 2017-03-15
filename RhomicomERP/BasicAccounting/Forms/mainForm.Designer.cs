@@ -30,23 +30,23 @@ namespace Accounting.Forms
 			{
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeVWContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.hideTreevwMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -136,6 +136,23 @@ namespace Accounting.Forms
             this.rcHstryAcntMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vwSQLAcntMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.mappedAccntTextBox = new System.Windows.Forms.TextBox();
+            this.accntNameTextBox = new System.Windows.Forms.TextBox();
+            this.accntSgmnt10TextBox = new System.Windows.Forms.TextBox();
+            this.accntSgmnt9TextBox = new System.Windows.Forms.TextBox();
+            this.accntSgmnt8TextBox = new System.Windows.Forms.TextBox();
+            this.accntSgmnt7TextBox = new System.Windows.Forms.TextBox();
+            this.accntSgmnt6TextBox = new System.Windows.Forms.TextBox();
+            this.accntSgmnt5TextBox = new System.Windows.Forms.TextBox();
+            this.accntSgmnt4TextBox = new System.Windows.Forms.TextBox();
+            this.accntSgmnt3TextBox = new System.Windows.Forms.TextBox();
+            this.accntSgmnt2TextBox = new System.Windows.Forms.TextBox();
+            this.accntSgmnt1TextBox = new System.Windows.Forms.TextBox();
+            this.accntNumTextBox = new System.Windows.Forms.TextBox();
+            this.segmentsButton = new System.Windows.Forms.Button();
+            this.mappedAccntButton = new System.Windows.Forms.Button();
+            this.mappedAccntIDTextBox = new System.Windows.Forms.TextBox();
+            this.label88 = new System.Windows.Forms.Label();
             this.accntCrncyNmTextBox = new System.Windows.Forms.TextBox();
             this.accClsfctnComboBox = new System.Windows.Forms.ComboBox();
             this.rptLnNoUpDown = new System.Windows.Forms.NumericUpDown();
@@ -150,7 +167,6 @@ namespace Accounting.Forms
             this.label47 = new System.Windows.Forms.Label();
             this.isNetIncmCheckBox = new System.Windows.Forms.CheckBox();
             this.isRetEarnsCheckBox = new System.Windows.Forms.CheckBox();
-            this.vwAccntTrnsctnsButton = new System.Windows.Forms.Button();
             this.isContraCheckBox = new System.Windows.Forms.CheckBox();
             this.accntTypeComboBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -159,16 +175,12 @@ namespace Accounting.Forms
             this.parentAccntTextBox = new System.Windows.Forms.TextBox();
             this.parentAccntIDTextBox = new System.Windows.Forms.TextBox();
             this.isPrntAccntsCheckBox = new System.Windows.Forms.CheckBox();
-            this.accntNameTextBox = new System.Windows.Forms.TextBox();
-            this.accntsExtraInfoButton = new System.Windows.Forms.Button();
-            this.accntNumTextBox = new System.Windows.Forms.TextBox();
             this.accntIDTextBox = new System.Windows.Forms.TextBox();
-            this.accntDescTextBox = new System.Windows.Forms.TextBox();
             this.hasSubldgrCheckBox = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.accntDescTextBox = new System.Windows.Forms.TextBox();
             this.exptChartButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.correctImblnsButton = new System.Windows.Forms.Button();
@@ -178,6 +190,8 @@ namespace Accounting.Forms
             this.coaAEBalNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label17 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.accntsExtraInfoButton = new System.Windows.Forms.Button();
+            this.vwAccntTrnsctnsButton = new System.Windows.Forms.Button();
             this.tabPage17 = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage18 = new System.Windows.Forms.TabPage();
@@ -893,6 +907,7 @@ namespace Accounting.Forms
             this.columnHeader106 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader107 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader111 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader189 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader108 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader109 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader110 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -1078,6 +1093,7 @@ namespace Accounting.Forms
             this.tabPage13 = new System.Windows.Forms.TabPage();
             this.tabPage14 = new System.Windows.Forms.TabPage();
             this.tabPage15 = new System.Windows.Forms.TabPage();
+            this.tabPage23 = new System.Windows.Forms.TabPage();
             this.blsMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.exptExclBlsMMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
@@ -1337,6 +1353,7 @@ namespace Accounting.Forms
             // 
             // splitContainer1
             // 
+            this.splitContainer1.BackColor = System.Drawing.Color.Transparent;
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainer1.ContextMenuStrip = this.treeVWContextMenuStrip;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1355,7 +1372,7 @@ namespace Accounting.Forms
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(3);
-            this.splitContainer1.Size = new System.Drawing.Size(1362, 741);
+            this.splitContainer1.Size = new System.Drawing.Size(1354, 733);
             this.splitContainer1.SplitterDistance = 227;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -1424,6 +1441,8 @@ namespace Accounting.Forms
             this.imageList1.Images.SetKeyName(23, "cstmrs1.jpg");
             this.imageList1.Images.SetKeyName(24, "CustomIcon.png");
             this.imageList1.Images.SetKeyName(25, "AccountingIcon1.png");
+            this.imageList1.Images.SetKeyName(26, "generaljournal.png");
+            this.imageList1.Images.SetKeyName(27, "cashbook_big_icon.png");
             // 
             // panel2
             // 
@@ -1480,7 +1499,7 @@ namespace Accounting.Forms
             this.leftTreeView.Name = "leftTreeView";
             this.leftTreeView.SelectedImageKey = "tick_64.png";
             this.leftTreeView.ShowNodeToolTips = true;
-            this.leftTreeView.Size = new System.Drawing.Size(212, 633);
+            this.leftTreeView.Size = new System.Drawing.Size(212, 625);
             this.leftTreeView.TabIndex = 5;
             this.leftTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.leftTreeView_AfterSelect);
             this.leftTreeView.Click += new System.EventHandler(this.leftTreeView_Click);
@@ -1498,7 +1517,7 @@ namespace Accounting.Forms
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.tabControl1);
-            this.splitContainer2.Size = new System.Drawing.Size(1121, 731);
+            this.splitContainer2.Size = new System.Drawing.Size(1113, 723);
             this.splitContainer2.SplitterDistance = 69;
             this.splitContainer2.TabIndex = 34;
             // 
@@ -1519,26 +1538,27 @@ namespace Accounting.Forms
             this.tabControl1.Controls.Add(this.tabPage13);
             this.tabControl1.Controls.Add(this.tabPage14);
             this.tabControl1.Controls.Add(this.tabPage15);
+            this.tabControl1.Controls.Add(this.tabPage23);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.ImageList = this.imageList1;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1121, 731);
+            this.tabControl1.Size = new System.Drawing.Size(1113, 723);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl1.TabIndex = 84;
             // 
             // tabPage1
             // 
             this.tabPage1.AutoScroll = true;
-            this.tabPage1.BackColor = System.Drawing.Color.DarkGray;
+            this.tabPage1.BackColor = System.Drawing.Color.DimGray;
             this.tabPage1.Controls.Add(this.accntsChrtPanel);
             this.tabPage1.ImageKey = "AccountingIcon1.png";
             this.tabPage1.Location = new System.Drawing.Point(4, 60);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1113, 667);
+            this.tabPage1.Size = new System.Drawing.Size(1105, 659);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "CHART OF ACCOUNTS";
             // 
@@ -1550,7 +1570,7 @@ namespace Accounting.Forms
             this.accntsChrtPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.accntsChrtPanel.Location = new System.Drawing.Point(3, 3);
             this.accntsChrtPanel.Name = "accntsChrtPanel";
-            this.accntsChrtPanel.Size = new System.Drawing.Size(1107, 661);
+            this.accntsChrtPanel.Size = new System.Drawing.Size(1099, 653);
             this.accntsChrtPanel.TabIndex = 0;
             // 
             // tabControl2
@@ -1562,13 +1582,13 @@ namespace Accounting.Forms
             this.tabControl2.Location = new System.Drawing.Point(0, 0);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1107, 661);
+            this.tabControl2.Size = new System.Drawing.Size(1099, 653);
             this.tabControl2.TabIndex = 137;
             // 
             // tabPage16
             // 
             this.tabPage16.AutoScroll = true;
-            this.tabPage16.BackColor = System.Drawing.Color.Gray;
+            this.tabPage16.BackColor = System.Drawing.Color.DimGray;
             this.tabPage16.Controls.Add(this.waitLabel);
             this.tabPage16.Controls.Add(this.importChartButton);
             this.tabPage16.Controls.Add(this.panel3);
@@ -1578,10 +1598,12 @@ namespace Accounting.Forms
             this.tabPage16.Controls.Add(this.groupBox5);
             this.tabPage16.Controls.Add(this.exptChartButton);
             this.tabPage16.Controls.Add(this.groupBox4);
+            this.tabPage16.Controls.Add(this.accntsExtraInfoButton);
+            this.tabPage16.Controls.Add(this.vwAccntTrnsctnsButton);
             this.tabPage16.Location = new System.Drawing.Point(4, 29);
             this.tabPage16.Name = "tabPage16";
             this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage16.Size = new System.Drawing.Size(1099, 628);
+            this.tabPage16.Size = new System.Drawing.Size(1091, 620);
             this.tabPage16.TabIndex = 0;
             this.tabPage16.Text = "GENERAL LEDGER ACCOUNTS";
             // 
@@ -1590,9 +1612,9 @@ namespace Accounting.Forms
             this.waitLabel.BackColor = System.Drawing.Color.Green;
             this.waitLabel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.waitLabel.ForeColor = System.Drawing.Color.White;
-            this.waitLabel.Location = new System.Drawing.Point(711, 95);
+            this.waitLabel.Location = new System.Drawing.Point(710, 79);
             this.waitLabel.Name = "waitLabel";
-            this.waitLabel.Size = new System.Drawing.Size(328, 52);
+            this.waitLabel.Size = new System.Drawing.Size(369, 52);
             this.waitLabel.TabIndex = 136;
             this.waitLabel.Text = "CORRECTING WRONG BALANCES...PLEASE WAIT...";
             this.waitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1605,7 +1627,7 @@ namespace Accounting.Forms
             this.importChartButton.Image = global::Accounting.Properties.Resources.action_go;
             this.importChartButton.Location = new System.Drawing.Point(949, 92);
             this.importChartButton.Name = "importChartButton";
-            this.importChartButton.Size = new System.Drawing.Size(90, 50);
+            this.importChartButton.Size = new System.Drawing.Size(121, 50);
             this.importChartButton.TabIndex = 6;
             this.importChartButton.Text = "IMPORT A CHART";
             this.importChartButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1620,7 +1642,7 @@ namespace Accounting.Forms
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panel3.Size = new System.Drawing.Size(1093, 33);
+            this.panel3.Size = new System.Drawing.Size(1085, 33);
             this.panel3.TabIndex = 0;
             this.panel3.TabStop = true;
             // 
@@ -1657,7 +1679,7 @@ namespace Accounting.Forms
             this.toolStrip1.Location = new System.Drawing.Point(0, 5);
             this.toolStrip1.Margin = new System.Windows.Forms.Padding(3);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1093, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1085, 25);
             this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.TabStop = true;
@@ -2297,7 +2319,7 @@ namespace Accounting.Forms
             this.accntsChrtListView.HideSelection = false;
             this.accntsChrtListView.Location = new System.Drawing.Point(5, 70);
             this.accntsChrtListView.Name = "accntsChrtListView";
-            this.accntsChrtListView.Size = new System.Drawing.Size(431, 555);
+            this.accntsChrtListView.Size = new System.Drawing.Size(431, 547);
             this.accntsChrtListView.TabIndex = 1;
             this.accntsChrtListView.UseCompatibleStateImageBehavior = false;
             this.accntsChrtListView.View = System.Windows.Forms.View.Details;
@@ -2409,6 +2431,23 @@ namespace Accounting.Forms
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.mappedAccntTextBox);
+            this.groupBox5.Controls.Add(this.accntNameTextBox);
+            this.groupBox5.Controls.Add(this.accntSgmnt10TextBox);
+            this.groupBox5.Controls.Add(this.accntSgmnt9TextBox);
+            this.groupBox5.Controls.Add(this.accntSgmnt8TextBox);
+            this.groupBox5.Controls.Add(this.accntSgmnt7TextBox);
+            this.groupBox5.Controls.Add(this.accntSgmnt6TextBox);
+            this.groupBox5.Controls.Add(this.accntSgmnt5TextBox);
+            this.groupBox5.Controls.Add(this.accntSgmnt4TextBox);
+            this.groupBox5.Controls.Add(this.accntSgmnt3TextBox);
+            this.groupBox5.Controls.Add(this.accntSgmnt2TextBox);
+            this.groupBox5.Controls.Add(this.accntSgmnt1TextBox);
+            this.groupBox5.Controls.Add(this.accntNumTextBox);
+            this.groupBox5.Controls.Add(this.segmentsButton);
+            this.groupBox5.Controls.Add(this.mappedAccntButton);
+            this.groupBox5.Controls.Add(this.mappedAccntIDTextBox);
+            this.groupBox5.Controls.Add(this.label88);
             this.groupBox5.Controls.Add(this.accntCrncyNmTextBox);
             this.groupBox5.Controls.Add(this.accClsfctnComboBox);
             this.groupBox5.Controls.Add(this.rptLnNoUpDown);
@@ -2423,7 +2462,6 @@ namespace Accounting.Forms
             this.groupBox5.Controls.Add(this.label47);
             this.groupBox5.Controls.Add(this.isNetIncmCheckBox);
             this.groupBox5.Controls.Add(this.isRetEarnsCheckBox);
-            this.groupBox5.Controls.Add(this.vwAccntTrnsctnsButton);
             this.groupBox5.Controls.Add(this.isContraCheckBox);
             this.groupBox5.Controls.Add(this.accntTypeComboBox);
             this.groupBox5.Controls.Add(this.label7);
@@ -2432,16 +2470,12 @@ namespace Accounting.Forms
             this.groupBox5.Controls.Add(this.parentAccntTextBox);
             this.groupBox5.Controls.Add(this.parentAccntIDTextBox);
             this.groupBox5.Controls.Add(this.isPrntAccntsCheckBox);
-            this.groupBox5.Controls.Add(this.accntNameTextBox);
-            this.groupBox5.Controls.Add(this.accntsExtraInfoButton);
-            this.groupBox5.Controls.Add(this.accntNumTextBox);
             this.groupBox5.Controls.Add(this.accntIDTextBox);
-            this.groupBox5.Controls.Add(this.accntDescTextBox);
             this.groupBox5.Controls.Add(this.hasSubldgrCheckBox);
             this.groupBox5.Controls.Add(this.label9);
             this.groupBox5.Controls.Add(this.label8);
             this.groupBox5.Controls.Add(this.label51);
-            this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Controls.Add(this.accntDescTextBox);
             this.groupBox5.ForeColor = System.Drawing.Color.White;
             this.groupBox5.Location = new System.Drawing.Point(438, 100);
             this.groupBox5.Name = "groupBox5";
@@ -2449,6 +2483,206 @@ namespace Accounting.Forms
             this.groupBox5.TabIndex = 3;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "ACCOUNT DETAILS";
+            // 
+            // mappedAccntTextBox
+            // 
+            this.mappedAccntTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.mappedAccntTextBox.Location = new System.Drawing.Point(340, 185);
+            this.mappedAccntTextBox.Multiline = true;
+            this.mappedAccntTextBox.Name = "mappedAccntTextBox";
+            this.mappedAccntTextBox.ReadOnly = true;
+            this.mappedAccntTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.mappedAccntTextBox.Size = new System.Drawing.Size(127, 23);
+            this.mappedAccntTextBox.TabIndex = 127;
+            // 
+            // accntNameTextBox
+            // 
+            this.accntNameTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.accntNameTextBox.Location = new System.Drawing.Point(74, 49);
+            this.accntNameTextBox.MaxLength = 100;
+            this.accntNameTextBox.Multiline = true;
+            this.accntNameTextBox.Name = "accntNameTextBox";
+            this.accntNameTextBox.ReadOnly = true;
+            this.accntNameTextBox.Size = new System.Drawing.Size(421, 34);
+            this.accntNameTextBox.TabIndex = 2;
+            this.accntNameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.acntsChrtTxtbx_KeyDown);
+            // 
+            // accntSgmnt10TextBox
+            // 
+            this.accntSgmnt10TextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.accntSgmnt10TextBox.Location = new System.Drawing.Point(334, 62);
+            this.accntSgmnt10TextBox.MaxLength = 200;
+            this.accntSgmnt10TextBox.Name = "accntSgmnt10TextBox";
+            this.accntSgmnt10TextBox.ReadOnly = true;
+            this.accntSgmnt10TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.accntSgmnt10TextBox.Size = new System.Drawing.Size(52, 21);
+            this.accntSgmnt10TextBox.TabIndex = 139;
+            this.accntSgmnt10TextBox.TabStop = false;
+            // 
+            // accntSgmnt9TextBox
+            // 
+            this.accntSgmnt9TextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.accntSgmnt9TextBox.Location = new System.Drawing.Point(334, 50);
+            this.accntSgmnt9TextBox.MaxLength = 200;
+            this.accntSgmnt9TextBox.Name = "accntSgmnt9TextBox";
+            this.accntSgmnt9TextBox.ReadOnly = true;
+            this.accntSgmnt9TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.accntSgmnt9TextBox.Size = new System.Drawing.Size(52, 21);
+            this.accntSgmnt9TextBox.TabIndex = 140;
+            this.accntSgmnt9TextBox.TabStop = false;
+            // 
+            // accntSgmnt8TextBox
+            // 
+            this.accntSgmnt8TextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.accntSgmnt8TextBox.Location = new System.Drawing.Point(276, 62);
+            this.accntSgmnt8TextBox.MaxLength = 200;
+            this.accntSgmnt8TextBox.Name = "accntSgmnt8TextBox";
+            this.accntSgmnt8TextBox.ReadOnly = true;
+            this.accntSgmnt8TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.accntSgmnt8TextBox.Size = new System.Drawing.Size(52, 21);
+            this.accntSgmnt8TextBox.TabIndex = 138;
+            this.accntSgmnt8TextBox.TabStop = false;
+            // 
+            // accntSgmnt7TextBox
+            // 
+            this.accntSgmnt7TextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.accntSgmnt7TextBox.Location = new System.Drawing.Point(276, 50);
+            this.accntSgmnt7TextBox.MaxLength = 200;
+            this.accntSgmnt7TextBox.Name = "accntSgmnt7TextBox";
+            this.accntSgmnt7TextBox.ReadOnly = true;
+            this.accntSgmnt7TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.accntSgmnt7TextBox.Size = new System.Drawing.Size(52, 21);
+            this.accntSgmnt7TextBox.TabIndex = 137;
+            this.accntSgmnt7TextBox.TabStop = false;
+            // 
+            // accntSgmnt6TextBox
+            // 
+            this.accntSgmnt6TextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.accntSgmnt6TextBox.Location = new System.Drawing.Point(220, 62);
+            this.accntSgmnt6TextBox.MaxLength = 200;
+            this.accntSgmnt6TextBox.Name = "accntSgmnt6TextBox";
+            this.accntSgmnt6TextBox.ReadOnly = true;
+            this.accntSgmnt6TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.accntSgmnt6TextBox.Size = new System.Drawing.Size(52, 21);
+            this.accntSgmnt6TextBox.TabIndex = 136;
+            this.accntSgmnt6TextBox.TabStop = false;
+            // 
+            // accntSgmnt5TextBox
+            // 
+            this.accntSgmnt5TextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.accntSgmnt5TextBox.Location = new System.Drawing.Point(220, 50);
+            this.accntSgmnt5TextBox.MaxLength = 200;
+            this.accntSgmnt5TextBox.Name = "accntSgmnt5TextBox";
+            this.accntSgmnt5TextBox.ReadOnly = true;
+            this.accntSgmnt5TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.accntSgmnt5TextBox.Size = new System.Drawing.Size(52, 21);
+            this.accntSgmnt5TextBox.TabIndex = 135;
+            this.accntSgmnt5TextBox.TabStop = false;
+            // 
+            // accntSgmnt4TextBox
+            // 
+            this.accntSgmnt4TextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.accntSgmnt4TextBox.Location = new System.Drawing.Point(162, 62);
+            this.accntSgmnt4TextBox.MaxLength = 200;
+            this.accntSgmnt4TextBox.Name = "accntSgmnt4TextBox";
+            this.accntSgmnt4TextBox.ReadOnly = true;
+            this.accntSgmnt4TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.accntSgmnt4TextBox.Size = new System.Drawing.Size(52, 21);
+            this.accntSgmnt4TextBox.TabIndex = 134;
+            this.accntSgmnt4TextBox.TabStop = false;
+            // 
+            // accntSgmnt3TextBox
+            // 
+            this.accntSgmnt3TextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.accntSgmnt3TextBox.Location = new System.Drawing.Point(162, 50);
+            this.accntSgmnt3TextBox.MaxLength = 200;
+            this.accntSgmnt3TextBox.Name = "accntSgmnt3TextBox";
+            this.accntSgmnt3TextBox.ReadOnly = true;
+            this.accntSgmnt3TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.accntSgmnt3TextBox.Size = new System.Drawing.Size(52, 21);
+            this.accntSgmnt3TextBox.TabIndex = 133;
+            this.accntSgmnt3TextBox.TabStop = false;
+            // 
+            // accntSgmnt2TextBox
+            // 
+            this.accntSgmnt2TextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.accntSgmnt2TextBox.Location = new System.Drawing.Point(104, 62);
+            this.accntSgmnt2TextBox.MaxLength = 200;
+            this.accntSgmnt2TextBox.Name = "accntSgmnt2TextBox";
+            this.accntSgmnt2TextBox.ReadOnly = true;
+            this.accntSgmnt2TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.accntSgmnt2TextBox.Size = new System.Drawing.Size(52, 21);
+            this.accntSgmnt2TextBox.TabIndex = 132;
+            this.accntSgmnt2TextBox.TabStop = false;
+            // 
+            // accntSgmnt1TextBox
+            // 
+            this.accntSgmnt1TextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.accntSgmnt1TextBox.Location = new System.Drawing.Point(104, 50);
+            this.accntSgmnt1TextBox.MaxLength = 200;
+            this.accntSgmnt1TextBox.Name = "accntSgmnt1TextBox";
+            this.accntSgmnt1TextBox.ReadOnly = true;
+            this.accntSgmnt1TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.accntSgmnt1TextBox.Size = new System.Drawing.Size(52, 21);
+            this.accntSgmnt1TextBox.TabIndex = 131;
+            this.accntSgmnt1TextBox.TabStop = false;
+            // 
+            // accntNumTextBox
+            // 
+            this.accntNumTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.accntNumTextBox.Location = new System.Drawing.Point(74, 24);
+            this.accntNumTextBox.MaxLength = 25;
+            this.accntNumTextBox.Name = "accntNumTextBox";
+            this.accntNumTextBox.ReadOnly = true;
+            this.accntNumTextBox.Size = new System.Drawing.Size(308, 21);
+            this.accntNumTextBox.TabIndex = 0;
+            this.accntNumTextBox.Text = "1";
+            this.accntNumTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.acntsChrtTxtbx_KeyDown);
+            // 
+            // segmentsButton
+            // 
+            this.segmentsButton.ForeColor = System.Drawing.Color.Black;
+            this.segmentsButton.Location = new System.Drawing.Point(388, 22);
+            this.segmentsButton.Name = "segmentsButton";
+            this.segmentsButton.Size = new System.Drawing.Size(107, 23);
+            this.segmentsButton.TabIndex = 1;
+            this.segmentsButton.Text = "Account Segments";
+            this.segmentsButton.UseVisualStyleBackColor = true;
+            this.segmentsButton.Click += new System.EventHandler(this.segmentsButton_Click);
+            // 
+            // mappedAccntButton
+            // 
+            this.mappedAccntButton.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mappedAccntButton.ForeColor = System.Drawing.Color.Black;
+            this.mappedAccntButton.Location = new System.Drawing.Point(469, 184);
+            this.mappedAccntButton.Name = "mappedAccntButton";
+            this.mappedAccntButton.Size = new System.Drawing.Size(28, 24);
+            this.mappedAccntButton.TabIndex = 128;
+            this.mappedAccntButton.Text = "...";
+            this.mappedAccntButton.UseVisualStyleBackColor = true;
+            // 
+            // mappedAccntIDTextBox
+            // 
+            this.mappedAccntIDTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.mappedAccntIDTextBox.Location = new System.Drawing.Point(388, 190);
+            this.mappedAccntIDTextBox.Multiline = true;
+            this.mappedAccntIDTextBox.Name = "mappedAccntIDTextBox";
+            this.mappedAccntIDTextBox.ReadOnly = true;
+            this.mappedAccntIDTextBox.Size = new System.Drawing.Size(73, 12);
+            this.mappedAccntIDTextBox.TabIndex = 130;
+            this.mappedAccntIDTextBox.TabStop = false;
+            this.mappedAccntIDTextBox.Text = "-1";
+            this.mappedAccntIDTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.ForeColor = System.Drawing.Color.White;
+            this.label88.Location = new System.Drawing.Point(250, 190);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(91, 13);
+            this.label88.TabIndex = 129;
+            this.label88.Text = "Mapped Account:";
             // 
             // accntCrncyNmTextBox
             // 
@@ -2627,21 +2861,6 @@ namespace Accounting.Forms
             this.isRetEarnsCheckBox.CheckedChanged += new System.EventHandler(this.isRetEarnsCheckBox_CheckedChanged);
             this.isRetEarnsCheckBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.acntsChrtTxtbx_KeyDown);
             // 
-            // vwAccntTrnsctnsButton
-            // 
-            this.vwAccntTrnsctnsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.vwAccntTrnsctnsButton.ForeColor = System.Drawing.Color.Black;
-            this.vwAccntTrnsctnsButton.Image = global::Accounting.Properties.Resources.action_go;
-            this.vwAccntTrnsctnsButton.Location = new System.Drawing.Point(381, 186);
-            this.vwAccntTrnsctnsButton.Name = "vwAccntTrnsctnsButton";
-            this.vwAccntTrnsctnsButton.Size = new System.Drawing.Size(116, 23);
-            this.vwAccntTrnsctnsButton.TabIndex = 17;
-            this.vwAccntTrnsctnsButton.Text = "TRANSACTIONS";
-            this.vwAccntTrnsctnsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.vwAccntTrnsctnsButton.UseVisualStyleBackColor = true;
-            this.vwAccntTrnsctnsButton.Click += new System.EventHandler(this.vwAccntTrnsctnsButton_Click);
-            this.vwAccntTrnsctnsButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.acntsChrtTxtbx_KeyDown);
-            // 
             // isContraCheckBox
             // 
             this.isContraCheckBox.AutoSize = true;
@@ -2743,45 +2962,6 @@ namespace Accounting.Forms
             this.isPrntAccntsCheckBox.CheckedChanged += new System.EventHandler(this.isPrntAccntsCheckBox_CheckedChanged);
             this.isPrntAccntsCheckBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.acntsChrtTxtbx_KeyDown);
             // 
-            // accntNameTextBox
-            // 
-            this.accntNameTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.accntNameTextBox.Location = new System.Drawing.Point(198, 24);
-            this.accntNameTextBox.MaxLength = 100;
-            this.accntNameTextBox.Name = "accntNameTextBox";
-            this.accntNameTextBox.ReadOnly = true;
-            this.accntNameTextBox.Size = new System.Drawing.Size(297, 21);
-            this.accntNameTextBox.TabIndex = 1;
-            this.accntNameTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.acntsChrtTxtbx_KeyDown);
-            // 
-            // accntsExtraInfoButton
-            // 
-            this.accntsExtraInfoButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.accntsExtraInfoButton.ForeColor = System.Drawing.Color.Black;
-            this.accntsExtraInfoButton.Image = global::Accounting.Properties.Resources.action_go;
-            this.accntsExtraInfoButton.Location = new System.Drawing.Point(253, 186);
-            this.accntsExtraInfoButton.Name = "accntsExtraInfoButton";
-            this.accntsExtraInfoButton.Size = new System.Drawing.Size(122, 23);
-            this.accntsExtraInfoButton.TabIndex = 16;
-            this.accntsExtraInfoButton.Text = "EXTRA INFO.";
-            this.accntsExtraInfoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.accntsExtraInfoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.accntsExtraInfoButton.UseVisualStyleBackColor = true;
-            this.accntsExtraInfoButton.Click += new System.EventHandler(this.accntsExtraInfoButton_Click);
-            this.accntsExtraInfoButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.acntsChrtTxtbx_KeyDown);
-            // 
-            // accntNumTextBox
-            // 
-            this.accntNumTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.accntNumTextBox.Location = new System.Drawing.Point(74, 24);
-            this.accntNumTextBox.MaxLength = 25;
-            this.accntNumTextBox.Name = "accntNumTextBox";
-            this.accntNumTextBox.ReadOnly = true;
-            this.accntNumTextBox.Size = new System.Drawing.Size(90, 21);
-            this.accntNumTextBox.TabIndex = 0;
-            this.accntNumTextBox.Text = "1";
-            this.accntNumTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.acntsChrtTxtbx_KeyDown);
-            // 
             // accntIDTextBox
             // 
             this.accntIDTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -2791,19 +2971,6 @@ namespace Accounting.Forms
             this.accntIDTextBox.Size = new System.Drawing.Size(16, 21);
             this.accntIDTextBox.TabIndex = 5;
             this.accntIDTextBox.TabStop = false;
-            // 
-            // accntDescTextBox
-            // 
-            this.accntDescTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.accntDescTextBox.Location = new System.Drawing.Point(74, 49);
-            this.accntDescTextBox.MaxLength = 200;
-            this.accntDescTextBox.Multiline = true;
-            this.accntDescTextBox.Name = "accntDescTextBox";
-            this.accntDescTextBox.ReadOnly = true;
-            this.accntDescTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.accntDescTextBox.Size = new System.Drawing.Size(421, 34);
-            this.accntDescTextBox.TabIndex = 2;
-            this.accntDescTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.acntsChrtTxtbx_KeyDown);
             // 
             // hasSubldgrCheckBox
             // 
@@ -2845,14 +3012,18 @@ namespace Accounting.Forms
             this.label51.TabIndex = 118;
             this.label51.Text = "Control Account:";
             // 
-            // label1
+            // accntDescTextBox
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(163, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 103;
-            this.label1.Text = "Name:";
+            this.accntDescTextBox.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.accntDescTextBox.Location = new System.Drawing.Point(443, 49);
+            this.accntDescTextBox.MaxLength = 200;
+            this.accntDescTextBox.Name = "accntDescTextBox";
+            this.accntDescTextBox.ReadOnly = true;
+            this.accntDescTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.accntDescTextBox.Size = new System.Drawing.Size(52, 21);
+            this.accntDescTextBox.TabIndex = 2;
+            this.accntDescTextBox.TabStop = false;
+            this.accntDescTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.acntsChrtTxtbx_KeyDown);
             // 
             // exptChartButton
             // 
@@ -2861,7 +3032,7 @@ namespace Accounting.Forms
             this.exptChartButton.Image = global::Accounting.Properties.Resources.action_go;
             this.exptChartButton.Location = new System.Drawing.Point(949, 42);
             this.exptChartButton.Name = "exptChartButton";
-            this.exptChartButton.Size = new System.Drawing.Size(90, 50);
+            this.exptChartButton.Size = new System.Drawing.Size(121, 50);
             this.exptChartButton.TabIndex = 5;
             this.exptChartButton.Text = "EXPORT CHART TEMPLATE";
             this.exptChartButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -3022,17 +3193,48 @@ namespace Accounting.Forms
             this.label20.TabIndex = 122;
             this.label20.Text = "Assets + Expenses";
             // 
+            // accntsExtraInfoButton
+            // 
+            this.accntsExtraInfoButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.accntsExtraInfoButton.ForeColor = System.Drawing.Color.Black;
+            this.accntsExtraInfoButton.Image = global::Accounting.Properties.Resources.action_go;
+            this.accntsExtraInfoButton.Location = new System.Drawing.Point(949, 142);
+            this.accntsExtraInfoButton.Name = "accntsExtraInfoButton";
+            this.accntsExtraInfoButton.Size = new System.Drawing.Size(121, 50);
+            this.accntsExtraInfoButton.TabIndex = 16;
+            this.accntsExtraInfoButton.Text = "EXTRA INFO.";
+            this.accntsExtraInfoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.accntsExtraInfoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.accntsExtraInfoButton.UseVisualStyleBackColor = true;
+            this.accntsExtraInfoButton.Click += new System.EventHandler(this.accntsExtraInfoButton_Click);
+            this.accntsExtraInfoButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.acntsChrtTxtbx_KeyDown);
+            // 
+            // vwAccntTrnsctnsButton
+            // 
+            this.vwAccntTrnsctnsButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.vwAccntTrnsctnsButton.ForeColor = System.Drawing.Color.Black;
+            this.vwAccntTrnsctnsButton.Image = global::Accounting.Properties.Resources.action_go;
+            this.vwAccntTrnsctnsButton.Location = new System.Drawing.Point(949, 192);
+            this.vwAccntTrnsctnsButton.Name = "vwAccntTrnsctnsButton";
+            this.vwAccntTrnsctnsButton.Size = new System.Drawing.Size(121, 50);
+            this.vwAccntTrnsctnsButton.TabIndex = 17;
+            this.vwAccntTrnsctnsButton.Text = "TRANSACTIONS";
+            this.vwAccntTrnsctnsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.vwAccntTrnsctnsButton.UseVisualStyleBackColor = true;
+            this.vwAccntTrnsctnsButton.Click += new System.EventHandler(this.vwAccntTrnsctnsButton_Click);
+            this.vwAccntTrnsctnsButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.acntsChrtTxtbx_KeyDown);
+            // 
             // tabPage17
             // 
             this.tabPage17.AutoScroll = true;
-            this.tabPage17.BackColor = System.Drawing.Color.Gray;
+            this.tabPage17.BackColor = System.Drawing.Color.DimGray;
             this.tabPage17.Controls.Add(this.tabControl3);
             this.tabPage17.Controls.Add(this.panel21);
             this.tabPage17.Controls.Add(this.imaListView);
             this.tabPage17.Location = new System.Drawing.Point(4, 29);
             this.tabPage17.Name = "tabPage17";
             this.tabPage17.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage17.Size = new System.Drawing.Size(1099, 628);
+            this.tabPage17.Size = new System.Drawing.Size(1091, 620);
             this.tabPage17.TabIndex = 1;
             this.tabPage17.Text = "INFORMATIONAL/MEMO ACCOUNTS";
             // 
@@ -3047,7 +3249,7 @@ namespace Accounting.Forms
             this.tabControl3.Location = new System.Drawing.Point(241, 38);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(855, 587);
+            this.tabControl3.Size = new System.Drawing.Size(847, 579);
             this.tabControl3.TabIndex = 146;
             // 
             // tabPage18
@@ -3063,7 +3265,7 @@ namespace Accounting.Forms
             this.tabPage18.Location = new System.Drawing.Point(4, 29);
             this.tabPage18.Name = "tabPage18";
             this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage18.Size = new System.Drawing.Size(847, 554);
+            this.tabPage18.Size = new System.Drawing.Size(839, 546);
             this.tabPage18.TabIndex = 0;
             this.tabPage18.Text = "ACCOUNT DETAILS";
             // 
@@ -3076,7 +3278,7 @@ namespace Accounting.Forms
             this.groupBox21.ForeColor = System.Drawing.Color.White;
             this.groupBox21.Location = new System.Drawing.Point(5, 286);
             this.groupBox21.Name = "groupBox21";
-            this.groupBox21.Size = new System.Drawing.Size(839, 265);
+            this.groupBox21.Size = new System.Drawing.Size(831, 257);
             this.groupBox21.TabIndex = 145;
             this.groupBox21.TabStop = false;
             this.groupBox21.Text = "SQL QUERY/FORMULA";
@@ -3089,7 +3291,7 @@ namespace Accounting.Forms
             this.acctSQLIMATextBox.Multiline = true;
             this.acctSQLIMATextBox.Name = "acctSQLIMATextBox";
             this.acctSQLIMATextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.acctSQLIMATextBox.Size = new System.Drawing.Size(833, 245);
+            this.acctSQLIMATextBox.Size = new System.Drawing.Size(825, 237);
             this.acctSQLIMATextBox.TabIndex = 131;
             // 
             // groupBox22
@@ -3670,7 +3872,7 @@ namespace Accounting.Forms
             this.tabPage19.Location = new System.Drawing.Point(4, 29);
             this.tabPage19.Name = "tabPage19";
             this.tabPage19.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage19.Size = new System.Drawing.Size(847, 554);
+            this.tabPage19.Size = new System.Drawing.Size(839, 546);
             this.tabPage19.TabIndex = 1;
             this.tabPage19.Text = "MEMO ACCOUNT ENTRIES";
             // 
@@ -4157,7 +4359,7 @@ namespace Accounting.Forms
             this.imaDtListView.HideSelection = false;
             this.imaDtListView.Location = new System.Drawing.Point(2, 67);
             this.imaDtListView.Name = "imaDtListView";
-            this.imaDtListView.Size = new System.Drawing.Size(842, 484);
+            this.imaDtListView.Size = new System.Drawing.Size(858, 374);
             this.imaDtListView.TabIndex = 2;
             this.imaDtListView.UseCompatibleStateImageBehavior = false;
             this.imaDtListView.View = System.Windows.Forms.View.Details;
@@ -4352,7 +4554,7 @@ namespace Accounting.Forms
             this.panel21.Location = new System.Drawing.Point(3, 3);
             this.panel21.Name = "panel21";
             this.panel21.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panel21.Size = new System.Drawing.Size(1093, 33);
+            this.panel21.Size = new System.Drawing.Size(1085, 33);
             this.panel21.TabIndex = 137;
             this.panel21.TabStop = true;
             // 
@@ -4389,7 +4591,7 @@ namespace Accounting.Forms
             this.toolStrip13.Location = new System.Drawing.Point(0, 5);
             this.toolStrip13.Margin = new System.Windows.Forms.Padding(3);
             this.toolStrip13.Name = "toolStrip13";
-            this.toolStrip13.Size = new System.Drawing.Size(1093, 25);
+            this.toolStrip13.Size = new System.Drawing.Size(1085, 25);
             this.toolStrip13.Stretch = true;
             this.toolStrip13.TabIndex = 0;
             this.toolStrip13.TabStop = true;
@@ -4601,7 +4803,7 @@ namespace Accounting.Forms
             this.imaListView.HideSelection = false;
             this.imaListView.Location = new System.Drawing.Point(5, 38);
             this.imaListView.Name = "imaListView";
-            this.imaListView.Size = new System.Drawing.Size(234, 587);
+            this.imaListView.Size = new System.Drawing.Size(234, 579);
             this.imaListView.TabIndex = 138;
             this.imaListView.UseCompatibleStateImageBehavior = false;
             this.imaListView.View = System.Windows.Forms.View.Details;
@@ -4649,19 +4851,20 @@ namespace Accounting.Forms
             // tabPage2
             // 
             this.tabPage2.AutoScroll = true;
-            this.tabPage2.BackColor = System.Drawing.Color.DarkGray;
+            this.tabPage2.BackColor = System.Drawing.Color.DimGray;
             this.tabPage2.Controls.Add(this.trnsctnsPanel);
-            this.tabPage2.ImageKey = "images_trns.jpeg";
+            this.tabPage2.ImageKey = "generaljournal.png";
             this.tabPage2.Location = new System.Drawing.Point(4, 88);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1113, 639);
+            this.tabPage2.Size = new System.Drawing.Size(1105, 631);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "JOURNAL ENTRIES";
             // 
             // trnsctnsPanel
             // 
             this.trnsctnsPanel.AutoScroll = true;
+            this.trnsctnsPanel.BackColor = System.Drawing.Color.Transparent;
             this.trnsctnsPanel.Controls.Add(this.showUnpostedCheckBox);
             this.trnsctnsPanel.Controls.Add(this.toolStrip9);
             this.trnsctnsPanel.Controls.Add(this.groupBox2);
@@ -4673,7 +4876,7 @@ namespace Accounting.Forms
             this.trnsctnsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trnsctnsPanel.Location = new System.Drawing.Point(3, 3);
             this.trnsctnsPanel.Name = "trnsctnsPanel";
-            this.trnsctnsPanel.Size = new System.Drawing.Size(1107, 633);
+            this.trnsctnsPanel.Size = new System.Drawing.Size(1099, 625);
             this.trnsctnsPanel.TabIndex = 1;
             // 
             // showUnpostedCheckBox
@@ -5088,7 +5291,7 @@ namespace Accounting.Forms
             this.trnsBatchListView.HideSelection = false;
             this.trnsBatchListView.Location = new System.Drawing.Point(4, 81);
             this.trnsBatchListView.Name = "trnsBatchListView";
-            this.trnsBatchListView.Size = new System.Drawing.Size(238, 549);
+            this.trnsBatchListView.Size = new System.Drawing.Size(238, 541);
             this.trnsBatchListView.TabIndex = 5;
             this.trnsBatchListView.UseCompatibleStateImageBehavior = false;
             this.trnsBatchListView.View = System.Windows.Forms.View.Details;
@@ -5237,7 +5440,7 @@ namespace Accounting.Forms
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
             this.panel8.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panel8.Size = new System.Drawing.Size(1107, 33);
+            this.panel8.Size = new System.Drawing.Size(1099, 33);
             this.panel8.TabIndex = 1;
             this.panel8.TabStop = true;
             // 
@@ -5283,7 +5486,7 @@ namespace Accounting.Forms
             this.toolStrip3.Location = new System.Drawing.Point(0, 5);
             this.toolStrip3.Margin = new System.Windows.Forms.Padding(3);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(1107, 25);
+            this.toolStrip3.Size = new System.Drawing.Size(1099, 25);
             this.toolStrip3.Stretch = true;
             this.toolStrip3.TabIndex = 0;
             this.toolStrip3.TabStop = true;
@@ -5606,7 +5809,7 @@ namespace Accounting.Forms
             this.groupBox3.Location = new System.Drawing.Point(246, 147);
             this.groupBox3.MinimumSize = new System.Drawing.Size(782, 300);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(861, 483);
+            this.groupBox3.Size = new System.Drawing.Size(853, 475);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             // 
@@ -5930,7 +6133,7 @@ namespace Accounting.Forms
             this.trnsDetListView.HideSelection = false;
             this.trnsDetListView.Location = new System.Drawing.Point(7, 68);
             this.trnsDetListView.Name = "trnsDetListView";
-            this.trnsDetListView.Size = new System.Drawing.Size(849, 412);
+            this.trnsDetListView.Size = new System.Drawing.Size(841, 404);
             this.trnsDetListView.TabIndex = 2;
             this.trnsDetListView.UseCompatibleStateImageBehavior = false;
             this.trnsDetListView.View = System.Windows.Forms.View.Details;
@@ -6075,13 +6278,13 @@ namespace Accounting.Forms
             // tabPage3
             // 
             this.tabPage3.AutoScroll = true;
-            this.tabPage3.BackColor = System.Drawing.Color.DarkGray;
+            this.tabPage3.BackColor = System.Drawing.Color.Transparent;
             this.tabPage3.Controls.Add(this.trnsSearchPanel);
             this.tabPage3.ImageKey = "CustomIcon.png";
             this.tabPage3.Location = new System.Drawing.Point(4, 88);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1113, 639);
+            this.tabPage3.Size = new System.Drawing.Size(1105, 631);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "TRNS. SEARCH";
             // 
@@ -6095,7 +6298,7 @@ namespace Accounting.Forms
             this.trnsSearchPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trnsSearchPanel.Location = new System.Drawing.Point(3, 3);
             this.trnsSearchPanel.Name = "trnsSearchPanel";
-            this.trnsSearchPanel.Size = new System.Drawing.Size(1107, 633);
+            this.trnsSearchPanel.Size = new System.Drawing.Size(1099, 625);
             this.trnsSearchPanel.TabIndex = 2;
             this.trnsSearchPanel.TabStop = true;
             // 
@@ -6106,7 +6309,7 @@ namespace Accounting.Forms
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
             this.panel7.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panel7.Size = new System.Drawing.Size(1107, 33);
+            this.panel7.Size = new System.Drawing.Size(1099, 33);
             this.panel7.TabIndex = 0;
             this.panel7.TabStop = true;
             // 
@@ -6150,7 +6353,7 @@ namespace Accounting.Forms
             this.toolStrip4.Location = new System.Drawing.Point(0, 5);
             this.toolStrip4.Margin = new System.Windows.Forms.Padding(3);
             this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(1107, 25);
+            this.toolStrip4.Size = new System.Drawing.Size(1099, 25);
             this.toolStrip4.Stretch = true;
             this.toolStrip4.TabIndex = 0;
             this.toolStrip4.TabStop = true;
@@ -6582,7 +6785,7 @@ namespace Accounting.Forms
             this.groupBox9.ForeColor = System.Drawing.Color.White;
             this.groupBox9.Location = new System.Drawing.Point(0, 78);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(1101, 555);
+            this.groupBox9.Size = new System.Drawing.Size(1093, 547);
             this.groupBox9.TabIndex = 2;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "TRANSACTIONS DETAIL INFORMATION";
@@ -6624,7 +6827,7 @@ namespace Accounting.Forms
             this.trnsSearchListView.HideSelection = false;
             this.trnsSearchListView.Location = new System.Drawing.Point(3, 15);
             this.trnsSearchListView.Name = "trnsSearchListView";
-            this.trnsSearchListView.Size = new System.Drawing.Size(1092, 537);
+            this.trnsSearchListView.Size = new System.Drawing.Size(1084, 529);
             this.trnsSearchListView.TabIndex = 0;
             this.trnsSearchListView.UseCompatibleStateImageBehavior = false;
             this.trnsSearchListView.View = System.Windows.Forms.View.Details;
@@ -6868,13 +7071,13 @@ namespace Accounting.Forms
             // tabPage4
             // 
             this.tabPage4.AutoScroll = true;
-            this.tabPage4.BackColor = System.Drawing.Color.DarkGray;
+            this.tabPage4.BackColor = System.Drawing.Color.Transparent;
             this.tabPage4.Controls.Add(this.finStmntsPanel);
             this.tabPage4.ImageKey = "tbals.jpg";
             this.tabPage4.Location = new System.Drawing.Point(4, 60);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1113, 667);
+            this.tabPage4.Size = new System.Drawing.Size(1105, 659);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "FINANCIAL STATEMENTS";
             // 
@@ -6886,7 +7089,7 @@ namespace Accounting.Forms
             this.finStmntsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.finStmntsPanel.Location = new System.Drawing.Point(3, 3);
             this.finStmntsPanel.Name = "finStmntsPanel";
-            this.finStmntsPanel.Size = new System.Drawing.Size(1107, 661);
+            this.finStmntsPanel.Size = new System.Drawing.Size(1099, 653);
             this.finStmntsPanel.TabIndex = 83;
             // 
             // statusLoadPictureBox
@@ -6894,7 +7097,7 @@ namespace Accounting.Forms
             this.statusLoadPictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.statusLoadPictureBox.BackColor = System.Drawing.Color.White;
             this.statusLoadPictureBox.Image = global::Accounting.Properties.Resources.animated;
-            this.statusLoadPictureBox.Location = new System.Drawing.Point(215, 229);
+            this.statusLoadPictureBox.Location = new System.Drawing.Point(211, 225);
             this.statusLoadPictureBox.Name = "statusLoadPictureBox";
             this.statusLoadPictureBox.Size = new System.Drawing.Size(67, 49);
             this.statusLoadPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -6908,7 +7111,7 @@ namespace Accounting.Forms
             this.statusLoadLabel.BackColor = System.Drawing.Color.White;
             this.statusLoadLabel.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusLoadLabel.ForeColor = System.Drawing.Color.Blue;
-            this.statusLoadLabel.Location = new System.Drawing.Point(278, 229);
+            this.statusLoadLabel.Location = new System.Drawing.Point(274, 225);
             this.statusLoadLabel.Name = "statusLoadLabel";
             this.statusLoadLabel.Size = new System.Drawing.Size(457, 49);
             this.statusLoadLabel.TabIndex = 10;
@@ -6932,7 +7135,7 @@ namespace Accounting.Forms
             this.finStmntsTabControl.Multiline = true;
             this.finStmntsTabControl.Name = "finStmntsTabControl";
             this.finStmntsTabControl.SelectedIndex = 0;
-            this.finStmntsTabControl.Size = new System.Drawing.Size(1107, 661);
+            this.finStmntsTabControl.Size = new System.Drawing.Size(1099, 653);
             this.finStmntsTabControl.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.finStmntsTabControl.TabIndex = 1;
             // 
@@ -6942,7 +7145,7 @@ namespace Accounting.Forms
             this.tbalTabPage.Controls.Add(this.trialBalancePanel);
             this.tbalTabPage.Location = new System.Drawing.Point(4, 24);
             this.tbalTabPage.Name = "tbalTabPage";
-            this.tbalTabPage.Size = new System.Drawing.Size(1099, 633);
+            this.tbalTabPage.Size = new System.Drawing.Size(1091, 625);
             this.tbalTabPage.TabIndex = 0;
             this.tbalTabPage.Text = "TRIAL BALANCE";
             this.tbalTabPage.UseVisualStyleBackColor = true;
@@ -6957,7 +7160,7 @@ namespace Accounting.Forms
             this.trialBalancePanel.Location = new System.Drawing.Point(0, 0);
             this.trialBalancePanel.Margin = new System.Windows.Forms.Padding(0);
             this.trialBalancePanel.Name = "trialBalancePanel";
-            this.trialBalancePanel.Size = new System.Drawing.Size(1099, 633);
+            this.trialBalancePanel.Size = new System.Drawing.Size(1091, 625);
             this.trialBalancePanel.TabIndex = 5;
             // 
             // groupBox10
@@ -6979,7 +7182,7 @@ namespace Accounting.Forms
             this.groupBox10.Controls.Add(this.genRptTrialBalButton);
             this.groupBox10.Controls.Add(this.trialBalProgressBar);
             this.groupBox10.ForeColor = System.Drawing.Color.White;
-            this.groupBox10.Location = new System.Drawing.Point(892, 1);
+            this.groupBox10.Location = new System.Drawing.Point(884, 1);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(203, 320);
             this.groupBox10.TabIndex = 1;
@@ -7174,7 +7377,7 @@ namespace Accounting.Forms
             this.trialBalGroupBox.ForeColor = System.Drawing.Color.White;
             this.trialBalGroupBox.Location = new System.Drawing.Point(2, 0);
             this.trialBalGroupBox.Name = "trialBalGroupBox";
-            this.trialBalGroupBox.Size = new System.Drawing.Size(888, 630);
+            this.trialBalGroupBox.Size = new System.Drawing.Size(880, 622);
             this.trialBalGroupBox.TabIndex = 0;
             this.trialBalGroupBox.TabStop = false;
             this.trialBalGroupBox.Text = "TRIAL BALANCE AS AT NOW";
@@ -7202,7 +7405,7 @@ namespace Accounting.Forms
             this.trialBalListView.HideSelection = false;
             this.trialBalListView.Location = new System.Drawing.Point(3, 19);
             this.trialBalListView.Name = "trialBalListView";
-            this.trialBalListView.Size = new System.Drawing.Size(882, 608);
+            this.trialBalListView.Size = new System.Drawing.Size(874, 600);
             this.trialBalListView.TabIndex = 0;
             this.trialBalListView.UseCompatibleStateImageBehavior = false;
             this.trialBalListView.View = System.Windows.Forms.View.Details;
@@ -7332,7 +7535,7 @@ namespace Accounting.Forms
             this.pnlTabPage.Controls.Add(this.prftnlossPanel);
             this.pnlTabPage.Location = new System.Drawing.Point(4, 44);
             this.pnlTabPage.Name = "pnlTabPage";
-            this.pnlTabPage.Size = new System.Drawing.Size(1099, 613);
+            this.pnlTabPage.Size = new System.Drawing.Size(1091, 605);
             this.pnlTabPage.TabIndex = 1;
             this.pnlTabPage.Text = "PROFIT & LOSS";
             this.pnlTabPage.UseVisualStyleBackColor = true;
@@ -7347,7 +7550,7 @@ namespace Accounting.Forms
             this.prftnlossPanel.Location = new System.Drawing.Point(0, 0);
             this.prftnlossPanel.Margin = new System.Windows.Forms.Padding(0);
             this.prftnlossPanel.Name = "prftnlossPanel";
-            this.prftnlossPanel.Size = new System.Drawing.Size(1099, 613);
+            this.prftnlossPanel.Size = new System.Drawing.Size(1091, 605);
             this.prftnlossPanel.TabIndex = 6;
             // 
             // groupBox11
@@ -7370,7 +7573,7 @@ namespace Accounting.Forms
             this.groupBox11.Controls.Add(this.plExprtExclButton);
             this.groupBox11.Controls.Add(this.plProgressBar);
             this.groupBox11.ForeColor = System.Drawing.Color.White;
-            this.groupBox11.Location = new System.Drawing.Point(902, 1);
+            this.groupBox11.Location = new System.Drawing.Point(894, 1);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Size = new System.Drawing.Size(193, 306);
             this.groupBox11.TabIndex = 1;
@@ -7562,7 +7765,7 @@ namespace Accounting.Forms
             this.plGroupBox.ForeColor = System.Drawing.Color.White;
             this.plGroupBox.Location = new System.Drawing.Point(2, 0);
             this.plGroupBox.Name = "plGroupBox";
-            this.plGroupBox.Size = new System.Drawing.Size(894, 610);
+            this.plGroupBox.Size = new System.Drawing.Size(886, 602);
             this.plGroupBox.TabIndex = 0;
             this.plGroupBox.TabStop = false;
             this.plGroupBox.Text = "PROFIT && LOSS STATEMENT FOR THE CHOSEN PERIOD";
@@ -7588,7 +7791,7 @@ namespace Accounting.Forms
             this.plListView.HoverSelection = true;
             this.plListView.Location = new System.Drawing.Point(3, 19);
             this.plListView.Name = "plListView";
-            this.plListView.Size = new System.Drawing.Size(888, 588);
+            this.plListView.Size = new System.Drawing.Size(880, 580);
             this.plListView.TabIndex = 0;
             this.plListView.UseCompatibleStateImageBehavior = false;
             this.plListView.View = System.Windows.Forms.View.Details;
@@ -7700,7 +7903,7 @@ namespace Accounting.Forms
             this.balsShtTabPage.Controls.Add(this.balSheetPanel);
             this.balsShtTabPage.Location = new System.Drawing.Point(4, 44);
             this.balsShtTabPage.Name = "balsShtTabPage";
-            this.balsShtTabPage.Size = new System.Drawing.Size(1099, 613);
+            this.balsShtTabPage.Size = new System.Drawing.Size(1091, 605);
             this.balsShtTabPage.TabIndex = 2;
             this.balsShtTabPage.Text = "BALANCE SHEET";
             this.balsShtTabPage.UseVisualStyleBackColor = true;
@@ -7714,7 +7917,7 @@ namespace Accounting.Forms
             this.balSheetPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.balSheetPanel.Location = new System.Drawing.Point(0, 0);
             this.balSheetPanel.Name = "balSheetPanel";
-            this.balSheetPanel.Size = new System.Drawing.Size(1099, 613);
+            this.balSheetPanel.Size = new System.Drawing.Size(1091, 605);
             this.balSheetPanel.TabIndex = 7;
             // 
             // groupBox13
@@ -7729,7 +7932,7 @@ namespace Accounting.Forms
             this.groupBox13.Controls.Add(this.blsGenRptButton);
             this.groupBox13.Controls.Add(this.blsProgressBar);
             this.groupBox13.ForeColor = System.Drawing.Color.White;
-            this.groupBox13.Location = new System.Drawing.Point(919, 1);
+            this.groupBox13.Location = new System.Drawing.Point(911, 1);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Size = new System.Drawing.Size(176, 204);
             this.groupBox13.TabIndex = 1;
@@ -7832,7 +8035,7 @@ namespace Accounting.Forms
             this.blsGroupBox.ForeColor = System.Drawing.Color.White;
             this.blsGroupBox.Location = new System.Drawing.Point(2, 0);
             this.blsGroupBox.Name = "blsGroupBox";
-            this.blsGroupBox.Size = new System.Drawing.Size(914, 610);
+            this.blsGroupBox.Size = new System.Drawing.Size(906, 602);
             this.blsGroupBox.TabIndex = 0;
             this.blsGroupBox.TabStop = false;
             this.blsGroupBox.Text = "BALANCE SHEET REPORT AS AT";
@@ -7858,7 +8061,7 @@ namespace Accounting.Forms
             this.blsListView.HoverSelection = true;
             this.blsListView.Location = new System.Drawing.Point(3, 19);
             this.blsListView.Name = "blsListView";
-            this.blsListView.Size = new System.Drawing.Size(908, 588);
+            this.blsListView.Size = new System.Drawing.Size(900, 580);
             this.blsListView.TabIndex = 0;
             this.blsListView.UseCompatibleStateImageBehavior = false;
             this.blsListView.View = System.Windows.Forms.View.Details;
@@ -7974,7 +8177,7 @@ namespace Accounting.Forms
             this.subLedgerTabPage.ForeColor = System.Drawing.Color.White;
             this.subLedgerTabPage.Location = new System.Drawing.Point(4, 44);
             this.subLedgerTabPage.Name = "subLedgerTabPage";
-            this.subLedgerTabPage.Size = new System.Drawing.Size(1099, 613);
+            this.subLedgerTabPage.Size = new System.Drawing.Size(1091, 605);
             this.subLedgerTabPage.TabIndex = 3;
             this.subLedgerTabPage.Text = "SUB-LEDGER BALANCES";
             this.subLedgerTabPage.UseVisualStyleBackColor = true;
@@ -7990,7 +8193,7 @@ namespace Accounting.Forms
             this.groupBox18.Controls.Add(this.gnrtSubLdgrButton);
             this.groupBox18.Controls.Add(this.subledgrProgressBar);
             this.groupBox18.ForeColor = System.Drawing.Color.White;
-            this.groupBox18.Location = new System.Drawing.Point(926, 1);
+            this.groupBox18.Location = new System.Drawing.Point(918, 1);
             this.groupBox18.Name = "groupBox18";
             this.groupBox18.Size = new System.Drawing.Size(173, 177);
             this.groupBox18.TabIndex = 1;
@@ -8081,7 +8284,7 @@ namespace Accounting.Forms
             this.subLdgrGroupBox.ForeColor = System.Drawing.Color.White;
             this.subLdgrGroupBox.Location = new System.Drawing.Point(2, 0);
             this.subLdgrGroupBox.Name = "subLdgrGroupBox";
-            this.subLdgrGroupBox.Size = new System.Drawing.Size(922, 616);
+            this.subLdgrGroupBox.Size = new System.Drawing.Size(914, 602);
             this.subLdgrGroupBox.TabIndex = 0;
             this.subLdgrGroupBox.TabStop = false;
             this.subLdgrGroupBox.Text = "SUBLEDGER ACCOUNT BALANCE AS AT NOW";
@@ -8109,7 +8312,7 @@ namespace Accounting.Forms
             this.subledgerListView.HoverSelection = true;
             this.subledgerListView.Location = new System.Drawing.Point(3, 19);
             this.subledgerListView.Name = "subledgerListView";
-            this.subledgerListView.Size = new System.Drawing.Size(916, 594);
+            this.subledgerListView.Size = new System.Drawing.Size(908, 580);
             this.subledgerListView.TabIndex = 0;
             this.subledgerListView.UseCompatibleStateImageBehavior = false;
             this.subledgerListView.View = System.Windows.Forms.View.Details;
@@ -8235,7 +8438,7 @@ namespace Accounting.Forms
             this.accntStmntTabPage.Controls.Add(this.panel20);
             this.accntStmntTabPage.Location = new System.Drawing.Point(4, 44);
             this.accntStmntTabPage.Name = "accntStmntTabPage";
-            this.accntStmntTabPage.Size = new System.Drawing.Size(1099, 613);
+            this.accntStmntTabPage.Size = new System.Drawing.Size(1091, 605);
             this.accntStmntTabPage.TabIndex = 4;
             this.accntStmntTabPage.Text = "GL ACCOUNT STATEMENTS";
             this.accntStmntTabPage.UseVisualStyleBackColor = true;
@@ -8257,7 +8460,7 @@ namespace Accounting.Forms
             this.groupBox19.Controls.Add(this.genRptAccntStmntButton);
             this.groupBox19.Controls.Add(this.acctStmntProgressBar);
             this.groupBox19.ForeColor = System.Drawing.Color.White;
-            this.groupBox19.Location = new System.Drawing.Point(925, 1);
+            this.groupBox19.Location = new System.Drawing.Point(917, 1);
             this.groupBox19.Name = "groupBox19";
             this.groupBox19.Size = new System.Drawing.Size(173, 253);
             this.groupBox19.TabIndex = 1;
@@ -8412,7 +8615,7 @@ namespace Accounting.Forms
             this.accntStmntGroupBox.ForeColor = System.Drawing.Color.White;
             this.accntStmntGroupBox.Location = new System.Drawing.Point(2, 0);
             this.accntStmntGroupBox.Name = "accntStmntGroupBox";
-            this.accntStmntGroupBox.Size = new System.Drawing.Size(922, 616);
+            this.accntStmntGroupBox.Size = new System.Drawing.Size(914, 602);
             this.accntStmntGroupBox.TabIndex = 0;
             this.accntStmntGroupBox.TabStop = false;
             this.accntStmntGroupBox.Text = "ACCOUNT TRANSACTIONS FOR THE PERIOD CHOSEN";
@@ -8442,7 +8645,7 @@ namespace Accounting.Forms
             this.accntStmntListView.HoverSelection = true;
             this.accntStmntListView.Location = new System.Drawing.Point(3, 19);
             this.accntStmntListView.Name = "accntStmntListView";
-            this.accntStmntListView.Size = new System.Drawing.Size(916, 594);
+            this.accntStmntListView.Size = new System.Drawing.Size(908, 580);
             this.accntStmntListView.TabIndex = 0;
             this.accntStmntListView.UseCompatibleStateImageBehavior = false;
             this.accntStmntListView.View = System.Windows.Forms.View.Details;
@@ -8590,9 +8793,9 @@ namespace Accounting.Forms
             this.tabPage22.BackColor = System.Drawing.Color.Silver;
             this.tabPage22.Controls.Add(this.groupBox25);
             this.tabPage22.Controls.Add(this.periodGroupBox);
-            this.tabPage22.Location = new System.Drawing.Point(4, 44);
+            this.tabPage22.Location = new System.Drawing.Point(4, 24);
             this.tabPage22.Name = "tabPage22";
-            this.tabPage22.Size = new System.Drawing.Size(1099, 613);
+            this.tabPage22.Size = new System.Drawing.Size(1091, 625);
             this.tabPage22.TabIndex = 7;
             this.tabPage22.Text = "PERIOD BY PERIOD NET TRNS.";
             // 
@@ -8614,7 +8817,7 @@ namespace Accounting.Forms
             this.groupBox25.Controls.Add(this.mnthlyProgressBar);
             this.groupBox25.Controls.Add(this.mnthlyDrtnComboBox);
             this.groupBox25.ForeColor = System.Drawing.Color.White;
-            this.groupBox25.Location = new System.Drawing.Point(893, 1);
+            this.groupBox25.Location = new System.Drawing.Point(885, 1);
             this.groupBox25.Name = "groupBox25";
             this.groupBox25.Size = new System.Drawing.Size(173, 290);
             this.groupBox25.TabIndex = 2;
@@ -8789,7 +8992,7 @@ namespace Accounting.Forms
             this.periodGroupBox.ForeColor = System.Drawing.Color.White;
             this.periodGroupBox.Location = new System.Drawing.Point(2, 0);
             this.periodGroupBox.Name = "periodGroupBox";
-            this.periodGroupBox.Size = new System.Drawing.Size(888, 610);
+            this.periodGroupBox.Size = new System.Drawing.Size(880, 622);
             this.periodGroupBox.TabIndex = 1;
             this.periodGroupBox.TabStop = false;
             this.periodGroupBox.Text = "PERIOD BY PERIOD TRIAL BALANCE FOR 2015";
@@ -8815,7 +9018,7 @@ namespace Accounting.Forms
             this.periodStmntListView.HoverSelection = true;
             this.periodStmntListView.Location = new System.Drawing.Point(3, 19);
             this.periodStmntListView.Name = "periodStmntListView";
-            this.periodStmntListView.Size = new System.Drawing.Size(882, 588);
+            this.periodStmntListView.Size = new System.Drawing.Size(874, 600);
             this.periodStmntListView.TabIndex = 0;
             this.periodStmntListView.UseCompatibleStateImageBehavior = false;
             this.periodStmntListView.View = System.Windows.Forms.View.Details;
@@ -8905,7 +9108,7 @@ namespace Accounting.Forms
             this.tabPage20.Controls.Add(this.cashFlowGroupBox);
             this.tabPage20.Location = new System.Drawing.Point(4, 44);
             this.tabPage20.Name = "tabPage20";
-            this.tabPage20.Size = new System.Drawing.Size(1099, 613);
+            this.tabPage20.Size = new System.Drawing.Size(1091, 605);
             this.tabPage20.TabIndex = 5;
             this.tabPage20.Text = "CASH FLOW STATEMENT";
             this.tabPage20.UseVisualStyleBackColor = true;
@@ -8928,7 +9131,7 @@ namespace Accounting.Forms
             this.groupBox26.Controls.Add(this.cashFlowProgressBar);
             this.groupBox26.Controls.Add(this.cashFlowDrtnComboBox);
             this.groupBox26.ForeColor = System.Drawing.Color.White;
-            this.groupBox26.Location = new System.Drawing.Point(892, 1);
+            this.groupBox26.Location = new System.Drawing.Point(884, 1);
             this.groupBox26.Name = "groupBox26";
             this.groupBox26.Size = new System.Drawing.Size(173, 294);
             this.groupBox26.TabIndex = 4;
@@ -9099,7 +9302,7 @@ namespace Accounting.Forms
             this.cashFlowGroupBox.ForeColor = System.Drawing.Color.White;
             this.cashFlowGroupBox.Location = new System.Drawing.Point(2, 0);
             this.cashFlowGroupBox.Name = "cashFlowGroupBox";
-            this.cashFlowGroupBox.Size = new System.Drawing.Size(888, 615);
+            this.cashFlowGroupBox.Size = new System.Drawing.Size(880, 602);
             this.cashFlowGroupBox.TabIndex = 3;
             this.cashFlowGroupBox.TabStop = false;
             this.cashFlowGroupBox.Text = "PERIOD BY PERIOD TRIAL BALANCE FOR 2015";
@@ -9123,7 +9326,7 @@ namespace Accounting.Forms
             this.cashFlowListView.HoverSelection = true;
             this.cashFlowListView.Location = new System.Drawing.Point(3, 19);
             this.cashFlowListView.Name = "cashFlowListView";
-            this.cashFlowListView.Size = new System.Drawing.Size(882, 593);
+            this.cashFlowListView.Size = new System.Drawing.Size(874, 580);
             this.cashFlowListView.TabIndex = 0;
             this.cashFlowListView.UseCompatibleStateImageBehavior = false;
             this.cashFlowListView.View = System.Windows.Forms.View.Details;
@@ -9213,7 +9416,7 @@ namespace Accounting.Forms
             this.tabPage21.Location = new System.Drawing.Point(4, 44);
             this.tabPage21.Name = "tabPage21";
             this.tabPage21.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage21.Size = new System.Drawing.Size(1099, 613);
+            this.tabPage21.Size = new System.Drawing.Size(1091, 605);
             this.tabPage21.TabIndex = 6;
             this.tabPage21.Text = "NEWLY CREATED CORRECTION TRANSACTIONS";
             // 
@@ -9440,7 +9643,7 @@ namespace Accounting.Forms
             this.groupBox24.ForeColor = System.Drawing.Color.White;
             this.groupBox24.Location = new System.Drawing.Point(0, 58);
             this.groupBox24.Name = "groupBox24";
-            this.groupBox24.Size = new System.Drawing.Size(1100, 555);
+            this.groupBox24.Size = new System.Drawing.Size(1092, 547);
             this.groupBox24.TabIndex = 163;
             this.groupBox24.TabStop = false;
             this.groupBox24.Text = "TRANSACTION LINES";
@@ -9491,20 +9694,20 @@ namespace Accounting.Forms
             this.Column20,
             this.Column21,
             this.Column23});
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.trnsDataGridView.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.trnsDataGridView.DefaultCellStyle = dataGridViewCellStyle17;
             this.trnsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trnsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.trnsDataGridView.Location = new System.Drawing.Point(3, 17);
             this.trnsDataGridView.Name = "trnsDataGridView";
             this.trnsDataGridView.RowHeadersWidth = 20;
-            this.trnsDataGridView.Size = new System.Drawing.Size(1094, 535);
+            this.trnsDataGridView.Size = new System.Drawing.Size(1086, 527);
             this.trnsDataGridView.TabIndex = 134;
             this.trnsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.trnsDataGridView_CellContentClick);
             this.trnsDataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.trnsDataGridView_CellEnter);
@@ -9512,13 +9715,13 @@ namespace Accounting.Forms
             // 
             // Column1
             // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column1.HeaderText = "Transaction ID";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -9527,13 +9730,13 @@ namespace Accounting.Forms
             // 
             // Column3
             // 
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column3.FillWeight = 273.8832F;
             this.Column3.HeaderText = "Transaction Description (MEMO)";
             this.Column3.Name = "Column3";
@@ -9541,11 +9744,11 @@ namespace Accounting.Forms
             // 
             // Column22
             // 
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column22.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column22.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column22.FillWeight = 115F;
             this.Column22.HeaderText = "Cheque/ Voucher/ Receipt No. (Ref. Doc. No.)";
             this.Column22.Name = "Column22";
@@ -9553,9 +9756,9 @@ namespace Accounting.Forms
             // 
             // Column4
             // 
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column4.FillWeight = 71.59898F;
             this.Column4.HeaderText = "Increase / Decrease";
             this.Column4.Items.AddRange(new object[] {
@@ -9565,9 +9768,9 @@ namespace Accounting.Forms
             // 
             // Column5
             // 
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Black;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column5.FillWeight = 122.2843F;
             this.Column5.HeaderText = "Account Number/Name";
             this.Column5.Name = "Column5";
@@ -9589,13 +9792,13 @@ namespace Accounting.Forms
             // 
             // Column8
             // 
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle23.Format = "N2";
-            dataGridViewCellStyle23.NullValue = "0";
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = "0";
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle6;
             this.Column8.FillWeight = 102.2843F;
             this.Column8.HeaderText = "Entered Amount";
             this.Column8.Name = "Column8";
@@ -9603,9 +9806,9 @@ namespace Accounting.Forms
             // 
             // Column7
             // 
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column7.FillWeight = 25.57106F;
             this.Column7.HeaderText = "...";
             this.Column7.Name = "Column7";
@@ -9621,9 +9824,9 @@ namespace Accounting.Forms
             // 
             // Column12
             // 
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.Black;
-            this.Column12.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.Column12.DefaultCellStyle = dataGridViewCellStyle8;
             this.Column12.FillWeight = 50.37055F;
             this.Column12.HeaderText = "Entered Curr.";
             this.Column12.Name = "Column12";
@@ -9637,9 +9840,9 @@ namespace Accounting.Forms
             // 
             // Column2
             // 
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.Black;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle9;
             this.Column2.FillWeight = 81.82741F;
             this.Column2.HeaderText = "Transaction Date";
             this.Column2.Name = "Column2";
@@ -9647,20 +9850,20 @@ namespace Accounting.Forms
             // 
             // Column11
             // 
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.Black;
-            this.Column11.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            this.Column11.DefaultCellStyle = dataGridViewCellStyle10;
             this.Column11.FillWeight = 25.57106F;
             this.Column11.HeaderText = "...";
             this.Column11.Name = "Column11";
             // 
             // Column18
             // 
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column18.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column18.DefaultCellStyle = dataGridViewCellStyle11;
             this.Column18.FillWeight = 72.2843F;
             this.Column18.HeaderText = "Func. Curr. Exch. Rate";
             this.Column18.Name = "Column18";
@@ -9668,11 +9871,11 @@ namespace Accounting.Forms
             // 
             // Column19
             // 
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column19.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column19.DefaultCellStyle = dataGridViewCellStyle12;
             this.Column19.FillWeight = 72.2843F;
             this.Column19.HeaderText = "Account Curr. Exch. Rate";
             this.Column19.Name = "Column19";
@@ -9680,13 +9883,13 @@ namespace Accounting.Forms
             // 
             // Column14
             // 
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle30.Format = "N2";
-            dataGridViewCellStyle30.NullValue = "0";
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column14.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle13.Format = "N2";
+            dataGridViewCellStyle13.NullValue = "0";
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column14.DefaultCellStyle = dataGridViewCellStyle13;
             this.Column14.FillWeight = 92.2843F;
             this.Column14.HeaderText = "Func. Curr. Amount";
             this.Column14.Name = "Column14";
@@ -9695,9 +9898,9 @@ namespace Accounting.Forms
             // 
             // Column17
             // 
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.Black;
-            this.Column17.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            this.Column17.DefaultCellStyle = dataGridViewCellStyle14;
             this.Column17.FillWeight = 50.37055F;
             this.Column17.HeaderText = "Func. Curr.";
             this.Column17.Name = "Column17";
@@ -9706,13 +9909,13 @@ namespace Accounting.Forms
             // 
             // Column15
             // 
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle32.Format = "N2";
-            dataGridViewCellStyle32.NullValue = "0";
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column15.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.Format = "N2";
+            dataGridViewCellStyle15.NullValue = "0";
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column15.DefaultCellStyle = dataGridViewCellStyle15;
             this.Column15.FillWeight = 92.2843F;
             this.Column15.HeaderText = "Account Curr. Amount";
             this.Column15.Name = "Column15";
@@ -9721,9 +9924,9 @@ namespace Accounting.Forms
             // 
             // Column16
             // 
-            dataGridViewCellStyle33.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.Black;
-            this.Column16.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            this.Column16.DefaultCellStyle = dataGridViewCellStyle16;
             this.Column16.FillWeight = 50.37055F;
             this.Column16.HeaderText = "Account Curr.";
             this.Column16.Name = "Column16";
@@ -9816,7 +10019,7 @@ namespace Accounting.Forms
             this.tabPage5.Location = new System.Drawing.Point(4, 88);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1113, 639);
+            this.tabPage5.Size = new System.Drawing.Size(1105, 631);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "BUDGETS";
             // 
@@ -9832,7 +10035,7 @@ namespace Accounting.Forms
             this.budgetPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.budgetPanel.Location = new System.Drawing.Point(3, 3);
             this.budgetPanel.Name = "budgetPanel";
-            this.budgetPanel.Size = new System.Drawing.Size(1107, 633);
+            this.budgetPanel.Size = new System.Drawing.Size(1099, 625);
             this.budgetPanel.TabIndex = 39;
             // 
             // toolStrip11
@@ -10001,7 +10204,7 @@ namespace Accounting.Forms
             this.groupBox16.Location = new System.Drawing.Point(252, 148);
             this.groupBox16.MinimumSize = new System.Drawing.Size(779, 300);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(852, 482);
+            this.groupBox16.Size = new System.Drawing.Size(844, 474);
             this.groupBox16.TabIndex = 3;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "BUDGET DETAIL INFORMATION";
@@ -10013,7 +10216,7 @@ namespace Accounting.Forms
             this.panel16.Location = new System.Drawing.Point(3, 17);
             this.panel16.Name = "panel16";
             this.panel16.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panel16.Size = new System.Drawing.Size(846, 33);
+            this.panel16.Size = new System.Drawing.Size(838, 33);
             this.panel16.TabIndex = 0;
             this.panel16.TabStop = true;
             // 
@@ -10050,7 +10253,7 @@ namespace Accounting.Forms
             this.toolStrip7.Location = new System.Drawing.Point(0, 5);
             this.toolStrip7.Margin = new System.Windows.Forms.Padding(3);
             this.toolStrip7.Name = "toolStrip7";
-            this.toolStrip7.Size = new System.Drawing.Size(846, 25);
+            this.toolStrip7.Size = new System.Drawing.Size(838, 25);
             this.toolStrip7.Stretch = true;
             this.toolStrip7.TabIndex = 0;
             this.toolStrip7.TabStop = true;
@@ -10293,6 +10496,7 @@ namespace Accounting.Forms
             this.columnHeader106,
             this.columnHeader107,
             this.columnHeader111,
+            this.columnHeader189,
             this.columnHeader108,
             this.columnHeader109,
             this.columnHeader110,
@@ -10304,10 +10508,11 @@ namespace Accounting.Forms
             this.budgetDetListView.HideSelection = false;
             this.budgetDetListView.Location = new System.Drawing.Point(3, 52);
             this.budgetDetListView.Name = "budgetDetListView";
-            this.budgetDetListView.Size = new System.Drawing.Size(845, 424);
+            this.budgetDetListView.Size = new System.Drawing.Size(837, 416);
             this.budgetDetListView.TabIndex = 3;
             this.budgetDetListView.UseCompatibleStateImageBehavior = false;
             this.budgetDetListView.View = System.Windows.Forms.View.Details;
+            this.budgetDetListView.DoubleClick += new System.EventHandler(this.budgetDetListView_DoubleClick);
             this.budgetDetListView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.budgetDetListView_KeyDown);
             // 
             // columnHeader104
@@ -10336,6 +10541,12 @@ namespace Accounting.Forms
             this.columnHeader111.Text = "Actual Amount";
             this.columnHeader111.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader111.Width = 85;
+            // 
+            // columnHeader189
+            // 
+            this.columnHeader189.Text = "Variance";
+            this.columnHeader189.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.columnHeader189.Width = 85;
             // 
             // columnHeader108
             // 
@@ -10453,7 +10664,7 @@ namespace Accounting.Forms
             this.budgetListView.HideSelection = false;
             this.budgetListView.Location = new System.Drawing.Point(4, 60);
             this.budgetListView.Name = "budgetListView";
-            this.budgetListView.Size = new System.Drawing.Size(246, 570);
+            this.budgetListView.Size = new System.Drawing.Size(246, 562);
             this.budgetListView.TabIndex = 1;
             this.budgetListView.UseCompatibleStateImageBehavior = false;
             this.budgetListView.View = System.Windows.Forms.View.Details;
@@ -10568,7 +10779,7 @@ namespace Accounting.Forms
             this.panel17.Location = new System.Drawing.Point(0, 0);
             this.panel17.Name = "panel17";
             this.panel17.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panel17.Size = new System.Drawing.Size(1107, 33);
+            this.panel17.Size = new System.Drawing.Size(1099, 33);
             this.panel17.TabIndex = 0;
             this.panel17.TabStop = true;
             // 
@@ -10611,7 +10822,7 @@ namespace Accounting.Forms
             this.toolStrip8.Location = new System.Drawing.Point(0, 5);
             this.toolStrip8.Margin = new System.Windows.Forms.Padding(3);
             this.toolStrip8.Name = "toolStrip8";
-            this.toolStrip8.Size = new System.Drawing.Size(1107, 25);
+            this.toolStrip8.Size = new System.Drawing.Size(1099, 25);
             this.toolStrip8.Stretch = true;
             this.toolStrip8.TabIndex = 0;
             this.toolStrip8.TabStop = true;
@@ -10882,7 +11093,7 @@ namespace Accounting.Forms
             this.tabPage6.Location = new System.Drawing.Point(4, 88);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1113, 639);
+            this.tabPage6.Size = new System.Drawing.Size(1105, 631);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "TRNS. TEMPLATES";
             // 
@@ -10901,7 +11112,7 @@ namespace Accounting.Forms
             this.trnsTmpltsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trnsTmpltsPanel.Location = new System.Drawing.Point(3, 3);
             this.trnsTmpltsPanel.Name = "trnsTmpltsPanel";
-            this.trnsTmpltsPanel.Size = new System.Drawing.Size(1107, 633);
+            this.trnsTmpltsPanel.Size = new System.Drawing.Size(1099, 625);
             this.trnsTmpltsPanel.TabIndex = 39;
             // 
             // toolStrip15
@@ -10993,7 +11204,7 @@ namespace Accounting.Forms
             this.groupBox6.ForeColor = System.Drawing.Color.White;
             this.groupBox6.Location = new System.Drawing.Point(253, 123);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(556, 510);
+            this.groupBox6.Size = new System.Drawing.Size(556, 502);
             this.groupBox6.TabIndex = 2;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "TRANSACTIONS DETAIL INFORMATION";
@@ -11061,7 +11272,7 @@ namespace Accounting.Forms
             this.tmpltTrnsDetListView.HideSelection = false;
             this.tmpltTrnsDetListView.Location = new System.Drawing.Point(9, 43);
             this.tmpltTrnsDetListView.Name = "tmpltTrnsDetListView";
-            this.tmpltTrnsDetListView.Size = new System.Drawing.Size(541, 464);
+            this.tmpltTrnsDetListView.Size = new System.Drawing.Size(541, 456);
             this.tmpltTrnsDetListView.TabIndex = 1;
             this.tmpltTrnsDetListView.UseCompatibleStateImageBehavior = false;
             this.tmpltTrnsDetListView.View = System.Windows.Forms.View.Details;
@@ -11192,7 +11403,7 @@ namespace Accounting.Forms
             this.tmpltListView.HideSelection = false;
             this.tmpltListView.Location = new System.Drawing.Point(2, 62);
             this.tmpltListView.Name = "tmpltListView";
-            this.tmpltListView.Size = new System.Drawing.Size(248, 571);
+            this.tmpltListView.Size = new System.Drawing.Size(248, 563);
             this.tmpltListView.TabIndex = 0;
             this.tmpltListView.UseCompatibleStateImageBehavior = false;
             this.tmpltListView.View = System.Windows.Forms.View.Details;
@@ -11302,7 +11513,7 @@ namespace Accounting.Forms
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.panel5.Size = new System.Drawing.Size(1107, 33);
+            this.panel5.Size = new System.Drawing.Size(1099, 33);
             this.panel5.TabIndex = 0;
             this.panel5.TabStop = true;
             // 
@@ -11345,7 +11556,7 @@ namespace Accounting.Forms
             this.toolStrip2.Location = new System.Drawing.Point(0, 5);
             this.toolStrip2.Margin = new System.Windows.Forms.Padding(3);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(1107, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(1099, 25);
             this.toolStrip2.Stretch = true;
             this.toolStrip2.TabIndex = 0;
             this.toolStrip2.TabStop = true;
@@ -11700,7 +11911,7 @@ namespace Accounting.Forms
             this.groupBox8.ForeColor = System.Drawing.Color.White;
             this.groupBox8.Location = new System.Drawing.Point(815, 123);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(289, 510);
+            this.groupBox8.Size = new System.Drawing.Size(281, 502);
             this.groupBox8.TabIndex = 3;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "TEMPLATE USERS";
@@ -11807,7 +12018,7 @@ namespace Accounting.Forms
             this.tmpltUsrsListView.HideSelection = false;
             this.tmpltUsrsListView.Location = new System.Drawing.Point(7, 134);
             this.tmpltUsrsListView.Name = "tmpltUsrsListView";
-            this.tmpltUsrsListView.Size = new System.Drawing.Size(274, 373);
+            this.tmpltUsrsListView.Size = new System.Drawing.Size(266, 365);
             this.tmpltUsrsListView.TabIndex = 0;
             this.tmpltUsrsListView.UseCompatibleStateImageBehavior = false;
             this.tmpltUsrsListView.View = System.Windows.Forms.View.Details;
@@ -11920,7 +12131,7 @@ namespace Accounting.Forms
             this.tabPage7.Location = new System.Drawing.Point(4, 88);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(1113, 639);
+            this.tabPage7.Size = new System.Drawing.Size(1105, 631);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "ACCOUNTING PERIODS";
             // 
@@ -11929,7 +12140,7 @@ namespace Accounting.Forms
             this.otherFormsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.otherFormsPanel.Location = new System.Drawing.Point(3, 3);
             this.otherFormsPanel.Name = "otherFormsPanel";
-            this.otherFormsPanel.Size = new System.Drawing.Size(1107, 633);
+            this.otherFormsPanel.Size = new System.Drawing.Size(1099, 625);
             this.otherFormsPanel.TabIndex = 39;
             // 
             // tabPage8
@@ -11940,7 +12151,7 @@ namespace Accounting.Forms
             this.tabPage8.Location = new System.Drawing.Point(4, 88);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(1113, 639);
+            this.tabPage8.Size = new System.Drawing.Size(1105, 631);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "ASSETS/INVESTMENTS";
             // 
@@ -11952,7 +12163,7 @@ namespace Accounting.Forms
             this.tabPage9.Location = new System.Drawing.Point(4, 88);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(1113, 639);
+            this.tabPage9.Size = new System.Drawing.Size(1105, 631);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "PAYABLES";
             // 
@@ -11964,7 +12175,7 @@ namespace Accounting.Forms
             this.tabPage10.Location = new System.Drawing.Point(4, 88);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(1113, 639);
+            this.tabPage10.Size = new System.Drawing.Size(1105, 631);
             this.tabPage10.TabIndex = 9;
             this.tabPage10.Text = "RECEIVABLES";
             // 
@@ -11976,7 +12187,7 @@ namespace Accounting.Forms
             this.tabPage11.Location = new System.Drawing.Point(4, 88);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(1113, 639);
+            this.tabPage11.Size = new System.Drawing.Size(1105, 631);
             this.tabPage11.TabIndex = 10;
             this.tabPage11.Text = "PAYMENTS";
             // 
@@ -11988,7 +12199,7 @@ namespace Accounting.Forms
             this.tabPage12.Location = new System.Drawing.Point(4, 88);
             this.tabPage12.Name = "tabPage12";
             this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(1113, 639);
+            this.tabPage12.Size = new System.Drawing.Size(1105, 631);
             this.tabPage12.TabIndex = 11;
             this.tabPage12.Text = "BUSINESS PARTNERS/FIRMS";
             // 
@@ -12000,7 +12211,7 @@ namespace Accounting.Forms
             this.tabPage13.Location = new System.Drawing.Point(4, 88);
             this.tabPage13.Name = "tabPage13";
             this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(1113, 639);
+            this.tabPage13.Size = new System.Drawing.Size(1105, 631);
             this.tabPage13.TabIndex = 12;
             this.tabPage13.Text = "TAX CODES";
             // 
@@ -12012,7 +12223,7 @@ namespace Accounting.Forms
             this.tabPage14.Location = new System.Drawing.Point(4, 88);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(1113, 639);
+            this.tabPage14.Size = new System.Drawing.Size(1105, 631);
             this.tabPage14.TabIndex = 13;
             this.tabPage14.Text = "DEFAULT ACCOUNT";
             // 
@@ -12024,9 +12235,20 @@ namespace Accounting.Forms
             this.tabPage15.Location = new System.Drawing.Point(4, 88);
             this.tabPage15.Name = "tabPage15";
             this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage15.Size = new System.Drawing.Size(1113, 639);
+            this.tabPage15.Size = new System.Drawing.Size(1105, 631);
             this.tabPage15.TabIndex = 14;
             this.tabPage15.Text = "ACCOUNT RECONCILIATION";
+            // 
+            // tabPage23
+            // 
+            this.tabPage23.ImageKey = "cashbook_big_icon.png";
+            this.tabPage23.Location = new System.Drawing.Point(4, 88);
+            this.tabPage23.Name = "tabPage23";
+            this.tabPage23.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage23.Size = new System.Drawing.Size(1105, 631);
+            this.tabPage23.TabIndex = 15;
+            this.tabPage23.Text = "PETTY CASH VOUCHERS";
+            this.tabPage23.UseVisualStyleBackColor = true;
             // 
             // blsMenuStrip
             // 
@@ -12949,7 +13171,7 @@ namespace Accounting.Forms
             // mainForm
             // 
             this.BackColor = System.Drawing.Color.LightSlateGray;
-            this.ClientSize = new System.Drawing.Size(1362, 741);
+            this.ClientSize = new System.Drawing.Size(1354, 733);
             this.Controls.Add(this.splitContainer1);
             this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)(((((WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft | WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight) 
             | WeifenLuo.WinFormsUI.Docking.DockAreas.DockTop) 
@@ -13254,7 +13476,6 @@ namespace Accounting.Forms
 		private System.Windows.Forms.ColumnHeader columnHeader4;
 		private System.Windows.Forms.ColumnHeader columnHeader3;
 		private System.Windows.Forms.TextBox accntNameTextBox;
-		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.CheckBox isPrntAccntsCheckBox;
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Button parntAccntButton;
@@ -14301,5 +14522,22 @@ namespace Accounting.Forms
         private System.Windows.Forms.Label label93;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator149;
         private System.Windows.Forms.ToolStripButton resetRcnclButton;
+        private System.Windows.Forms.TabPage tabPage23;
+        private System.Windows.Forms.Button mappedAccntButton;
+        private System.Windows.Forms.TextBox mappedAccntTextBox;
+        private System.Windows.Forms.TextBox mappedAccntIDTextBox;
+        private System.Windows.Forms.Label label88;
+        private System.Windows.Forms.Button segmentsButton;
+        private System.Windows.Forms.TextBox accntSgmnt1TextBox;
+        private System.Windows.Forms.TextBox accntSgmnt10TextBox;
+        private System.Windows.Forms.TextBox accntSgmnt9TextBox;
+        private System.Windows.Forms.TextBox accntSgmnt8TextBox;
+        private System.Windows.Forms.TextBox accntSgmnt7TextBox;
+        private System.Windows.Forms.TextBox accntSgmnt6TextBox;
+        private System.Windows.Forms.TextBox accntSgmnt5TextBox;
+        private System.Windows.Forms.TextBox accntSgmnt4TextBox;
+        private System.Windows.Forms.TextBox accntSgmnt3TextBox;
+        private System.Windows.Forms.TextBox accntSgmnt2TextBox;
+        private System.Windows.Forms.ColumnHeader columnHeader189;
     }
 	}

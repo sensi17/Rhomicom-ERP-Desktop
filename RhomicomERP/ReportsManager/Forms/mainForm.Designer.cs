@@ -2021,7 +2021,7 @@ namespace ReportsAndProcesses.Forms
             this.rcHstryParamMenuItem,
             this.vwSQLParamMenuItem});
             this.paramsContextMenuStrip.Name = "vlNmContextMenuStrip";
-            this.paramsContextMenuStrip.Size = new System.Drawing.Size(215, 214);
+            this.paramsContextMenuStrip.Size = new System.Drawing.Size(215, 192);
             // 
             // addParamMenuItem
             // 

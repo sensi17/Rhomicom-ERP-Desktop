@@ -23,7 +23,7 @@ namespace Enterprise_Management_System.Dialogs
 
         private void connectDiag_Load(object sender, EventArgs e)
         {
-            System.Windows.Forms.Application.DoEvents();
+            //System.Windows.Forms.Application.DoEvents();
             Color[] clrs = Global.myNwMainFrm.cmnCdMn.getColors();
             this.BackColor = clrs[0];
             this.loadConnFiles();
@@ -40,11 +40,11 @@ namespace Enterprise_Management_System.Dialogs
         private void OKButton_Click(object sender, EventArgs e)
         {
             this.OKButton.Enabled = false;
-            System.Windows.Forms.Application.DoEvents();
+            //System.Windows.Forms.Application.DoEvents();
             if (CommonCode.CommonCodes.GlobalSQLConn.State == ConnectionState.Open)
             {
                 this.OKButton.Enabled = true;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
                 this.DialogResult = DialogResult.OK;
                 this.Close();
                 return;
@@ -69,12 +69,12 @@ namespace Enterprise_Management_System.Dialogs
                     Global.myNwMainFrm.cmnCdMn.executeGnrlDDLSQL(gnrlSQL);
                 }
                 this.OKButton.Enabled = true;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             this.OKButton.Enabled = true;
-            System.Windows.Forms.Application.DoEvents();
+            //System.Windows.Forms.Application.DoEvents();
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

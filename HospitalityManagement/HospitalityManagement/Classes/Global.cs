@@ -1547,7 +1547,7 @@ a.service_type_id, d.service_type_name,
        a.other_info, a.created_by, a.doc_status, COALESCE(y.invc_hdr_id,-1), y.invc_number, 
 y.pymny_method_id, accb.get_pymnt_mthd_name(y.pymny_method_id), y.invc_curr_id, 
 gst.get_pssbl_val(COALESCE(y.invc_curr_id,-1)), COALESCE(y.exchng_rate,1), y.approval_status, 
-y.invc_type, a.prnt_chck_in_id,a.prnt_doc_typ, COALESCE(y.enbl_auto_misc_chrges,'0'), a.use_nights " +
+y.invc_type, a.prnt_chck_in_id,a.prnt_doc_typ, COALESCE(y.enbl_auto_misc_chrges,'0'), a.use_nights, y.payment_terms " +
          @"FROM hotl.checkins_hdr a 
 LEFT OUTER JOIN hotl.service_types d ON (a.service_type_id=d.service_type_id )
 LEFT OUTER JOIN hotl.rooms b ON (a.service_det_id = b.room_id)
@@ -2938,6 +2938,21 @@ or scm.istaxwthhldng(y.code_id_behind)='1' or y.rcvbl_smmry_type='5Applied Prepa
             return rs;
         }
 
+
+        public static string getRcvblsDocLastUpdate(long dochdrID, string docType)
+        {
+            string strSql = "select to_char(to_timestamp(MAX(y.last_update_date),'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:SS') dte " +
+              "from accb.accb_payments y " +
+              "where y.src_doc_id = " + dochdrID + " and y.src_doc_typ = '" + docType.Replace("'", "''") + "'";
+            DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
+
+            if (dtst.Tables[0].Rows.Count > 0)
+            {
+                return dtst.Tables[0].Rows[0][0].ToString();
+            }
+            return Global.mnFrm.cmCde.getFrmtdDB_Date_time();
+        }
+
         public static DataSet get_Batch_Attachments(long batchID)
         {
             string strSql = "";
@@ -3137,13 +3152,34 @@ HAVING b.dbt_amount <> COALESCE(round(SUM(a.dbt_amount),2),0) or COALESCE(round(
             }
         }
 
+
+        public static void roundSmmryItms(long docHdrID, string docType)
+        {
+            Global.mnFrm.cmCde.Extra_Adt_Trl_Info = "";
+            string updtSQL = "UPDATE scm.scm_doc_amnt_smmrys SET " +
+                  "smmry_amnt = ROUND(smmry_amnt,2) WHERE (src_doc_hdr_id = " + docHdrID +
+                  " and src_doc_type='" + docType.Replace("'", "''") + "')";
+            Global.mnFrm.cmCde.updateDataNoParams(updtSQL);
+        }
+
+        public static void roundScmRcvblsDocAmnts(long hdrID, string docType)
+        {
+            Global.mnFrm.cmCde.Extra_Adt_Trl_Info = "";
+            string dateStr = Global.mnFrm.cmCde.getDB_Date_time();
+            string insSQL = @"UPDATE scm.scm_rcvbl_amnt_smmrys
+   SET rcvbl_smmry_amnt = ROUND(rcvbl_smmry_amnt, 2), func_curr_amount=ROUND(func_curr_amount,2), accnt_curr_amnt=ROUND(func_curr_amount,2) " +
+                  " WHERE src_rcvbl_hdr_id = " + hdrID + " and src_rcvbl_type='" + docType.Replace("'", "''") + "'";
+            Global.mnFrm.cmCde.updateDataNoParams(insSQL);
+        }
+
+
         public static DataSet get_DocSmryLns(long dochdrID, string docTyp)
         {
-            string strSql = "SELECT a.smmry_id, a.smmry_name, " +
-             "a.smmry_amnt, a.code_id_behind, a.smmry_type, a.auto_calc " +
+            string strSql = "SELECT a.smmry_id, CASE WHEN a.smmry_type='3Discount' THEN 'Discount' ELSE a.smmry_name END, " +
+             "a.smmry_amnt, a.code_id_behind, a.smmry_type, a.auto_calc,REPLACE(REPLACE(a.smmry_type,'2Tax','3Tax'),'3Discount','2Discount') smtyp " +
              "FROM scm.scm_doc_amnt_smmrys a " +
              "WHERE((a.src_doc_hdr_id = " + dochdrID +
-             ") and (a.src_doc_type='" + docTyp + "')) ORDER BY a.smmry_type";
+             ") and (a.src_doc_type='" + docTyp + "')) ORDER BY 7";
             DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
             if (Global.wfnCheckinsFrm != null)
             {
@@ -3779,6 +3815,7 @@ ORDER BY " + ordrBy + @"";
             return dtst;
         }
 
+
         public static DataSet get_PymtsMoneyRcvd(long UsrID, string doctype,
        string strtDte, string endDte, int orgID, string ordrBy, bool useCreatnDte)
         {
@@ -3831,18 +3868,18 @@ scm.get_doc_smry_typ_amnt(a.invc_hdr_id, a.invc_type, '3Discount') col3,
 COALESCE(z.amount_paid,0) col4, 
 scm.get_doc_smry_typ_amnt(a.invc_hdr_id, a.invc_type, '7Change/Balance') col5, 
 to_char(to_timestamp(" + dateClause + @",'YYYY-MM-DD HH24:MI:SS'),
-'DD-Mon-YYYY HH24:MI:SS')" + usrNmSect + @" col6,
-" + dateClause + @" col7 
+'DD-Mon-YYYY HH24:MI:SS')" + usrNmSect + @" col6, " + dateClause + @" col7 
 FROM scm.scm_sales_invc_hdr a 
-LEFT OUTER JOIN sec.sec_users y ON (a.created_by=y.user_id)
 LEFT OUTER JOIN accb.accb_rcvbls_invc_hdr x ON (x.src_doc_type=a.invc_type and x.src_doc_hdr_id = a.invc_hdr_id)
 LEFT OUTER JOIN accb.accb_payments z ON (z.src_doc_typ=x.rcvbls_invc_type and z.src_doc_id=x.rcvbls_invc_hdr_id and z.orgnl_pymnt_id<=0 and z.pymnt_vldty_status='VALID')
+LEFT OUTER JOIN sec.sec_users y ON (z.created_by=y.user_id)
 WHERE ((a.approval_status ilike 'Approved' or 
 (Select count(q.invc_det_ln_id) from scm.scm_sales_invc_det q 
-where q.invc_hdr_id = a.invc_hdr_id and q.is_itm_delivered='1')>0) AND (a.org_id = " + orgID + @") " + usrCls + " and (a.invc_type ilike '" + doctype.Replace("'", "''") + @"') 
-and (to_timestamp(" + dateClause + @",'YYYY-MM-DD HH24:MI:SS') between 
-to_timestamp('" + strtDte + @"','DD-Mon-YYYY HH24:MI:SS') AND 
-to_timestamp('" + endDte + @"','DD-Mon-YYYY HH24:MI:SS'))) 
+where q.invc_hdr_id = a.invc_hdr_id and q.is_itm_delivered='1') > 0) AND (a.org_id = " + orgID + @") " + usrCls + " and (a.invc_type ilike '" + doctype.Replace("'", "''") + @"') 
+and (to_timestamp(" + dateClause + @", 'YYYY-MM-DD HH24:MI:SS') between 
+to_timestamp('" + strtDte + @"', 'DD-Mon-YYYY HH24:MI:SS') AND 
+to_timestamp('" + endDte + @"', 'DD-Mon-YYYY HH24:MI:SS')) AND COALESCE(z.created_by,-123)=y.user_id 
+AND COALESCE(z.prepay_doc_id, -123)<0) 
 UNION
 SELECT a.rcvbls_invc_number  || ' (' || COALESCE(scm.get_cstmr_splr_name(a.customer_id),'Unspecified') || ')-' || gst.get_pssbl_val(a.invc_curr_id) col1, 
 CASE WHEN a.advc_pay_ifo_doc_id<=0 THEN accb.get_rcvbl_smry_typ_amnt(a.rcvbls_invc_hdr_id, a.rcvbls_invc_type, '6Grand Total') + 
@@ -3852,16 +3889,17 @@ COALESCE(z.amount_paid,0) col4,
 accb.get_rcvbl_smry_typ_amnt(a.rcvbls_invc_hdr_id, a.rcvbls_invc_type, '8Outstanding Balance') col5, 
 to_char(to_timestamp(" + dateClauseR + @",'YYYY-MM-DD HH24:MI:SS'),
 'DD-Mon-YYYY HH24:MI:SS')" + usrNmSect + @" col6, " + dateClauseR + @" col7 
-FROM accb.accb_rcvbls_invc_hdr a 
-LEFT OUTER JOIN sec.sec_users y ON (a.created_by=y.user_id) 
-LEFT OUTER JOIN accb.accb_payments z ON (z.src_doc_typ=a.rcvbls_invc_type and z.src_doc_id=a.rcvbls_invc_hdr_id and z.orgnl_pymnt_id<=0 and z.pymnt_vldty_status='VALID')
+FROM accb.accb_rcvbls_invc_hdr a
+LEFT OUTER JOIN accb.accb_payments z ON (z.src_doc_typ=a.rcvbls_invc_type and z.src_doc_id=a.rcvbls_invc_hdr_id and z.orgnl_pymnt_id<=0 and z.pymnt_vldty_status='VALID') 
+LEFT OUTER JOIN sec.sec_users y ON (z.created_by=y.user_id) 
 WHERE ((a.approval_status ilike 'Approved') AND (a.org_id = " + orgID + @") " + usrCls + @" and ((a.src_doc_hdr_id||'.'||a.src_doc_type) " +
-    "NOT IN (Select v.invc_hdr_id||'.'||v.invc_type from scm.scm_sales_invc_hdr v where v.org_id = " + orgID +
-    @" and v.invc_type ilike '" + doctype.Replace("'", "''") + @"')) 
-and a.invc_amnt_appld_elswhr <= 0 
+"NOT IN (Select v.invc_hdr_id||'.'||v.invc_type from scm.scm_sales_invc_hdr v where v.org_id = " + orgID +
+@" and v.invc_type ilike '" + doctype.Replace("'", "''") + @"')) 
+/*and a.invc_amnt_appld_elswhr <= 0*/ 
 and (to_timestamp(" + dateClauseR + @",'YYYY-MM-DD HH24:MI:SS') between 
 to_timestamp('" + strtDte + @"','DD-Mon-YYYY HH24:MI:SS') AND 
-to_timestamp('" + endDte + @"','DD-Mon-YYYY HH24:MI:SS')))
+to_timestamp('" + endDte + @"','DD-Mon-YYYY HH24:MI:SS')) AND COALESCE(z.created_by,-123)=y.user_id  
+AND COALESCE(z.prepay_doc_id, -123)<0)
 UNION
 SELECT a.mass_pay_name col1, 
 pay.get_intrnlpay_salesamnt(a.mass_pay_id) col2, 

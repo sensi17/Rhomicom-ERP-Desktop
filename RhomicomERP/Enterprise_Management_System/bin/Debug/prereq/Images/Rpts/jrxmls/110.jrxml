@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
-<!-- 2016-06-25T09:33:11 -->
+<!-- 2016-10-19T11:03:27 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Invoice" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Local PG DB"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
@@ -80,19 +80,23 @@
 	</style>
 	<subDataset name="Dataset2" uuid="523e5f28-2612-4f05-a9e2-ad0302387474">
 		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Local PG DB"/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
 		<parameter name="P_INVOICE_ID" class="java.lang.Long">
 			<parameterDescription><![CDATA[Invoice ID:]]></parameterDescription>
 		</parameter>
 		<parameter name="P_INVOICE_TYPE" class="java.lang.String"/>
 		<queryString>
-			<![CDATA[Select REPLACE(smmry_name,'Actual Outstanding Balance','Amount Due') ||':' smmry_name, smmry_amnt from scm.scm_doc_amnt_smmrys 
+			<![CDATA[Select REPLACE(CASE WHEN smmry_type='3Discount' THEN 'Discount' ELSE smmry_name END,'Actual Outstanding Balance','Amount Due') ||':' smmry_name, 
+smmry_amnt, 
+REPLACE(REPLACE(smmry_type,'2Tax','3Tax'),'3Discount','2Discount') smtyp 
+from scm.scm_doc_amnt_smmrys 
 WHERE src_doc_hdr_id=$P{P_INVOICE_ID} and src_doc_type=$P{P_INVOICE_TYPE} 
 and smmry_name !='Outstanding Balance' 
-and smmry_name !='Total Deposits' order by smmry_type]]>
+and smmry_name !='Total Deposits' order by 3]]>
 		</queryString>
 		<field name="smmry_name" class="java.lang.String"/>
 		<field name="smmry_amnt" class="java.math.BigDecimal"/>
+		<field name="smtyp" class="java.lang.String"/>
 	</subDataset>
 	<parameter name="P_INVOICE_ID" class="java.lang.Long">
 		<parameterDescription><![CDATA[Invoice ID:]]></parameterDescription>
@@ -123,7 +127,8 @@ and smmry_name !='Total Deposits' order by smmry_type]]>
         b.item_code, b.item_desc, 
         b.base_uom_id,c.uom_name, d.cat_name, scm.get_cstmr_splr_name(e.customer_id) customer_name, 
         COALESCE(f.site_name,' ') site_name, COALESCE(f.billing_address,' ') billing_address, 
-        COALESCE(f.ship_to_address,' ') ship_to_address, e.payment_terms
+        COALESCE(f.ship_to_address,' ') ship_to_address, e.payment_terms,
+	    gst.get_pssbl_val(e.invc_curr_id) curr
       FROM scm.scm_sales_invc_det a, inv.inv_itm_list b, 
         inv.unit_of_measure c, inv.inv_product_categories d, scm.scm_sales_invc_hdr e 
       LEFT OUTER JOIN scm.scm_cstmr_suplr_sites f  ON (e.customer_site_id =f.cust_sup_site_id)
@@ -148,6 +153,7 @@ and smmry_name !='Total Deposits' order by smmry_type]]>
 	<field name="billing_address" class="java.lang.String"/>
 	<field name="ship_to_address" class="java.lang.String"/>
 	<field name="payment_terms" class="java.lang.String"/>
+	<field name="curr" class="java.lang.String"/>
 	<variable name="Variable_1" class="java.math.BigDecimal" calculation="Sum">
 		<variableExpression><![CDATA[SUM($F{amnt} )]]></variableExpression>
 		<initialValueExpression><![CDATA[0]]></initialValueExpression>
@@ -303,8 +309,9 @@ and smmry_name !='Total Deposits' order by smmry_type]]>
 	</title>
 	<columnHeader>
 		<band height="20">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" mode="Opaque" x="1" y="0" width="239" height="20" forecolor="#FFFFFF" backcolor="#3D6CB8" uuid="8b348c07-9c43-47e2-9c76-ba20c36879e2"/>
+				<reportElement style="Column header" positionType="Float" mode="Opaque" x="1" y="0" width="239" height="20" forecolor="#FFFFFF" backcolor="#3D80B8" uuid="8b348c07-9c43-47e2-9c76-ba20c36879e2"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -318,7 +325,7 @@ and smmry_name !='Total Deposits' order by smmry_type]]>
 				<text><![CDATA[Item Description]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" mode="Opaque" x="240" y="0" width="70" height="20" forecolor="#FFFFFF" backcolor="#3D6CB8" uuid="af19b5af-e179-4165-9e28-0486f5011af7"/>
+				<reportElement style="Column header" positionType="Float" mode="Opaque" x="240" y="0" width="70" height="20" forecolor="#FFFFFF" backcolor="#3D80B8" uuid="af19b5af-e179-4165-9e28-0486f5011af7"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -332,7 +339,7 @@ and smmry_name !='Total Deposits' order by smmry_type]]>
 				<text><![CDATA[Qty]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" positionType="Float" mode="Opaque" x="310" y="0" width="105" height="20" forecolor="#FFFFFF" backcolor="#3D6CB8" uuid="8a5b9996-5f43-4dba-9eec-618c70df93c0"/>
+				<reportElement style="Column header" positionType="Float" mode="Opaque" x="310" y="0" width="105" height="20" forecolor="#FFFFFF" backcolor="#3D80B8" uuid="8a5b9996-5f43-4dba-9eec-618c70df93c0"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -345,20 +352,13 @@ and smmry_name !='Total Deposits' order by smmry_type]]>
 				</textElement>
 				<text><![CDATA[Unit Price]]></text>
 			</staticText>
-			<staticText>
-				<reportElement style="Column header" positionType="Float" mode="Opaque" x="415" y="0" width="142" height="20" forecolor="#FFFFFF" backcolor="#3D6CB8" uuid="fb241c18-438f-4096-be01-3bff2477fb7f"/>
-				<box>
-					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
-				</box>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement positionType="Float" mode="Opaque" x="415" y="0" width="142" height="20" forecolor="#FFFFFF" backcolor="#3D80B8" uuid="bdfd1a78-0287-4cf7-b8cb-8f649da25a22"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="12" isBold="true"/>
-					<paragraph leftIndent="2" rightIndent="2" spacingAfter="0"/>
 				</textElement>
-				<text><![CDATA[Amount]]></text>
-			</staticText>
+				<textFieldExpression><![CDATA["Amount (" + $F{curr} + ") "]]></textFieldExpression>
+			</textField>
 		</band>
 	</columnHeader>
 	<detail>
@@ -429,7 +429,7 @@ and smmry_name !='Total Deposits' order by smmry_type]]>
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="105" splitType="Stretch">
+		<band height="145" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<staticText>
 				<reportElement positionType="Float" x="1" y="27" width="100" height="20" uuid="e8334610-e83a-48e2-b5e1-78151b84cfc2">
@@ -442,7 +442,7 @@ and smmry_name !='Total Deposits' order by smmry_type]]>
 				<text><![CDATA[NOTES]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" mode="Opaque" x="0" y="70" width="557" height="30" backcolor="#EDE8E8" uuid="cef30955-5d29-4891-8662-7ee990f79474"/>
+				<reportElement positionType="Float" mode="Opaque" x="0" y="112" width="557" height="30" backcolor="#EDE8E8" uuid="cef30955-5d29-4891-8662-7ee990f79474"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true" isItalic="true"/>
 				</textElement>
@@ -518,12 +518,40 @@ and smmry_name !='Total Deposits' order by smmry_type]]>
 				<text><![CDATA[]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
-				<reportElement positionType="Float" x="0" y="45" width="555" height="23" uuid="20666653-0b38-4612-abf2-19f431cb33b4"/>
+				<reportElement positionType="Float" x="0" y="45" width="555" height="23" uuid="20666653-0b38-4612-abf2-19f431cb33b4">
+					<printWhenExpression><![CDATA[LEN($F{payment_terms} )>0]]></printWhenExpression>
+				</reportElement>
+				<box padding="5">
+					<topPen lineWidth="0.2" lineStyle="Solid" lineColor="#ADADAD"/>
+					<leftPen lineWidth="0.2" lineStyle="Solid" lineColor="#ADADAD"/>
+					<bottomPen lineWidth="0.2" lineStyle="Solid" lineColor="#ADADAD"/>
+					<rightPen lineWidth="0.2" lineStyle="Solid" lineColor="#ADADAD"/>
+				</box>
 				<textElement>
 					<font size="8" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{payment_terms}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="352" y="83" width="85" height="25" uuid="3fa6ca0e-0828-478f-8f4b-e20a5e637ef0">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="16" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Signature:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="432" y="85" width="127" height="25" uuid="26ecab4c-6fae-4cb9-ab0e-c8a106337827">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Times New Roman" size="16" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[.................................]]></text>
+			</staticText>
 		</band>
 	</summary>
 </jasperReport>

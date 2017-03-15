@@ -850,9 +850,12 @@ namespace ReportsAndProcesses.Forms
             /*lov_name_id != '-1' and */
             Global.mnFrm.cmCde.updateDataNoParams(
       @"UPDATE rpt.rpt_report_parameters SET 
-         default_value = REPLACE(default_value,'2015','2016') 
-  WHERE default_value ilike '%2015%' ");
-
+         default_value = REPLACE(default_value,'2016','2017') 
+  WHERE default_value ilike '%2016%' ");
+            Global.mnFrm.cmCde.updateDataNoParams(
+      @"UPDATE rpt.rpt_report_parameters SET 
+         default_value = REPLACE(default_value,'2012','2017') 
+  WHERE default_value ilike '%2012%' ");
             int orgLovID = Global.mnFrm.cmCde.getLovID("Organisations");
             //int prsnLovID = Global.mnFrm.cmCde.getLovID("Active Persons");
             //int ctgryLovID = Global.mnFrm.cmCde.getLovID("Categories");
@@ -1195,11 +1198,11 @@ namespace ReportsAndProcesses.Forms
                 Global.mnFrm.cmCde.showMsg("No record to Edit!", 0);
                 return;
             }
-            if (this.rptPrcsTypComboBox.Text == "System Process")
-            {
-                Global.mnFrm.cmCde.showMsg("Application Users cannot Edit a System Process\r\nContact the Software Vendor!", 0);
-                return;
-            }
+            /*if (this.rptPrcsTypComboBox.Text == "System Process")
+             {
+                 Global.mnFrm.cmCde.showMsg("Application Users cannot Edit a System Process\r\nContact the Software Vendor!", 0);
+                 return;
+             }*/
             this.addRpt = false;
             this.editRpt = true;
             this.prpareForRptEdit();
@@ -1282,11 +1285,11 @@ namespace ReportsAndProcesses.Forms
                     return;
                 }
             }
-            if (this.rptPrcsTypComboBox.Text == "System Process")
+            /*if (this.rptPrcsTypComboBox.Text == "System Process")
             {
                 Global.mnFrm.cmCde.showMsg("Application Users cannot create a System Process\r\nContact the Software Vendor!", 0);
                 return;
-            }
+            }*/
             long oldRptID = Global.mnFrm.cmCde.getRptID(this.rptNmTextBox.Text);
             if (oldRptID > 0
              && this.addRpt == true)
@@ -1535,6 +1538,10 @@ namespace ReportsAndProcesses.Forms
 
         private void ownrMdlButton_Click(object sender, EventArgs e)
         {
+            if (this.editRptButton.Text == "EDIT")
+            {
+                this.editRptButton.PerformClick();
+            }
             if (this.editRpt == false &&
               this.addRpt == false)
             {
@@ -1651,11 +1658,11 @@ namespace ReportsAndProcesses.Forms
                 Global.mnFrm.cmCde.showMsg("Please select the Process/Report to DELETE!", 0);
                 return;
             }
-            if (this.rptPrcsTypComboBox.Text == "System Process")
-            {
-                Global.mnFrm.cmCde.showMsg("Application Users cannot Delete a System Process\r\nContact the Software Vendor!", 0);
-                return;
-            }
+            /* if (this.rptPrcsTypComboBox.Text == "System Process")
+             {
+                 Global.mnFrm.cmCde.showMsg("Application Users cannot Delete a System Process\r\nContact the Software Vendor!", 0);
+                 return;
+             }*/
             if (Global.isRptInUse(long.Parse(this.rptIDTextBox.Text)) == true)
             {
                 Global.mnFrm.cmCde.showMsg("This Process/Report is in Use hence cannot be DELETED!", 0);
@@ -1695,11 +1702,11 @@ namespace ReportsAndProcesses.Forms
                 Global.mnFrm.cmCde.showMsg("Please select a Report/Process First!", 0);
                 return;
             }
-            if (this.rptPrcsTypComboBox.Text == "System Process")
+            /*if (this.rptPrcsTypComboBox.Text == "System Process")
             {
                 Global.mnFrm.cmCde.showMsg("Application Users cannot Edit a System Process\r\nContact the Software Vendor!", 0);
                 return;
-            }
+            }*/
             addParamsDiag nwDiag = new addParamsDiag();
             DialogResult dgRes = nwDiag.ShowDialog();
             if (dgRes == DialogResult.OK)
@@ -1730,11 +1737,11 @@ namespace ReportsAndProcesses.Forms
                  " this action!\nContact your System Administrator!", 0);
                 return;
             }
-            if (this.rptPrcsTypComboBox.Text == "System Process")
+            /*if (this.rptPrcsTypComboBox.Text == "System Process")
             {
                 Global.mnFrm.cmCde.showMsg("Application Users cannot Edit a System Process\r\nContact the Software Vendor!", 0);
                 return;
-            }
+            }*/
             if (this.paramsListView.SelectedItems.Count <= 0)
             {
                 Global.mnFrm.cmCde.showMsg("Please select a Parameter First!", 0);
@@ -1923,11 +1930,11 @@ namespace ReportsAndProcesses.Forms
                  " this action!\nContact your System Administrator!", 0);
                 return;
             }
-            if (this.rptPrcsTypComboBox.Text == "System Process")
+            /*if (this.rptPrcsTypComboBox.Text == "System Process")
             {
                 Global.mnFrm.cmCde.showMsg("Application Users cannot Edit a System Process\r\nContact the Software Vendor!", 0);
                 return;
-            }
+            }*/
             if (this.paramsListView.SelectedItems.Count <= 0)
             {
                 Global.mnFrm.cmCde.showMsg("Please select the Parameter(s) to Delete", 0);
@@ -2933,11 +2940,11 @@ namespace ReportsAndProcesses.Forms
                  " this action!\nContact your System Administrator!", 0);
                 return;
             }
-            if (this.rptPrcsTypComboBox.Text == "System Process")
+            /*if (this.rptPrcsTypComboBox.Text == "System Process")
             {
                 Global.mnFrm.cmCde.showMsg("Application Users cannot Copy/Edit a System Process\r\nContact the Software Vendor!", 0);
                 return;
-            }
+            }*/
             long oldRptID = Global.mnFrm.cmCde.getRptID("(Duplicate) " + this.rptNmTextBox.Text);
             if (oldRptID > 0)
             {
@@ -2997,11 +3004,11 @@ namespace ReportsAndProcesses.Forms
                 Global.mnFrm.cmCde.showMsg("Please select a Saved Report First!", 0);
                 return;
             }
-            if (this.rptPrcsTypComboBox.Text == "System Process")
+            /*if (this.rptPrcsTypComboBox.Text == "System Process")
             {
                 Global.mnFrm.cmCde.showMsg("Application Users cannot Edit a System Process\r\nContact the Software Vendor!", 0);
                 return;
-            }
+            }*/
             addGrpDiag nwdiag = new addGrpDiag();
             nwdiag.rptID = long.Parse(this.rptIDTextBox.Text);
 
@@ -3047,11 +3054,11 @@ namespace ReportsAndProcesses.Forms
 
                 return;
             }
-            if (this.rptPrcsTypComboBox.Text == "System Process")
+            /*if (this.rptPrcsTypComboBox.Text == "System Process")
             {
                 Global.mnFrm.cmCde.showMsg("Application Users cannot Edit a System Process\r\nContact the Software Vendor!", 0);
                 return;
-            }
+            }*/
             addGrpDiag nwdiag = new addGrpDiag();
             nwdiag.rptID = long.Parse(this.rptIDTextBox.Text);
             nwdiag.grpID = long.Parse(this.grpListView.SelectedItems[0].SubItems[3].Text);
@@ -3105,11 +3112,11 @@ namespace ReportsAndProcesses.Forms
                 Global.mnFrm.cmCde.showMsg("Please select a Report/Process First!", 0);
                 return;
             }
-            if (this.rptPrcsTypComboBox.Text == "System Process")
+            /*if (this.rptPrcsTypComboBox.Text == "System Process")
             {
                 Global.mnFrm.cmCde.showMsg("Application Users cannot Edit a System Process\r\nContact the Software Vendor!", 0);
                 return;
-            }
+            }*/
             string[] selVals = new string[this.prgrmsListView.Items.Count];
             for (int i = 0; i < this.prgrmsListView.Items.Count; i++)
             {
@@ -3198,13 +3205,50 @@ namespace ReportsAndProcesses.Forms
                     }
                     else
                     {
-                        vwRptDiag nwdiag = new vwRptDiag();
+                        Global.mnFrm.cmCde.dwnldImgsFTP(9,
+                            Global.mnFrm.cmCde.getRptDrctry() + @"\amcharts_2100\samples\",
+                            this.rptRunListView.SelectedItems[0].SubItems[1].Text + ".html");
+
+                        bool error = false;
+                        string strUrl = System.Uri.EscapeDataString(Global.mnFrm.cmCde.getRptDrctry() +
+                    @"\amcharts_2100\samples\" + this.rptRunListView.SelectedItems[0].SubItems[1].Text + ".html");
+                        try
+                        {
+                            System.Diagnostics.Process.Start("chrome.exe", strUrl);
+                        }
+                        catch (Exception ex)
+                        {
+                            error = true;
+                        }
+                        if (error)
+                        {
+                            try
+                            {
+                                System.Diagnostics.Process.Start("firefox.exe", strUrl);
+                            }
+                            catch (Exception ex)
+                            {
+                                error = true;
+                            }
+                        }
+                        if (error)
+                        {
+                            try
+                            {
+                                System.Diagnostics.Process.Start("IEXPLORE.EXE", strUrl);
+                            }
+                            catch (Exception ex)
+                            {
+                                Global.mnFrm.cmCde.showMsg(ex.Message, 0);
+                            }
+                        }
+                        /*vwRptDiag nwdiag = new vwRptDiag();
                         nwdiag.inrptRn_ID = long.Parse(this.rptRunListView.SelectedItems[0].SubItems[1].Text);
                         nwdiag.inrptOutput = this.rptRunListView.SelectedItems[0].SubItems[8].Text;
                         nwdiag.inrptLyout = this.rptRunListView.SelectedItems[0].SubItems[9].Text;
                         if (nwdiag.ShowDialog() == DialogResult.OK)
                         {
-                        }
+                        }*/
                         return;
                     }
                     System.IO.FileInfo file = new System.IO.FileInfo(outFileNm);
@@ -3320,6 +3364,10 @@ namespace ReportsAndProcesses.Forms
 
         private void prcsRnnrButton_Click(object sender, EventArgs e)
         {
+            if (this.editRptButton.Text == "EDIT")
+            {
+                this.editRptButton.PerformClick();
+            }
             //Background Process Runners
             if (this.editRpt == false &&
               this.addRpt == false)
@@ -3351,11 +3399,11 @@ namespace ReportsAndProcesses.Forms
                  " this action!\nContact your System Administrator!", 0);
                 return;
             }
-            if (this.rptPrcsTypComboBox.Text == "System Process")
+            /*if (this.rptPrcsTypComboBox.Text == "System Process")
             {
                 Global.mnFrm.cmCde.showMsg("Application Users cannot Edit a System Process\r\nContact the Software Vendor!", 0);
                 return;
-            }
+            }*/
             if (this.prgrmsListView.SelectedItems.Count <= 0)
             {
                 Global.mnFrm.cmCde.showMsg("Please select the Program Units to Delete", 0);
@@ -3384,11 +3432,11 @@ namespace ReportsAndProcesses.Forms
                  " this action!\nContact your System Administrator!", 0);
                 return;
             }
-            if (this.rptPrcsTypComboBox.Text == "System Process")
+            /*if (this.rptPrcsTypComboBox.Text == "System Process")
             {
                 Global.mnFrm.cmCde.showMsg("Application Users cannot Edit a System Process\r\nContact the Software Vendor!", 0);
                 return;
-            }
+            }*/
             if (this.grpListView.SelectedItems.Count <= 0)
             {
                 Global.mnFrm.cmCde.showMsg("Please select the Groups to Delete", 0);
@@ -4298,6 +4346,10 @@ to_char(to_timestamp(a.trnsctn_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:M
         private void jrxmlButton_Click(object sender, EventArgs e)
         {
             //Background Process Runners
+            if (this.editRptButton.Text == "EDIT")
+            {
+                this.editRptButton.PerformClick();
+            }
             if (this.editRpt == false &&
               this.addRpt == false)
             {

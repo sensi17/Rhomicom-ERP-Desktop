@@ -630,7 +630,8 @@ namespace SystemAdministration.Forms
                 ListViewItem nwItm = new ListViewItem(new string[] { (Global.myNwMainFrm.cmmnCode.navFuncts.startIndex() + i).ToString(),
                 dtst.Tables[0].Rows[i][0].ToString(), dtst.Tables[0].Rows[i][1].ToString(),
                 dtst.Tables[0].Rows[i][2].ToString(), dtst.Tables[0].Rows[i][3].ToString(),
-        dtst.Tables[0].Rows[i][4].ToString() });
+        dtst.Tables[0].Rows[i][4].ToString(),
+        dtst.Tables[0].Rows[i][5].ToString() });
                 this.userListView.Items.Add(nwItm);
             }
             this.correctUsrNavLbls(dtst);
@@ -1076,7 +1077,7 @@ namespace SystemAdministration.Forms
               "<br/><br/>Your Login Details have been changed as follows:<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Username: " +
               this.userListView.SelectedItems[0].SubItems[1].Text +
               "<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Password: " + nwPswd +
-              "<br/>Please login immediately to change it!<br/>Thank you!", ref errMsg);
+              "<br/>Please login immediately to change it!<br/>Thank you!", prsnID.ToString()+"Pwd", ref errMsg);
             this.mailLabel.Visible = false;
             System.Windows.Forms.Application.DoEvents();
             if (emlRes)
@@ -3852,7 +3853,7 @@ namespace SystemAdministration.Forms
 
         private void updtAdtTotals()
         {
-            if (this.auditTblsTreeView.SelectedNode.Equals(null))
+            if (this.auditTblsTreeView.SelectedNode == null)
             {
                 return;
             }
@@ -3872,7 +3873,7 @@ namespace SystemAdministration.Forms
 
         private void updtAdtNavLabels()
         {
-            if (this.auditTblsTreeView.SelectedNode.Equals(null))
+            if (this.auditTblsTreeView.SelectedNode == null)
             {
                 return;
             }
@@ -3893,7 +3894,7 @@ namespace SystemAdministration.Forms
 
         private void populateAdtGrdVw()
         {
-            if (this.auditTblsTreeView.SelectedNode.Equals(null))
+            if (this.auditTblsTreeView.SelectedNode == null)
             {
                 return;
             }
@@ -3978,8 +3979,12 @@ namespace SystemAdministration.Forms
             else if (sentObj.Name.ToLower().Contains("last"))
             {
                 this.is_last_adt = true;
-                this.totl_adts = Global.get_total_adt_trls(this.searchForAdtTextBox.Text,
+                this.totl_adts = 0;
+                if (this.auditTblsTreeView.Nodes.Count > 0)
+                {
+                    this.totl_adts = Global.get_total_adt_trls(this.searchForAdtTextBox.Text,
           this.searchInAdtComboBox.Text, this.auditTblsTreeView.SelectedNode.Text);
+                }
                 this.updtAdtTotals();
                 this.adt_cur_indx = Global.myNwMainFrm.cmmnCode.navFuncts.totalGroups - 1;
             }
@@ -4127,18 +4132,19 @@ namespace SystemAdministration.Forms
             nwDiag.uNameTextBox.Text = this.userListView.SelectedItems[0].SubItems[1].Text;
             if (long.Parse(this.userListView.SelectedItems[0].SubItems[4].Text) > 0)
             {
-                nwDiag.ownerTypComboBox.SelectedItem = "Person";
+                //nwDiag.ownerTypComboBox.SelectedItem = "Person";
                 nwDiag.ownerTextBox.Text = this.userListView.SelectedItems[0].SubItems[2].Text;
                 nwDiag.prsnIDTextBox.Text = this.userListView.SelectedItems[0].SubItems[4].Text;
             }
-            else
+            if (long.Parse(this.userListView.SelectedItems[0].SubItems[5].Text) > 0)
             {
-                nwDiag.ownerTypComboBox.SelectedItem = "Customer";
-                nwDiag.ownerTextBox.Text = this.userListView.SelectedItems[0].SubItems[2].Text;
-                nwDiag.prsnIDTextBox.Text = this.userListView.SelectedItems[0].SubItems[5].Text;
+                //nwDiag.ownerTypComboBox.SelectedItem = "Customer";
+                nwDiag.asgndCstmrTextBox.Text = this.userListView.SelectedItems[0].SubItems[2].Text;
+                nwDiag.asgndCstmrIDTextBox.Text = this.userListView.SelectedItems[0].SubItems[5].Text;
             }
             nwDiag.usrVldStrtDteTextBox.Text = this.usrVldStrtDteTextBox.Text;
             nwDiag.usrVldEndDteTextBox.Text = this.usrVldEndDteTextBox.Text;
+            nwDiag.modulesBaughtComboBox.Text = this.userListView.SelectedItems[0].SubItems[6].Text;
             DialogResult dgres = nwDiag.ShowDialog();
             if (dgres == DialogResult.OK)
             {
@@ -4424,15 +4430,6 @@ namespace SystemAdministration.Forms
         {
             //this.cmnCde.showMsg(CommonCode.CommonCodes.is64BitOperatingSystem.ToString() + this.installPath, 0);
             System.Diagnostics.Process processDB = System.Diagnostics.Process.Start(Application.StartupPath + @"\DBConfig.exe");
-            do
-            {//dont perform anything
-            }
-            while (!processDB.HasExited);
-            {
-                //this.cmnCde.showMsg("Restoration of Backup File to Database " + dbnm.ToUpper() + " Completed", 3);
-                System.Windows.Forms.Application.DoEvents();
-            }
-            return;
             //    try
             //    {
             //      if (this.pgDirTextBox.Text == "")

@@ -173,6 +173,8 @@ namespace OrganizationSetup.Forms
         bool addgths = false;
         bool editgths = false;
         bool delgths = false;
+        //Segment Values
+        public string segmentValsSQL = "";
         #endregion
 
         #region "FORM EVENTS..."
@@ -617,7 +619,7 @@ namespace OrganizationSetup.Forms
             this.is_last_orgDet = false;
             this.totl_orgDet = Global.mnFrm.cmCde.Big_Val;
             this.getOrgDetPnlData();
-            //this.populateOrgDetTreeView();
+            this.populateOrgDetTreeView();
             this.obey_orgDet_evnts = true;
         }
 
@@ -660,47 +662,47 @@ namespace OrganizationSetup.Forms
             }
         }
 
-        //private void populateOrgDetTreeView()
-        //{
-        //  this.obey_orgDet_evnts = false;
-        //  DataSet dtst = Global.get_Hrchy_OrgDet(this.searchForOrgDetTextBox.Text,
-        //      this.searchInOrgDetComboBox.Text, 0, int.Parse(this.dsplySizeOrgDetComboBox.Text));
-        //  this.orgDetTreeView.Nodes.Clear();
-        //  if (Global.mnFrm.cmCde.test_prmssns(Global.dfltPrvldgs[1]) == false)
-        //  {
-        //    Global.mnFrm.cmCde.showMsg("You don't have permission to perform" +
-        //        " this action!\nContact your System Administrator!", 0);
-        //    this.obey_orgDet_evnts = true;
-        //    return;
-        //  }
-        //  TreeNode[] nwNode = new TreeNode[dtst.Tables[0].Rows.Count];
+        private void populateOrgDetTreeView()
+        {
+            this.obey_orgDet_evnts = false;
+            DataSet dtst = Global.get_Hrchy_OrgDet(this.searchForOrgDetTextBox.Text,
+                this.searchInOrgDetComboBox.Text, 0, int.Parse(this.dsplySizeOrgDetComboBox.Text));
+            this.orgDetTreeView.Nodes.Clear();
+            if (Global.mnFrm.cmCde.test_prmssns(Global.dfltPrvldgs[1]) == false)
+            {
+                Global.mnFrm.cmCde.showMsg("You don't have permission to perform" +
+                    " this action!\nContact your System Administrator!", 0);
+                this.obey_orgDet_evnts = true;
+                return;
+            }
+            TreeNode[] nwNode = new TreeNode[dtst.Tables[0].Rows.Count];
 
-        //  for (int i = 0; i < dtst.Tables[0].Rows.Count; i++)
-        //  {
-        //    TreeNode aNode = new TreeNode();
-        //    aNode.Name = "orgNode" + int.Parse(dtst.Tables[0].Rows[i][0].ToString()).ToString();
-        //    aNode.Text = dtst.Tables[0].Rows[i][2].ToString();
-        //    //aNode.ImageKey = menuImages[i];
-        //    nwNode[i] = aNode;
-        //    if (int.Parse(dtst.Tables[0].Rows[i][3].ToString()) == 1)
-        //    {
-        //      this.orgDetTreeView.Nodes.Add(nwNode[i]);
-        //    }
-        //    else
-        //    {
-        //      try
-        //      {
-        //        string prntNodeNm = "orgNode" + int.Parse(dtst.Tables[0].Rows[i][1].ToString()).ToString();
-        //        this.getNode(nwNode, prntNodeNm).Nodes.Add(nwNode[i]);
-        //      }
-        //      catch (Exception ex)
-        //      {
-        //      }
-        //    }
-        //    this.orgDetTreeView.ExpandAll();
-        //  }
-        //  this.obey_orgDet_evnts = true;
-        //}
+            for (int i = 0; i < dtst.Tables[0].Rows.Count; i++)
+            {
+                TreeNode aNode = new TreeNode();
+                aNode.Name = "orgNode" + int.Parse(dtst.Tables[0].Rows[i][0].ToString()).ToString();
+                aNode.Text = dtst.Tables[0].Rows[i][2].ToString();
+                //aNode.ImageKey = menuImages[i];
+                nwNode[i] = aNode;
+                if (int.Parse(dtst.Tables[0].Rows[i][3].ToString()) == 1)
+                {
+                    this.orgDetTreeView.Nodes.Add(nwNode[i]);
+                }
+                else
+                {
+                    try
+                    {
+                        string prntNodeNm = "orgNode" + int.Parse(dtst.Tables[0].Rows[i][1].ToString()).ToString();
+                        this.getNode(nwNode, prntNodeNm).Nodes.Add(nwNode[i]);
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+                }
+                this.orgDetTreeView.ExpandAll();
+            }
+            this.obey_orgDet_evnts = true;
+        }
 
         private TreeNode getNode(TreeNode[] ndeList, string ndeName)
         {
@@ -718,6 +720,7 @@ namespace OrganizationSetup.Forms
         {
             this.clearOrgDetInfo();
             this.disableOrgEdit();
+            this.disableLnsEdit();
             this.obey_orgDet_evnts = false;
             DataSet dtst = Global.get_One_OrgDet(orgID);
             for (int i = 0; i < dtst.Tables[0].Rows.Count; i++)
@@ -747,6 +750,7 @@ namespace OrganizationSetup.Forms
         {
             this.clearOrgDetInfo();
             this.disableOrgEdit();
+            this.disableLnsEdit();
             this.obey_orgDet_evnts = false;
             DataSet dtst = Global.get_Basic_OrgDet(this.searchForOrgDetTextBox.Text,
                 this.searchInOrgDetComboBox.Text, this.orgDet_cur_indx, 1);
@@ -768,11 +772,14 @@ namespace OrganizationSetup.Forms
                 this.orgTypTextBox.Text = dtst.Tables[0].Rows[i][10].ToString();
                 this.sloganTextBox.Text = dtst.Tables[0].Rows[i][16].ToString();
                 this.orgDescTextBox.Text = dtst.Tables[0].Rows[i][15].ToString();
+                this.noOfSgmntsNumUpDown.Value = decimal.Parse(dtst.Tables[0].Rows[i][17].ToString());
+                this.delimiterComboBox.SelectedItem = dtst.Tables[0].Rows[i][18].ToString();
                 this.orgEnabledCheckBox.Checked = Global.mnFrm.cmCde.cnvrtBitStrToBool(dtst.Tables[0].Rows[i][12].ToString());
                 Global.mnFrm.cmCde.getDBImageFile(dtst.Tables[0].Rows[i][11].ToString(), 0, ref this.orgLogoPictureBox);
             }
             this.correctOrgNavLbls(dtst);
             this.obey_orgDet_evnts = true;
+            this.populateSegments();
         }
 
         private void correctOrgNavLbls(DataSet dtst)
@@ -825,6 +832,8 @@ namespace OrganizationSetup.Forms
             this.orgTypTextBox.Text = "";
             this.orgDescTextBox.Text = "";
             this.sloganTextBox.Text = "";
+            this.noOfSgmntsNumUpDown.Value = 1;
+            this.delimiterComboBox.SelectedIndex = 1;
             this.orgEnabledCheckBox.Checked = false;
             this.orgLogoPictureBox.Image = OrganizationSetup.Properties.Resources.blank;
             this.obey_orgDet_evnts = true;
@@ -853,6 +862,10 @@ namespace OrganizationSetup.Forms
             this.orgDescTextBox.BackColor = Color.White;
             this.sloganTextBox.ReadOnly = false;
             this.sloganTextBox.BackColor = Color.White;
+            this.noOfSgmntsNumUpDown.ReadOnly = false;
+            this.noOfSgmntsNumUpDown.BackColor = Color.FromArgb(255, 255, 118);
+            this.noOfSgmntsNumUpDown.Increment = 1;
+            this.delimiterComboBox.BackColor = Color.FromArgb(255, 255, 118);
         }
 
         private void disableOrgEdit()
@@ -893,6 +906,10 @@ namespace OrganizationSetup.Forms
             this.orgDescTextBox.BackColor = Color.WhiteSmoke;
             this.sloganTextBox.ReadOnly = true;
             this.sloganTextBox.BackColor = Color.WhiteSmoke;
+            this.noOfSgmntsNumUpDown.ReadOnly = true;
+            this.noOfSgmntsNumUpDown.BackColor = Color.WhiteSmoke;
+            this.noOfSgmntsNumUpDown.Increment = 0;
+            this.delimiterComboBox.BackColor = Color.WhiteSmoke;
         }
 
         private bool shdObeyOrgDetEvts()
@@ -993,6 +1010,7 @@ namespace OrganizationSetup.Forms
             this.addOrg = true;
             this.editOrg = false;
             this.prpareForOrgEdit();
+            this.prpareForLnsEdit();
             this.addOrgDetButton.Enabled = false;
             this.editOrgDetButton.Enabled = false;
         }
@@ -1013,6 +1031,7 @@ namespace OrganizationSetup.Forms
             this.addOrg = false;
             this.editOrg = true;
             this.prpareForOrgEdit();
+            this.prpareForLnsEdit();
             this.addOrgDetButton.Enabled = false;
             this.editOrgDetButton.Enabled = false;
         }
@@ -1074,15 +1093,16 @@ namespace OrganizationSetup.Forms
                     this.websiteTextBox.Text, int.Parse(this.crncyIDTextBox.Text),
                     this.emailAddrsTextBox.Text, this.contactNosTextBox.Text,
                     int.Parse(this.orgTypIDTextBox.Text), this.orgEnabledCheckBox.Checked,
-                    this.orgDescTextBox.Text, this.sloganTextBox.Text);
+                    this.orgDescTextBox.Text, this.sloganTextBox.Text, (int)this.noOfSgmntsNumUpDown.Value, this.delimiterComboBox.Text);
                 this.saveOrgDetButton.Enabled = false;
                 this.addOrg = false;
                 this.editOrg = false;
                 this.editOrgDetButton.Enabled = this.editOrgs;
                 this.addOrgDetButton.Enabled = this.addOrgs;
                 System.Windows.Forms.Application.DoEvents();
-                this.loadOrgDetPanel();
                 oldOrgID = Global.mnFrm.cmCde.getOrgID(this.orgNameTextBox.Text);
+                this.saveGridView(oldOrgID);
+                this.loadOrgDetPanel();
                 Global.updtOrgAccntCurrID(oldOrgID, Global.mnFrm.cmCde.getOrgFuncCurID(oldOrgID));
                 long rowid = Global.mnFrm.cmCde.getGnrlRecID("scm.scm_dflt_accnts", "rho_name",
         "row_id", "Default Accounts", oldOrgID);
@@ -1098,7 +1118,8 @@ namespace OrganizationSetup.Forms
                     this.websiteTextBox.Text, int.Parse(this.crncyIDTextBox.Text),
                     this.emailAddrsTextBox.Text, this.contactNosTextBox.Text,
                     int.Parse(this.orgTypIDTextBox.Text), this.orgEnabledCheckBox.Checked,
-                    this.orgDescTextBox.Text, this.sloganTextBox.Text);
+                    this.orgDescTextBox.Text, this.sloganTextBox.Text, (int)this.noOfSgmntsNumUpDown.Value, this.delimiterComboBox.Text);
+                this.saveGridView(int.Parse(this.orgIDTextBox.Text));
                 this.saveOrgDetButton.Enabled = false;
                 this.editOrg = false;
                 this.editOrgDetButton.Enabled = this.editOrgs;
@@ -1112,8 +1133,82 @@ namespace OrganizationSetup.Forms
                 {
                     Global.createDfltAcnts(oldOrgID);
                 }
-
             }
+        }
+
+        private bool checkDtRqrmnts(int rwIdx)
+        {
+            if (this.accntSgmntsDataGridView.Rows[rwIdx].Cells[0].Value == null)
+            {
+                this.accntSgmntsDataGridView.Rows[rwIdx].Cells[0].Value = "-1";
+                return false;
+            }
+            if (this.accntSgmntsDataGridView.Rows[rwIdx].Cells[1].Value == null)
+            {
+                return false;
+            }
+            if (this.accntSgmntsDataGridView.Rows[rwIdx].Cells[1].Value.ToString() == "")
+            {
+                return false;
+            }
+
+            if (this.accntSgmntsDataGridView.Rows[rwIdx].Cells[3].Value == null)
+            {
+                return false;
+            }
+            if (this.accntSgmntsDataGridView.Rows[rwIdx].Cells[3].Value.ToString() == "")
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private void saveGridView(long hdrID)
+        {
+            int svd = 0;
+            if (this.accntSgmntsDataGridView.Rows.Count > 0)
+            {
+                this.accntSgmntsDataGridView.EndEdit();
+                System.Windows.Forms.Application.DoEvents();
+            }
+
+            for (int i = 0; i < this.accntSgmntsDataGridView.Rows.Count; i++)
+            {
+                if (!this.checkDtRqrmnts(i))
+                {
+                    this.accntSgmntsDataGridView.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 100, 100);
+                    continue;
+                }
+                else
+                {
+                    //Check if Doc Ln Rec Exists
+                    //Create if not else update
+                    long segmentID = long.Parse(this.accntSgmntsDataGridView.Rows[i].Cells[5].Value.ToString());
+                    int segmentNum = int.Parse(this.accntSgmntsDataGridView.Rows[i].Cells[0].Value.ToString());
+                    string segmentName = this.accntSgmntsDataGridView.Rows[i].Cells[1].Value.ToString();
+                    string sysClsfctn = this.accntSgmntsDataGridView.Rows[i].Cells[3].Value.ToString();
+
+                    if (segmentID <= 0)
+                    {
+                        segmentID = Global.get_SegmnetID(hdrID, segmentNum);
+                    }
+
+                    if (segmentID <= 0)
+                    {
+                        Global.createAcntSegment(hdrID, segmentNum, segmentName, sysClsfctn);
+                        svd++;
+                        this.accntSgmntsDataGridView.Rows[i].DefaultCellStyle.BackColor = Color.Lime;
+                    }
+                    else
+                    {
+                        Global.updtAcntSegment(segmentID, segmentNum, segmentName, sysClsfctn);
+                        svd++;
+                        this.accntSgmntsDataGridView.Rows[i].DefaultCellStyle.BackColor = Color.Lime;
+                    }
+                }
+            }
+            Global.mnFrm.cmCde.showMsg(svd + " Line(s) Saved Successfully!", 3);
         }
 
         private void vwSQLOrgDetButton_Click(object sender, EventArgs e)
@@ -1149,7 +1244,7 @@ namespace OrganizationSetup.Forms
             selVals[0] = this.orgPrntIDTextBox.Text;
             DialogResult dgRes = Global.mnFrm.cmCde.showPssblValDiag(
                 Global.mnFrm.cmCde.getLovID("Organisations"), ref selVals, true, false,
-             this.srchWrd, "Both", true);
+             this.srchWrd, "Both", false);
             if (dgRes == DialogResult.OK)
             {
                 for (int i = 0; i < selVals.Length; i++)
@@ -4389,6 +4484,121 @@ namespace OrganizationSetup.Forms
             this.srchWrd = "%";
             this.obey_pos_evnts = true;
             this.txtChngd = false;
+        }
+
+        private void noOfSgmntsNumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            this.populateSegments();
+        }
+
+        private void populateSegments()
+        {
+            if (this.shdObeyOrgDetEvts() == false)
+            {
+                return;
+            }
+            this.obey_orgDet_evnts = false;
+            this.accntSgmntsDataGridView.Rows.Clear();
+            int rwcnt = (int)this.noOfSgmntsNumUpDown.Value;
+            this.accntSgmntsDataGridView.ForeColor = Color.Black;
+            this.accntSgmntsDataGridView.DefaultCellStyle.ForeColor = Color.Black;
+            for (int i = 0; i < rwcnt; i++)
+            {
+                this.accntSgmntsDataGridView.RowCount += 1;
+                int rowIdx = this.accntSgmntsDataGridView.RowCount - 1;
+                DataSet dtst = Global.get_One_SegmentDet((i + 1), int.Parse(this.orgIDTextBox.Text));
+                this.accntSgmntsDataGridView.Rows[rowIdx].HeaderCell.Value = (i + 1).ToString();
+                this.accntSgmntsDataGridView.Rows[rowIdx].Cells[0].Value = (i + 1).ToString();
+                if (dtst.Tables[0].Rows.Count > 0)
+                {
+                    this.accntSgmntsDataGridView.Rows[rowIdx].Cells[1].Value = dtst.Tables[0].Rows[0][1].ToString();
+                    this.accntSgmntsDataGridView.Rows[rowIdx].Cells[2].Value = (dtst.Tables[0].Rows[0][2].ToString() == "NaturalAccount") ? true : false;
+                    this.accntSgmntsDataGridView.Rows[rowIdx].Cells[3].Value = dtst.Tables[0].Rows[0][2].ToString();
+                    this.accntSgmntsDataGridView.Rows[rowIdx].Cells[4].Value = "Attached Values";
+                    this.accntSgmntsDataGridView.Rows[rowIdx].Cells[5].Value = dtst.Tables[0].Rows[0][0].ToString();
+                }
+                else
+                {
+                    this.accntSgmntsDataGridView.Rows[rowIdx].Cells[1].Value = "";
+                    this.accntSgmntsDataGridView.Rows[rowIdx].Cells[2].Value = false;
+                    this.accntSgmntsDataGridView.Rows[rowIdx].Cells[3].Value = "Other";
+                    this.accntSgmntsDataGridView.Rows[rowIdx].Cells[4].Value = "Attached Values";
+                    this.accntSgmntsDataGridView.Rows[rowIdx].Cells[5].Value = -1;
+                }
+            }
+            System.Windows.Forms.Application.DoEvents();
+            this.obey_orgDet_evnts = true;
+        }
+
+        private void prpareForLnsEdit()
+        {
+            this.accntSgmntsDataGridView.ReadOnly = false;
+            this.accntSgmntsDataGridView.Columns[0].ReadOnly = true;
+            this.accntSgmntsDataGridView.Columns[0].DefaultCellStyle.BackColor = Color.WhiteSmoke;
+            this.accntSgmntsDataGridView.Columns[1].ReadOnly = false;
+            this.accntSgmntsDataGridView.Columns[1].DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 128);
+            this.accntSgmntsDataGridView.Columns[2].ReadOnly = true;
+            this.accntSgmntsDataGridView.Columns[2].DefaultCellStyle.BackColor = Color.WhiteSmoke;
+            this.accntSgmntsDataGridView.Columns[3].ReadOnly = false;
+            this.accntSgmntsDataGridView.Columns[3].DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 128);
+            this.accntSgmntsDataGridView.DefaultCellStyle.ForeColor = Color.Black;
+        }
+
+        private void disableLnsEdit()
+        {
+            this.accntSgmntsDataGridView.DefaultCellStyle.ForeColor = Color.Black;
+            this.accntSgmntsDataGridView.Columns[0].ReadOnly = true;
+            this.accntSgmntsDataGridView.Columns[0].DefaultCellStyle.BackColor = Color.WhiteSmoke;
+            this.accntSgmntsDataGridView.Columns[1].ReadOnly = true;
+            this.accntSgmntsDataGridView.Columns[1].DefaultCellStyle.BackColor = Color.WhiteSmoke;
+            this.accntSgmntsDataGridView.Columns[2].ReadOnly = true;
+            this.accntSgmntsDataGridView.Columns[2].DefaultCellStyle.BackColor = Color.WhiteSmoke;
+            this.accntSgmntsDataGridView.Columns[3].ReadOnly = true;
+            this.accntSgmntsDataGridView.Columns[3].DefaultCellStyle.BackColor = Color.WhiteSmoke;
+
+        }
+
+        private void accntSgmntsDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e == null || this.obey_orgDet_evnts == false)
+            {
+                return;
+            }
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            {
+                return;
+            }
+            bool prv = this.obey_orgDet_evnts;
+            this.obey_orgDet_evnts = false;
+
+            if (this.accntSgmntsDataGridView.Rows[e.RowIndex].Cells[0].Value == null)
+            {
+                this.accntSgmntsDataGridView.Rows[e.RowIndex].Cells[0].Value = "-1";
+            }
+
+            if (this.accntSgmntsDataGridView.Rows[e.RowIndex].Cells[1].Value == null)
+            {
+                this.accntSgmntsDataGridView.Rows[e.RowIndex].Cells[1].Value = "";
+            }
+            if (this.accntSgmntsDataGridView.Rows[e.RowIndex].Cells[2].Value == null)
+            {
+                this.accntSgmntsDataGridView.Rows[e.RowIndex].Cells[2].Value = false;
+            }
+            if (this.accntSgmntsDataGridView.Rows[e.RowIndex].Cells[3].Value == null)
+            {
+                this.accntSgmntsDataGridView.Rows[e.RowIndex].Cells[3].Value = "Other";
+            }
+            if (this.accntSgmntsDataGridView.Rows[e.RowIndex].Cells[5].Value == null)
+            {
+                this.accntSgmntsDataGridView.Rows[e.RowIndex].Cells[5].Value = -1;
+            }
+
+            if (e.ColumnIndex == 4)
+            {
+                Global.mnFrm.cmCde.showMsg("Sorry! Feature not available in this edition!\nContact your the Software Provider!", 0);
+                return;
+            }
+            this.obey_orgDet_evnts = true;
         }
     }
 }

@@ -2378,7 +2378,7 @@ prsnID), out cstmrID);
       nwDiag.prmKeyID = long.Parse(this.idTextBox.Text);
       nwDiag.fldrNm = Global.mnFrm.cmCde.getFirmsImgsDrctry();
       nwDiag.fldrTyp = 14;
-      nwDiag.attchCtgry = 5;
+      nwDiag.attchCtgry = 999;
       DialogResult dgres = nwDiag.ShowDialog();
       if (dgres == DialogResult.OK)
       {

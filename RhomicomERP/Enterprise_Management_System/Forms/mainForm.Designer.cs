@@ -65,11 +65,10 @@ namespace Enterprise_Management_System.Forms
             this.accountingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storesInventoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.internalPaymentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eventsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportsAndProcessesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.specializedModulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.academicsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eventsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hospitalityMngmntMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.academicsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bnkMicroMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clinicHospitalManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,6 +88,7 @@ namespace Enterprise_Management_System.Forms
             this.contentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutRhomicomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registerForSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.others1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewSQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createExcelDataImportTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -117,7 +117,7 @@ namespace Enterprise_Management_System.Forms
             this.updtLabelsTimer = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.registerForSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportsAndProcessesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -272,13 +272,12 @@ namespace Enterprise_Management_System.Forms
             this.basicPersonDataToolStripMenuItem,
             this.accountingToolStripMenuItem,
             this.storesInventoryToolStripMenuItem,
-            this.internalPaymentsToolStripMenuItem,
-            this.eventsMenuItem,
-            this.reportsAndProcessesToolStripMenuItem});
+            this.internalPaymentsToolStripMenuItem});
             this.basicSetupToolStripMenuItem.Image = global::Enterprise_Management_System.Properties.Resources.software_48;
             this.basicSetupToolStripMenuItem.Name = "basicSetupToolStripMenuItem";
             this.basicSetupToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
             this.basicSetupToolStripMenuItem.Text = "&Core Modules";
+            this.basicSetupToolStripMenuItem.Visible = false;
             // 
             // basicPersonDataToolStripMenuItem
             // 
@@ -286,6 +285,7 @@ namespace Enterprise_Management_System.Forms
             this.basicPersonDataToolStripMenuItem.Name = "basicPersonDataToolStripMenuItem";
             this.basicPersonDataToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
             this.basicPersonDataToolStripMenuItem.Text = "&Personnel/Membership Data";
+            this.basicPersonDataToolStripMenuItem.Visible = false;
             this.basicPersonDataToolStripMenuItem.Click += new System.EventHandler(this.basicPersonDataToolStripMenuItem_Click);
             // 
             // accountingToolStripMenuItem
@@ -294,6 +294,7 @@ namespace Enterprise_Management_System.Forms
             this.accountingToolStripMenuItem.Name = "accountingToolStripMenuItem";
             this.accountingToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
             this.accountingToolStripMenuItem.Text = "&Accounting";
+            this.accountingToolStripMenuItem.Visible = false;
             this.accountingToolStripMenuItem.Click += new System.EventHandler(this.accountingToolStripMenuItem_Click);
             // 
             // storesInventoryToolStripMenuItem
@@ -302,6 +303,7 @@ namespace Enterprise_Management_System.Forms
             this.storesInventoryToolStripMenuItem.Name = "storesInventoryToolStripMenuItem";
             this.storesInventoryToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
             this.storesInventoryToolStripMenuItem.Text = "&Sales && Inventory";
+            this.storesInventoryToolStripMenuItem.Visible = false;
             this.storesInventoryToolStripMenuItem.Click += new System.EventHandler(this.storesInventoryToolStripMenuItem_Click);
             // 
             // internalPaymentsToolStripMenuItem
@@ -310,29 +312,15 @@ namespace Enterprise_Management_System.Forms
             this.internalPaymentsToolStripMenuItem.Name = "internalPaymentsToolStripMenuItem";
             this.internalPaymentsToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
             this.internalPaymentsToolStripMenuItem.Text = "&Personnel/Membership Payments";
+            this.internalPaymentsToolStripMenuItem.Visible = false;
             this.internalPaymentsToolStripMenuItem.Click += new System.EventHandler(this.internalPaymentsToolStripMenuItem_Click);
-            // 
-            // eventsMenuItem
-            // 
-            this.eventsMenuItem.Image = global::Enterprise_Management_System.Properties.Resources.date;
-            this.eventsMenuItem.Name = "eventsMenuItem";
-            this.eventsMenuItem.Size = new System.Drawing.Size(253, 22);
-            this.eventsMenuItem.Text = "&Events and Attendance";
-            this.eventsMenuItem.Click += new System.EventHandler(this.eventsMenuItem_Click);
-            // 
-            // reportsAndProcessesToolStripMenuItem
-            // 
-            this.reportsAndProcessesToolStripMenuItem.Image = global::Enterprise_Management_System.Properties.Resources.mi_scare_report;
-            this.reportsAndProcessesToolStripMenuItem.Name = "reportsAndProcessesToolStripMenuItem";
-            this.reportsAndProcessesToolStripMenuItem.Size = new System.Drawing.Size(253, 22);
-            this.reportsAndProcessesToolStripMenuItem.Text = "&Reports and Processes";
-            this.reportsAndProcessesToolStripMenuItem.Click += new System.EventHandler(this.reportsAndProcessesToolStripMenuItem_Click);
             // 
             // specializedModulesToolStripMenuItem
             // 
             this.specializedModulesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.academicsMenuItem,
+            this.eventsMenuItem,
             this.hospitalityMngmntMenuItem,
+            this.academicsMenuItem,
             this.bnkMicroMenuItem,
             this.clinicHospitalManagementToolStripMenuItem,
             this.projectManagementToolStripMenuItem,
@@ -341,14 +329,16 @@ namespace Enterprise_Management_System.Forms
             this.specializedModulesToolStripMenuItem.Name = "specializedModulesToolStripMenuItem";
             this.specializedModulesToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
             this.specializedModulesToolStripMenuItem.Text = "&Other Modules";
+            this.specializedModulesToolStripMenuItem.Visible = false;
             // 
-            // academicsMenuItem
+            // eventsMenuItem
             // 
-            this.academicsMenuItem.Image = global::Enterprise_Management_System.Properties.Resources.education;
-            this.academicsMenuItem.Name = "academicsMenuItem";
-            this.academicsMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.academicsMenuItem.Text = "&Learning/Performance Mgmt.";
-            this.academicsMenuItem.Click += new System.EventHandler(this.academicsMenuItem_Click);
+            this.eventsMenuItem.Image = global::Enterprise_Management_System.Properties.Resources.date;
+            this.eventsMenuItem.Name = "eventsMenuItem";
+            this.eventsMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.eventsMenuItem.Text = "&Events and Attendance";
+            this.eventsMenuItem.Visible = false;
+            this.eventsMenuItem.Click += new System.EventHandler(this.eventsMenuItem_Click);
             // 
             // hospitalityMngmntMenuItem
             // 
@@ -356,7 +346,17 @@ namespace Enterprise_Management_System.Forms
             this.hospitalityMngmntMenuItem.Name = "hospitalityMngmntMenuItem";
             this.hospitalityMngmntMenuItem.Size = new System.Drawing.Size(232, 22);
             this.hospitalityMngmntMenuItem.Text = "&Hospitality Management";
+            this.hospitalityMngmntMenuItem.Visible = false;
             this.hospitalityMngmntMenuItem.Click += new System.EventHandler(this.hospitalityMngmntMenuItem_Click);
+            // 
+            // academicsMenuItem
+            // 
+            this.academicsMenuItem.Image = global::Enterprise_Management_System.Properties.Resources.education;
+            this.academicsMenuItem.Name = "academicsMenuItem";
+            this.academicsMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.academicsMenuItem.Text = "&Learning/Performance Mgmt.";
+            this.academicsMenuItem.Visible = false;
+            this.academicsMenuItem.Click += new System.EventHandler(this.academicsMenuItem_Click);
             // 
             // bnkMicroMenuItem
             // 
@@ -382,6 +382,7 @@ namespace Enterprise_Management_System.Forms
             this.projectManagementToolStripMenuItem.Name = "projectManagementToolStripMenuItem";
             this.projectManagementToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.projectManagementToolStripMenuItem.Text = "Project Management";
+            this.projectManagementToolStripMenuItem.Visible = false;
             this.projectManagementToolStripMenuItem.Click += new System.EventHandler(this.projectManagementToolStripMenuItem_Click);
             // 
             // visitsAndAppointmentsToolStripMenuItem
@@ -390,6 +391,7 @@ namespace Enterprise_Management_System.Forms
             this.visitsAndAppointmentsToolStripMenuItem.Name = "visitsAndAppointmentsToolStripMenuItem";
             this.visitsAndAppointmentsToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.visitsAndAppointmentsToolStripMenuItem.Text = "Visits and Appointments";
+            this.visitsAndAppointmentsToolStripMenuItem.Visible = false;
             this.visitsAndAppointmentsToolStripMenuItem.Click += new System.EventHandler(this.visitsAndAppointmentsToolStripMenuItem_Click);
             // 
             // customModulesToolStripMenuItem
@@ -398,6 +400,7 @@ namespace Enterprise_Management_System.Forms
             this.customModulesToolStripMenuItem.Name = "customModulesToolStripMenuItem";
             this.customModulesToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.customModulesToolStripMenuItem.Text = "&Add Ins";
+            this.customModulesToolStripMenuItem.Visible = false;
             // 
             // toolsToolStripMenuItem
             // 
@@ -405,6 +408,7 @@ namespace Enterprise_Management_System.Forms
             this.systemAdministrationToolStripMenuItem,
             this.generalSetupToolStripMenuItem,
             this.organisationSetupToolStripMenuItem,
+            this.reportsAndProcessesToolStripMenuItem,
             this.wrkFlwMenuItem,
             this.alertsMenuItem,
             this.toolStripSeparator6,
@@ -517,6 +521,14 @@ namespace Enterprise_Management_System.Forms
             this.aboutRhomicomToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.aboutRhomicomToolStripMenuItem.Text = "&About Rhomicom";
             this.aboutRhomicomToolStripMenuItem.Click += new System.EventHandler(this.aboutRhomicomToolStripMenuItem_Click);
+            // 
+            // registerForSupportToolStripMenuItem
+            // 
+            this.registerForSupportToolStripMenuItem.Image = global::Enterprise_Management_System.Properties.Resources.addresses_wbg_64x64;
+            this.registerForSupportToolStripMenuItem.Name = "registerForSupportToolStripMenuItem";
+            this.registerForSupportToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.registerForSupportToolStripMenuItem.Text = "Register for Support";
+            this.registerForSupportToolStripMenuItem.Click += new System.EventHandler(this.registerForSupportToolStripMenuItem_Click);
             // 
             // others1ToolStripMenuItem
             // 
@@ -854,21 +866,23 @@ namespace Enterprise_Management_System.Forms
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // registerForSupportToolStripMenuItem
+            // reportsAndProcessesToolStripMenuItem
             // 
-            this.registerForSupportToolStripMenuItem.Image = global::Enterprise_Management_System.Properties.Resources.addresses_wbg_64x64;
-            this.registerForSupportToolStripMenuItem.Name = "registerForSupportToolStripMenuItem";
-            this.registerForSupportToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.registerForSupportToolStripMenuItem.Text = "Register for Support";
-            this.registerForSupportToolStripMenuItem.Click += new System.EventHandler(this.registerForSupportToolStripMenuItem_Click);
+            this.reportsAndProcessesToolStripMenuItem.Image = global::Enterprise_Management_System.Properties.Resources.mi_scare_report;
+            this.reportsAndProcessesToolStripMenuItem.Name = "reportsAndProcessesToolStripMenuItem";
+            this.reportsAndProcessesToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.reportsAndProcessesToolStripMenuItem.Text = "&Reports and Processes";
+            this.reportsAndProcessesToolStripMenuItem.Click += new System.EventHandler(this.reportsAndProcessesToolStripMenuItem_Click);
             // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1173, 542);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "mainForm";
@@ -952,10 +966,7 @@ namespace Enterprise_Management_System.Forms
     public System.Windows.Forms.ToolStripMenuItem accountingToolStripMenuItem;
     public System.Windows.Forms.ToolStripMenuItem basicPersonDataToolStripMenuItem;
     public System.Windows.Forms.ToolStripMenuItem internalPaymentsToolStripMenuItem;
-    public System.Windows.Forms.ToolStripMenuItem reportsAndProcessesToolStripMenuItem;
-    public System.Windows.Forms.ToolStripMenuItem eventsMenuItem;
     public System.Windows.Forms.ToolStripMenuItem storesInventoryToolStripMenuItem;
-    private System.Windows.Forms.Timer timer1;
     public System.Windows.Forms.ToolStripMenuItem hospitalityMngmntMenuItem;
     public System.Windows.Forms.ToolStripMenuItem academicsMenuItem;
     public System.Windows.Forms.ToolStripMenuItem bnkMicroMenuItem;
@@ -966,6 +977,9 @@ namespace Enterprise_Management_System.Forms
     public System.Windows.Forms.ToolStripMenuItem visitsAndAppointmentsToolStripMenuItem;
     public System.Windows.Forms.ToolStripMenuItem projectManagementToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registerForSupportToolStripMenuItem;
+        public System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.ToolStripMenuItem eventsMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem reportsAndProcessesToolStripMenuItem;
     }
 }
 

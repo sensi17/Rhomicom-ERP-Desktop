@@ -1138,7 +1138,7 @@ namespace InternalPayments.Dialogs
             "Position",
             "Site/Location",
             "Person Type",
-            "Currently Selected Person"});
+            "Single Person"});
       this.grpComboBox.Location = new System.Drawing.Point(474, 7);
       this.grpComboBox.Name = "grpComboBox";
       this.grpComboBox.Size = new System.Drawing.Size(178, 21);

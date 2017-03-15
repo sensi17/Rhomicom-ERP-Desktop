@@ -1,18 +1,13 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
-using System.Net.Mail;
-using System.Net;
-using System.Net.NetworkInformation;
 using System.Windows.Forms;
 using System.IO;
 using Enterprise_Management_System.Classes;
 using Enterprise_Management_System.Dialogs;
-using Microsoft.VisualBasic;
-using Npgsql;
+using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace Enterprise_Management_System.Forms
 {
@@ -23,13 +18,16 @@ namespace Enterprise_Management_System.Forms
         #endregion
 
         #region "MAIN FORM & TIMERS EVENT HANDLERS..."
-        public mainForm()//Constructor
+        public mainForm()
         {
             InitializeComponent();
         }
-
-        private void changeBackground()
+        public void changeBackground()
         {
+            Global.myNwMainFrm.statusLoadLabel.Visible = true;
+            Global.myNwMainFrm.statusLoadPictureBox.Visible = true;
+            System.Windows.Forms.Application.DoEvents();
+
             Color[] clrs = Global.myNwMainFrm.cmnCdMn.getColors();
             this.bannerGlsLabel.TopFill = clrs[0];
             this.bannerGlsLabel.BottomFill = clrs[1];
@@ -40,8 +38,8 @@ namespace Enterprise_Management_System.Forms
             this.mainDockPanel.Skin.DockPaneStripSkin.DocumentGradient.ActiveTabGradient.EndColor = clrs[2];
             this.mainDockPanel.Skin.DockPaneStripSkin.DocumentGradient.ActiveTabGradient.TextColor = Color.Black;
 
-            this.mainDockPanel.Skin.DockPaneStripSkin.DocumentGradient.DockStripGradient.StartColor = clrs[1]; ;
-            this.mainDockPanel.Skin.DockPaneStripSkin.DocumentGradient.DockStripGradient.EndColor = clrs[0];
+            this.mainDockPanel.Skin.DockPaneStripSkin.DocumentGradient.DockStripGradient.StartColor = clrs[0]; ;
+            this.mainDockPanel.Skin.DockPaneStripSkin.DocumentGradient.DockStripGradient.EndColor = clrs[1];
 
             this.mainDockPanel.Skin.DockPaneStripSkin.DocumentGradient.InactiveTabGradient.StartColor = clrs[0];
             this.mainDockPanel.Skin.DockPaneStripSkin.DocumentGradient.InactiveTabGradient.EndColor = clrs[1];
@@ -49,13 +47,58 @@ namespace Enterprise_Management_System.Forms
 
             if (Global.homeFrm != null)
             {
-                Global.homeFrm.BackColor = clrs[0];
                 Global.homeFrm.curRoleLabel.BackColor = clrs[0];
                 Global.homeFrm.dbServerDateLabel.ForeColor = clrs[2];
                 Global.homeFrm.dbServerTimeLabel.ForeColor = clrs[2];
                 Global.homeFrm.userLabel.ForeColor = clrs[2];
                 Global.homeFrm.userLogTimeLabel.ForeColor = clrs[2];
                 Global.homeFrm.curRoleLabel.ForeColor = clrs[2];
+                string fileLoc = "";
+                if (CommonCode.CommonCodes.Db_dbase != "")
+                {
+                    int dbaseLovID = Global.myNwMainFrm.cmnCdMn.getLovID("Per Database Background Themes");
+                    string dbaseBackColor = Global.myNwMainFrm.cmnCdMn.getEnbldPssblValDesc(
+                      CommonCode.CommonCodes.Db_dbase, dbaseLovID);
+                    if (dbaseBackColor != "")
+                    {
+                        fileLoc = @dbaseBackColor;
+                    }
+                }
+                fileLoc = fileLoc.Replace(".rtheme", ".jpg");
+                if (fileLoc == "" || !System.IO.File.Exists(fileLoc))
+                {
+                    if (CommonCode.CommonCodes.Db_dbase.Contains("test")
+              || CommonCode.CommonCodes.Db_dbase.Contains("try")
+              || CommonCode.CommonCodes.Db_dbase.Contains("trial")
+              || CommonCode.CommonCodes.Db_dbase.Contains("train")
+              || CommonCode.CommonCodes.Db_dbase.Contains("sample"))
+                    {
+                        fileLoc = @"DBInfo\Default_Test.jpg";
+                    }
+                    else
+                    {
+                        fileLoc = @"DBInfo\Default.jpg";
+                    }
+                }
+                if (System.IO.File.Exists(fileLoc))
+                {
+                    Image imgBkg = Image.FromFile(fileLoc);
+                    if (Global.homeFrm.BackgroundImage == null)
+                    {
+                        Global.homeFrm.BackgroundImage = Image.FromFile(fileLoc);
+                        Global.homeFrm.BackColor = clrs[1];
+                    }
+                    else if (!Global.homeFrm.BackgroundImage.Equals(imgBkg))
+                    {
+                        Global.homeFrm.BackgroundImage = Image.FromFile(fileLoc);
+                        Global.homeFrm.BackColor = clrs[1];
+                    }
+                }
+                else
+                {
+                    Global.homeFrm.BackgroundImage = null;
+                    Global.homeFrm.BackColor = clrs[0];
+                }
             }
         }
 
@@ -67,32 +110,16 @@ namespace Enterprise_Management_System.Forms
             this.Text = CommonCode.CommonCodes.AppName + " " + CommonCode.CommonCodes.AppVersion;
 
             Global.myNwMainFrm = this;
+
             Global.refreshRqrdVrbls();
             this.changeBackground();
 
             Global.homeFrm = new homePageForm();
             Global.homeFrm.Show(this.mainDockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
-            //Global.homeFrm = nwHomeFrm;
-            //this.hospitalityMngmntMenuItem.Visible = false;
-            //Global.homeFrm.hospitalityButton.Visible = false;
-
-            //Global.homeFrm.clinicButton.Visible = false;
-            //this.clinicHospitalManagementToolStripMenuItem.Visible = false;
-
-            //Global.homeFrm.bankingButton.Visible = false;
-            //this.bnkMicroMenuItem.Visible = false;
-            //CommonCode.CommonCodes.AutoConnect = true;
-            Global.myNwMainFrm.cmnCdMn.minimizeMemory();
 
             this.connectToDatabaseToolStripMenuItem_Click(this.connectToDatabaseToolStripMenuItem, e);
-
-            //System.Windows.Forms.Application.DoEvents();
-            //this.Refresh();
-
-
-            //System.Windows.Forms.Application.DoEvents();
-            //this.Refresh();
-            //tst = System.Environment.GetEnvironmentVariable("Path");
+            Global.myNwMainFrm.statusLoadLabel.Visible = false;
+            Global.myNwMainFrm.statusLoadPictureBox.Visible = false;
 
             System.Diagnostics.Process jarPrcs = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
@@ -160,9 +187,24 @@ namespace Enterprise_Management_System.Forms
         #endregion
 
         #region "START MENU ITEMS EVENT HANDLERS..."
-        bool isDsconnet = false;
+        public bool isDsconnet = false;
         private void connectToDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (this.FindDockedFormExistence("Home Page") == false)
+            {
+                homePageForm nwFrm = new homePageForm();
+                Global.homeFrm = nwFrm;
+                Global.homeFrm.Show(this.mainDockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
+                if (Global.login_number <= 0 && CommonCode.CommonCodes.GlobalSQLConn.State != ConnectionState.Open)
+                {
+                    Global.homeFrm.loadConnectDiag();
+                }
+            }
+            else
+            {
+                this.FindDockedFormToActivate("Home Page");
+            }
+
             if (this.connectToDatabaseToolStripMenuItem.Text.ToLower().Contains("disconnect"))
             {
                 if (Global.myNwMainFrm.cmnCdMn.showMsg("Are you sure you want to disconnect!", 1) == DialogResult.Yes)
@@ -170,7 +212,7 @@ namespace Enterprise_Management_System.Forms
                     try
                     {
 
-                        System.Windows.Forms.Application.DoEvents();
+                        ////System.Windows.Forms.Application.DoEvents();
                         if (Global.homeFrm != null)
                         {
                             this.closeAllDockedFormsExcpt(Global.homeFrm.TabText);
@@ -206,6 +248,21 @@ namespace Enterprise_Management_System.Forms
 
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (this.FindDockedFormExistence("Home Page") == false)
+            {
+                homePageForm nwFrm = new homePageForm();
+                Global.homeFrm = nwFrm;
+                Global.homeFrm.Show(this.mainDockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
+                if (Global.login_number <= 0 &&
+                  CommonCode.CommonCodes.GlobalSQLConn.State != ConnectionState.Open)
+                {
+                    Global.homeFrm.loadConnectDiag();
+                }
+            }
+            else
+            {
+                this.FindDockedFormToActivate("Home Page");
+            }
             if (this.loginToolStripMenuItem.Text.ToLower().Contains("logout"))
             {
                 if (Global.myNwMainFrm.cmnCdMn.showMsg("This will close all open forms!\nAre you sure you want to Logout?", 1)
@@ -274,6 +331,7 @@ namespace Enterprise_Management_System.Forms
              * 4. Reload modules based on the role the user selected
              * 5. Refresh Permissions based on the role the user selected			 * 
              */
+            bool frmLgn = false;
             if (Global.login_result == "change password")
             {
                 Global.myNwMainFrm.cmnCdMn.showMsg("Please change your password first!", 0);
@@ -303,6 +361,7 @@ namespace Enterprise_Management_System.Forms
                     nwDiag.selected_role_id[i] = int.Parse(dtst.Tables[0].Rows[i][0].ToString());
                 }
                 dgRes = DialogResult.OK;
+                frmLgn = true;
             }
             else
             {
@@ -326,15 +385,18 @@ namespace Enterprise_Management_System.Forms
                 //Global.myNwMainFrm.basicSetupToolStripMenuItem.DropDownItems.Clear();
                 //Global.myNwMainFrm.specializedModulesToolStripMenuItem.DropDownItems.Clear();
                 Global.myNwMainFrm.customModulesToolStripMenuItem.DropDownItems.Clear();
-
-                this.statusLoadLabel.Visible = true;
+                if (frmLgn == false)
+                {
+                    Global.myNwMainFrm.statusLoadLabel.Visible = true;
+                    Global.myNwMainFrm.statusLoadPictureBox.Visible = true;
+                    ////System.Windows.Forms.Application.DoEvents();
+                }
+                /*this.statusLoadLabel.Visible = true;
                 this.statusLoadLabel.Location = new Point((Global.myNwMainFrm.cmnCdMn.myComputer.Screen.Bounds.Width / 2) - (int)((520 - this.statusLoadPictureBox.Width) / 2),
                 (Global.myNwMainFrm.cmnCdMn.myComputer.Screen.Bounds.Height / 2) - (int)(1.25 * this.statusLoadPictureBox.Height));//
                 this.statusLoadPictureBox.Visible = true;
-                this.statusLoadPictureBox.Location = new Point(this.statusLoadLabel.Location.X - this.statusLoadPictureBox.Width, this.statusLoadLabel.Location.Y);
-                //System.Diagnostics.Process processDB = System.Diagnostics.Process.Start(@"splash.exe");
-                //processDB.Refresh();
-                System.Windows.Forms.Application.DoEvents();
+                this.statusLoadPictureBox.Location = new Point(this.statusLoadLabel.Location.X - this.statusLoadPictureBox.Width, this.statusLoadLabel.Location.Y);*/
+                ////System.Windows.Forms.Application.DoEvents();
                 if (Global.homeFrm != null)
                 {
                     this.closeAllDockedFormsExcpt(Global.homeFrm.TabText);
@@ -343,7 +405,7 @@ namespace Enterprise_Management_System.Forms
                 {
                     this.closeAllDockedFormsExcpt("Home Page");
                 }
-                System.Windows.Forms.Application.DoEvents();
+                ////System.Windows.Forms.Application.DoEvents();
                 Global.moduleFuncs.CloseModules();
                 Global.role_set_id = nwDiag.selected_role_id;
                 Global.org_id = int.Parse(nwDiag.crntOrgIDTextBox.Text);
@@ -353,18 +415,19 @@ namespace Enterprise_Management_System.Forms
                 CommonCode.CommonCodes.uID = Global.usr_id;
                 CommonCode.CommonCodes.ogID = Global.org_id;
 
-                System.Windows.Forms.Application.DoEvents();
+                ////System.Windows.Forms.Application.DoEvents();
                 Global.refreshRqrdVrbls();
                 Global.moduleFuncs.FindModules(Application.StartupPath + @"\Plugins");
                 //processDB.CloseMainWindow();
                 //processDB.Close();
                 //processDB.Dispose();
-                this.statusLoadLabel.Visible = false;
-                this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
-
+                this.changeBackground();
                 Global.myNwMainFrm.updateDBLabels();
                 Global.myNwMainFrm.updateLoginLabels();
+
+                this.statusLoadLabel.Visible = false;
+                this.statusLoadPictureBox.Visible = false;
+                ////System.Windows.Forms.Application.DoEvents();
                 //if (Global.homeFrm != null)
                 //{
                 //}
@@ -407,11 +470,17 @@ namespace Enterprise_Management_System.Forms
                 homePageForm nwFrm = new homePageForm();
                 Global.homeFrm = nwFrm;
                 Global.homeFrm.Show(this.mainDockPanel, WeifenLuo.WinFormsUI.Docking.DockState.Document);
+                if (Global.login_number <= 0 &&
+                  CommonCode.CommonCodes.GlobalSQLConn.State != ConnectionState.Open)
+                {
+                    Global.homeFrm.loadConnectDiag();
+                }
             }
             else
             {
                 this.FindDockedFormToActivate("Home Page");
             }
+            this.refreshToolStripMenuItem.PerformClick();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -479,7 +548,7 @@ namespace Enterprise_Management_System.Forms
             {
                 string frmName = this.mainDockPanel.ActiveContent.DockHandler.TabText;
                 //Global.currentPlugin = Global.moduleFuncs.AvailableModules.Find(frmName);
-                System.Windows.Forms.Application.DoEvents();
+                ////System.Windows.Forms.Application.DoEvents();
             }
             else
             {
@@ -596,7 +665,7 @@ namespace Enterprise_Management_System.Forms
             //{
             //  Global.myNwMainFrm.cmnCdMn.showMsg("No Active Module Yet!", 3);
             //}
-            this.Refresh();
+            //this.Refresh();
             if (Global.homeFrm != null)
             {
                 Global.homeFrm.refreshButton_Click(Global.homeFrm.refreshButton, e);
@@ -738,45 +807,22 @@ namespace Enterprise_Management_System.Forms
              * 7. Enable the Timers that will continue to update the labels every second
              * 8. Start the Login to Database Dialog Form i.e. Call loginMenuitem Click
              */
-            connectDiag nwDiag = new connectDiag();
-            System.Windows.Forms.Application.DoEvents();
-            DialogResult dgRes = nwDiag.ShowDialog();
+            //connectDiag nwDiag = new connectDiag();
+            ////System.Windows.Forms.Application.DoEvents();
+            //DialogResult dgRes = nwDiag.ShowDialog();
+            Global.homeFrm.dsplayInfoPanel.Visible = false;
+            Global.homeFrm.loginPanel.Visible = false;
+            Global.homeFrm.connectDBPanel.Dock = DockStyle.Fill;
+            Global.homeFrm.connectDBPanel.Visible = true;
+            Global.homeFrm.loadConnectDiag();
+            //if (dgRes == DialogResult.OK)
+            //{
 
-            if (dgRes == DialogResult.OK)
-            {
-                if (CommonCode.CommonCodes.GlobalSQLConn.State == ConnectionState.Open
-                  && CommonCode.CommonCodes.GlobalSQLConn.FullState != ConnectionState.Broken)
-                {
-                    string srcpath = Application.StartupPath + "\\prereq\\Images";
-                    string destpath = Application.StartupPath + "\\Images\\" + CommonCode.CommonCodes.Db_dbase;
-
-                    System.Diagnostics.Process processDB = new System.Diagnostics.Process();
-                    System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-                    startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-                    startInfo.FileName = "cmd.exe";
-                    startInfo.Arguments = "/C xcopy \"" + srcpath + "\" \"" + destpath + "\" /E /I /Q /Y /C";
-                    processDB.StartInfo = startInfo;
-                    processDB.Start();
-                    this.changeBackground();
-
-                    this.updateDBLabels();
-                    this.updateLoginLabels();
-
-                    this.loginToolStripMenuItem.Enabled = true;
-
-                    this.timer1.Interval = 1000;
-                    this.timer1.Enabled = true;
-
-                    this.loginToolStripMenuItem.PerformClick();
-                    return;
-                }
-                this.updateDBLabels();
-                this.updateLoginLabels();
-            }
-            else
-            {
-                this.Close();
-            }
+            //}
+            //else
+            //{
+            //    this.Close();
+            //}
         }
 
         private void disconnectDB_Actns()
@@ -816,6 +862,9 @@ namespace Enterprise_Management_System.Forms
             this.updateDBLabels();
             this.updateLoginLabels();
             this.isDsconnet = false;
+            Global.myNwMainFrm.statusLoadLabel.Visible = false;
+            Global.myNwMainFrm.statusLoadPictureBox.Visible = false;
+            ////System.Windows.Forms.Application.DoEvents();
             //if (srvr[5] == "1")
             //{
             //  if (System.IO.Directory.Exists(Application.StartupPath + "\\Images\\" + CommonCode.CommonCodes.DatabaseNm))
@@ -824,6 +873,7 @@ namespace Enterprise_Management_System.Forms
             //  }
             //}
         }
+        public bool connectionFailed = false;
 
         public void enableTimer()
         {
@@ -835,7 +885,7 @@ namespace Enterprise_Management_System.Forms
         {
             try
             {
-                if (this.isDsconnet == false)
+                if (this.isDsconnet == false && this.connectionFailed == false)
                 {
                     CommonCode.CommonCodes.GlobalSQLConn.ConnectionString = CommonCode.CommonCodes.ConnStr;
                     CommonCode.CommonCodes.GlobalSQLConn.Open();
@@ -847,7 +897,6 @@ namespace Enterprise_Management_System.Forms
             try
             {
                 this.appVersionStatusLabel.Text = CommonCode.CommonCodes.AppName + " " + CommonCode.CommonCodes.AppVersion;
-
                 if (CommonCode.CommonCodes.GlobalSQLConn.State == ConnectionState.Open
                   /*&& CommonCode.CommonCodes.GlobalSQLConn.FullState != ConnectionState.Broken*/)
                 {
@@ -944,12 +993,41 @@ namespace Enterprise_Management_System.Forms
                     this.connectToDatabaseToolStripMenuItem.Image = Enterprise_Management_System.Properties.Resources.dscnt;
                     if (Global.homeFrm != null)
                     {
+                        /*String neededMdls = "";
+                        if (Global.myNwMainFrm.cmnCdMn.User_id > 0)
+                        {
+                            neededMdls = Global.myNwMainFrm.cmnCdMn.getGnrlRecNm("sec.sec_users", "user_id", "modules_needed", Global.myNwMainFrm.cmnCdMn.User_id);
+                            if ((!neededMdls.Contains("Only") && !neededMdls.Contains("Modules")) || neededMdls == "")
+                            {
+                                int lvid = Global.myNwMainFrm.cmnCdMn.getLovID("Rhomicom Software Licenses");
+                                neededMdls = Global.myNwMainFrm.cmnCdMn.decrypt(Global.myNwMainFrm.cmnCdMn.getEnbldPssblValDesc("Modules/Packages Needed", lvid), CommonCode.CommonCodes.AppKey);
+                                if (neededMdls.Contains("Only") || neededMdls.Contains("Modules"))
+                                {
+                                    CommonCode.CommonCodes.ModulesNeeded = neededMdls;
+                                }
+                                else
+                                {
+                                    CommonCode.CommonCodes.ModulesNeeded = "Person Records Only";
+                                }
+                            }
+                            else
+                            {
+                                CommonCode.CommonCodes.ModulesNeeded = neededMdls;
+                            }
+                        }
+                        else
+                        {
+                            CommonCode.CommonCodes.ModulesNeeded = "Person Records Only";
+                        }
+                        Global.homeFrm.checkAllwdModules();*/
                         Global.homeFrm.prsnDataButton.Text = CommonCode.CommonCodes.Bsc_prsn_name.ToUpper();
                         Global.homeFrm.paymntButton.Text = CommonCode.CommonCodes.Intrnl_pymnts_name.ToUpper();
                         Global.homeFrm.acadmcsButton.Text = CommonCode.CommonCodes.Learning_name.ToUpper();
                         Global.homeFrm.attndButton.Text = CommonCode.CommonCodes.Events_name.ToUpper();
                         Global.homeFrm.hospitalityButton.Text = CommonCode.CommonCodes.Hospitality_name.ToUpper();
                         Global.homeFrm.invButton.Text = CommonCode.CommonCodes.Store_inventory.ToUpper();
+                        Global.homeFrm.projectMgmntButton.Text = CommonCode.CommonCodes.Proj_mgmnt_name.ToUpper();
+                        Global.homeFrm.appointmentsButton.Text = CommonCode.CommonCodes.Appointments_name.ToUpper();
 
                         Global.homeFrm.connectButton.ImageKey = "dscnt.png";
                         Global.homeFrm.connectButton.Text = "DISCONNECT FROM DATABASE";
@@ -968,6 +1046,7 @@ namespace Enterprise_Management_System.Forms
                 }
                 else
                 {
+
                     this.dbServerToolStripStatusLabel.BackColor = Color.LightGray;
                     this.dbNameToolStripStatusLabel.BackColor = Color.LightGray;
 
@@ -979,13 +1058,12 @@ namespace Enterprise_Management_System.Forms
                     Global.db_name = "";
                     this.connectToDatabaseToolStripMenuItem.Text = "Connect to Database";
                     this.connectToDatabaseToolStripMenuItem.Image = Enterprise_Management_System.Properties.Resources.network_48;
+                    CommonCode.CommonCodes.ModulesNeeded = "Person Records Only";
                     if (Global.homeFrm != null)
                     {
+                        Global.homeFrm.checkAllwdModules();
                         Global.homeFrm.connectButton.ImageKey = "network_48.png";
                         Global.homeFrm.connectButton.Text = "CONNECT TO DATABASE";
-                        //Global.homeFrm.connectLabel.Text = "Not Connected!";
-                        //Global.homeFrm.hostLabel.Text = "";
-                        //Global.homeFrm.dbNameLabel.Text = "";
                         Global.homeFrm.userLabel.Text = "";
                         Global.homeFrm.userLogTimeLabel.Text = "";
                         Global.homeFrm.curRoleLabel.Text = "";
@@ -997,7 +1075,7 @@ namespace Enterprise_Management_System.Forms
             }
             catch (Exception ex)
             {
-                //Global.myNwMainFrm.cmnCdMn.showSQLNoPermsn(ex.Message + "\r\n" + ex.StackTrace);
+                Global.myNwMainFrm.cmnCdMn.showSQLNoPermsn(ex.Message + "\r\n" + ex.StackTrace);
             }
         }
         #endregion
@@ -1014,34 +1092,21 @@ namespace Enterprise_Management_System.Forms
              * 6. Call the select role set click procedure
             */
 
-            loginDiag nwDiag = new loginDiag();
-            DialogResult dgRes = nwDiag.ShowDialog();
-            if (dgRes == DialogResult.OK)
-            {
-                Global.login_result = nwDiag.login_result;
-                if (Global.login_result == "select role")
-                {
-                    //Update homepage labels and menu item texts/icons
-                    //Launch select role set dialog
-                    this.updateLoginLabels();
-                    this.switchRoleSetToolStripMenuItem.PerformClick();
-                    //this.updateLoginLabels();
-                }
-                else if (Global.login_result == "change password")
-                {
-                    //Update homepage labels and menu item texts/icons
-                    this.updateLoginLabels();
-                    this.changeMyPasswordToolStripMenuItem.PerformClick();
-                }
-                else if (Global.login_result == "logout")
-                {
-                    this.logoutActions();
-                }
-            }
-            Global.refreshRqrdVrbls();
+            //loginDiag nwDiag = new loginDiag();
+            //DialogResult dgRes = nwDiag.ShowDialog();
+            Global.homeFrm.dsplayInfoPanel.Visible = false;
+            Global.homeFrm.connectDBPanel.Visible = false;
+            Global.homeFrm.loginPanel.Dock = DockStyle.Fill;
+            Global.homeFrm.loginPanel.Visible = true;
+            Global.homeFrm.uname1TextBox.Focus();
+            Global.homeFrm.uname1TextBox.SelectAll();
+            Global.myNwMainFrm.statusLoadLabel.Visible = false;
+            Global.myNwMainFrm.statusLoadPictureBox.Visible = false;
+
+            /**/
         }
 
-        private void logoutActions()
+        public void logoutActions()
         {
             /* 1. Close All Open Forms
              * 2. update databse for user's logout time
@@ -1062,13 +1127,27 @@ namespace Enterprise_Management_System.Forms
             Global.moduleFuncs.CloseModules();
             Global.refreshRqrdVrbls();
             this.updateLoginLabels();
+            Global.homeFrm.uname1TextBox.Text = "";
+            Global.homeFrm.pwd1TextBox.Text = "";
+            Global.myNwMainFrm.statusLoadLabel.Visible = false;
+            Global.myNwMainFrm.statusLoadPictureBox.Visible = false;
+
+
+            Global.homeFrm.dsplayInfoPanel.Visible = false;
+            Global.homeFrm.connectDBPanel.Visible = false;
+            Global.homeFrm.loginPanel.Dock = DockStyle.Fill;
+            Global.homeFrm.loginPanel.Visible = true;
+            Global.homeFrm.uname1TextBox.Focus();
+            Global.homeFrm.uname1TextBox.SelectAll();
+            Global.myNwMainFrm.statusLoadLabel.Visible = false;
+            Global.myNwMainFrm.statusLoadPictureBox.Visible = false;
         }
 
         public void updateLoginLabels()
         {
             try
             {
-                if (this.isDsconnet == false)
+                if (this.isDsconnet == false && this.connectionFailed == false)
                 {
                     CommonCode.CommonCodes.GlobalSQLConn.ConnectionString = CommonCode.CommonCodes.ConnStr;
                     CommonCode.CommonCodes.GlobalSQLConn.Open();
@@ -1079,26 +1158,10 @@ namespace Enterprise_Management_System.Forms
             }
             try
             {
-                //  if (CommonCode.CommonCodes.GlobalSQLConn.State != ConnectionState.Open
-                //    && this.isDsconnet == false)
-                //  {
-                //    CommonCode.CommonCodes.GlobalSQLConn.ConnectionString = CommonCode.CommonCodes.ConnStr;
-                //    CommonCode.CommonCodes.GlobalSQLConn.Open();
-                //  }
-                //  Global.db_server = CommonCode.CommonCodes.GlobalSQLConn.Host;
-                //  Global.db_name = CommonCode.CommonCodes.GlobalSQLConn.Database;
-
                 string orgSlogan = "Rhomicom...Building Dreams...";
-                this.statusLoadLabel.Visible = false;
-                this.statusLoadPictureBox.Visible = false;
-                //this.hospitalityMngmntMenuItem.Visible = false;
-                //this.clinicHospitalManagementToolStripMenuItem.Visible = false;
-                //this.bnkMicroMenuItem.Visible = false;
-
 
                 if (Global.login_number > 0 &&
-                  CommonCode.CommonCodes.GlobalSQLConn.State == ConnectionState.Open
-                  /*&& CommonCode.CommonCodes.GlobalSQLConn.FullState != ConnectionState.Broken*/)
+                  CommonCode.CommonCodes.GlobalSQLConn.State == ConnectionState.Open)
                 {
                     this.basicSetupToolStripMenuItem.Enabled = true;
                     this.basicSetupToolStripMenuItem.Visible = true;
@@ -1106,7 +1169,355 @@ namespace Enterprise_Management_System.Forms
                     this.specializedModulesToolStripMenuItem.Visible = true;
                     this.customModulesToolStripMenuItem.Enabled = true;
                     this.customModulesToolStripMenuItem.Visible = true;
+                    this.hospitalityMngmntMenuItem.Visible = true;
+                    this.academicsMenuItem.Visible = true;
+                    this.visitsAndAppointmentsToolStripMenuItem.Visible = true;
+                    this.projectManagementToolStripMenuItem.Visible = true;
+                    this.eventsMenuItem.Visible = true;
+                    this.accountingToolStripMenuItem.Visible = true;
+                    this.basicPersonDataToolStripMenuItem.Visible = true;
+                    this.internalPaymentsToolStripMenuItem.Visible = true;
+                    this.storesInventoryToolStripMenuItem.Visible = true;
+                    String neededMdls = "";
+                    if (Global.myNwMainFrm.cmnCdMn.User_id > 0)
+                    {
+                        neededMdls = Global.myNwMainFrm.cmnCdMn.getGnrlRecNm("sec.sec_users", "user_id", "modules_needed", Global.myNwMainFrm.cmnCdMn.User_id);
+                        if ((!neededMdls.Contains("Only") && !neededMdls.Contains("Modules")) || neededMdls == "")
+                        {
+                            int lvid = Global.myNwMainFrm.cmnCdMn.getLovID("Rhomicom Software Licenses");
+                            neededMdls = Global.myNwMainFrm.cmnCdMn.decrypt(Global.myNwMainFrm.cmnCdMn.getEnbldPssblValDesc("Modules/Packages Needed", lvid), CommonCode.CommonCodes.AppKey);
+                            if (neededMdls.Contains("Only") || neededMdls.Contains("Modules"))
+                            {
+                                CommonCode.CommonCodes.ModulesNeeded = neededMdls;
+                            }
+                            else
+                            {
+                                CommonCode.CommonCodes.ModulesNeeded = "Person Records Only";
+                            }
+                        }
+                        else
+                        {
+                            CommonCode.CommonCodes.ModulesNeeded = neededMdls;
+                        }
+                    }
+                    else
+                    {
+                        CommonCode.CommonCodes.ModulesNeeded = "Person Records Only";
+                    }
 
+                    if (CommonCode.CommonCodes.ModulesNeeded != "All Modules")
+                    {
+                        if (CommonCode.CommonCodes.ModulesNeeded == "Person Records Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = false;
+                            this.specializedModulesToolStripMenuItem.Visible = false;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.eventsMenuItem.Visible = false;
+                            this.accountingToolStripMenuItem.Visible = false;
+                            this.basicPersonDataToolStripMenuItem.Visible = true;
+                            this.internalPaymentsToolStripMenuItem.Visible = false;
+                            this.storesInventoryToolStripMenuItem.Visible = false;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Point of Sale Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = false;
+                            this.specializedModulesToolStripMenuItem.Visible = false;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.eventsMenuItem.Visible = false;
+                            this.accountingToolStripMenuItem.Visible = true;
+                            this.basicPersonDataToolStripMenuItem.Visible = true;
+                            this.internalPaymentsToolStripMenuItem.Visible = false;
+                            this.storesInventoryToolStripMenuItem.Visible = true;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Accounting Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = false;
+                            this.specializedModulesToolStripMenuItem.Visible = false;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.eventsMenuItem.Visible = false;
+                            this.accountingToolStripMenuItem.Visible = true;
+                            this.basicPersonDataToolStripMenuItem.Visible = true;
+                            this.internalPaymentsToolStripMenuItem.Visible = false;
+                            this.storesInventoryToolStripMenuItem.Visible = false;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Person Records with Accounting Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = false;
+                            this.specializedModulesToolStripMenuItem.Visible = false;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.eventsMenuItem.Visible = false;
+                            this.accountingToolStripMenuItem.Visible = true;
+                            this.basicPersonDataToolStripMenuItem.Visible = true;
+                            this.internalPaymentsToolStripMenuItem.Visible = false;
+                            this.storesInventoryToolStripMenuItem.Visible = false;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Person Records + Hospitality Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = true;
+                            this.specializedModulesToolStripMenuItem.Visible = true;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.eventsMenuItem.Visible = false;
+                            this.accountingToolStripMenuItem.Visible = false;
+                            this.basicPersonDataToolStripMenuItem.Visible = true;
+                            this.internalPaymentsToolStripMenuItem.Visible = false;
+                            this.storesInventoryToolStripMenuItem.Visible = false;
+                            this.hospitalityMngmntMenuItem.Visible = true;
+                            this.academicsMenuItem.Visible = false;
+                            this.visitsAndAppointmentsToolStripMenuItem.Visible = false;
+                            this.projectManagementToolStripMenuItem.Visible = false;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Person Records + Events Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = true;
+                            this.specializedModulesToolStripMenuItem.Visible = true;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.eventsMenuItem.Visible = true;
+                            this.accountingToolStripMenuItem.Visible = false;
+                            this.basicPersonDataToolStripMenuItem.Visible = true;
+                            this.internalPaymentsToolStripMenuItem.Visible = false;
+                            this.storesInventoryToolStripMenuItem.Visible = false;
+                            this.hospitalityMngmntMenuItem.Visible = false;
+                            this.academicsMenuItem.Visible = false;
+                            this.visitsAndAppointmentsToolStripMenuItem.Visible = false;
+                            this.projectManagementToolStripMenuItem.Visible = false;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Sales with Accounting Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = false;
+                            this.specializedModulesToolStripMenuItem.Visible = false;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.eventsMenuItem.Visible = false;
+                            this.accountingToolStripMenuItem.Visible = true;
+                            this.basicPersonDataToolStripMenuItem.Visible = true;
+                            this.internalPaymentsToolStripMenuItem.Visible = false;
+                            this.storesInventoryToolStripMenuItem.Visible = true;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Accounting with Payroll Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = false;
+                            this.specializedModulesToolStripMenuItem.Visible = false;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.eventsMenuItem.Visible = false;
+                            this.accountingToolStripMenuItem.Visible = true;
+                            this.basicPersonDataToolStripMenuItem.Visible = true;
+                            this.internalPaymentsToolStripMenuItem.Visible = true;
+                            this.storesInventoryToolStripMenuItem.Visible = false;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Basic Modules Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = false;
+                            this.specializedModulesToolStripMenuItem.Visible = false;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.eventsMenuItem.Visible = false;
+                            this.accountingToolStripMenuItem.Visible = true;
+                            this.basicPersonDataToolStripMenuItem.Visible = true;
+                            this.internalPaymentsToolStripMenuItem.Visible = true;
+                            this.storesInventoryToolStripMenuItem.Visible = true;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Basic Modules + Hospitality Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = true;
+                            this.specializedModulesToolStripMenuItem.Visible = true;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.hospitalityMngmntMenuItem.Visible = true;
+                            this.academicsMenuItem.Visible = false;
+                            this.visitsAndAppointmentsToolStripMenuItem.Visible = false;
+                            this.projectManagementToolStripMenuItem.Visible = false;
+                            this.eventsMenuItem.Visible = false;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Basic Modules + Events Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = true;
+                            this.specializedModulesToolStripMenuItem.Visible = true;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.hospitalityMngmntMenuItem.Visible = false;
+                            this.academicsMenuItem.Visible = false;
+                            this.visitsAndAppointmentsToolStripMenuItem.Visible = false;
+                            this.projectManagementToolStripMenuItem.Visible = false;
+                            this.eventsMenuItem.Visible = true;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Basic Modules + Projects Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = true;
+                            this.specializedModulesToolStripMenuItem.Visible = true;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.hospitalityMngmntMenuItem.Visible = false;
+                            this.academicsMenuItem.Visible = false;
+                            this.visitsAndAppointmentsToolStripMenuItem.Visible = false;
+                            this.projectManagementToolStripMenuItem.Visible = true;
+                            this.eventsMenuItem.Visible = false;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Basic Modules + Appointments Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = true;
+                            this.specializedModulesToolStripMenuItem.Visible = true;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.hospitalityMngmntMenuItem.Visible = false;
+                            this.academicsMenuItem.Visible = false;
+                            this.visitsAndAppointmentsToolStripMenuItem.Visible = true;
+                            this.projectManagementToolStripMenuItem.Visible = false;
+                            this.eventsMenuItem.Visible = false;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Basic Modules + PMS Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = true;
+                            this.specializedModulesToolStripMenuItem.Visible = true;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.hospitalityMngmntMenuItem.Visible = false;
+                            this.academicsMenuItem.Visible = true;
+                            this.visitsAndAppointmentsToolStripMenuItem.Visible = false;
+                            this.projectManagementToolStripMenuItem.Visible = false;
+                            this.eventsMenuItem.Visible = false;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Basic Modules + Events + Hospitality Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = true;
+                            this.specializedModulesToolStripMenuItem.Visible = true;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.hospitalityMngmntMenuItem.Visible = true;
+                            this.academicsMenuItem.Visible = false;
+                            this.visitsAndAppointmentsToolStripMenuItem.Visible = false;
+                            this.projectManagementToolStripMenuItem.Visible = false;
+                            this.eventsMenuItem.Visible = true;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Basic Modules - Payroll - Person Records + Events + Hospitality Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = true;
+                            this.specializedModulesToolStripMenuItem.Visible = true;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.hospitalityMngmntMenuItem.Visible = true;
+                            this.academicsMenuItem.Visible = false;
+                            this.visitsAndAppointmentsToolStripMenuItem.Visible = false;
+                            this.projectManagementToolStripMenuItem.Visible = false;
+                            this.eventsMenuItem.Visible = true;
+                            this.internalPaymentsToolStripMenuItem.Visible = false;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Basic Modules + Payroll - Person Records + Events + Hospitality Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = true;
+                            this.specializedModulesToolStripMenuItem.Visible = true;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.hospitalityMngmntMenuItem.Visible = true;
+                            this.academicsMenuItem.Visible = false;
+                            this.visitsAndAppointmentsToolStripMenuItem.Visible = false;
+                            this.projectManagementToolStripMenuItem.Visible = false;
+                            this.eventsMenuItem.Visible = true;
+                            this.internalPaymentsToolStripMenuItem.Visible = true;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Basic Modules + Events + PMS Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = true;
+                            this.specializedModulesToolStripMenuItem.Visible = true;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.hospitalityMngmntMenuItem.Visible = false;
+                            this.academicsMenuItem.Visible = true;
+                            this.visitsAndAppointmentsToolStripMenuItem.Visible = false;
+                            this.projectManagementToolStripMenuItem.Visible = false;
+                            this.eventsMenuItem.Visible = true;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Basic Modules + Projects + PMS Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = true;
+                            this.specializedModulesToolStripMenuItem.Visible = true;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.hospitalityMngmntMenuItem.Visible = false;
+                            this.academicsMenuItem.Visible = true;
+                            this.visitsAndAppointmentsToolStripMenuItem.Visible = false;
+                            this.projectManagementToolStripMenuItem.Visible = true;
+                            this.eventsMenuItem.Visible = false;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Basic Modules + Projects + Events Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = true;
+                            this.specializedModulesToolStripMenuItem.Visible = true;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.hospitalityMngmntMenuItem.Visible = false;
+                            this.academicsMenuItem.Visible = false;
+                            this.visitsAndAppointmentsToolStripMenuItem.Visible = false;
+                            this.projectManagementToolStripMenuItem.Visible = true;
+                            this.eventsMenuItem.Visible = true;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Basic Modules + Projects + Hospitality Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = true;
+                            this.specializedModulesToolStripMenuItem.Visible = true;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.hospitalityMngmntMenuItem.Visible = true;
+                            this.academicsMenuItem.Visible = false;
+                            this.visitsAndAppointmentsToolStripMenuItem.Visible = false;
+                            this.projectManagementToolStripMenuItem.Visible = true;
+                            this.eventsMenuItem.Visible = false;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Basic Modules + Events + Hospitality + PMS Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = true;
+                            this.specializedModulesToolStripMenuItem.Visible = true;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.hospitalityMngmntMenuItem.Visible = true;
+                            this.academicsMenuItem.Visible = true;
+                            this.visitsAndAppointmentsToolStripMenuItem.Visible = false;
+                            this.projectManagementToolStripMenuItem.Visible = false;
+                            this.eventsMenuItem.Visible = true;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Basic Modules + Projects + Hospitality + PMS Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = true;
+                            this.specializedModulesToolStripMenuItem.Visible = true;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.hospitalityMngmntMenuItem.Visible = true;
+                            this.academicsMenuItem.Visible = true;
+                            this.visitsAndAppointmentsToolStripMenuItem.Visible = false;
+                            this.projectManagementToolStripMenuItem.Visible = true;
+                            this.eventsMenuItem.Visible = false;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Basic Modules + Events + Projects + Hospitality Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = true;
+                            this.specializedModulesToolStripMenuItem.Visible = true;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.hospitalityMngmntMenuItem.Visible = true;
+                            this.academicsMenuItem.Visible = false;
+                            this.visitsAndAppointmentsToolStripMenuItem.Visible = false;
+                            this.projectManagementToolStripMenuItem.Visible = true;
+                            this.eventsMenuItem.Visible = true;
+                        }
+                        else if (CommonCode.CommonCodes.ModulesNeeded == "Basic Modules + Events + Projects + Hospitality + PMS Only")
+                        {
+                            this.specializedModulesToolStripMenuItem.Enabled = true;
+                            this.specializedModulesToolStripMenuItem.Visible = true;
+                            this.customModulesToolStripMenuItem.Enabled = false;
+                            this.customModulesToolStripMenuItem.Visible = false;
+                            this.hospitalityMngmntMenuItem.Visible = true;
+                            this.academicsMenuItem.Visible = true;
+                            this.visitsAndAppointmentsToolStripMenuItem.Visible = false;
+                            this.projectManagementToolStripMenuItem.Visible = true;
+                            this.eventsMenuItem.Visible = true;
+                        }
+                    }
                     this.loginToolStripMenuItem.Text = "&Logout";
                     this.loginToolStripMenuItem.Image = Enterprise_Management_System.Properties.Resources._49;
                     this.changeMyPasswordToolStripMenuItem.Enabled = true;
@@ -1124,6 +1535,7 @@ namespace Enterprise_Management_System.Forms
                     this.storesInventoryToolStripMenuItem.Text = CommonCode.CommonCodes.Store_inventory;
                     if (Global.homeFrm != null)
                     {
+                        Global.homeFrm.checkAllwdModules();
                         Global.homeFrm.prsnDataButton.Text = CommonCode.CommonCodes.Bsc_prsn_name.ToUpper();
                         Global.homeFrm.paymntButton.Text = CommonCode.CommonCodes.Intrnl_pymnts_name.ToUpper();
                         Global.homeFrm.acadmcsButton.Text = CommonCode.CommonCodes.Learning_name.ToUpper();
@@ -1132,9 +1544,6 @@ namespace Enterprise_Management_System.Forms
                         Global.homeFrm.appointmentsButton.Text = CommonCode.CommonCodes.Appointments_name.ToUpper();
                         Global.homeFrm.projectMgmntButton.Text = CommonCode.CommonCodes.Proj_mgmnt_name.ToUpper();
                         Global.homeFrm.invButton.Text = CommonCode.CommonCodes.Store_inventory.ToUpper();
-                        //Global.homeFrm.hospitalityButton.Visible = false;
-                        //Global.homeFrm.clinicButton.Visible = false;
-                        //Global.homeFrm.bankingButton.Visible = false;
 
                         Global.homeFrm.userLabel.Text = Global.myNwMainFrm.cmnCdMn.get_user_name(Global.usr_id).ToUpper();
                         Global.homeFrm.userLogTimeLabel.Text = DateTime.Parse(
@@ -1159,10 +1568,10 @@ namespace Enterprise_Management_System.Forms
                         if (Global.org_id > 0)
                         {
                             Global.homeFrm.label1.Text = Global.myNwMainFrm.cmnCdMn.getOrgName(Global.org_id);
-                            Global.myNwMainFrm.cmnCdMn.getDBImageFile(Global.org_id.ToString() + ".png",
-                              0, ref Global.homeFrm.pictureBox3);
-                            string orgType = Global.myNwMainFrm.cmnCdMn.getPssblValNm(int.Parse(Global.myNwMainFrm.cmnCdMn.getGnrlRecNm(
-                           "org.org_details", "org_id", "org_typ_id", Global.org_id)));
+                            Global.myNwMainFrm.cmnCdMn.getDBImageFile(Global.org_id.ToString() + ".png", 0, ref Global.homeFrm.pictureBox3);
+
+                            string orgType = Global.myNwMainFrm.cmnCdMn.getPssblValNm(
+                                int.Parse(Global.myNwMainFrm.cmnCdMn.getGnrlRecNm("org.org_details", "org_id", "org_typ_id", Global.org_id)));
                             if (orgType.ToUpper().Contains("MARKET") || orgType.ToUpper().Contains("MART")
                               || orgType.ToUpper().Contains("STORE") || orgType.ToUpper().Contains("SHOP")
                               || orgType.ToUpper().Contains("BOUTIQUE"))
@@ -1174,9 +1583,11 @@ namespace Enterprise_Management_System.Forms
                                || orgType.ToUpper().Contains("HOSPITALITY")
                               || orgType.ToUpper().Contains("RESTAURANT"))
                             {
-                                //Global.homeFrm.hospitalityButton.Visible = true;
-                                //this.hospitalityMngmntMenuItem.Visible = true;
                                 Global.homeFrm.hospitalityButton.Focus();
+                            }
+                            else
+                            {
+                                Global.homeFrm.prsnDataButton.Focus();
                             }
                             //else if (orgType.ToUpper().Contains("CLINIC") || orgType.ToUpper().Contains("HOSPITAL")
                             //   || orgType.ToUpper().Contains("MEDICAL"))
@@ -1199,9 +1610,8 @@ namespace Enterprise_Management_System.Forms
                         //Global.homeFrm.label4.Text = "Available Modules:";
                         //Global.homeFrm.Label3.Visible = false;
                         //Global.homeFrm.label7.Visible = false;
-                        //Global.homeFrm.label15.Visible = false;
-                        //Global.homeFrm.label14.Visible = false;
                         //Global.homeFrm.populateModulesLstVw();
+
                     }
                     this.Text = Global.myNwMainFrm.cmnCdMn.getOrgName(Global.org_id);
                     this.bannerGlsLabel.Caption = this.Text;
@@ -1222,9 +1632,8 @@ namespace Enterprise_Management_System.Forms
                         {
                             Global.homeFrm.pictureBox3.Image.Dispose();
                             Global.homeFrm.pictureBox3.Image = Enterprise_Management_System.Properties.Resources._1;
-                            Global.homeFrm.pictureBox1.Image = Global.homeFrm.pictureBox3.Image;
 
-                            Global.homeFrm.label1.Text = "WELCOME TO " + CommonCode.CommonCodes.AppName.ToUpper() + " " + CommonCode.CommonCodes.AppVersion;
+                            Global.homeFrm.label1.Text = ("WELCOME TO " + CommonCode.CommonCodes.AppName.ToUpper() + " " + CommonCode.CommonCodes.AppVersion);
                             //Global.homeFrm.orgGlsLabel.Caption = "Rhomicom Systems Technologies Ltd.";
                         }
                     }
@@ -1253,11 +1662,9 @@ namespace Enterprise_Management_System.Forms
                     this.bannerGlsLabel.Caption = "Rhomicom Systems Technologies Ltd.".ToUpper();
                     if (Global.homeFrm != null)
                     {
-                        //Global.homeFrm.mdlPanel.Visible = false;
-                        //Global.homeFrm.avlbMdlsListView.Visible = false;
-                        //Global.homeFrm.label4.Text = "Connection Status:";
-                        //Global.homeFrm.Label3.Visible = true;
-                        //Global.homeFrm.label7.Visible = true;
+                        CommonCode.CommonCodes.ModulesNeeded = "Person Records Only";
+                        Global.myNwMainFrm.cmnCdMn.Login_number = -1;
+                        Global.homeFrm.checkAllwdModules();
                         Global.homeFrm.sloganLabel.Text = orgSlogan;
                         Global.homeFrm.label15.Visible = true;
                         Global.homeFrm.label14.Visible = true;
@@ -1270,14 +1677,19 @@ namespace Enterprise_Management_System.Forms
                         Global.homeFrm.pictureBox3.Image = Enterprise_Management_System.Properties.Resources._1;
                         //Global.homeFrm.pictureBox1.Image = Global.homeFrm.pictureBox3.Image;
 
-                        Global.homeFrm.label1.Text = "WELCOME TO " + CommonCode.CommonCodes.AppName.ToUpper() + " " + CommonCode.CommonCodes.AppVersion.ToUpper();
+                        Global.homeFrm.label1.Text = ("WELCOME TO " + CommonCode.CommonCodes.AppName.ToUpper() + " " + CommonCode.CommonCodes.AppVersion); //.PadRight(35).PadLeft(10)
                         //Global.homeFrm.orgGlsLabel.Caption = "Rhomicom Systems Technologies Ltd.";
                     }
                 }
             }
             catch (Exception ex)
             {
+
+                //Global.myNwMainFrm.statusLoadLabel.Visible = false;
+                //Global.myNwMainFrm.statusLoadPictureBox.Visible = false;
+                ////System.Windows.Forms.Application.DoEvents();
             }
+
         }
         #endregion
 
@@ -1311,7 +1723,7 @@ namespace Enterprise_Management_System.Forms
             this.backgroundWorker1.ReportProgress(10);
             //this.statusLoadLabel.Visible = true;
             //this.statusLoadPictureBox.Visible = true;
-            //System.Windows.Forms.Application.DoEvents();
+            ////System.Windows.Forms.Application.DoEvents();
 
             //Global.moduleFuncs.reloadModules(Application.StartupPath + @"\Plugins");
             //Global.moduleFuncs.CreateModulePrvldgs();
@@ -1374,9 +1786,9 @@ namespace Enterprise_Management_System.Forms
                 Global.homeFrm.progressBar1.Visible = false;
                 //Global.homeFrm.avlbMdlsListView.Enabled = true;
             }
-            this.statusLoadLabel.Visible = false;
-            this.statusLoadPictureBox.Visible = false;
-            System.Windows.Forms.Application.DoEvents();
+            //this.statusLoadLabel.Visible = false;
+            //this.statusLoadPictureBox.Visible = false;
+            ////System.Windows.Forms.Application.DoEvents();
 
         }
 
@@ -1394,7 +1806,7 @@ namespace Enterprise_Management_System.Forms
                 (Global.myNwMainFrm.cmnCdMn.myComputer.Screen.Bounds.Height / 2) - (int)(1.25 * this.statusLoadPictureBox.Height));//
                 this.statusLoadPictureBox.Visible = true;
                 this.statusLoadPictureBox.Location = new Point(this.statusLoadLabel.Location.X - this.statusLoadPictureBox.Width, this.statusLoadLabel.Location.Y);
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
 
                 String strTitle = "Accounting";
                 if (this.FindDockedFormToActivate(strTitle) < 0)
@@ -1421,14 +1833,14 @@ namespace Enterprise_Management_System.Forms
                 }
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
             catch (Exception ex)
             {
                 Global.myNwMainFrm.cmnCdMn.showMsg(ex.Message, 0);
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
         }
 
@@ -1447,7 +1859,7 @@ namespace Enterprise_Management_System.Forms
                 (Global.myNwMainFrm.cmnCdMn.myComputer.Screen.Bounds.Height / 2) - (int)(1.25 * this.statusLoadPictureBox.Height));//
                 this.statusLoadPictureBox.Visible = true;
                 this.statusLoadPictureBox.Location = new Point(this.statusLoadLabel.Location.X - this.statusLoadPictureBox.Width, this.statusLoadLabel.Location.Y);
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
 
                 String strTitle = CommonCode.CommonCodes.Bsc_prsn_name;
                 if (this.FindDockedFormToActivate(strTitle) < 0)
@@ -1476,7 +1888,7 @@ namespace Enterprise_Management_System.Forms
                 }
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
                 Cursor.Current = Cursors.Arrow;
             }
             catch (Exception ex)
@@ -1484,7 +1896,7 @@ namespace Enterprise_Management_System.Forms
                 Global.myNwMainFrm.cmnCdMn.showMsg(ex.Message, 0);
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
                 Cursor.Current = Cursors.Arrow;
             }
         }
@@ -1503,7 +1915,7 @@ namespace Enterprise_Management_System.Forms
                 (Global.myNwMainFrm.cmnCdMn.myComputer.Screen.Bounds.Height / 2) - (int)(1.25 * this.statusLoadPictureBox.Height));//
                 this.statusLoadPictureBox.Visible = true;
                 this.statusLoadPictureBox.Location = new Point(this.statusLoadLabel.Location.X - this.statusLoadPictureBox.Width, this.statusLoadLabel.Location.Y);
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
 
                 String strTitle = "General Setup";
                 if (this.FindDockedFormToActivate(strTitle) < 0)
@@ -1530,14 +1942,14 @@ namespace Enterprise_Management_System.Forms
                 }
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
             catch (Exception ex)
             {
                 Global.myNwMainFrm.cmnCdMn.showMsg(ex.Message, 0);
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
         }
 
@@ -1555,7 +1967,7 @@ namespace Enterprise_Management_System.Forms
                 (Global.myNwMainFrm.cmnCdMn.myComputer.Screen.Bounds.Height / 2) - (int)(1.25 * this.statusLoadPictureBox.Height));//
                 this.statusLoadPictureBox.Visible = true;
                 this.statusLoadPictureBox.Location = new Point(this.statusLoadLabel.Location.X - this.statusLoadPictureBox.Width, this.statusLoadLabel.Location.Y);
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
 
                 String strTitle = CommonCode.CommonCodes.Intrnl_pymnts_name;
                 if (this.FindDockedFormToActivate(strTitle) < 0)
@@ -1584,14 +1996,14 @@ namespace Enterprise_Management_System.Forms
                 }
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
             catch (Exception ex)
             {
                 Global.myNwMainFrm.cmnCdMn.showMsg(ex.Message, 0);
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
         }
 
@@ -1609,7 +2021,7 @@ namespace Enterprise_Management_System.Forms
                 (Global.myNwMainFrm.cmnCdMn.myComputer.Screen.Bounds.Height / 2) - (int)(1.25 * this.statusLoadPictureBox.Height));//
                 this.statusLoadPictureBox.Visible = true;
                 this.statusLoadPictureBox.Location = new Point(this.statusLoadLabel.Location.X - this.statusLoadPictureBox.Width, this.statusLoadLabel.Location.Y);
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
 
                 String strTitle = "Organization Setup";
                 if (this.FindDockedFormToActivate(strTitle) < 0)
@@ -1636,14 +2048,14 @@ namespace Enterprise_Management_System.Forms
                 }
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
             catch (Exception ex)
             {
                 Global.myNwMainFrm.cmnCdMn.showMsg(ex.Message, 0);
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
         }
 
@@ -1661,7 +2073,7 @@ namespace Enterprise_Management_System.Forms
                 (Global.myNwMainFrm.cmnCdMn.myComputer.Screen.Bounds.Height / 2) - (int)(1.25 * this.statusLoadPictureBox.Height));//
                 this.statusLoadPictureBox.Visible = true;
                 this.statusLoadPictureBox.Location = new Point(this.statusLoadLabel.Location.X - this.statusLoadPictureBox.Width, this.statusLoadLabel.Location.Y);
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
 
                 String strTitle = "Reports And Processes";
                 if (this.FindDockedFormToActivate(strTitle) < 0)
@@ -1688,14 +2100,14 @@ namespace Enterprise_Management_System.Forms
                 }
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
             catch (Exception ex)
             {
                 Global.myNwMainFrm.cmnCdMn.showMsg(ex.Message, 0);
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
         }
 
@@ -1713,7 +2125,7 @@ namespace Enterprise_Management_System.Forms
                 (Global.myNwMainFrm.cmnCdMn.myComputer.Screen.Bounds.Height / 2) - (int)(1.25 * this.statusLoadPictureBox.Height));//
                 this.statusLoadPictureBox.Visible = true;
                 this.statusLoadPictureBox.Location = new Point(this.statusLoadLabel.Location.X - this.statusLoadPictureBox.Width, this.statusLoadLabel.Location.Y);
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
 
                 String strTitle = "System Administration";
                 if (this.FindDockedFormToActivate(strTitle) < 0)
@@ -1740,14 +2152,14 @@ namespace Enterprise_Management_System.Forms
                 }
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
             catch (Exception ex)
             {
                 Global.myNwMainFrm.cmnCdMn.showMsg(ex.Message, 0);
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
         }
 
@@ -1765,7 +2177,7 @@ namespace Enterprise_Management_System.Forms
                 (Global.myNwMainFrm.cmnCdMn.myComputer.Screen.Bounds.Height / 2) - (int)(1.25 * this.statusLoadPictureBox.Height));//
                 this.statusLoadPictureBox.Visible = true;
                 this.statusLoadPictureBox.Location = new Point(this.statusLoadLabel.Location.X - this.statusLoadPictureBox.Width, this.statusLoadLabel.Location.Y);
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
 
                 String strTitle = "Workflow Manager";
                 if (this.FindDockedFormToActivate(strTitle) < 0)
@@ -1792,14 +2204,14 @@ namespace Enterprise_Management_System.Forms
                 }
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
             catch (Exception ex)
             {
                 Global.myNwMainFrm.cmnCdMn.showMsg(ex.Message, 0);
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
         }
 
@@ -1817,7 +2229,7 @@ namespace Enterprise_Management_System.Forms
                 (Global.myNwMainFrm.cmnCdMn.myComputer.Screen.Bounds.Height / 2) - (int)(1.25 * this.statusLoadPictureBox.Height));//
                 this.statusLoadPictureBox.Visible = true;
                 this.statusLoadPictureBox.Location = new Point(this.statusLoadLabel.Location.X - this.statusLoadPictureBox.Width, this.statusLoadLabel.Location.Y);
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
 
                 String strTitle = "Alerts Manager";
                 if (this.FindDockedFormToActivate(strTitle) < 0)
@@ -1844,14 +2256,14 @@ namespace Enterprise_Management_System.Forms
                 }
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
             catch (Exception ex)
             {
                 Global.myNwMainFrm.cmnCdMn.showMsg(ex.Message, 0);
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
         }
 
@@ -1869,7 +2281,7 @@ namespace Enterprise_Management_System.Forms
                 (Global.myNwMainFrm.cmnCdMn.myComputer.Screen.Bounds.Height / 2) - (int)(1.25 * this.statusLoadPictureBox.Height));//
                 this.statusLoadPictureBox.Visible = true;
                 this.statusLoadPictureBox.Location = new Point(this.statusLoadLabel.Location.X - this.statusLoadPictureBox.Width, this.statusLoadLabel.Location.Y);
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
 
                 String strTitle = CommonCode.CommonCodes.Events_name;
                 if (this.FindDockedFormToActivate(strTitle) < 0)
@@ -1898,14 +2310,14 @@ namespace Enterprise_Management_System.Forms
                 }
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
             catch (Exception ex)
             {
                 Global.myNwMainFrm.cmnCdMn.showMsg(ex.Message, 0);
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
         }
 
@@ -1965,7 +2377,7 @@ namespace Enterprise_Management_System.Forms
                 (Global.myNwMainFrm.cmnCdMn.myComputer.Screen.Bounds.Height / 2) - (int)(1.25 * this.statusLoadPictureBox.Height));//
                 this.statusLoadPictureBox.Visible = true;
                 this.statusLoadPictureBox.Location = new Point(this.statusLoadLabel.Location.X - this.statusLoadPictureBox.Width, this.statusLoadLabel.Location.Y);
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
 
                 String strTitle = CommonCode.CommonCodes.Store_inventory;
                 if (this.FindDockedFormToActivate(strTitle) < 0)
@@ -1994,7 +2406,7 @@ namespace Enterprise_Management_System.Forms
                 }
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
 
             }
             catch (Exception ex)
@@ -2002,7 +2414,7 @@ namespace Enterprise_Management_System.Forms
                 Global.myNwMainFrm.cmnCdMn.showMsg(ex.Message, 0);
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
         }
 
@@ -2011,10 +2423,10 @@ namespace Enterprise_Management_System.Forms
             try
             {
                 this.timer1.Enabled = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
                 this.Refresh();
                 ////System.Threading.Thread.Sleep(20000);
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
                 this.Refresh();
 
                 if (CommonCode.CommonCodes.GlobalSQLConn.State != ConnectionState.Open)
@@ -2046,7 +2458,7 @@ namespace Enterprise_Management_System.Forms
                         //{
                         //  rnnrRnng = Global.isRunnrRnng("REQUESTS LISTENER PROGRAM");
                         //  //System.Threading.Thread.Sleep(250);
-                        //  System.Windows.Forms.Application.DoEvents();
+                        //  //System.Windows.Forms.Application.DoEvents();
                         //}
                         //Global.myNwMainFrm.cmnCdMn.User_id > 0 &&
                         if (rnnrRnng == false)
@@ -2101,7 +2513,7 @@ namespace Enterprise_Management_System.Forms
                 (Global.myNwMainFrm.cmnCdMn.myComputer.Screen.Bounds.Height / 2) - (int)(1.25 * this.statusLoadPictureBox.Height));//
                 this.statusLoadPictureBox.Visible = true;
                 this.statusLoadPictureBox.Location = new Point(this.statusLoadLabel.Location.X - this.statusLoadPictureBox.Width, this.statusLoadLabel.Location.Y);
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
 
                 String strTitle = CommonCode.CommonCodes.Hospitality_name;
                 if (this.FindDockedFormToActivate(strTitle) < 0)
@@ -2130,7 +2542,7 @@ namespace Enterprise_Management_System.Forms
                 }
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
 
             }
             catch (Exception ex)
@@ -2138,7 +2550,7 @@ namespace Enterprise_Management_System.Forms
                 Global.myNwMainFrm.cmnCdMn.showMsg(ex.Message, 0);
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
         }
 
@@ -2156,7 +2568,7 @@ namespace Enterprise_Management_System.Forms
             //    (Global.myNwMainFrm.cmnCdMn.myComputer.Screen.Bounds.Height / 2) - (int)(1.25 * this.statusLoadPictureBox.Height));//
             //    this.statusLoadPictureBox.Visible = true;
             //    this.statusLoadPictureBox.Location = new Point(this.statusLoadLabel.Location.X - this.statusLoadPictureBox.Width, this.statusLoadLabel.Location.Y);
-            //    System.Windows.Forms.Application.DoEvents();
+            //    //System.Windows.Forms.Application.DoEvents();
 
             //    String strTitle = "Banking And Microfinance";
             //    if (this.FindDockedFormToActivate(strTitle) < 0)
@@ -2183,7 +2595,7 @@ namespace Enterprise_Management_System.Forms
             //    }
             //    this.statusLoadLabel.Visible = false;
             //    this.statusLoadPictureBox.Visible = false;
-            //    System.Windows.Forms.Application.DoEvents();
+            //    //System.Windows.Forms.Application.DoEvents();
 
             //  }
             //  catch (Exception ex)
@@ -2191,7 +2603,7 @@ namespace Enterprise_Management_System.Forms
             //    Global.myNwMainFrm.cmnCdMn.showMsg(ex.Message, 0);
             //    this.statusLoadLabel.Visible = false;
             //    this.statusLoadPictureBox.Visible = false;
-            //    System.Windows.Forms.Application.DoEvents();
+            //    //System.Windows.Forms.Application.DoEvents();
             //  }
         }
 
@@ -2209,7 +2621,7 @@ namespace Enterprise_Management_System.Forms
                 (Global.myNwMainFrm.cmnCdMn.myComputer.Screen.Bounds.Height / 2) - (int)(1.25 * this.statusLoadPictureBox.Height));//
                 this.statusLoadPictureBox.Visible = true;
                 this.statusLoadPictureBox.Location = new Point(this.statusLoadLabel.Location.X - this.statusLoadPictureBox.Width, this.statusLoadLabel.Location.Y);
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
 
                 String strTitle = CommonCode.CommonCodes.Learning_name;
                 if (this.FindDockedFormToActivate(strTitle) < 0)
@@ -2238,7 +2650,7 @@ namespace Enterprise_Management_System.Forms
                 }
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
 
             }
             catch (Exception ex)
@@ -2246,7 +2658,7 @@ namespace Enterprise_Management_System.Forms
                 Global.myNwMainFrm.cmnCdMn.showMsg(ex.Message, 0);
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
         }
 
@@ -2269,7 +2681,7 @@ namespace Enterprise_Management_System.Forms
                 (Global.myNwMainFrm.cmnCdMn.myComputer.Screen.Bounds.Height / 2) - (int)(1.25 * this.statusLoadPictureBox.Height));//
                 this.statusLoadPictureBox.Visible = true;
                 this.statusLoadPictureBox.Location = new Point(this.statusLoadLabel.Location.X - this.statusLoadPictureBox.Width, this.statusLoadLabel.Location.Y);
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
 
                 String strTitle = CommonCode.CommonCodes.Proj_mgmnt_name;
                 if (this.FindDockedFormToActivate(strTitle) < 0)
@@ -2298,7 +2710,7 @@ namespace Enterprise_Management_System.Forms
                 }
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
 
             }
             catch (Exception ex)
@@ -2306,7 +2718,7 @@ namespace Enterprise_Management_System.Forms
                 Global.myNwMainFrm.cmnCdMn.showMsg(ex.Message, 0);
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
         }
 
@@ -2324,7 +2736,7 @@ namespace Enterprise_Management_System.Forms
                 (Global.myNwMainFrm.cmnCdMn.myComputer.Screen.Bounds.Height / 2) - (int)(1.25 * this.statusLoadPictureBox.Height));//
                 this.statusLoadPictureBox.Visible = true;
                 this.statusLoadPictureBox.Location = new Point(this.statusLoadLabel.Location.X - this.statusLoadPictureBox.Width, this.statusLoadLabel.Location.Y);
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
 
                 String strTitle = CommonCode.CommonCodes.Appointments_name;
                 if (this.FindDockedFormToActivate(strTitle) < 0)
@@ -2353,7 +2765,7 @@ namespace Enterprise_Management_System.Forms
                 }
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
 
             }
             catch (Exception ex)
@@ -2361,7 +2773,7 @@ namespace Enterprise_Management_System.Forms
                 Global.myNwMainFrm.cmnCdMn.showMsg(ex.Message, 0);
                 this.statusLoadLabel.Visible = false;
                 this.statusLoadPictureBox.Visible = false;
-                System.Windows.Forms.Application.DoEvents();
+                //System.Windows.Forms.Application.DoEvents();
             }
         }
 
@@ -2374,5 +2786,19 @@ namespace Enterprise_Management_System.Forms
         {
             Global.myNwMainFrm.cmnCdMn.showSupportDiag(Global.myNwMainFrm.cmnCdMn);
         }
+    }
+
+
+    internal static class NativeWinAPI
+    {
+        internal static readonly int GWL_EXSTYLE = -20;
+        internal static readonly int WS_EX_COMPOSITED = 0x02000000;
+        internal static readonly int WS_CLIPCHILDREN = ~0x02000000;
+
+        [DllImport("user32")]
+        internal static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+
+        [DllImport("user32")]
+        internal static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
     }
 }

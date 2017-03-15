@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
-<!-- 2016-07-01T17:18:24 -->
+<!-- 2016-10-18T21:46:24 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Pay Slip" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Local PG DB"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Sample DB"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
@@ -222,10 +222,11 @@ to_char(to_timestamp(a.paymnt_date,'YYYY-MM-DD HH24:MI:SS'),'Mon-YYYY') payment_
       COALESCE(d.bank_name, '-') bank_nm,
       COALESCE(d.bank_branch,'-') bank_brnch,
       COALESCE(d.account_number,'-') bank_acc_num,
-      pay.get_blsitem_bals(a.person_id,org.get_payitm_id('Take Home Pay'),substring(a.paymnt_date from 1 for 10)) net_pay,
+      ROUND(pay.get_blsitem_bals(a.person_id,org.get_payitm_id('Take Home Pay'),substring(a.paymnt_date from 1 for 10)),2) net_pay,
       '2016-05-31 00:00:00' from_date,
       '2016-05-31 23:59:59' to_date,
-      b.org_id
+      b.org_id,
+      gst.get_pssbl_val(a.crncy_id) curr
 FROM (pay.pay_itm_trnsctns a 
 LEFT OUTER JOIN org.org_pay_items b ON a.item_id = b.item_id)
 LEFT OUTER JOIN prs.prsn_names_nos c on a.person_id = c.person_id 
@@ -237,13 +238,13 @@ and (b.org_id =1)
 and 
 (to_timestamp(a.paymnt_date,'YYYY-MM-DD HH24:MI:SS') 
 between 
-to_timestamp('2016-05-31 00:00:00','YYYY-MM-DD HH24:MI:SS') 
+to_timestamp('2016-06-01 00:00:00','YYYY-MM-DD HH24:MI:SS') 
 AND 
-to_timestamp('2016-05-31 23:59:59','YYYY-MM-DD HH24:MI:SS'))) 
+to_timestamp('2016-06-30 23:59:59','YYYY-MM-DD HH24:MI:SS'))) 
 
 AND c.local_id_no IN (c.local_id_no)
 AND b.local_classfctn ilike '%Staff Payroll Item%'
- GROUP BY 1,2,3,4,5,6 ,7,8,9,10,11,12,13,14,15,16
+ GROUP BY 1,2,3,4,5,6 ,7,8,9,10,11,12,13,14,15,16,17
  ORDER BY 1]]>
 	</queryString>
 	<field name="id_num" class="java.lang.String"/>
@@ -262,6 +263,7 @@ AND b.local_classfctn ilike '%Staff Payroll Item%'
 	<field name="from_date" class="java.lang.String"/>
 	<field name="to_date" class="java.lang.String"/>
 	<field name="org_id" class="java.lang.Integer"/>
+	<field name="curr" class="java.lang.String"/>
 	<detail>
 		<band height="330" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
@@ -286,7 +288,7 @@ AND b.local_classfctn ilike '%Staff Payroll Item%'
 				<imageExpression><![CDATA[$P{P_ImageUrl}]]></imageExpression>
 			</image>
 			<textField isBlankWhenNull="true">
-				<reportElement mode="Opaque" x="0" y="0" width="556" height="25" forecolor="#FFFFFF" backcolor="#150000" uuid="c47286b9-3550-4801-a71b-eb96a09d5a84"/>
+				<reportElement mode="Opaque" x="0" y="0" width="556" height="25" forecolor="#FFFFFF" backcolor="#3D80B8" uuid="c47286b9-3550-4801-a71b-eb96a09d5a84"/>
 				<box>
 					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
@@ -801,18 +803,10 @@ AND b.local_classfctn ilike '%Staff Payroll Item%'
 				</textElement>
 				<text><![CDATA[]]></text>
 			</staticText>
-			<staticText>
-				<reportElement positionType="Float" x="284" y="261" width="99" height="20" uuid="2d9f90cf-7538-420d-aea2-9e8390c7907c"/>
-				<box rightPadding="4"/>
-				<textElement textAlignment="Left" verticalAlignment="Middle">
-					<font size="11" isBold="true"/>
-				</textElement>
-				<text><![CDATA[Net Pay:]]></text>
-			</staticText>
-			<textField isStretchWithOverflow="true" pattern="#,##0.00" isBlankWhenNull="true">
-				<reportElement style="Detail" positionType="Float" x="384" y="261" width="170" height="20" uuid="0c08fd28-fbb4-4b7b-bcf9-77afed416ddd"/>
+			<textField isStretchWithOverflow="true" pattern="#,###.00" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="410" y="261" width="144" height="20" uuid="0c08fd28-fbb4-4b7b-bcf9-77afed416ddd"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font fontName="Arial" size="14" isBold="true" isUnderline="true"/>
+					<font fontName="Arial" size="16" isBold="true" isUnderline="true"/>
 					<paragraph leftIndent="5" rightIndent="2" spacingAfter="2"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{net_pay}]]></textFieldExpression>
@@ -857,6 +851,14 @@ AND b.local_classfctn ilike '%Staff Payroll Item%'
 					<text><![CDATA[Branch:]]></text>
 				</staticText>
 			</frame>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement style="Detail" positionType="Float" x="239" y="261" width="170" height="20" uuid="14d27894-c7d9-400c-9968-83729c99a410"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="false" isUnderline="false"/>
+					<paragraph leftIndent="5" rightIndent="2" spacingAfter="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Net Pay ("+$F{curr} +") :"]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 </jasperReport>

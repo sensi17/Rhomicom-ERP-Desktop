@@ -9,130 +9,130 @@ using System.Windows.Forms;
 
 namespace SystemAdministration.Classes
 {
-  public class SystemAdministration //: RhoModule
-  {
-    public SystemAdministration()
+    public class SystemAdministration //: RhoModule
     {
-    }
+        public SystemAdministration()
+        {
 
-    //RhoModuleHost myHost = null;
-    int putUnder = 1;
-    String myName = "System Administration";
-    string myDesc = "This module helps you to administer all the security features of this software!";
-    string audit_tbl_name = "sec.sec_audit_trail_tbl";
+        }
 
-    //WeifenLuo.WinFormsUI.Docking.DockContent myMainInterface = new mainForm();
-    String vwroleName = "View System Administration";
-    Int64 usr_id = -1;
-    int[] role_st_id = new int[0];
-    Int64 lgn_num = -1;
-    int Og_id = -1;
+        //RhoModuleHost myHost = null;
+        int putUnder = 1;
+        String myName = "System Administration";
+        string myDesc = "This module helps you to administer all the security features of this software!";
+        string audit_tbl_name = "sec.sec_audit_trail_tbl";
 
-    public int org_id
-    {
-      get { return Og_id; }
-      set { Og_id = value; }
-    }
+        //WeifenLuo.WinFormsUI.Docking.DockContent myMainInterface = new mainForm();
+        String vwroleName = "View System Administration";
+        Int64 usr_id = -1;
+        int[] role_st_id = new int[0];
+        Int64 lgn_num = -1;
+        int Og_id = -1;
 
-    public Int64 user_id
-    {
-      get { return usr_id; }
-      set { usr_id = value; }
-    }
+        public int org_id
+        {
+            get { return Og_id; }
+            set { Og_id = value; }
+        }
 
+        public Int64 user_id
+        {
+            get { return usr_id; }
+            set { usr_id = value; }
+        }
 
-    public Int64 login_number
-    {
-      get { return lgn_num; }
-      set { lgn_num = value; }
-    }
+        public Int64 login_number
+        {
+            get { return lgn_num; }
+            set { lgn_num = value; }
+        }
 
-    public int[] role_set_id
-    {
-      get { return role_st_id; }
-      set { role_st_id = value; }
-    }
+        public int[] role_set_id
+        {
+            get { return role_st_id; }
+            set { role_st_id = value; }
+        }
 
-    public String vwPrmssnName
-    {
-      get { return vwroleName; }
-    }
+        public String vwPrmssnName
+        {
+            get { return vwroleName; }
+        }
 
-    public String mdl_description
-    {
-      get { return myDesc; }
-    }
+        public String mdl_description
+        {
+            get { return myDesc; }
+        }
 
-    public string name
-    {
-      get { return myName; }
-    }
+        public string name
+        {
+            get { return myName; }
+        }
 
-    public string full_audit_trail_tbl_name
-    {
-      get { return audit_tbl_name; }
-    }
-    //public RhoModuleHost Host
-    //  {
-    //  get { return myHost; }
-    //  set { myHost = value; }
-    //  }
+        public string full_audit_trail_tbl_name
+        {
+            get { return audit_tbl_name; }
+        }
+        //public RhoModuleHost Host
+        //  {
+        //  get { return myHost; }
+        //  set { myHost = value; }
+        //  }
 
-    public int whereToPut
-    {
-      get { return putUnder; }
-    }
+        public int whereToPut
+        {
+            get { return putUnder; }
+        }
 
-    //public WeifenLuo.WinFormsUI.Docking.DockContent mainInterface
-    //  {
-    //  get { return myMainInterface; }
-    //  }
+        //public WeifenLuo.WinFormsUI.Docking.DockContent mainInterface
+        //  {
+        //  get { return myMainInterface; }
+        //  }
 
-    public void loadMyRolesNMsgtyps()
-    {
-      /* 1. Check if Module is registered already
-       * 2. if not register it
-       * 3. Check if all the required priviledges exist else Create them
-       * 4. Check if all the sample role set here exist else Create it
-       * 5. Check if this sample role set has ever been 
-       * given the required priviledges else let them have it
-       * 6. 
-       */
-      Global.refreshRqrdVrbls();
-      Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
-    }
+        public void loadMyRolesNMsgtyps()
+        {
+            /* 1. Check if Module is registered already
+             * 2. if not register it
+             * 3. Check if all the required priviledges exist else Create them
+             * 4. Check if all the sample role set here exist else Create it
+             * 5. Check if this sample role set has ever been 
+             * given the required priviledges else let them have it
+             * 6. 
+             */
+            Global.refreshRqrdVrbls();
+            Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
+        }
 
-    public void loadOtherMdlsRoles()
-    {
-      System.Windows.Forms.Application.DoEvents();
-      this.loadAccntngMdl();
-      System.Windows.Forms.Application.DoEvents();
-      this.loadPersonMdl();
-      System.Windows.Forms.Application.DoEvents();
-      this.loadGenStpMdl();
-      System.Windows.Forms.Application.DoEvents();
-      this.loadIntPymntsMdl();
-      System.Windows.Forms.Application.DoEvents();
-      this.loadEvntsAttndncMdl();
-      this.loadGenericMdl();
-      System.Windows.Forms.Application.DoEvents();
-      this.loadOrgStpMdl();
-      System.Windows.Forms.Application.DoEvents();
-      this.loadRptMdl();
-      System.Windows.Forms.Application.DoEvents();
-      this.loadInventoryMdl();
-      System.Windows.Forms.Application.DoEvents();
-      this.loadSelfServiceMdl();
-      string updtSQL = @"UPDATE prs.prsn_names_nos 
+        public void loadOtherMdlsRoles()
+        {
+            System.Windows.Forms.Application.DoEvents();
+            this.loadAccntngMdl();
+            System.Windows.Forms.Application.DoEvents();
+            this.loadPersonMdl();
+            System.Windows.Forms.Application.DoEvents();
+            this.loadGenStpMdl();
+            System.Windows.Forms.Application.DoEvents();
+            this.loadIntPymntsMdl();
+            System.Windows.Forms.Application.DoEvents();
+            this.loadEvntsAttndncMdl();
+            this.loadGenericMdl();
+            System.Windows.Forms.Application.DoEvents();
+            this.loadOrgStpMdl();
+            System.Windows.Forms.Application.DoEvents();
+            this.loadRptMdl();
+            System.Windows.Forms.Application.DoEvents();
+            this.loadInventoryMdl();
+            System.Windows.Forms.Application.DoEvents();
+            this.loadSelfServiceMdl();
+            string updtSQL = @"UPDATE prs.prsn_names_nos 
         SET first_name='SYSTEM'
         WHERE local_id_no = 'RHO0002012'";
-      Global.myNwMainFrm.cmmnCode.updateDataNoParams(updtSQL);
-    }
+            Global.myNwMainFrm.cmmnCode.updateDataNoParams(updtSQL);
+        }
 
-    public void loadAccntngMdl()
-    {
-      //For Accounting
-      string[] dfltPrvldgs = { "View Accounting","View Chart of Accounts", 
+        public void loadAccntngMdl()
+        {
+            //For Accounting
+            string[] dfltPrvldgs ={ "View Accounting","View Chart of Accounts", 
     /*2*/"View Account Transactions", "View Transactions Search",
     /*4*/"View/Generate Trial Balance", "View/Generate Profit & Loss Statement", 
     /*6*/"View/Generate Balance Sheet","View Budgets",
@@ -167,56 +167,58 @@ namespace SystemAdministration.Classes
     /*85*/"Add Direct Topup from Customer", "Edit Direct Topup from Customer","Delete Direct Topup from Customer",
     /*88*/"Add Customer Debit Memo (InDirect Refund)", "Edit Customer Debit Memo (InDirect Refund)", "Delete Customer Debit Memo (InDirect Refund)",
     /*91*/"Add Customers/Suppliers", "Edit Customers/Suppliers", "Delete Customers/Suppliers",
-    /*94*/"Add Fixed Assets","Edit Fixed Assets","Delete Fixed Assets"};
+    /*94*/"Add Fixed Assets","Edit Fixed Assets", "Delete Fixed Assets"
+                /*97*/,"View Petty Cash Vouchers", "View Petty Cash Payments","Add Petty Cash Payments","Edit Petty Cash Payments","Delete Petty Cash Payments"
+                /*102*/,"View Petty Cash Re-imbursements","Add Petty Cash Re-imbursements","Edit Petty Cash Re-imbursements","Delete Petty Cash Re-imbursements"};
 
-      string[] subGrpNames = { "Chart of Accounts", "Fixed Assets", "Customers/Suppliers", "Fixed Assets PM Records" };//, "Accounting Transactions"
-      string[] mainTableNames = { "accb.accb_chart_of_accnts", "accb.accb_fa_assets_rgstr", "scm.scm_cstmr_suplr", "accb.accb_fa_assets_pm_recs" };//, "accb.accb_trnsctn_details"
-      string[] keyColumnNames = { "accnt_id", "asset_id", "cust_sup_id", "asset_pm_rec_id" };//, "transctn_id" 
-      String myName = "Accounting";
-      string myDesc = "This module helps you to manage your organization's Accounting!";
-      string audit_tbl_name = "accb.accb_audit_trail_tbl";
-      String smplRoleName = "Accounting Administrator";
+            string[] subGrpNames = { "Chart of Accounts", "Fixed Assets", "Customers/Suppliers", "Fixed Assets PM Records" };//, "Accounting Transactions"
+            string[] mainTableNames = { "accb.accb_chart_of_accnts", "accb.accb_fa_assets_rgstr", "scm.scm_cstmr_suplr", "accb.accb_fa_assets_pm_recs" };//, "accb.accb_trnsctn_details"
+            string[] keyColumnNames = { "accnt_id", "asset_id", "cust_sup_id", "asset_pm_rec_id" };//, "transctn_id" 
+            String myName = "Accounting";
+            string myDesc = "This module helps you to manage your organization's Accounting!";
+            string audit_tbl_name = "accb.accb_audit_trail_tbl";
+            String smplRoleName = "Accounting Administrator";
 
-      Global.myNwMainFrm.cmmnCode.DefaultPrvldgs = dfltPrvldgs;
-      Global.myNwMainFrm.cmmnCode.SubGrpNames = subGrpNames;
-      Global.myNwMainFrm.cmmnCode.MainTableNames = mainTableNames;
-      Global.myNwMainFrm.cmmnCode.KeyColumnNames = keyColumnNames;
+            Global.myNwMainFrm.cmmnCode.DefaultPrvldgs = dfltPrvldgs;
+            Global.myNwMainFrm.cmmnCode.SubGrpNames = subGrpNames;
+            Global.myNwMainFrm.cmmnCode.MainTableNames = mainTableNames;
+            Global.myNwMainFrm.cmmnCode.KeyColumnNames = keyColumnNames;
 
-      Global.myNwMainFrm.cmmnCode.ModuleAdtTbl = audit_tbl_name;
-      Global.myNwMainFrm.cmmnCode.ModuleDesc = myDesc;
-      Global.myNwMainFrm.cmmnCode.ModuleName = myName;
-      Global.myNwMainFrm.cmmnCode.SampleRole = smplRoleName;
-      Global.myNwMainFrm.cmmnCode.Extra_Adt_Trl_Info = "";
-      Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
-      this.createAcctngRqrdLOVs();
-      this.createAcctngRqrdLOVs1();
+            Global.myNwMainFrm.cmmnCode.ModuleAdtTbl = audit_tbl_name;
+            Global.myNwMainFrm.cmmnCode.ModuleDesc = myDesc;
+            Global.myNwMainFrm.cmmnCode.ModuleName = myName;
+            Global.myNwMainFrm.cmmnCode.SampleRole = smplRoleName;
+            Global.myNwMainFrm.cmmnCode.Extra_Adt_Trl_Info = "";
+            Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
+            this.createAcctngRqrdLOVs();
+            this.createAcctngRqrdLOVs1();
 
-      Global.myNwMainFrm.changeOrg();
-      int orgID = int.Parse(Global.myNwMainFrm.crntOrgIDTextBox.Text);
-      if (orgID > 0)
-      {
-        Global.updtOrgAccntCurrID(orgID, Global.myNwMainFrm.cmmnCode.getOrgFuncCurID(orgID));
-      }
+            Global.myNwMainFrm.changeOrg();
+            int orgID = int.Parse(Global.myNwMainFrm.crntOrgIDTextBox.Text);
+            if (orgID > 0)
+            {
+                Global.updtOrgAccntCurrID(orgID, Global.myNwMainFrm.cmmnCode.getOrgFuncCurID(orgID));
+            }
 
-    }
+        }
 
-    public void createAcctngRqrdLOVs()
-    {
-      string[] sysLovs = { "Control Accounts", "Transactions not Allowed Days", 
+        public void createAcctngRqrdLOVs()
+        {
+            string[] sysLovs = { "Control Accounts", "Transactions not Allowed Days",
                            "Transactions not Allowed Dates", "Account Transaction Templates",
                            "Currencies","Payment Document Templates","Payment Methods",
                            "Supplier Prepayments","Supplier Debit Memos","Supplier Standard Payments",
                            "Customer Prepayments","Customer Credit Memos","Customer Standard Payments",
                          "Transaction Amount Breakdown Parameters","Receivables Docs. with Prepayments Applied",
                          "Payables Docs. with Prepayments Applied","Unposted Batches"};
-      string[] sysLovsDesc = { "Control Accounts", "Transactions not Allowed Days", 
+            string[] sysLovsDesc = { "Control Accounts", "Transactions not Allowed Days",
                                "Transactions not Allowed Dates", "Account Transaction Templates",
                                "Currencies", "Payment Document Templates", "Payment Methods",
                                "Supplier Prepayments","Supplier Debit Memos","Supplier Standard Payments",
                            "Customer Prepayments","Customer Credit Memos","Customer Standard Payments",
                              "Transaction Amount Breakdown Parameters","Receivables Docs. with Prepayments Applied",
                          "Payables Docs. with Prepayments Applied","Unposted Batches"};
-      string[] sysLovsDynQrys = { "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_num || '.' || accnt_name b, '' c, org_id d, accnt_type e, accnt_num f from accb.accb_chart_of_accnts where (has_sub_ledgers = '1' and is_enabled = '1') order by accnt_num",
+            string[] sysLovsDynQrys = { "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_num || '.' || accnt_name b, '' c, org_id d, accnt_type e, accnt_num f from accb.accb_chart_of_accnts where (has_sub_ledgers = '1' and is_enabled = '1' and org.does_prsn_hv_accnt_id({:prsn_id},accnt_id)>0) order by accnt_num",
                                 "","",
                             @"SELECT distinct trim(to_char(z.template_id,'999999999999999999999999999999')) a, z.template_name b,'' c, z.org_id d, trim(to_char(w.user_id,'999999999999999999999999999999')) e
                             FROM accb.accb_trnsctn_templates_hdr z 
@@ -238,7 +240,7 @@ namespace SystemAdministration.Classes
                             FROM accb.accb_trnsctn_batches z 
                             ORDER BY z.batch_id DESC"};
 
-      string[] pssblVals = {"2", "01-JAN-1901", "Sample Holiday Date Disallowed",
+            string[] pssblVals = {"2", "01-JAN-1901", "Sample Holiday Date Disallowed",
                            "2", "01-JAN-2014", "Sample Holiday Date Disallowed",
                            "1", "SUNDAY", "No Weekend Transactions",
                            "1", "SATURDAY", "No Weekend Transactions",
@@ -260,28 +262,28 @@ namespace SystemAdministration.Classes
                            "13","GHS 0.05","GHS 0.05",
                            "13","GHS 0.01","GHS 0.01"};
 
-      Global.myNwMainFrm.cmmnCode.createSysLovs(sysLovs, sysLovsDynQrys, sysLovsDesc);
-      Global.myNwMainFrm.cmmnCode.createSysLovsPssblVals(sysLovs, pssblVals);
-      string[] prcsstyps = { "Trial Balance Report", "Profit and Loss Report", 
-                             "Balance Sheet Report", "Subledger Balance Report", 
+            Global.myNwMainFrm.cmmnCode.createSysLovs(sysLovs, sysLovsDynQrys, sysLovsDesc);
+            Global.myNwMainFrm.cmmnCode.createSysLovsPssblVals(sysLovs, pssblVals);
+            string[] prcsstyps = { "Trial Balance Report", "Profit and Loss Report",
+                             "Balance Sheet Report", "Subledger Balance Report",
                              "Post GL Batch", "Open/Close Periods",
                              "Inventory Journal Import", "Internal Payments Journal Import" };
-      for (int i = 1; i < 9; i++)
-      {
-        if (Global.getActnPrcssID(i.ToString()) <= 0)
-        {
-          Global.createActnPrcss(i, prcsstyps[i - 1]);
+            for (int i = 1; i < 9; i++)
+            {
+                if (Global.getActnPrcssID(i.ToString()) <= 0)
+                {
+                    Global.createActnPrcss(i, prcsstyps[i - 1]);
+                }
+                else
+                {
+                    Global.updtActnPrcss(i, prcsstyps[i - 1]);
+                }
+            }
         }
-        else
-        {
-          Global.updtActnPrcss(i, prcsstyps[i - 1]);
-        }
-      }
-    }
 
-    public void createAcctngRqrdLOVs1()
-    {
-      string[] sysLovs = { "Cash Accounts", "Inventory/Asset Accounts", "Contra Expense Accounts",
+        public void createAcctngRqrdLOVs1()
+        {
+            string[] sysLovs = { "Cash Accounts", "Inventory/Asset Accounts", "Contra Expense Accounts",
       "Contra Revenue Accounts","Customer Classifications","Supplier Classifications",
         "Tax Codes","Discount Codes", "Extra Charges", "Approved Requisitions",
         "Suppliers", "Customer/Supplier Sites","Users' Sales Stores","Approved Pro-Forma Invoices",
@@ -292,22 +294,22 @@ namespace SystemAdministration.Classes
         /*25*/"All Expense Accounts", "All Memo Accounts","Asset Classifications", 
         /*28*/"Asset Categories","Asset Building Names","Asset Room Names", "Asset Numbers", 
         /*32*/"PM Measurement Types", "PM Measurement Units", "PM Actions Taken"};
-      string[] sysLovsDesc = { "Cash Accounts", "Inventory/Asset Accounts", "Contra Expense Accounts",
+            string[] sysLovsDesc = { "Cash Accounts", "Inventory/Asset Accounts", "Contra Expense Accounts",
       "Contra Revenue Accounts","Customer Classifications","Supplier Classifications",
         "Tax Codes","Discount Codes","Extra Charges","Approved Requisitions",
         "Suppliers", "Customer/Supplier Sites", "Users' Sales Stores","Approved Pro-Forma Invoices",
         "Approved Sales Orders","Approved Internal Item Requests",
         "Customers", "Approved Sales Invoices/Item Issues", "Simultaneous Customer/Supplier Classifications",
-        "Persons not Linked as Customers/Suppliers", "All Accounts", 
+        "Persons not Linked as Customers/Suppliers", "All Accounts",
         "All Asset Accounts", "All Liability Accounts", "All Equity Accounts", "All Revenue Accounts"
         , "All Expense Accounts", "All Memo Accounts", "Asset Classifications"
         , "Asset Categories", "Asset Building Names", "Asset Room Names", "Asset Numbers", 
         /*32*/"PM Measurement Types", "PM Measurement Units", "PM Actions Taken"};
-      string[] sysLovsDynQrys = { "", "", 
-        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'EX' and is_prnt_accnt = '0' and is_enabled = '1' and is_contra = '1') order by accnt_num", 
-        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'R' and is_prnt_accnt = '0' and is_enabled = '1' and is_contra = '1') order by accnt_num", 
-        "", "", 
-        "select distinct trim(to_char(code_id,'999999999999999999999999999999')) a, code_name b, '' c, org_id d, is_parent e from scm.scm_tax_codes where (itm_type = 'Tax' and is_enabled = '1') order by code_name", 
+            string[] sysLovsDynQrys = { "", "",
+        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'EX' and is_prnt_accnt = '0' and is_enabled = '1' and is_contra = '1' and org.does_prsn_hv_accnt_id({:prsn_id},accnt_id)>0) order by accnt_num",
+        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'R' and is_prnt_accnt = '0' and is_enabled = '1' and is_contra = '1' and org.does_prsn_hv_accnt_id({:prsn_id},accnt_id)>0) order by accnt_num",
+        "", "",
+        "select distinct trim(to_char(code_id,'999999999999999999999999999999')) a, code_name b, '' c, org_id d, is_parent e from scm.scm_tax_codes where (itm_type = 'Tax' and is_enabled = '1') order by code_name",
         "select distinct trim(to_char(code_id,'999999999999999999999999999999')) a, code_name b, '' c, org_id d, is_parent e from scm.scm_tax_codes where (itm_type = 'Discount' and is_enabled = '1') order by code_name",
         "select distinct trim(to_char(code_id,'999999999999999999999999999999')) a, code_name b, '' c, org_id d, is_parent e from scm.scm_tax_codes where (itm_type = 'Extra Charge' and is_enabled = '1') order by code_name",
         "select distinct trim(to_char(y.prchs_doc_hdr_id,'999999999999999999999999999999')) a, y.purchase_doc_num b, '' c, y.org_id d, y.prchs_doc_hdr_id g " +
@@ -341,28 +343,28 @@ namespace SystemAdministration.Classes
         "and (z.invc_hdr_id = y.invc_hdr_id) and ((z.doc_qty - z.qty_trnsctd_in_dest_doc)>0)) order by y.invc_hdr_id DESC",
         "",
   "SELECT distinct local_id_no a, trim(title || ' ' || sur_name || "+
-		"', ' || first_name || ' ' || other_names) b, '' c, org_id d " +
-		"FROM prs.prsn_names_nos a where a.person_id NOT IN (Select lnkd_prsn_id from scm.scm_cstmr_suplr where lnkd_prsn_id>0) order by local_id_no DESC",
-    "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, (CASE WHEN prnt_accnt_id>0 THEN accnt_num || '.' || accnt_name || ' ('|| accb.get_accnt_num(prnt_accnt_id)||'.'||accb.get_accnt_name(prnt_accnt_id)|| ')' WHEN control_account_id>0 THEN accnt_num || '.' || accnt_name || ' ('|| accb.get_accnt_num(control_account_id)||'.'||accb.get_accnt_name(control_account_id)|| ')' ELSE accnt_num || '.' || accnt_name END) b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (is_enabled = '1') order by accnt_num", 
-        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'A') order by accnt_num", 
-        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'L') order by accnt_num", 
-        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'EQ') order by accnt_num", 
-        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'R') order by accnt_num", 
-        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'EX') order by accnt_num", 
+        "', ' || first_name || ' ' || other_names) b, '' c, org_id d " +
+        "FROM prs.prsn_names_nos a where a.person_id NOT IN (Select lnkd_prsn_id from scm.scm_cstmr_suplr where lnkd_prsn_id>0) order by local_id_no DESC",
+    "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, (CASE WHEN prnt_accnt_id>0 THEN accnt_num || '.' || accnt_name || ' ('|| accb.get_accnt_num(prnt_accnt_id)||'.'||accb.get_accnt_name(prnt_accnt_id)|| ')' WHEN control_account_id>0 THEN accnt_num || '.' || accnt_name || ' ('|| accb.get_accnt_num(control_account_id)||'.'||accb.get_accnt_name(control_account_id)|| ')' ELSE accnt_num || '.' || accnt_name END) b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (is_enabled = '1' and org.does_prsn_hv_accnt_id({:prsn_id},accnt_id)>0) order by accnt_num",
+        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'A' and org.does_prsn_hv_accnt_id({:prsn_id},accnt_id)>0) order by accnt_num",
+        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'L' and org.does_prsn_hv_accnt_id({:prsn_id},accnt_id)>0) order by accnt_num",
+        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'EQ' and org.does_prsn_hv_accnt_id({:prsn_id},accnt_id)>0) order by accnt_num",
+        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'R' and org.does_prsn_hv_accnt_id({:prsn_id},accnt_id)>0) order by accnt_num",
+        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'EX' and org.does_prsn_hv_accnt_id({:prsn_id},accnt_id)>0) order by accnt_num",
         "select distinct trim(to_char(memo_accnt_id,'999999999999999999999999999999')) a, memo_accnt_name b, '' c, org_id d, memo_accnt_num e from accb.accb_memo_accounts where (is_enabled = '1') order by memo_accnt_num",
         "","","","",
         "select distinct '' || asset_id a, trim(asset_code_name || ' ' || REPLACE(asset_desc, asset_code_name, '')) b, '' c, org_id d from accb.accb_fa_assets_rgstr order by 2",
         "","",""
         };
-      string[] pssblVals = { 
+            string[] pssblVals = {
         "4", "Retail Customer", "Retail Customer"
-		   ,"4", "Wholesale customer", "Wholesale customer",
+           ,"4", "Wholesale customer", "Wholesale customer",
         "4", "Individual", "Individual Person"
-		   ,"4", "Organisation", "Company/Organisation",
+           ,"4", "Organisation", "Company/Organisation",
         "5", "Service Provider", "Service Provider"
-		   ,"5", "Goods Provider", "Goods Provider",
+           ,"5", "Goods Provider", "Goods Provider",
         "5", "Service and Goods Provider", "Service and Goods Provider"
-		   ,"5", "Consultant", "Consultant"
+           ,"5", "Consultant", "Consultant"
        ,"5", "Training Provider", "Training Provider"
        ,"18", "Customer/Service Provider Organisation", "Customer/Service Provider Organisation"
        ,"18", "Customer/Service Provider Individual", "Customer/Service Provider Individual"
@@ -393,14 +395,14 @@ namespace SystemAdministration.Classes
        ,"34", "Oil Change", "Oil Change"
        ,"34", "General Cleaning", "General Cleaning"};
 
-      Global.myNwMainFrm.cmmnCode.createSysLovs(sysLovs, sysLovsDynQrys, sysLovsDesc);
-      Global.myNwMainFrm.cmmnCode.createSysLovsPssblVals(sysLovs, pssblVals);
-    }
+            Global.myNwMainFrm.cmmnCode.createSysLovs(sysLovs, sysLovsDynQrys, sysLovsDesc);
+            Global.myNwMainFrm.cmmnCode.createSysLovsPssblVals(sysLovs, pssblVals);
+        }
 
-    public void loadInventoryMdl()
-    {
-      //For Accounting
-      string[] dfltPrvldgs = { "View Inventory Manager", 
+        public void loadInventoryMdl()
+        {
+            //For Accounting
+            string[] dfltPrvldgs = { "View Inventory Manager", 
         /*1*/  "View Item List", "View Product Categories", "View Stores/Warehouses"
         /*4*/,"View Receipts", "View Receipt Returns", "View Item Type Templates",
         /*7*/ "View Item Balances",
@@ -438,49 +440,49 @@ namespace SystemAdministration.Classes
       /*103*/"Can Edit Unit Price"};
 
 
-      string[] subGrpNames = new string[0];
-      string[] mainTableNames = new string[0];
-      string[] keyColumnNames = new string[0];
-      String myName = "Stores And Inventory Manager";
-      string myDesc = "This module helps you to manage your organization's Inventory System!";
-      string audit_tbl_name = "inv.inv_audit_trail_tbl";
+            string[] subGrpNames = new string[0];
+            string[] mainTableNames = new string[0];
+            string[] keyColumnNames = new string[0];
+            String myName = "Stores And Inventory Manager";
+            string myDesc = "This module helps you to manage your organization's Inventory System!";
+            string audit_tbl_name = "inv.inv_audit_trail_tbl";
 
-      String smplRoleName = "Stores And Inventory Manager Administrator";
+            String smplRoleName = "Stores And Inventory Manager Administrator";
 
-      Global.myNwMainFrm.cmmnCode.DefaultPrvldgs = dfltPrvldgs;
-      Global.myNwMainFrm.cmmnCode.SubGrpNames = subGrpNames;
-      Global.myNwMainFrm.cmmnCode.MainTableNames = mainTableNames;
-      Global.myNwMainFrm.cmmnCode.KeyColumnNames = keyColumnNames;
+            Global.myNwMainFrm.cmmnCode.DefaultPrvldgs = dfltPrvldgs;
+            Global.myNwMainFrm.cmmnCode.SubGrpNames = subGrpNames;
+            Global.myNwMainFrm.cmmnCode.MainTableNames = mainTableNames;
+            Global.myNwMainFrm.cmmnCode.KeyColumnNames = keyColumnNames;
 
-      Global.myNwMainFrm.cmmnCode.ModuleAdtTbl = audit_tbl_name;
-      Global.myNwMainFrm.cmmnCode.ModuleDesc = myDesc;
-      Global.myNwMainFrm.cmmnCode.ModuleName = myName;
-      Global.myNwMainFrm.cmmnCode.SampleRole = smplRoleName;
-      Global.myNwMainFrm.cmmnCode.Extra_Adt_Trl_Info = "";
-      Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
-      this.createInvntryRqrdLOVs();
-      if (Global.myNwMainFrm.cmmnCode.Org_id > 0)
-      {
-        long rowid = Global.myNwMainFrm.cmmnCode.getGnrlRecID("scm.scm_dflt_accnts", "rho_name",
-  "row_id", "Default Accounts", Global.myNwMainFrm.cmmnCode.Org_id);
-        if (rowid <= 0)
-        {
-          Global.createDfltAcnts(Global.myNwMainFrm.cmmnCode.Org_id);
+            Global.myNwMainFrm.cmmnCode.ModuleAdtTbl = audit_tbl_name;
+            Global.myNwMainFrm.cmmnCode.ModuleDesc = myDesc;
+            Global.myNwMainFrm.cmmnCode.ModuleName = myName;
+            Global.myNwMainFrm.cmmnCode.SampleRole = smplRoleName;
+            Global.myNwMainFrm.cmmnCode.Extra_Adt_Trl_Info = "";
+            Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
+            this.createInvntryRqrdLOVs();
+            if (Global.myNwMainFrm.cmmnCode.Org_id > 0)
+            {
+                long rowid = Global.myNwMainFrm.cmmnCode.getGnrlRecID("scm.scm_dflt_accnts", "rho_name",
+          "row_id", "Default Accounts", Global.myNwMainFrm.cmmnCode.Org_id);
+                if (rowid <= 0)
+                {
+                    Global.createDfltAcnts(Global.myNwMainFrm.cmmnCode.Org_id);
+                }
+                long pymntID = Global.myNwMainFrm.cmmnCode.getGnrlRecID("accb.accb_paymnt_mthds", "pymnt_mthd_name",
+          "paymnt_mthd_id", "Customer Cash", Global.myNwMainFrm.cmmnCode.Org_id);
+
+                Global.updtOrgInvoiceCurrID(Global.myNwMainFrm.cmmnCode.Org_id,
+                  Global.myNwMainFrm.cmmnCode.getOrgFuncCurID(Global.myNwMainFrm.cmmnCode.Org_id),
+                  pymntID);
+            }
+            Global.updateOrgnlSellingPrice();
+            Global.updateUOMPrices();
         }
-        long pymntID = Global.myNwMainFrm.cmmnCode.getGnrlRecID("accb.accb_paymnt_mthds", "pymnt_mthd_name",
-  "paymnt_mthd_id", "Customer Cash", Global.myNwMainFrm.cmmnCode.Org_id);
 
-        Global.updtOrgInvoiceCurrID(Global.myNwMainFrm.cmmnCode.Org_id,
-          Global.myNwMainFrm.cmmnCode.getOrgFuncCurID(Global.myNwMainFrm.cmmnCode.Org_id),
-          pymntID);
-      }
-      Global.updateOrgnlSellingPrice();
-      Global.updateUOMPrices();
-    }
-
-    public void createInvntryRqrdLOVs()
-    {
-      string[] sysLovs = { "Cash Accounts", "Inventory/Asset Accounts", "Contra Expense Accounts",
+        public void createInvntryRqrdLOVs()
+        {
+            string[] sysLovs = { "Cash Accounts", "Inventory/Asset Accounts", "Contra Expense Accounts",
       "Contra Revenue Accounts","Customer Classifications","Supplier Classifications",
         "Tax Codes","Discount Codes", "Extra Charges", "Approved Requisitions",
         "Suppliers", "Customer/Supplier Sites","Users' Sales Stores","Approved Pro-Forma Invoices",
@@ -490,8 +492,8 @@ namespace SystemAdministration.Classes
         /*22*/"Production Process Runs", "Production Process Run Stages","Production Process Classifications",
         /*25*/"Default POS Paper Size","Default Document Notes", "Document Custom Print Process Names",
         /*28*/"All Sales Documents","Production Cost Explanations",
-        /*30*/"All Receivables Documents", "All Payables Documents"};
-      string[] sysLovsDesc = {"Cash Accounts", "Inventory/Asset Accounts", "Contra Expense Accounts",
+        /*30*/"All Receivables Documents", "All Payables Documents","Allow Inventory to be Costed"};
+            string[] sysLovsDesc = {"Cash Accounts", "Inventory/Asset Accounts", "Contra Expense Accounts",
       "Contra Revenue Accounts","Customer Classifications","Supplier Classifications",
         "Tax Codes","Discount Codes","Extra Charges","Approved Requisitions",
         "Suppliers", "Customer/Supplier Sites", "Users' Sales Stores","Approved Pro-Forma Invoices",
@@ -503,12 +505,12 @@ namespace SystemAdministration.Classes
                          "Default POS Paper Size","Default Document Notes",
                          "Document Custom Print Process Names",
         /*28*/"All Sales Documents","Production Cost Explanations",
-        /*30*/"All Receivables Documents", "All Payables Documents"};
-      string[] sysLovsDynQrys = { "", "", 
-        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'EX' and is_prnt_accnt = '0' and is_enabled = '1' and is_contra = '1') order by accnt_num", 
-        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'R' and is_prnt_accnt = '0' and is_enabled = '1' and is_contra = '1') order by accnt_num", 
-        "", "", 
-        "select distinct trim(to_char(code_id,'999999999999999999999999999999')) a, code_name b, '' c, org_id d, is_parent e from scm.scm_tax_codes where (itm_type = 'Tax' and is_enabled = '1') order by code_name", 
+        /*30*/"All Receivables Documents", "All Payables Documents","Allow Inventory to be Costed"};
+            string[] sysLovsDynQrys = { "", "",
+        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'EX' and is_prnt_accnt = '0' and is_enabled = '1' and is_contra = '1' and org.does_prsn_hv_accnt_id({:prsn_id},accnt_id)>0) order by accnt_num",
+        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'R' and is_prnt_accnt = '0' and is_enabled = '1' and is_contra = '1' and org.does_prsn_hv_accnt_id({:prsn_id},accnt_id)>0) order by accnt_num",
+        "", "",
+        "select distinct trim(to_char(code_id,'999999999999999999999999999999')) a, code_name b, '' c, org_id d, is_parent e from scm.scm_tax_codes where (itm_type = 'Tax' and is_enabled = '1') order by code_name",
         "select distinct trim(to_char(code_id,'999999999999999999999999999999')) a, code_name b, '' c, org_id d, is_parent e from scm.scm_tax_codes where (itm_type = 'Discount' and is_enabled = '1') order by code_name",
         "select distinct trim(to_char(code_id,'999999999999999999999999999999')) a, code_name b, '' c, org_id d, is_parent e from scm.scm_tax_codes where (itm_type = 'Extra Charge' and is_enabled = '1') order by code_name",
         "select distinct trim(to_char(y.prchs_doc_hdr_id,'999999999999999999999999999999')) a, y.purchase_doc_num b, '' c, y.org_id d, y.prchs_doc_hdr_id g " +
@@ -555,17 +557,17 @@ namespace SystemAdministration.Classes
         "where (1=1) order by y.rcvbls_invc_hdr_id DESC",
         "select distinct ''||y.pybls_invc_hdr_id a, y.pybls_invc_number b, '' c, y.org_id d, y.pybls_invc_hdr_id g " +
         "from accb.accb_pybls_invc_hdr y " +
-        "where (1=1) order by y.pybls_invc_hdr_id DESC"
+        "where (1=1) order by y.pybls_invc_hdr_id DESC",""
         };
-      string[] pssblVals = { 
+            string[] pssblVals = {
         "4", "Retail Customer", "Retail Customer"
-		   ,"4", "Wholesale customer", "Wholesale customer",
+           ,"4", "Wholesale customer", "Wholesale customer",
         "4", "Individual", "Individual Person"
-		   ,"4", "Organisation", "Company/Organisation",
+           ,"4", "Organisation", "Company/Organisation",
         "5", "Service Provider", "Service Provider"
-		   ,"5", "Goods Provider", "Goods Provider",
+           ,"5", "Goods Provider", "Goods Provider",
         "5", "Service and Goods Provider", "Service and Goods Provider"
-		   ,"5", "Consultant", "Consultant"
+           ,"5", "Consultant", "Consultant"
        ,"5", "Training Provider", "Training Provider"
        ,"20", "NO", "Allow Internal Payments on Invoices"
        ,"24", "Category 1", "Category 1 Production Process"
@@ -589,6 +591,7 @@ namespace SystemAdministration.Classes
        ,"27", "Item Issues", "Item Issues-Unbilled"
        ,"27", "Internal Item Request","Item Issues-Unbilled"
        ,"27", "Payables Invoice", "Payables Invoice"
+       ,"27", "Petty Cash Voucher", "Petty Cash Voucher"
        ,"27", "Restaurant Invoice", "Sales Invoice"
        ,"27", "Check-Ins Invoice", "Sales Invoice"
        ,"27", "Appointments Invoice", "Sales Invoice"
@@ -596,26 +599,27 @@ namespace SystemAdministration.Classes
        ,"27", "Pay Slip", "Customized Pay Slip (Sample 1)"
        ,"29", "Labour Costs", "Labour Costs"
        ,"29", "Rental Costs", "Rental Costs"
-       ,"29", "Utility Costs", "Utility Costs"};
+       ,"29", "Utility Costs", "Utility Costs"
+       ,"32","YES","Allow Inventory to be Costed"};
 
-      Global.myNwMainFrm.cmmnCode.createSysLovs(sysLovs, sysLovsDynQrys, sysLovsDesc);
-      Global.myNwMainFrm.cmmnCode.createSysLovsPssblVals(sysLovs, pssblVals);
+            Global.myNwMainFrm.cmmnCode.createSysLovs(sysLovs, sysLovsDynQrys, sysLovsDesc);
+            Global.myNwMainFrm.cmmnCode.createSysLovsPssblVals(sysLovs, pssblVals);
 
-      string[] sysLovs1 = { "Cash Accounts", "Inventory/Asset Accounts", "Contra Expense Accounts",
+            string[] sysLovs1 = { "Cash Accounts", "Inventory/Asset Accounts", "Contra Expense Accounts",
       "Contra Revenue Accounts","Customer Classifications","Supplier Classifications",
         "Tax Codes","Discount Codes", "Extra Charges", "Approved Requisitions","Suppliers", "Supplier Sites",
           "Shelves","Categories","Stores", "Item Templates","Purchase Orders","Items Stores","Consignment Conditions",
           "Receipt Return Reasons", "Unit Of Measures", "Store Shelves", "Inventory Items"};
-      string[] sysLovsDesc1 = { "Cash Accounts", "Inventory/Asset Accounts", "Contra Expense Accounts",
+            string[] sysLovsDesc1 = { "Cash Accounts", "Inventory/Asset Accounts", "Contra Expense Accounts",
       "Contra Revenue Accounts","Customer Classifications","Supplier Classifications",
         "Tax Codes","Discount Codes","Extra Charges","Approved Requisitions","Suppliers", "Supplier Sites",
           "Shelves","Categories","Stores","Item Templates","Purchase Orders","Items Stores","Consignment Conditions",
           "Receipt Return Reasons", "Unit Of Measures", "Store Shelves", "Inventory Items"};
-      string[] sysLovsDynQrys1 = { "", "", 
-        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'EX' and is_prnt_accnt = '0' and is_enabled = '1' and is_contra = '1') order by accnt_num", 
-        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'R' and is_prnt_accnt = '0' and is_enabled = '1' and is_contra = '1') order by accnt_num", 
-        "", "", 
-        "select distinct trim(to_char(code_id,'999999999999999999999999999999')) a, code_name b, '' c, org_id d, is_parent e from scm.scm_tax_codes where (itm_type = 'Tax' and is_enabled = '1') order by code_name", 
+            string[] sysLovsDynQrys1 = { "", "",
+        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'EX' and is_prnt_accnt = '0' and is_enabled = '1' and is_contra = '1' and org.does_prsn_hv_accnt_id({:prsn_id},accnt_id)>0) order by accnt_num",
+        "select distinct trim(to_char(accnt_id,'999999999999999999999999999999')) a, accnt_name b, '' c, org_id d, accnt_num e from accb.accb_chart_of_accnts where (accnt_type = 'R' and is_prnt_accnt = '0' and is_enabled = '1' and is_contra = '1' and org.does_prsn_hv_accnt_id({:prsn_id},accnt_id)>0) order by accnt_num",
+        "", "",
+        "select distinct trim(to_char(code_id,'999999999999999999999999999999')) a, code_name b, '' c, org_id d, is_parent e from scm.scm_tax_codes where (itm_type = 'Tax' and is_enabled = '1') order by code_name",
         "select distinct trim(to_char(code_id,'999999999999999999999999999999')) a, code_name b, '' c, org_id d, is_parent e from scm.scm_tax_codes where (itm_type = 'Discount' and is_enabled = '1') order by code_name",
         "select distinct trim(to_char(code_id,'999999999999999999999999999999')) a, code_name b, '' c, org_id d, is_parent e from scm.scm_tax_codes where (itm_type = 'Extra Charge' and is_enabled = '1') order by code_name",
         "select distinct trim(to_char(prchs_doc_hdr_id,'999999999999999999999999999999')) a, purchase_doc_num b, '' c, org_id d from scm.scm_prchs_docs_hdr where (purchase_doc_type = 'Purchase Requisition' and approval_status = 'Approved') order by purchase_doc_num DESC",
@@ -626,7 +630,7 @@ namespace SystemAdministration.Classes
           "select distinct trim(to_char(subinv_id,'999999999999999999999999999999')) a, subinv_name b, '' c, org_id d from inv.inv_itm_subinventories where (enabled_flag = '1') order by subinv_name",
           "select distinct trim(to_char(item_type_id,'999999999999999999999999999999')) a, item_type_name b, '' c, org_id d from inv.inv_itm_type_templates where (is_tmplt_enabled_flag = '1') order by item_type_name",
           "select distinct trim(to_char(prchs_doc_hdr_id,'999999999999999999999999999999')) a, purchase_doc_num b, '' c, org_id d, purchase_doc_type e, po_rec_status f from scm.scm_prchs_docs_hdr where approval_status = 'Approved' order by purchase_doc_num",
-          "select distinct trim(to_char(y.subinv_id,'999999999999999999999999999999')) a, y.subinv_name b, '' c, y.org_id d, trim(to_char(z.itm_id,'999999999999999999999999999999')) e from inv.inv_itm_subinventories y, inv.inv_stock z " + 
+          "select distinct trim(to_char(y.subinv_id,'999999999999999999999999999999')) a, y.subinv_name b, '' c, y.org_id d, trim(to_char(z.itm_id,'999999999999999999999999999999')) e from inv.inv_itm_subinventories y, inv.inv_stock z " +
               " where y.subinv_id = z.subinv_id and to_date(z.start_date,'YYYY-MM-DD') <= now()::Date and (to_date(z.end_date,'YYYY-MM-DD') >= now()::Date or end_date = '')  order by 2",
           "","",
           "select distinct trim(to_char(uom_id,'999999999999999999999999999999')) a, uom_name b, '' c, org_id d from inv.unit_of_measure where (enabled_flag = '1') order by uom_name",
@@ -634,24 +638,24 @@ namespace SystemAdministration.Classes
           "WHERE pssbl_value_id = y.shelf_id) b, '' c, store_id d from inv.inv_shelf y order by 1",
           "SELECT distinct trim(to_char(item_id,'999999999999999999999999999999')) a, item_desc || '(' || item_code || ')' b, '' c, org_id d FROM inv.inv_itm_list order by 2"};
 
-      string[] pssblVals1 = { 
+            string[] pssblVals1 = {
         "4", "Retail Customer", "Retail Customer"
-	       ,"4", "Wholesale customer", "Wholesale customer",
+           ,"4", "Wholesale customer", "Wholesale customer",
         "4", "Individual", "Individual Person"
-	       ,"4", "Organisation", "Company/Organisation",
+           ,"4", "Organisation", "Company/Organisation",
         "5", "Service Provider", "Service Provider"
-	       ,"5", "Goods Provider", "Goods Provider",
+           ,"5", "Goods Provider", "Goods Provider",
         "5", "Service and Goods Provider", "Service and Goods Provider"
-	       ,"5", "Consultant", "Consultant"
+           ,"5", "Consultant", "Consultant"
       ,"5", "Training Provider", "Training Provider",
           "12", "Shelf 1A", "First Floor shelf A"
-	       ,"12", "Shelf 1B", "First Floor shelf B",
+           ,"12", "Shelf 1B", "First Floor shelf B",
         "12", "Shelf 1C", "First Floor shelf C"
-	       ,"12", "Shelf 2A", "Second Floor shelf A",
+           ,"12", "Shelf 2A", "Second Floor shelf A",
         "12", "Shelf 2B", "Second Floor shelf B"
-	       ,"12", "Shelf 2C", "Second Floor shelf C",
+           ,"12", "Shelf 2C", "Second Floor shelf C",
        "12", "Shelf 3A", "Third Floor shelf A"
-	       ,"12", "Shelf 3B", "Third Floor shelf B"
+           ,"12", "Shelf 3B", "Third Floor shelf B"
         ,"12", "Shelf 3C", "Third Floor shelf C"
           ,"18", "Excellent", "In Execellent Condition"
           ,"18", "Very Good", "In Very Good Condition"
@@ -664,14 +668,14 @@ namespace SystemAdministration.Classes
           ,"19", "Wrong Receipt", "Wrong Receipt"
           ,"19", "Over Receipt", "Over Receipt"};
 
-      Global.myNwMainFrm.cmmnCode.createSysLovs(sysLovs1, sysLovsDynQrys1, sysLovsDesc1);
-      Global.myNwMainFrm.cmmnCode.createSysLovsPssblVals(sysLovs1, pssblVals1);
-    }
+            Global.myNwMainFrm.cmmnCode.createSysLovs(sysLovs1, sysLovsDynQrys1, sysLovsDesc1);
+            Global.myNwMainFrm.cmmnCode.createSysLovsPssblVals(sysLovs1, pssblVals1);
+        }
 
-    public void loadPersonMdl()
-    {
-      //For Accounting
-      string[] dfltPrvldgs = {"View Person", "View Basic Person Data", 
+        public void loadPersonMdl()
+        {
+            //For Accounting
+            string[] dfltPrvldgs = {"View Person", "View Basic Person Data", 
 		/*2*/ "View Curriculum Vitae", "View Basic Person Assignments", 
     /*4*/ "View Person Pay Item Assignments", "View SQL", "View Record History",
     /*7*/ "Add Person Info","Edit Person Info","Delete Person Info",
@@ -681,61 +685,61 @@ namespace SystemAdministration.Classes
     /*17*/"Define Assignment Templates", "Edit Assignment Templates", "Delete Assignment Templates",
       "View Assignment Templates"};
 
-      string[] subGrpNames = { "Person Data" };
-      string[] mainTableNames = { "prs.prsn_names_nos" };
-      string[] keyColumnNames = { "person_id" };
-      String myName = "Basic Person Data";
-      string myDesc = "This module helps you to setup basic information " +
-      "about people in your organization!";
-      string audit_tbl_name = "prs.prsn_audit_trail_tbl";
-      String smplRoleName = "Basic Person Data Administrator";
+            string[] subGrpNames = { "Person Data" };
+            string[] mainTableNames = { "prs.prsn_names_nos" };
+            string[] keyColumnNames = { "person_id" };
+            String myName = "Basic Person Data";
+            string myDesc = "This module helps you to setup basic information " +
+            "about people in your organization!";
+            string audit_tbl_name = "prs.prsn_audit_trail_tbl";
+            String smplRoleName = "Basic Person Data Administrator";
 
-      Global.myNwMainFrm.cmmnCode.DefaultPrvldgs = dfltPrvldgs;
-      Global.myNwMainFrm.cmmnCode.SubGrpNames = subGrpNames;
-      Global.myNwMainFrm.cmmnCode.MainTableNames = mainTableNames;
-      Global.myNwMainFrm.cmmnCode.KeyColumnNames = keyColumnNames;
+            Global.myNwMainFrm.cmmnCode.DefaultPrvldgs = dfltPrvldgs;
+            Global.myNwMainFrm.cmmnCode.SubGrpNames = subGrpNames;
+            Global.myNwMainFrm.cmmnCode.MainTableNames = mainTableNames;
+            Global.myNwMainFrm.cmmnCode.KeyColumnNames = keyColumnNames;
 
-      Global.myNwMainFrm.cmmnCode.ModuleAdtTbl = audit_tbl_name;
-      Global.myNwMainFrm.cmmnCode.ModuleDesc = myDesc;
-      Global.myNwMainFrm.cmmnCode.ModuleName = myName;
-      Global.myNwMainFrm.cmmnCode.SampleRole = smplRoleName;
-      Global.myNwMainFrm.cmmnCode.Extra_Adt_Trl_Info = "";
-      Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
-    }
+            Global.myNwMainFrm.cmmnCode.ModuleAdtTbl = audit_tbl_name;
+            Global.myNwMainFrm.cmmnCode.ModuleDesc = myDesc;
+            Global.myNwMainFrm.cmmnCode.ModuleName = myName;
+            Global.myNwMainFrm.cmmnCode.SampleRole = smplRoleName;
+            Global.myNwMainFrm.cmmnCode.Extra_Adt_Trl_Info = "";
+            Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
+        }
 
-    public void loadGenStpMdl()
-    {
-      string[] dfltPrvldgs = { "View General Setup", "View Value List Names"
-		, "View possible values", /*3*/"Add Value List Names", "Edit Value List Names"
-		, "Delete Value List Names", /*6*/"Add Possible Values", "Edit Possible Values"
-		, "Delete Possible Values", "View Record History", "View SQL"};
+        public void loadGenStpMdl()
+        {
+            string[] dfltPrvldgs = { "View General Setup", "View Value List Names"
+        , "View possible values", /*3*/"Add Value List Names", "Edit Value List Names"
+        , "Delete Value List Names", /*6*/"Add Possible Values", "Edit Possible Values"
+        , "Delete Possible Values", "View Record History", "View SQL"};
 
-      string[] subGrpNames = new string[0];
-      string[] mainTableNames = new string[0];
-      string[] keyColumnNames = new string[0];
-      String myName = "General Setup";
-      string myDesc = "This module helps you to setup basic information " +
-        "to be used by the software later!";
-      string audit_tbl_name = "gst.gen_stp_audit_trail_tbl";
+            string[] subGrpNames = new string[0];
+            string[] mainTableNames = new string[0];
+            string[] keyColumnNames = new string[0];
+            String myName = "General Setup";
+            string myDesc = "This module helps you to setup basic information " +
+              "to be used by the software later!";
+            string audit_tbl_name = "gst.gen_stp_audit_trail_tbl";
 
-      String smplRoleName = "General Setup Administrator";
+            String smplRoleName = "General Setup Administrator";
 
-      Global.myNwMainFrm.cmmnCode.DefaultPrvldgs = dfltPrvldgs;
-      Global.myNwMainFrm.cmmnCode.SubGrpNames = subGrpNames;
-      Global.myNwMainFrm.cmmnCode.MainTableNames = mainTableNames;
-      Global.myNwMainFrm.cmmnCode.KeyColumnNames = keyColumnNames;
+            Global.myNwMainFrm.cmmnCode.DefaultPrvldgs = dfltPrvldgs;
+            Global.myNwMainFrm.cmmnCode.SubGrpNames = subGrpNames;
+            Global.myNwMainFrm.cmmnCode.MainTableNames = mainTableNames;
+            Global.myNwMainFrm.cmmnCode.KeyColumnNames = keyColumnNames;
 
-      Global.myNwMainFrm.cmmnCode.ModuleAdtTbl = audit_tbl_name;
-      Global.myNwMainFrm.cmmnCode.ModuleDesc = myDesc;
-      Global.myNwMainFrm.cmmnCode.ModuleName = myName;
-      Global.myNwMainFrm.cmmnCode.SampleRole = smplRoleName;
-      Global.myNwMainFrm.cmmnCode.Extra_Adt_Trl_Info = "";
-      Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
-    }
+            Global.myNwMainFrm.cmmnCode.ModuleAdtTbl = audit_tbl_name;
+            Global.myNwMainFrm.cmmnCode.ModuleDesc = myDesc;
+            Global.myNwMainFrm.cmmnCode.ModuleName = myName;
+            Global.myNwMainFrm.cmmnCode.SampleRole = smplRoleName;
+            Global.myNwMainFrm.cmmnCode.Extra_Adt_Trl_Info = "";
+            Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
+        }
 
-    public void loadIntPymntsMdl()
-    {
-      string[] dfltPrvldgs = { "View Internal Payments", 
+        public void loadIntPymntsMdl()
+        {
+            string[] dfltPrvldgs = { "View Internal Payments", 
 		/*1*/"View Manual Payments","View Pay Item Sets","View Person Sets",
 		/*4*/"View Mass Pay Runs","View Payment Transactions","View GL Interface Table",
 		/*7*/"View Record History", "View SQL",
@@ -752,36 +756,36 @@ namespace SystemAdministration.Classes
     /*37*/"View Global Values", "Add Global Values","Edit Global Values","Delete Global Values",
     /*41*/"View other User's Mass Pays"                                         };
 
-      string[] subGrpNames = { "Pay Items" };
-      //"Pay Items",
-      //"org.org_pay_items",
-      //"item_id", 
-      string[] mainTableNames = { "org.org_pay_items" };
-      string[] keyColumnNames = { "item_id" };
+            string[] subGrpNames = { "Pay Items" };
+            //"Pay Items",
+            //"org.org_pay_items",
+            //"item_id", 
+            string[] mainTableNames = { "org.org_pay_items" };
+            string[] keyColumnNames = { "item_id" };
 
-      String myName = "Internal Payments";
-      string myDesc = "This module helps you to manage your organization's HR Payments to Personnel!";
-      string audit_tbl_name = "pay.pay_audit_trail_tbl";
+            String myName = "Internal Payments";
+            string myDesc = "This module helps you to manage your organization's HR Payments to Personnel!";
+            string audit_tbl_name = "pay.pay_audit_trail_tbl";
 
-      String smplRoleName = "Internal Payments Administrator";
+            String smplRoleName = "Internal Payments Administrator";
 
-      Global.myNwMainFrm.cmmnCode.DefaultPrvldgs = dfltPrvldgs;
-      Global.myNwMainFrm.cmmnCode.SubGrpNames = subGrpNames;
-      Global.myNwMainFrm.cmmnCode.MainTableNames = mainTableNames;
-      Global.myNwMainFrm.cmmnCode.KeyColumnNames = keyColumnNames;
+            Global.myNwMainFrm.cmmnCode.DefaultPrvldgs = dfltPrvldgs;
+            Global.myNwMainFrm.cmmnCode.SubGrpNames = subGrpNames;
+            Global.myNwMainFrm.cmmnCode.MainTableNames = mainTableNames;
+            Global.myNwMainFrm.cmmnCode.KeyColumnNames = keyColumnNames;
 
-      Global.myNwMainFrm.cmmnCode.ModuleAdtTbl = audit_tbl_name;
-      Global.myNwMainFrm.cmmnCode.ModuleDesc = myDesc;
-      Global.myNwMainFrm.cmmnCode.ModuleName = myName;
-      Global.myNwMainFrm.cmmnCode.SampleRole = smplRoleName;
-      Global.myNwMainFrm.cmmnCode.Extra_Adt_Trl_Info = "";
-      Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
-    }
+            Global.myNwMainFrm.cmmnCode.ModuleAdtTbl = audit_tbl_name;
+            Global.myNwMainFrm.cmmnCode.ModuleDesc = myDesc;
+            Global.myNwMainFrm.cmmnCode.ModuleName = myName;
+            Global.myNwMainFrm.cmmnCode.SampleRole = smplRoleName;
+            Global.myNwMainFrm.cmmnCode.Extra_Adt_Trl_Info = "";
+            Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
+        }
 
-    public void loadEvntsAttndncMdl()
-    {
-      string[] dfltPrvldgs = { "View Events And Attendance", 
-      /*1*/"View Attendance Records" ,	"View Time Tables", "View Events", 
+        public void loadEvntsAttndncMdl()
+        {
+            string[] dfltPrvldgs = { "View Events And Attendance", 
+      /*1*/"View Attendance Records" ,  "View Time Tables", "View Events", 
       /*4*/"View Venues", "View Attendance Search", "View SQL", "View Record History",
       /*8*/"Add Attendance Records","Edit Attendance Records","Delete Attendance Records",
       /*11*/"Add Time Tables","Edit Time Tables","Delete Time Tables", 
@@ -794,57 +798,57 @@ namespace SystemAdministration.Classes
         /*35*/"View only Self-Created Sales","Cancel Documents","Take Payments","Apply Adhoc Discounts", "Apply Pre-defined Discounts", 
         /*40*/"Can Edit Unit Price"};
 
-      string[] subGrpNames = new string[0];
-      string[] mainTableNames = new string[0];
-      string[] keyColumnNames = new string[0];
-      String myName = "Events And Attendance";
-      string myDesc = "This module helps you to manage your organization's Events And Attendance!";
-      string audit_tbl_name = "attn.attn_audit_trail_tbl";
+            string[] subGrpNames = new string[0];
+            string[] mainTableNames = new string[0];
+            string[] keyColumnNames = new string[0];
+            String myName = "Events And Attendance";
+            string myDesc = "This module helps you to manage your organization's Events And Attendance!";
+            string audit_tbl_name = "attn.attn_audit_trail_tbl";
 
-      String smplRoleName = "Events And Attendance Administrator";
+            String smplRoleName = "Events And Attendance Administrator";
 
-      Global.myNwMainFrm.cmmnCode.DefaultPrvldgs = dfltPrvldgs;
-      Global.myNwMainFrm.cmmnCode.SubGrpNames = subGrpNames;
-      Global.myNwMainFrm.cmmnCode.MainTableNames = mainTableNames;
-      Global.myNwMainFrm.cmmnCode.KeyColumnNames = keyColumnNames;
+            Global.myNwMainFrm.cmmnCode.DefaultPrvldgs = dfltPrvldgs;
+            Global.myNwMainFrm.cmmnCode.SubGrpNames = subGrpNames;
+            Global.myNwMainFrm.cmmnCode.MainTableNames = mainTableNames;
+            Global.myNwMainFrm.cmmnCode.KeyColumnNames = keyColumnNames;
 
-      Global.myNwMainFrm.cmmnCode.ModuleAdtTbl = audit_tbl_name;
-      Global.myNwMainFrm.cmmnCode.ModuleDesc = myDesc;
-      Global.myNwMainFrm.cmmnCode.ModuleName = myName;
-      Global.myNwMainFrm.cmmnCode.SampleRole = smplRoleName;
-      Global.myNwMainFrm.cmmnCode.Extra_Adt_Trl_Info = "";
-      Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
-    }
+            Global.myNwMainFrm.cmmnCode.ModuleAdtTbl = audit_tbl_name;
+            Global.myNwMainFrm.cmmnCode.ModuleDesc = myDesc;
+            Global.myNwMainFrm.cmmnCode.ModuleName = myName;
+            Global.myNwMainFrm.cmmnCode.SampleRole = smplRoleName;
+            Global.myNwMainFrm.cmmnCode.Extra_Adt_Trl_Info = "";
+            Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
+        }
 
-    public void loadGenericMdl()
-    {
-      string[] dfltPrvldgs = { "View Generic Module"};
+        public void loadGenericMdl()
+        {
+            string[] dfltPrvldgs = { "View Generic Module" };
 
-      string[] subGrpNames = new string[0];
-      string[] mainTableNames = new string[0];
-      string[] keyColumnNames = new string[0];
-      String myName = "Generic Module";
-      string myDesc = "This module is a mere place holder for categorising reports and processes!";
-      string audit_tbl_name = "sec.sec_audit_trail_tbl";
+            string[] subGrpNames = new string[0];
+            string[] mainTableNames = new string[0];
+            string[] keyColumnNames = new string[0];
+            String myName = "Generic Module";
+            string myDesc = "This module is a mere place holder for categorising reports and processes!";
+            string audit_tbl_name = "sec.sec_audit_trail_tbl";
 
-      String smplRoleName = "Generic Module Administrator";
+            String smplRoleName = "Generic Module Administrator";
 
-      Global.myNwMainFrm.cmmnCode.DefaultPrvldgs = dfltPrvldgs;
-      Global.myNwMainFrm.cmmnCode.SubGrpNames = subGrpNames;
-      Global.myNwMainFrm.cmmnCode.MainTableNames = mainTableNames;
-      Global.myNwMainFrm.cmmnCode.KeyColumnNames = keyColumnNames;
+            Global.myNwMainFrm.cmmnCode.DefaultPrvldgs = dfltPrvldgs;
+            Global.myNwMainFrm.cmmnCode.SubGrpNames = subGrpNames;
+            Global.myNwMainFrm.cmmnCode.MainTableNames = mainTableNames;
+            Global.myNwMainFrm.cmmnCode.KeyColumnNames = keyColumnNames;
 
-      Global.myNwMainFrm.cmmnCode.ModuleAdtTbl = audit_tbl_name;
-      Global.myNwMainFrm.cmmnCode.ModuleDesc = myDesc;
-      Global.myNwMainFrm.cmmnCode.ModuleName = myName;
-      Global.myNwMainFrm.cmmnCode.SampleRole = smplRoleName;
-      Global.myNwMainFrm.cmmnCode.Extra_Adt_Trl_Info = "";
-      Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
-    }
+            Global.myNwMainFrm.cmmnCode.ModuleAdtTbl = audit_tbl_name;
+            Global.myNwMainFrm.cmmnCode.ModuleDesc = myDesc;
+            Global.myNwMainFrm.cmmnCode.ModuleName = myName;
+            Global.myNwMainFrm.cmmnCode.SampleRole = smplRoleName;
+            Global.myNwMainFrm.cmmnCode.Extra_Adt_Trl_Info = "";
+            Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
+        }
 
-    public void loadSelfServiceMdl()
-    {
-      string[] dfltPrvldgs = { "View Self-Service",
+        public void loadSelfServiceMdl()
+        {
+            string[] dfltPrvldgs = { "View Self-Service",
     /* 1 */ "View Membership Payments", "View Staff Payments", "View Leave of Absence",
     /* 4 */ "View Invoice Documents", "View Events/Attendances", "View Elections", "View Forums",
     /* 8 */ "View Elections Administration", "View Leave Administration", "View Forum Administration",
@@ -854,31 +858,31 @@ namespace SystemAdministration.Classes
     /* 15 */ "Administer Leave",
     /* 16 */ "Administer Self-Service", "Make Requests for Others"};
 
-      string[] subGrpNames = new string[0];
-      string[] mainTableNames = new string[0];
-      string[] keyColumnNames = new string[0];
-      String myName = "Self Service";
-      string myDesc = "This module helps your Registered Persons to view and manage their Individual Records when approved!";
-      string audit_tbl_name = "self.self_prsn_audit_trail_tbl";
+            string[] subGrpNames = new string[0];
+            string[] mainTableNames = new string[0];
+            string[] keyColumnNames = new string[0];
+            String myName = "Self Service";
+            string myDesc = "This module helps your Registered Persons to view and manage their Individual Records when approved!";
+            string audit_tbl_name = "self.self_prsn_audit_trail_tbl";
 
-      String smplRoleName = "Self-Service Administrator";
+            String smplRoleName = "Self-Service Administrator";
 
-      Global.myNwMainFrm.cmmnCode.DefaultPrvldgs = dfltPrvldgs;
-      Global.myNwMainFrm.cmmnCode.SubGrpNames = subGrpNames;
-      Global.myNwMainFrm.cmmnCode.MainTableNames = mainTableNames;
-      Global.myNwMainFrm.cmmnCode.KeyColumnNames = keyColumnNames;
+            Global.myNwMainFrm.cmmnCode.DefaultPrvldgs = dfltPrvldgs;
+            Global.myNwMainFrm.cmmnCode.SubGrpNames = subGrpNames;
+            Global.myNwMainFrm.cmmnCode.MainTableNames = mainTableNames;
+            Global.myNwMainFrm.cmmnCode.KeyColumnNames = keyColumnNames;
 
-      Global.myNwMainFrm.cmmnCode.ModuleAdtTbl = audit_tbl_name;
-      Global.myNwMainFrm.cmmnCode.ModuleDesc = myDesc;
-      Global.myNwMainFrm.cmmnCode.ModuleName = myName;
-      Global.myNwMainFrm.cmmnCode.SampleRole = smplRoleName;
-      Global.myNwMainFrm.cmmnCode.Extra_Adt_Trl_Info = "";
-      Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
-    }
+            Global.myNwMainFrm.cmmnCode.ModuleAdtTbl = audit_tbl_name;
+            Global.myNwMainFrm.cmmnCode.ModuleDesc = myDesc;
+            Global.myNwMainFrm.cmmnCode.ModuleName = myName;
+            Global.myNwMainFrm.cmmnCode.SampleRole = smplRoleName;
+            Global.myNwMainFrm.cmmnCode.Extra_Adt_Trl_Info = "";
+            Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
+        }
 
-    public void loadOrgStpMdl()
-    {
-      string[] dfltPrvldgs = { "View Organization Setup", 
+        public void loadOrgStpMdl()
+        {
+            string[] dfltPrvldgs = { "View Organization Setup",
   "View Org Details", "View Divisions/Groups", "View Sites/Locations", 
     /*4*/"View Jobs", "View Grades", "View Positions", "View Benefits", 
   /*8*/"View Pay Items", "View Remunerations", "View Working Hours", 
@@ -892,116 +896,138 @@ namespace SystemAdministration.Classes
   /*31*/"Add Pay Items","Edit Pay Items","Delete Pay Items",
   /*34*/"Add Working Hours","Edit Working Hours","Delete Working Hours",
   /*37*/"Add Gathering Types","Edit Gathering Types","Delete Gathering Types"};
-      string[] subGrpNames = { "Organization's Details", "Divisions/Groups", 
-		"Sites/Locations","Jobs", "Grades", "Positions",  
-		"Working Hours", "Gathering Types"};
-      //"Pay Items",
-      //"org.org_pay_items",
-      //"item_id", 
-      string[] mainTableNames = {"org.org_details", "org.org_divs_groups", 
-		"org.org_sites_locations","org.org_jobs", "org.org_grades", "org.org_positions", 
+            string[] subGrpNames = { "Organization's Details", "Divisions/Groups",
+        "Sites/Locations","Jobs", "Grades", "Positions",
+        "Working Hours", "Gathering Types"};
+            //"Pay Items",
+            //"org.org_pay_items",
+            //"item_id", 
+            string[] mainTableNames = {"org.org_details", "org.org_divs_groups",
+        "org.org_sites_locations","org.org_jobs", "org.org_grades", "org.org_positions",
    "org.org_wrkn_hrs", "org.org_gthrng_types" };
-      string[] keyColumnNames = {"org_id", "div_id", 
-		"location_id","job_id", "grade_id", "position_id", 
-		"work_hours_id", "gthrng_typ_id" };
-      String myName = "Organization Setup";
-      string myDesc = "This module helps you to setup basic information " +
-        "about your organization!";
-      string audit_tbl_name = "org.org_audit_trail_tbl";
+            string[] keyColumnNames = {"org_id", "div_id",
+        "location_id","job_id", "grade_id", "position_id",
+        "work_hours_id", "gthrng_typ_id" };
+            String myName = "Organization Setup";
+            string myDesc = "This module helps you to setup basic information " +
+              "about your organization!";
+            string audit_tbl_name = "org.org_audit_trail_tbl";
 
-      String smplRoleName = "Organization Setup Administrator";
+            String smplRoleName = "Organization Setup Administrator";
 
-      Global.myNwMainFrm.cmmnCode.DefaultPrvldgs = dfltPrvldgs;
-      Global.myNwMainFrm.cmmnCode.SubGrpNames = subGrpNames;
-      Global.myNwMainFrm.cmmnCode.MainTableNames = mainTableNames;
-      Global.myNwMainFrm.cmmnCode.KeyColumnNames = keyColumnNames;
+            Global.myNwMainFrm.cmmnCode.DefaultPrvldgs = dfltPrvldgs;
+            Global.myNwMainFrm.cmmnCode.SubGrpNames = subGrpNames;
+            Global.myNwMainFrm.cmmnCode.MainTableNames = mainTableNames;
+            Global.myNwMainFrm.cmmnCode.KeyColumnNames = keyColumnNames;
 
-      Global.myNwMainFrm.cmmnCode.ModuleAdtTbl = audit_tbl_name;
-      Global.myNwMainFrm.cmmnCode.ModuleDesc = myDesc;
-      Global.myNwMainFrm.cmmnCode.ModuleName = myName;
-      Global.myNwMainFrm.cmmnCode.SampleRole = smplRoleName;
-      Global.myNwMainFrm.cmmnCode.Extra_Adt_Trl_Info = "";
-      Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
-    }
+            Global.myNwMainFrm.cmmnCode.ModuleAdtTbl = audit_tbl_name;
+            Global.myNwMainFrm.cmmnCode.ModuleDesc = myDesc;
+            Global.myNwMainFrm.cmmnCode.ModuleName = myName;
+            Global.myNwMainFrm.cmmnCode.SampleRole = smplRoleName;
+            Global.myNwMainFrm.cmmnCode.Extra_Adt_Trl_Info = "";
+            Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
+            string[] sysLovs = { "Account Segment Values", "Control Account Segment Values" };
+            string[] sysLovsDesc = { "Account Segment Values", "Control Account Segment Values" };
+            string[] sysLovsDynQrys = { "Select segment_value a, segment_description b, '' c, segment_id d, is_enabled e from org.org_segment_values y",
+            "Select segment_value a, segment_description b, '' c, segment_id d, is_enabled e from org.org_segment_values y where y.has_sub_ledgers='1'"};
+            //string[] pssblVals = {};
+            Global.myNwMainFrm.cmmnCode.createSysLovs(sysLovs, sysLovsDynQrys, sysLovsDesc);
+            //Global.myNwMainFrm.cmmnCode.createSysLovsPssblVals(sysLovs, pssblVals);
+        }
 
-    public void loadRptMdl()
-    {
-      string[] dfltPrvldgs = { "View Reports And Processes", 
+        public void loadRptMdl()
+        {
+            string[] dfltPrvldgs = { "View Reports And Processes", 
       /*1*/"View Report Definitions","View Report Runs","View SQL", "View Record History",
       /*5*/"Add Report/Process","Edit Report/Process","Delete Report/Process",
       /*8*/"Run Reports/Process","Delete Report/Process Runs"};
 
-      string[] subGrpNames = new string[0];
-      string[] mainTableNames = new string[0];
-      string[] keyColumnNames = new string[0];
+            string[] subGrpNames = new string[0];
+            string[] mainTableNames = new string[0];
+            string[] keyColumnNames = new string[0];
 
-      String myName = "Reports And Processes";
-      string myDesc = "This module helps you to manage all reports in the software!";
-      string audit_tbl_name = "rpt.rpt_audit_trail_tbl";
+            String myName = "Reports And Processes";
+            string myDesc = "This module helps you to manage all reports in the software!";
+            string audit_tbl_name = "rpt.rpt_audit_trail_tbl";
 
-      String smplRoleName = "Reports And Processes Administrator";
+            String smplRoleName = "Reports And Processes Administrator";
 
-      Global.myNwMainFrm.cmmnCode.DefaultPrvldgs = dfltPrvldgs;
-      Global.myNwMainFrm.cmmnCode.SubGrpNames = subGrpNames;
-      Global.myNwMainFrm.cmmnCode.MainTableNames = mainTableNames;
-      Global.myNwMainFrm.cmmnCode.KeyColumnNames = keyColumnNames;
+            Global.myNwMainFrm.cmmnCode.DefaultPrvldgs = dfltPrvldgs;
+            Global.myNwMainFrm.cmmnCode.SubGrpNames = subGrpNames;
+            Global.myNwMainFrm.cmmnCode.MainTableNames = mainTableNames;
+            Global.myNwMainFrm.cmmnCode.KeyColumnNames = keyColumnNames;
 
-      Global.myNwMainFrm.cmmnCode.ModuleAdtTbl = audit_tbl_name;
-      Global.myNwMainFrm.cmmnCode.ModuleDesc = myDesc;
-      Global.myNwMainFrm.cmmnCode.ModuleName = myName;
-      Global.myNwMainFrm.cmmnCode.SampleRole = smplRoleName;
-      Global.myNwMainFrm.cmmnCode.Extra_Adt_Trl_Info = "";
-      Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
+            Global.myNwMainFrm.cmmnCode.ModuleAdtTbl = audit_tbl_name;
+            Global.myNwMainFrm.cmmnCode.ModuleDesc = myDesc;
+            Global.myNwMainFrm.cmmnCode.ModuleName = myName;
+            Global.myNwMainFrm.cmmnCode.SampleRole = smplRoleName;
+            Global.myNwMainFrm.cmmnCode.Extra_Adt_Trl_Info = "";
+            Global.myNwMainFrm.cmmnCode.checkNAssignReqrmnts();
+
+            Global.myNwMainFrm.cmmnCode.selectDataNoParams("Select gst.autocreate_date_lovs()");
+            string[] sysLovs = { "List of Dates (yyyy-MM-dd)", "List of Dates (yyyy-MM-dd HH:mm:ss)", "List of Dates (dd-MMM-yyyy)", "List of Dates (dd-MMM-yyyy HH:mm:ss)",
+            "Bulk Message Batch IDs","Email Addresses to Ignore"};
+            string[] sysLovsDesc = { "List of Dates (yyyy-MM-dd)", "List of Dates (yyyy-MM-dd HH:mm:ss)", "List of Dates (dd-MMM-yyyy)", "List of Dates (dd-MMM-yyyy HH:mm:ss)",
+            "Bulk Message Batch IDs","Email Addresses to Ignore" };
+            string[] sysLovsDynQrys = { "Select to_char(to_timestamp(pssbl_value,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD') a, to_char(to_timestamp(pssbl_value,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:SS') b, '' c, -1 d, pssbl_value e from gst.gen_stp_lov_values x,gst.gen_stp_lov_names y where x.value_list_id=y.value_list_id and y.value_list_name='List of Dates' order by 5",
+        "Select to_char(to_timestamp(pssbl_value,'YYYY-MM-DD HH24:MI:SS'),'YYYY-MM-DD HH24:MI:SS') a, to_char(to_timestamp(pssbl_value,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:SS') b, '' c, -1 d, pssbl_value e from gst.gen_stp_lov_values x,gst.gen_stp_lov_names y where x.value_list_id=y.value_list_id and y.value_list_name='List of Dates' order by 5",
+        "Select to_char(to_timestamp(pssbl_value,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY') a, to_char(to_timestamp(pssbl_value,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:SS') b, '' c, -1 d, pssbl_value e from gst.gen_stp_lov_values x,gst.gen_stp_lov_names y where x.value_list_id=y.value_list_id and y.value_list_name='List of Dates' order by 5",
+        "Select to_char(to_timestamp(pssbl_value,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:SS') a, to_char(to_timestamp(pssbl_value,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH24:MI:SS') b, '' c, -1 d, pssbl_value e from gst.gen_stp_lov_values x,gst.gen_stp_lov_names y where x.value_list_id=y.value_list_id and y.value_list_name='List of Dates' order by 5",
+            "SELECT ''||batch_id a, MAX(creation_date) b,'' c, -1 d, batch_id e  FROM alrt.bulk_msgs_sent  WHERE sending_status='0' GROUP BY batch_id",""};
+            string[] pssblVals = {"5", "wrong1@rhomicom.com", "wrong1@rhomicom.com",
+                           "5", "wrong2@rhomicom.com", "wrong2@rhomicom.com"};
+            Global.myNwMainFrm.cmmnCode.createSysLovs(sysLovs, sysLovsDynQrys, sysLovsDesc);
+            Global.myNwMainFrm.cmmnCode.createSysLovsPssblVals(sysLovs, pssblVals);
+        }
+
+        public void createExcelTemplate()
+        {
+            MessageBox.Show("Not yet implemented!");
+        }
+
+        public void importDataFromExcel()
+        {
+            MessageBox.Show("Not yet implemented!");
+        }
+
+        public void exprtDataToExcel()
+        {
+            MessageBox.Show("Not yet implemented!");
+        }
+
+        public void creatWordReport()
+        {
+            MessageBox.Show("Not yet implemented!");
+        }
+
+        public void refreshData()
+        {
+            MessageBox.Show("Not yet implemented!");
+        }
+
+        public void viewCurSQL()
+        {
+            MessageBox.Show("Not yet implemented!");
+        }
+
+        public void Initialize()
+        {
+            //This is the first Function called by the host...
+            //Put anything needed to start with here first
+            Global.mySecurity = this;
+            //Global.myNwMainFrm = (mainForm)this.mainInterface;
+        }
+
+        public void Dispose()
+        {
+            //Put any cleanup code in here for when the program is stopped
+            //this.user_id = -1;
+            //this.role_set_id = new int[0];
+            //this.login_number = -1;
+            //this.Host = null;
+            //this.myMainInterface = null;
+            //Global.mySecurity = null;
+            //Global.myNwMainFrm = null;
+        }
     }
-
-    public void createExcelTemplate()
-    {
-      MessageBox.Show("Not yet implemented!");
-    }
-
-    public void importDataFromExcel()
-    {
-      MessageBox.Show("Not yet implemented!");
-    }
-
-    public void exprtDataToExcel()
-    {
-      MessageBox.Show("Not yet implemented!");
-    }
-
-    public void creatWordReport()
-    {
-      MessageBox.Show("Not yet implemented!");
-    }
-
-    public void refreshData()
-    {
-      MessageBox.Show("Not yet implemented!");
-    }
-
-    public void viewCurSQL()
-    {
-      MessageBox.Show("Not yet implemented!");
-    }
-
-    public void Initialize()
-    {
-      //This is the first Function called by the host...
-      //Put anything needed to start with here first
-      Global.mySecurity = this;
-      //Global.myNwMainFrm = (mainForm)this.mainInterface;
-    }
-
-    public void Dispose()
-    {
-      //Put any cleanup code in here for when the program is stopped
-      //this.user_id = -1;
-      //this.role_set_id = new int[0];
-      //this.login_number = -1;
-      //this.Host = null;
-      //this.myMainInterface = null;
-      //Global.mySecurity = null;
-      //Global.myNwMainFrm = null;
-    }
-  }
 }

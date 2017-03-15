@@ -341,6 +341,7 @@ namespace Accounting.Forms
             DataSet dtst = Global.get_One_PyblsDocHdr(docHdrID);
             double invAmnt = 0;
             double amntPaid = 0;
+            decimal nextAmnt = 0;
 
             for (int i = 0; i < dtst.Tables[0].Rows.Count; i++)
             {
@@ -407,9 +408,11 @@ namespace Accounting.Forms
                 this.glBatchNmTextBox.Text = dtst.Tables[0].Rows[i][21].ToString();
 
                 double.TryParse(dtst.Tables[0].Rows[i][14].ToString(), out invAmnt);//.ToString("#,##0.00");
-                double.TryParse(dtst.Tables[0].Rows[i][19].ToString(), out amntPaid);
+                double.TryParse(dtst.Tables[0].Rows[i][19].ToString(), out amntPaid);//
+                decimal.TryParse(dtst.Tables[0].Rows[i][29].ToString(), out nextAmnt);
                 this.invcAmntTextBox.Text = invAmnt.ToString("#,##0.00");
                 this.amntPaidTextBox.Text = amntPaid.ToString("#,##0.00");
+                this.nextPaymentNumUpDown.Value = nextAmnt;
                 this.outstndngBalsTextBox.Text = (invAmnt - amntPaid).ToString("#,##0.00");
                 this.invcCurrIDTextBox.Text = dtst.Tables[0].Rows[i][24].ToString();
                 this.invcCurrTextBox.Text = dtst.Tables[0].Rows[i][25].ToString();
@@ -426,6 +429,8 @@ namespace Accounting.Forms
                 if ((invAmnt - amntPaid) <= 0 && amntPaid > 0)
                 {
                     this.outstndngBalsTextBox.BackColor = Color.Lime;
+                    this.nextPaymentNumUpDown.Value = 0;
+                    Global.updateNextPayment(long.Parse(this.docIDTextBox.Text), 0);
                 }
                 else if (invAmnt > 0 && this.apprvlStatusTextBox.Text != "Not Validated")
                 {
@@ -642,6 +647,7 @@ namespace Accounting.Forms
             this.amntPaidTextBox.Text = "0.00";
             this.outstndngBalsTextBox.Text = "0.00";
             this.availblePrepayAmntTextBox.Text = "0.00";
+            this.nextPaymentNumUpDown.Value = 0;
 
             this.invcCurrIDTextBox.Text = "-1";
             this.invcCurrTextBox.Text = "";
@@ -3156,6 +3162,24 @@ namespace Accounting.Forms
             //this.rfrshButton_Click(this.rfrshButton, e);
             this.grndTotalTextBox.Text = "0.00";
             this.grndTotalTextBox.Text = Global.getPyblsDocGrndAmnt(long.Parse(this.docIDTextBox.Text)).ToString("#,##0.00");
+            if (this.invcAmntTextBox.Text != this.grndTotalTextBox.Text)
+            {
+                this.invcAmntTextBox.Text = this.grndTotalTextBox.Text;
+                this.outstndngBalsTextBox.Text = this.grndTotalTextBox.Text;
+            }
+            if (long.Parse(this.docIDTextBox.Text) <= 0)
+            {
+                Global.mnFrm.cmCde.showMsg("Please select a saved Record First!", 0);
+                return;
+            }
+            decimal outstndng = 0;
+            decimal.TryParse(this.outstndngBalsTextBox.Text.Replace(",", ""), out outstndng);
+            if (outstndng > 0 && this.nextPaymentNumUpDown.Value <= 0)
+            {
+                this.nextPaymentNumUpDown.Value = outstndng;
+                Global.updateNextPayment(long.Parse(this.docIDTextBox.Text), outstndng);
+                Global.updtPyblsDocAmnt(long.Parse(this.docIDTextBox.Text), (double)outstndng);
+            }
         }
 
         private bool checkRqrmnts()
@@ -4144,7 +4168,7 @@ namespace Accounting.Forms
             DialogResult dgres = Global.mnFrm.cmCde.showPymntDiag(createPrepay, dsablPayments,
               this.makePaymentButton.Location.X - 10,
              this.makePaymentButton.Location.Y - 10,
-             double.Parse(this.outstndngBalsTextBox.Text), int.Parse(this.invcCurrIDTextBox.Text),
+             double.Parse(this.outstndngBalsTextBox.Text), (double)this.nextPaymentNumUpDown.Value, int.Parse(this.invcCurrIDTextBox.Text),
              int.Parse(this.pymntMthdIDTextBox.Text), "Supplier Payments",
              int.Parse(this.spplrIDTextBox.Text), int.Parse(this.spplrSiteIDTextBox.Text),
              long.Parse(this.docIDTextBox.Text),
@@ -4164,6 +4188,10 @@ namespace Accounting.Forms
             this.calcSmryButton_Click(this.calcSmryButton, e);
             this.populateDet(long.Parse(this.docIDTextBox.Text));
             this.populateLines(long.Parse(this.docIDTextBox.Text), this.docTypeComboBox.Text);
+            if (createPrepay)
+            {
+                this.rfrshButton.PerformClick();
+            }
         }
 
         private void pymntHstryButton_Click(object sender, EventArgs e)
@@ -4466,8 +4494,15 @@ namespace Accounting.Forms
         {
             if (long.Parse(this.docIDTextBox.Text) <= 0)
             {
-                Global.mnFrm.cmCde.showMsg("Please select a Record First!", 0);
+                Global.mnFrm.cmCde.showMsg("Please select a saved Record First!", 0);
                 return;
+            }
+            decimal outstndng = 0;
+            decimal.TryParse(this.outstndngBalsTextBox.Text.Replace(",", ""), out outstndng);
+            if (outstndng > 0 && this.nextPaymentNumUpDown.Value <= 0)
+            {
+                this.nextPaymentNumUpDown.Value = outstndng;
+                Global.updateNextPayment(long.Parse(this.docIDTextBox.Text), outstndng);
             }
             this.pageNo = 1;
             this.prntIdx = 0;
@@ -4619,8 +4654,8 @@ namespace Accounting.Forms
                 g.DrawLine(aPen, startX, startY + offsetY, startX + lnLength,
                   startY + offsetY);
                 g.DrawString(this.docTypeComboBox.Text.Replace("Supplier Standard Payment", "Payment Voucher").ToUpper() + drfPrnt, font2, Brushes.Black, startX, startY + offsetY);
-                float pvWidth = g.MeasureString("PV No.:" + this.docIDTextBox.Text, font4).Width;
-                g.DrawString("PV No.:" + this.docIDTextBox.Text, font2, Brushes.Black, pageWidth - pvWidth - 20, startY + offsetY);
+                float pvWidth = g.MeasureString("PV No.:" + this.docIDTextBox.Text.PadLeft(5, '0'), font4).Width;
+                g.DrawString("PV No.:" + this.docIDTextBox.Text.PadLeft(5, '0'), font2, Brushes.Black, pageWidth - pvWidth - 20, startY + offsetY);
                 g.DrawLine(aPen, startX, startY + offsetY, startX,
         startY + offsetY + font2Hght);
                 g.DrawLine(aPen, startX + lnLength, startY + offsetY, startX + lnLength,
@@ -4992,14 +5027,7 @@ namespace Accounting.Forms
                     g.DrawString(nwLn[i].PadLeft(21, ' ')
                     , font311, Brushes.Black, amntStartX, startY + offsetY + 1);
                     offsetY += font311Hght + 5;
-                    //          if (i == nwLn.Length - 1 && hgstOffst <= offsetY)
-                    //          {
-                    //            g.DrawLine(aPen, qntyStartX + 27, startY + offsetY - 3, qntyStartX + 39 + lnLength - itmWdth,
-                    //startY + offsetY - 3);
-                    //          }
                 }
-                //        g.DrawLine(aPen, qntyStartX + 27, startY + offsetY, qntyStartX + 27 + lnLength - itmWdth,
-                //startY + offsetY);
 
                 if (offsetY > hgstOffst)
                 {
@@ -5009,7 +5037,8 @@ namespace Accounting.Forms
             }
             offsetY = hgstOffst;
             offsetY += font2Hght + 5;
-            //offsetY += font2Hght;
+            float trmHgth = 0;
+
             if (this.pymntTermsTextBox.Text != "")
             {
                 if (offsetY >= pageHeight - 30)
@@ -5030,8 +5059,7 @@ namespace Accounting.Forms
                 g.DrawLine(aPen, startX, startY + offsetY, startX + lnLength,
           startY + offsetY);
 
-                float trmHgth = 0;
-                nwLn = Global.mnFrm.cmCde.breakTxtDown(
+                nwLn = Global.mnFrm.cmCde.breakTxtDownML(
               this.pymntTermsTextBox.Text,
               startX + pageWidth - 150, font3, g);
                 orgOffstY = offsetY;
@@ -5043,7 +5071,7 @@ namespace Accounting.Forms
                     //}
                     g.DrawString(nwLn[i]
                     , font3, Brushes.Black, startX, startY + offsetY);
-                    trmHgth += g.MeasureString(nwLn[i], font3).Height + 5;
+                    trmHgth += g.MeasureString(nwLn[i], font3).Height + 0.0F;
                     offsetY += font3Hght;
                     if (hgstOffst <= offsetY)
                     {
@@ -5051,6 +5079,7 @@ namespace Accounting.Forms
                     }
                     if (i == nwLn.Length - 1)
                     {
+                        trmHgth += 5;
                         g.DrawLine(aPen, startX, startY + orgOffstY, startX,
               startY + orgOffstY + trmHgth);
                         g.DrawLine(aPen, startX + lnLength, startY + orgOffstY, startX + lnLength,
@@ -5065,50 +5094,78 @@ namespace Accounting.Forms
             {
                 offsetY = hgstOffst;
                 offsetY += font2Hght + 5;
+                offsetY += 40;
             }
             //offsetY += font2Hght;
-            string sgntryCols = Global.getDocSgntryCols("Invoices Signatories");
-            if (sgntryCols != "")
+
+            offsetY += font2Hght;
+            g.DrawLine(aPen, startX, startY + offsetY, startX + lnLength,
+      startY + offsetY);
+
+            trmHgth = 0;
+            nwLn = Global.mnFrm.cmCde.breakTxtDownML(
+         "\r\n\r\n\r\n\r\n|PREPARED BY:........................|CHECKED BY:........................|AUTHORIZED BY:........................",
+          startX + pageWidth - 50, font2, g);
+            orgOffstY = offsetY;
+            offsetY += 5;
+            for (int i = 0; i < nwLn.Length; i++)
             {
-                if (offsetY >= pageHeight - 30)
+                //if (i == 0)
+                //{
+                //}
+                g.DrawString(nwLn[i].Replace("|", " ")
+                , font2, Brushes.Black, startX, startY + offsetY);
+                trmHgth += g.MeasureString(nwLn[i], font2).Height + 0.0F;
+                offsetY += font2Hght;
+                if (hgstOffst <= offsetY)
                 {
-                    e.HasMorePages = true;
-                    offsetY = 0;
-                    this.pageNo++;
-                    return;
+                    hgstOffst = offsetY;
                 }
-                //      g.DrawLine(aPen, startX, startY + offsetY, startX + lnLength,
-                //  startY + offsetY);
-                //      g.DrawString("", font2, Brushes.Black, startX, startY + offsetY);
-                //      g.DrawLine(aPen, startX, startY + offsetY, startX,
-                //startY + offsetY + 40);
-                //      g.DrawLine(aPen, startX + lnLength, startY + offsetY, startX + lnLength,
-                //startY + offsetY + 40);
-                offsetY += 40;
-                g.DrawLine(aPen, startX, startY + offsetY, startX + lnLength,
-          startY + offsetY);
-
-                float trmHgth = 0;
-
-                orgOffstY = offsetY;
-                offsetY += 5;
-                g.DrawString(sgntryCols
-          , font4, Brushes.Black, startX, startY + offsetY);
-
-                //g.DrawString("                    " + sgntryCols.Replace(",", "                    ").ToUpper()
-                //  , font4, Brushes.Black, startX, startY + offsetY);
-                trmHgth += font4Hght + 5;
-                //offsetY += font3Hght;
-                if (hgstOffst <= orgOffstY + trmHgth)
+                if (i == nwLn.Length - 1)
                 {
-                    hgstOffst = (int)orgOffstY + (int)trmHgth;
+                    trmHgth += 8;
+                    g.DrawLine(aPen, startX, startY + orgOffstY, startX,
+          startY + orgOffstY + trmHgth);
+                    g.DrawLine(aPen, startX + lnLength, startY + orgOffstY, startX + lnLength,
+          startY + orgOffstY + trmHgth);
+                    g.DrawLine(aPen, startX, startY + orgOffstY + trmHgth, startX + lnLength,
+          startY + orgOffstY + trmHgth);
                 }
-                //        g.DrawLine(aPen, startX, startY + orgOffstY, startX,
-                //startY + orgOffstY + trmHgth);
-                //        g.DrawLine(aPen, startX + lnLength, startY + orgOffstY, startX + lnLength,
-                //startY + orgOffstY + trmHgth);
-                //        g.DrawLine(aPen, startX, startY + orgOffstY + trmHgth, startX + lnLength,
-                //startY + orgOffstY + trmHgth);
+            }
+
+            offsetY += font2Hght;
+            g.DrawLine(aPen, startX, startY + offsetY, startX + lnLength,
+      startY + offsetY);
+
+            trmHgth = 0;
+            nwLn = Global.mnFrm.cmCde.breakTxtDownML(
+         "\r\n\r\n\r\n\r\n|RECEIVED BY (NAME & SIGNATURE):............................................|DATE:.............................",
+          startX + pageWidth - 50, font2, g);
+            orgOffstY = offsetY;
+            offsetY += 5;
+            for (int i = 0; i < nwLn.Length; i++)
+            {
+                //if (i == 0)
+                //{
+                //}
+                g.DrawString(nwLn[i].Replace("|", " ")
+                , font2, Brushes.Black, startX, startY + offsetY);
+                trmHgth += g.MeasureString(nwLn[i], font2).Height + 0.0F;
+                offsetY += font2Hght;
+                if (hgstOffst <= offsetY)
+                {
+                    hgstOffst = offsetY;
+                }
+                if (i == nwLn.Length - 1)
+                {
+                    trmHgth += 8;
+                    g.DrawLine(aPen, startX, startY + orgOffstY, startX,
+          startY + orgOffstY + trmHgth);
+                    g.DrawLine(aPen, startX + lnLength, startY + orgOffstY, startX + lnLength,
+          startY + orgOffstY + trmHgth);
+                    g.DrawLine(aPen, startX, startY + orgOffstY + trmHgth, startX + lnLength,
+          startY + orgOffstY + trmHgth);
+                }
             }
             //Slogan: 
             offsetY = (int)pageHeight - 30;
@@ -5169,6 +5226,18 @@ namespace Accounting.Forms
         private void customInvoiceButton_Click(object sender, EventArgs e)
         {
             //Payables Invoice
+            if (long.Parse(this.docIDTextBox.Text) <= 0)
+            {
+                Global.mnFrm.cmCde.showMsg("Please select a saved Record First!", 0);
+                return;
+            }
+            decimal outstndng = 0;
+            decimal.TryParse(this.outstndngBalsTextBox.Text.Replace(",", ""), out outstndng);
+            if (outstndng > 0 && this.nextPaymentNumUpDown.Value <= 0)
+            {
+                this.nextPaymentNumUpDown.Value = outstndng;
+                Global.updateNextPayment(long.Parse(this.docIDTextBox.Text), outstndng);
+            }
             string reportName = "";
             string reportTitle = this.docTypeComboBox.Text.Replace("Supplier Standard Payment", "Payment Voucher").ToUpper();
 
@@ -5178,6 +5247,47 @@ namespace Accounting.Forms
             string paramRepsNVals = "{:invoice_id}~" + this.docIDTextBox.Text + "|{:documentTitle}~" + reportTitle;
             //Global.mnFrm.cmCde.showSQLNoPermsn(reportName + "\r\n" + paramRepsNVals);
             Global.mnFrm.cmCde.showRptParamsDiag(Global.mnFrm.cmCde.getRptID(reportName), Global.mnFrm.cmCde, paramRepsNVals, reportTitle);
+        }
+
+        private void pymntTermsButton_Click(object sender, EventArgs e)
+        {
+            string txtStr = this.pymntTermsTextBox.Text;
+            if (this.editRec || this.addRec)
+            {
+                Global.mnFrm.cmCde.showTxtNoPermsn(ref txtStr);
+                this.pymntTermsTextBox.Text = txtStr;
+            }
+            else
+            {
+                Global.mnFrm.cmCde.showSQLNoPermsn(txtStr);
+            }
+        }
+
+        private void openBatchButton_Click(object sender, EventArgs e)
+        {
+            if (this.glBatchNmTextBox.Text == "")
+            {
+                Global.mnFrm.cmCde.showMsg("Please select a Transaction Batch First!", 0);
+                return;
+            }
+            string btchN = this.glBatchNmTextBox.Text;
+            Global.mnFrm.searchForTrnsTextBox.Text = btchN;
+            Global.mnFrm.searchInTrnsComboBox.SelectedItem = "Batch Name";
+            Global.mnFrm.loadCorrectPanel("Journal Entries");
+            Global.mnFrm.showUnpostedCheckBox.Checked = false;
+            if (Global.mnFrm.shwMyBatchesCheckBox.Enabled == true)
+            {
+                Global.mnFrm.shwMyBatchesCheckBox.Checked = false;
+            }
+            Global.mnFrm.rfrshTrnsButton.PerformClick();
+        }
+
+        private void nextPaymentNumUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (long.Parse(this.docIDTextBox.Text) > 0 && this.obey_evnts)
+            {
+                Global.updateNextPayment(long.Parse(this.docIDTextBox.Text), this.nextPaymentNumUpDown.Value);
+            }
         }
     }
 }

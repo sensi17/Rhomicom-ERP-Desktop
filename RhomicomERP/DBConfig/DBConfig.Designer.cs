@@ -28,6 +28,7 @@ namespace DBConfig
     /// </summary>
     private void InitializeComponent()
     {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DBConfig));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.installPgButton = new System.Windows.Forms.Button();
@@ -35,16 +36,16 @@ namespace DBConfig
             this.pgDirTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rpts1Button = new System.Windows.Forms.Button();
             this.createEmptyButton = new System.Windows.Forms.Button();
+            this.rpts1Button = new System.Windows.Forms.Button();
             this.emptyDBNmTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.restoreFileButton = new System.Windows.Forms.Button();
             this.rpts2Button = new System.Windows.Forms.Button();
             this.srcBkpButton = new System.Windows.Forms.Button();
             this.srcFileNmTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.restoreFileButton = new System.Windows.Forms.Button();
             this.restoreDBNmTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.closeButton = new System.Windows.Forms.Button();
@@ -73,9 +74,12 @@ namespace DBConfig
             this.getLastPatchButton = new System.Windows.Forms.Button();
             this.dbPatchesButton = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.modulesBaughtComboBox = new System.Windows.Forms.ComboBox();
             this.patchDBTextBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.waitLabel = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -155,6 +159,17 @@ namespace DBConfig
             this.groupBox2.Text = "Create Empty Database";
             this.groupBox2.Visible = false;
             // 
+            // createEmptyButton
+            // 
+            this.createEmptyButton.ForeColor = System.Drawing.Color.Black;
+            this.createEmptyButton.Location = new System.Drawing.Point(300, 12);
+            this.createEmptyButton.Name = "createEmptyButton";
+            this.createEmptyButton.Size = new System.Drawing.Size(119, 28);
+            this.createEmptyButton.TabIndex = 1;
+            this.createEmptyButton.Text = "CREATE";
+            this.createEmptyButton.UseVisualStyleBackColor = true;
+            this.createEmptyButton.Click += new System.EventHandler(this.createEmptyButton_Click);
+            // 
             // rpts1Button
             // 
             this.rpts1Button.ForeColor = System.Drawing.Color.Black;
@@ -166,17 +181,6 @@ namespace DBConfig
             this.rpts1Button.UseVisualStyleBackColor = true;
             this.rpts1Button.Visible = false;
             this.rpts1Button.Click += new System.EventHandler(this.rpts1Button_Click);
-            // 
-            // createEmptyButton
-            // 
-            this.createEmptyButton.ForeColor = System.Drawing.Color.Black;
-            this.createEmptyButton.Location = new System.Drawing.Point(300, 12);
-            this.createEmptyButton.Name = "createEmptyButton";
-            this.createEmptyButton.Size = new System.Drawing.Size(119, 28);
-            this.createEmptyButton.TabIndex = 1;
-            this.createEmptyButton.Text = "CREATE";
-            this.createEmptyButton.UseVisualStyleBackColor = true;
-            this.createEmptyButton.Click += new System.EventHandler(this.createEmptyButton_Click);
             // 
             // emptyDBNmTextBox
             // 
@@ -215,6 +219,17 @@ namespace DBConfig
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Create Sample Database";
             this.groupBox3.Visible = false;
+            // 
+            // restoreFileButton
+            // 
+            this.restoreFileButton.ForeColor = System.Drawing.Color.Black;
+            this.restoreFileButton.Location = new System.Drawing.Point(300, 43);
+            this.restoreFileButton.Name = "restoreFileButton";
+            this.restoreFileButton.Size = new System.Drawing.Size(119, 28);
+            this.restoreFileButton.TabIndex = 1;
+            this.restoreFileButton.Text = "CREATE";
+            this.restoreFileButton.UseVisualStyleBackColor = true;
+            this.restoreFileButton.Click += new System.EventHandler(this.restoreFileButton_Click);
             // 
             // rpts2Button
             // 
@@ -261,17 +276,6 @@ namespace DBConfig
             this.label4.TabIndex = 148;
             this.label4.Text = "Source Backup File:";
             // 
-            // restoreFileButton
-            // 
-            this.restoreFileButton.ForeColor = System.Drawing.Color.Black;
-            this.restoreFileButton.Location = new System.Drawing.Point(300, 43);
-            this.restoreFileButton.Name = "restoreFileButton";
-            this.restoreFileButton.Size = new System.Drawing.Size(119, 28);
-            this.restoreFileButton.TabIndex = 1;
-            this.restoreFileButton.Text = "CREATE";
-            this.restoreFileButton.UseVisualStyleBackColor = true;
-            this.restoreFileButton.Click += new System.EventHandler(this.restoreFileButton_Click);
-            // 
             // restoreDBNmTextBox
             // 
             this.restoreDBNmTextBox.ForeColor = System.Drawing.Color.Black;
@@ -294,9 +298,8 @@ namespace DBConfig
             // 
             // closeButton
             // 
-            this.closeButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.closeButton.ForeColor = System.Drawing.Color.Black;
-            this.closeButton.Location = new System.Drawing.Point(185, 520);
+            this.closeButton.Location = new System.Drawing.Point(185, 530);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(75, 28);
             this.closeButton.TabIndex = 6;
@@ -535,7 +538,7 @@ namespace DBConfig
             // getLastPatchButton
             // 
             this.getLastPatchButton.ForeColor = System.Drawing.Color.Black;
-            this.getLastPatchButton.Location = new System.Drawing.Point(127, 35);
+            this.getLastPatchButton.Location = new System.Drawing.Point(127, 59);
             this.getLastPatchButton.Name = "getLastPatchButton";
             this.getLastPatchButton.Size = new System.Drawing.Size(171, 30);
             this.getLastPatchButton.TabIndex = 8;
@@ -546,7 +549,7 @@ namespace DBConfig
             // dbPatchesButton
             // 
             this.dbPatchesButton.ForeColor = System.Drawing.Color.Black;
-            this.dbPatchesButton.Location = new System.Drawing.Point(298, 35);
+            this.dbPatchesButton.Location = new System.Drawing.Point(298, 59);
             this.dbPatchesButton.Name = "dbPatchesButton";
             this.dbPatchesButton.Size = new System.Drawing.Size(122, 30);
             this.dbPatchesButton.TabIndex = 7;
@@ -556,17 +559,65 @@ namespace DBConfig
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.label15);
+            this.groupBox6.Controls.Add(this.modulesBaughtComboBox);
             this.groupBox6.Controls.Add(this.patchDBTextBox);
             this.groupBox6.Controls.Add(this.getLastPatchButton);
             this.groupBox6.Controls.Add(this.label12);
             this.groupBox6.Controls.Add(this.dbPatchesButton);
             this.groupBox6.ForeColor = System.Drawing.Color.White;
-            this.groupBox6.Location = new System.Drawing.Point(3, 440);
+            this.groupBox6.Location = new System.Drawing.Point(3, 436);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(440, 70);
+            this.groupBox6.Size = new System.Drawing.Size(440, 92);
             this.groupBox6.TabIndex = 9;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Applied Patches/HotFixes";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(13, 42);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(139, 13);
+            this.label15.TabIndex = 162;
+            this.label15.Text = "Modules/Packages Needed:";
+            // 
+            // modulesBaughtComboBox
+            // 
+            this.modulesBaughtComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.modulesBaughtComboBox.DropDownWidth = 364;
+            this.modulesBaughtComboBox.FormattingEnabled = true;
+            this.modulesBaughtComboBox.Items.AddRange(new object[] {
+            "Person Records Only",
+            "Point of Sale Only",
+            "Accounting Only",
+            "Person Records with Accounting Only",
+            "Sales with Accounting Only",
+            "Accounting with Payroll Only",
+            "Person Records + Hospitality Only",
+            "Person Records + Events Only",
+            "Basic Modules Only",
+            "Basic Modules + Hospitality Only",
+            "Basic Modules + Events Only",
+            "Basic Modules + Projects Only",
+            "Basic Modules + Appointments Only",
+            "Basic Modules + PMS Only",
+            "Basic Modules + Events + Hospitality Only",
+            "Basic Modules - Payroll - Person Records + Events + Hospitality Only",
+            "Basic Modules + Payroll - Person Records + Events + Hospitality Only",
+            "Basic Modules + Events + PMS Only",
+            "Basic Modules + Projects + PMS Only",
+            "Basic Modules + Projects + Hospitality Only",
+            "Basic Modules + Projects + Events Only",
+            "Basic Modules + Events + Hospitality + PMS Only",
+            "Basic Modules + Projects + Hospitality + PMS Only",
+            "Basic Modules + Events + Projects + Hospitality Only",
+            "Basic Modules + Events + Projects + Hospitality + PMS Only",
+            "All Modules"});
+            this.modulesBaughtComboBox.Location = new System.Drawing.Point(156, 36);
+            this.modulesBaughtComboBox.Name = "modulesBaughtComboBox";
+            this.modulesBaughtComboBox.Size = new System.Drawing.Size(264, 21);
+            this.modulesBaughtComboBox.TabIndex = 161;
             // 
             // patchDBTextBox
             // 
@@ -601,12 +652,17 @@ namespace DBConfig
             this.waitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.waitLabel.Visible = false;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 300;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // DBConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(446, 551);
+            this.ClientSize = new System.Drawing.Size(446, 561);
             this.Controls.Add(this.waitLabel);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
@@ -690,6 +746,9 @@ namespace DBConfig
     public System.Windows.Forms.TextBox patchDBTextBox;
     private System.Windows.Forms.Label label12;
     private System.Windows.Forms.Label waitLabel;
-  }
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox modulesBaughtComboBox;
+        private System.Windows.Forms.Timer timer1;
+    }
 }
 

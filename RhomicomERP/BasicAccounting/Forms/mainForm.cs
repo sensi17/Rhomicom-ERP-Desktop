@@ -26,18 +26,12 @@ namespace Accounting.Forms
         public int Og_id = -1;
         public int funCurID = -1;
         public string funcCurCode = "";
-
-        //string[] menuItems = {"Chart of Accounts" , 
-        //"Accounting Transactions", "Transactions Search", "Trial Balances",
-        //"Profit & Loss Statements", "Balance Sheets", "Budgets", "Transaction Templates"};
-        //string[] menuImages = {"groupings.png", "staffs.png", "shield_64.png"
-        //,"SecurityLock.png"	,"SecurityLock.png", "73.ico", "54.png", "73.ico"};
-        string[] menuItems = {"Chart of Accounts" ,
-        "Journal Entries", "Transactions Search", "Financial Statements"
+        string[] menuItems = {"Chart of Accounts",
+        "Journal Entries", "Petty Cash Vouchers", "Transactions Search", "Financial Statements"
     , "Budgets", "Transaction Templates","Accounting Periods", "Assets/Investments"
     ,"Payable Invoices","Receivable Invoices","Invoice Payments","Business Partners/Firms","Tax Codes",
     "Default Accounts","Account Reconciliation"};
-        string[] menuImages = {"AccountingIcon1.png", "images_trns.jpeg", "CustomIcon.png"
+        string[] menuImages = {"AccountingIcon1.png", "generaljournal.png", "cashbook_big_icon.png", "CustomIcon.png"
         ,"tbals.jpg"    ,"bdgt.jpg", "tmplt.jpg", "calendar2.ico", "assets1.jpg", "pybls1.jpg", "rcvbls1.jpg"
     ,"pymnts1.jpg", "cstmrs1.jpg", "tax1.jpg", "dfltAccnts1.jpg", "mi_scare_report.png","Notebook.png"};
         //Chart of Accounts Panel Variables;
@@ -202,7 +196,7 @@ namespace Accounting.Forms
             System.Windows.Forms.Application.DoEvents();
             this.clrs = Global.mnFrm.cmCde.getColors();
             this.BackColor = clrs[0];
-            this.tabPage1.BackColor = clrs[0];
+            this.tabPage1.BackColor = clrs[0];//Color.Transparent;// 
             this.tabPage2.BackColor = clrs[0];
             this.tabPage3.BackColor = clrs[0];
             this.tabPage4.BackColor = clrs[0];
@@ -224,6 +218,7 @@ namespace Accounting.Forms
             this.tabPage20.BackColor = clrs[0];
             this.tabPage21.BackColor = clrs[0];
             this.tabPage22.BackColor = clrs[0];
+            this.tabPage23.BackColor = clrs[0];
 
             this.glsLabel1.TopFill = clrs[0];
             this.glsLabel1.BackColor = clrs[0];
@@ -297,7 +292,8 @@ namespace Accounting.Forms
             if (suspns_accnt <= -1 && accntID <= -1)
             {
                 Global.createChrt(Global.mnFrm.cmCde.Org_id, "01SYSTEM_SUSPENSE13040", "Suspense Account"
-                  , "Suspense Account", false, -1, "A", false, true, false, false, 100, false, -1, this.funCurID, true, "");
+                  , "Suspense Account", false, -1, "A", false, true, false, false, 100, false, -1, this.funCurID, true, "",
+                  -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1);
             }
             System.Windows.Forms.Application.DoEvents();
             this.populateTreeView();
@@ -326,6 +322,32 @@ namespace Accounting.Forms
         #region "GENERAL..."
         private void populateTreeView()
         {
+            String neededMdls = "";
+            if (Global.mnFrm.cmCde.User_id > 0)
+            {
+                neededMdls = Global.mnFrm.cmCde.getGnrlRecNm("sec.sec_users", "user_id", "modules_needed", Global.mnFrm.cmCde.User_id);
+                if ((!neededMdls.Contains("Only") && !neededMdls.Contains("Modules")) || neededMdls == "")
+                {
+                    int lvid = Global.mnFrm.cmCde.getLovID("Rhomicom Software Licenses");
+                    neededMdls = Global.mnFrm.cmCde.decrypt(Global.mnFrm.cmCde.getEnbldPssblValDesc("Modules/Packages Needed", lvid), CommonCode.CommonCodes.AppKey);
+                    if (neededMdls.Contains("Only") || neededMdls.Contains("Modules"))
+                    {
+                        CommonCode.CommonCodes.ModulesNeeded = neededMdls;
+                    }
+                    else
+                    {
+                        CommonCode.CommonCodes.ModulesNeeded = "Person Records Only";
+                    }
+                }
+                else
+                {
+                    CommonCode.CommonCodes.ModulesNeeded = neededMdls;
+                }
+            }
+            else
+            {
+                CommonCode.CommonCodes.ModulesNeeded = "Person Records Only";
+            }
             if (this.backgroundWorker1.IsBusy == true)
             {
                 return;
@@ -339,58 +361,98 @@ namespace Accounting.Forms
 
             for (int i = 0; i < menuItems.Length; i++)
             {
-                if (i == 3)
+                if (i == 2)
                 {
+                    if (CommonCode.CommonCodes.ModulesNeeded == "Point of Sale Only")
+                    {
+                        continue;
+                    }
                     if (Global.mnFrm.cmCde.test_prmssns(Global.dfltPrvldgs[0] +
-                     "~" + Global.dfltPrvldgs[29]) == false)
+                     "~" + Global.dfltPrvldgs[97]) == false)
                     {
                         continue;
                     }
                 }
                 else if (i == 4)
                 {
+                    if (CommonCode.CommonCodes.ModulesNeeded == "Point of Sale Only")
+                    {
+                        continue;
+                    }
                     if (Global.mnFrm.cmCde.test_prmssns(Global.dfltPrvldgs[0] +
-                    "~" + Global.dfltPrvldgs[7]) == false)
+                     "~" + Global.dfltPrvldgs[29]) == false)
                     {
                         continue;
                     }
                 }
                 else if (i == 5)
                 {
+                    if (CommonCode.CommonCodes.ModulesNeeded == "Point of Sale Only")
+                    {
+                        continue;
+                    }
+                    if (Global.mnFrm.cmCde.test_prmssns(Global.dfltPrvldgs[0] +
+                    "~" + Global.dfltPrvldgs[7]) == false)
+                    {
+                        continue;
+                    }
+                }
+                else if (i == 6)
+                {
+                    if (CommonCode.CommonCodes.ModulesNeeded == "Point of Sale Only")
+                    {
+                        continue;
+                    }
                     if (Global.mnFrm.cmCde.test_prmssns(Global.dfltPrvldgs[0] +
                     "~" + Global.dfltPrvldgs[8]) == false)
                     {
                         continue;
                     }
                 }
-                else if (i == 10)
+                else if (i == 11)
                 {
+                    if (CommonCode.CommonCodes.ModulesNeeded == "Point of Sale Only")
+                    {
+                        continue;
+                    }
                     if (Global.mnFrm.cmCde.test_prmssns(Global.dfltPrvldgs[0] +
                     "~" + Global.dfltPrvldgs[41]) == false)
                     {
                         continue;
                     }
                 }
-                else if (i == 7)
+                else if (i == 8)
                 {
+                    if (CommonCode.CommonCodes.ModulesNeeded == "Point of Sale Only")
+                    {
+                        continue;
+                    }
                     if (Global.mnFrm.cmCde.test_prmssns(Global.dfltPrvldgs[0] +
                     "~" + Global.dfltPrvldgs[40]) == false)
                     {
                         continue;
                     }
                 }
-                else if (i < 10)
+                else if (i < 11)
                 {
-                    if (Global.mnFrm.cmCde.test_prmssns(Global.dfltPrvldgs[0] +
-                     "~" + Global.dfltPrvldgs[i + 23]) == false)
+                    if ((i == 1 || i == 3 || i == 9 || i == 10) && CommonCode.CommonCodes.ModulesNeeded == "Point of Sale Only")
+                    {
+                        continue;
+                    }
+                    else if (Global.mnFrm.cmCde.test_prmssns(Global.dfltPrvldgs[0] +
+                     "~" + Global.dfltPrvldgs[i + 22]) == false)
                     {
                         continue;
                     }
                 }
                 else
                 {
+                    if ((i == 11 || i == 15) && CommonCode.CommonCodes.ModulesNeeded == "Point of Sale Only")
+                    {
+                        continue;
+                    }
                     if (Global.mnFrm.cmCde.test_prmssns(Global.dfltPrvldgs[0] +
-                     "~" + Global.dfltPrvldgs[i + 22]) == false)
+                     "~" + Global.dfltPrvldgs[i + 21]) == false)
                     {
                         continue;
                     }
@@ -442,6 +504,33 @@ namespace Accounting.Forms
             }
             else if (inpt_name == menuItems[2])
             {
+                this.showATab(ref this.tabPage23);
+                this.changeOrg();
+
+                Global.ptycshFrm = (pettyCashDocsForm)Global.isFormAlreadyOpen(typeof(pettyCashDocsForm));
+                if (Global.ptycshFrm == null)
+                {
+                    Global.ptycshFrm = new pettyCashDocsForm();
+                    Global.ptycshFrm.TopLevel = false;
+                    Global.ptycshFrm.FormBorderStyle = FormBorderStyle.None;
+                    Global.ptycshFrm.Dock = DockStyle.Fill;
+                    this.tabPage23.Controls.Add(Global.ptycshFrm);
+                    Global.ptycshFrm.BackColor = clrs[0];
+                    Global.ptycshFrm.loadPrvldgs();
+                    Global.ptycshFrm.disableFormButtons();
+
+                    Global.ptycshFrm.Show();
+                    Global.ptycshFrm.BringToFront();
+                    System.Windows.Forms.Application.DoEvents();
+                    Global.ptycshFrm.loadPanel();
+                }
+                else
+                {
+                    Global.ptycshFrm.BringToFront();
+                }
+            }
+            else if (inpt_name == menuItems[3])
+            {
                 if (this.vldEndDteTextBox.Text == "")
                 {
                     this.vldEndDteTextBox.Text = DateTime.ParseExact(
@@ -458,7 +547,7 @@ namespace Accounting.Forms
                 this.changeOrg();
                 this.loadSrchPanel();
             }
-            else if (inpt_name == menuItems[3])
+            else if (inpt_name == menuItems[4])
             {
                 this.showATab(ref this.tabPage4);
                 this.changeOrg();
@@ -542,19 +631,19 @@ namespace Accounting.Forms
                 this.obey_evnts = true;
 
             }
-            else if (inpt_name == menuItems[4])
+            else if (inpt_name == menuItems[5])
             {
                 this.showATab(ref this.tabPage5);
                 this.changeOrg();
                 this.loadBdgtPanel();
             }
-            else if (inpt_name == menuItems[5])
+            else if (inpt_name == menuItems[6])
             {
                 this.showATab(ref this.tabPage6);
                 this.changeOrg();
                 this.loadTmpltsPanel();
             }
-            else if (inpt_name == menuItems[6])
+            else if (inpt_name == menuItems[7])
             {
                 //this.otherFormsPanel.Controls.Clear();
                 //Global.actnPrdFrm = null;
@@ -602,6 +691,43 @@ namespace Accounting.Forms
             else if (inpt_name == menuItems[8])
             {
                 //this.otherFormsPanel.Controls.Clear();
+                //Global.fxdAstsFrm = null;
+                this.showATab(ref this.tabPage8);
+                this.changeOrg();
+
+                Global.fxdAstsFrm = (fxdAsstsForm)Global.isFormAlreadyOpen(typeof(fxdAsstsForm));
+                if (Global.fxdAstsFrm == null)
+                {
+                    Global.fxdAstsFrm = new fxdAsstsForm();
+                    Global.fxdAstsFrm.TopLevel = false;
+                    Global.fxdAstsFrm.FormBorderStyle = FormBorderStyle.None;
+                    Global.fxdAstsFrm.Dock = DockStyle.Fill;
+                    this.tabPage8.Controls.Add(Global.fxdAstsFrm);
+                    Global.fxdAstsFrm.BackColor = clrs[0];
+                    Global.fxdAstsFrm.tabPage1.BackColor = clrs[0];
+                    Global.fxdAstsFrm.tabPage1.BackColor = clrs[0];
+                    Global.fxdAstsFrm.loadPrvldgs();
+                    Global.fxdAstsFrm.disableFormButtons();
+
+                    Global.fxdAstsFrm.Show();
+                    Global.fxdAstsFrm.BringToFront();
+                    System.Windows.Forms.Application.DoEvents();
+                    Global.fxdAstsFrm.loadPanel();
+                }
+                else
+                {
+                    //this.otherFormsPanel.Controls.Add(Global.fxdAstsFrm);
+                    //Global.pyblsFrm.disableFormButtons();
+                    Global.fxdAstsFrm.BringToFront();
+                }
+                //Global.pyblsFrm.populateDet(Global.mnFrm.cmCde.Org_id);
+                //Global.pyblsFrm.positionDetTextBox.Focus();
+                //this.showATab(ref this.otherFormsPanel);
+
+            }
+            else if (inpt_name == menuItems[9])
+            {
+                //this.otherFormsPanel.Controls.Clear();
                 //Global.pyblsFrm = null;
                 this.showATab(ref this.tabPage9);
                 this.changeOrg();
@@ -633,7 +759,7 @@ namespace Accounting.Forms
                 //Global.pyblsFrm.positionDetTextBox.Focus();
                 //this.showATab(ref this.otherFormsPanel);
             }
-            else if (inpt_name == menuItems[9])
+            else if (inpt_name == menuItems[10])
             {
                 //this.otherFormsPanel.Controls.Clear();
                 //Global.rcvblsFrm = null;
@@ -669,7 +795,7 @@ namespace Accounting.Forms
                 //Global.pyblsFrm.positionDetTextBox.Focus();
                 //this.showATab(ref this.otherFormsPanel);
             }
-            else if (inpt_name == menuItems[10])
+            else if (inpt_name == menuItems[11])
             {
                 //this.otherFormsPanel.Controls.Clear();
                 //Global.pymntFrm = null;
@@ -705,7 +831,7 @@ namespace Accounting.Forms
                 //Global.pyblsFrm.positionDetTextBox.Focus();
                 //this.showATab(ref this.otherFormsPanel);
             }
-            else if (inpt_name == menuItems[11])
+            else if (inpt_name == menuItems[12])
             {
                 //this.otherFormsPanel.Controls.Clear();
                 //Global.custFrm = null;
@@ -742,7 +868,7 @@ namespace Accounting.Forms
                 //Global.pyblsFrm.positionDetTextBox.Focus();
                 //this.showATab(ref this.otherFormsPanel);
             }
-            else if (inpt_name == menuItems[12])
+            else if (inpt_name == menuItems[13])
             {
                 //this.otherFormsPanel.Controls.Clear();
                 //Global.taxFrm = null;
@@ -777,7 +903,7 @@ namespace Accounting.Forms
                 //Global.pyblsFrm.positionDetTextBox.Focus();
                 // this.showATab(ref this.otherFormsPanel);
             }
-            else if (inpt_name == menuItems[13])
+            else if (inpt_name == menuItems[14])
             {
                 //this.otherFormsPanel.Controls.Clear();
                 //Global.accntFrm = null;
@@ -812,7 +938,7 @@ namespace Accounting.Forms
                 //Global.pyblsFrm.positionDetTextBox.Focus();
                 //this.showATab(ref this.otherFormsPanel);
             }
-            else if (inpt_name == menuItems[14])
+            else if (inpt_name == menuItems[15])
             {
                 //this.otherFormsPanel.Controls.Clear();
                 //Global.rcncileFrm = null;
@@ -861,48 +987,6 @@ namespace Accounting.Forms
                 //Global.pyblsFrm.positionDetTextBox.Focus();
                 //this.showATab(ref this.otherFormsPanel);
             }
-            else if (inpt_name == menuItems[7])
-            {
-                //this.otherFormsPanel.Controls.Clear();
-                //Global.fxdAstsFrm = null;
-                this.showATab(ref this.tabPage8);
-                this.changeOrg();
-
-                Global.fxdAstsFrm = (fxdAsstsForm)Global.isFormAlreadyOpen(typeof(fxdAsstsForm));
-                if (Global.fxdAstsFrm == null)
-                {
-                    Global.fxdAstsFrm = new fxdAsstsForm();
-                    Global.fxdAstsFrm.TopLevel = false;
-                    Global.fxdAstsFrm.FormBorderStyle = FormBorderStyle.None;
-                    Global.fxdAstsFrm.Dock = DockStyle.Fill;
-                    this.tabPage8.Controls.Add(Global.fxdAstsFrm);
-                    Global.fxdAstsFrm.BackColor = clrs[0];
-                    Global.fxdAstsFrm.tabPage1.BackColor = clrs[0];
-                    Global.fxdAstsFrm.tabPage1.BackColor = clrs[0];
-                    Global.fxdAstsFrm.loadPrvldgs();
-                    Global.fxdAstsFrm.disableFormButtons();
-
-                    Global.fxdAstsFrm.Show();
-                    Global.fxdAstsFrm.BringToFront();
-                    System.Windows.Forms.Application.DoEvents();
-                    Global.fxdAstsFrm.loadPanel();
-                }
-                else
-                {
-                    //this.otherFormsPanel.Controls.Add(Global.fxdAstsFrm);
-                    //Global.pyblsFrm.disableFormButtons();
-                    Global.fxdAstsFrm.BringToFront();
-                }
-                //Global.pyblsFrm.populateDet(Global.mnFrm.cmCde.Org_id);
-                //Global.pyblsFrm.positionDetTextBox.Focus();
-                //this.showATab(ref this.otherFormsPanel);
-
-            }//else if (inpt_name == menuItems[7])
-            //{
-            //  this.showATab(ref this.trnsTmpltsPanel);
-            //  this.changeOrg();
-
-            //}
         }
 
         private void changeOrg()
@@ -1425,7 +1509,6 @@ namespace Accounting.Forms
                     this.netBalTypeLabel.Text = "";
                 }
 
-
                 this.isEnabledAccntsCheckBox.Checked = Global.mnFrm.cmCde.cnvrtBitStrToBool(dtst.Tables[0].Rows[i][16].ToString());
                 this.isRetEarnsCheckBox.Checked = Global.mnFrm.cmCde.cnvrtBitStrToBool(dtst.Tables[0].Rows[i][18].ToString());
                 this.isNetIncmCheckBox.Checked = Global.mnFrm.cmCde.cnvrtBitStrToBool(dtst.Tables[0].Rows[i][19].ToString());
@@ -1438,6 +1521,21 @@ namespace Accounting.Forms
                 this.accntCurrIDTextBox.Text = dtst.Tables[0].Rows[i][24].ToString();
                 this.accntCrncyNmTextBox.Text = Global.mnFrm.cmCde.getPssblValNm(int.Parse(dtst.Tables[0].Rows[i][24].ToString()))
                   + " - " + Global.mnFrm.cmCde.getPssblValDesc(int.Parse(dtst.Tables[0].Rows[i][24].ToString()));
+
+                this.accntSgmnt1TextBox.Text = dtst.Tables[0].Rows[i][27].ToString();
+                this.accntSgmnt2TextBox.Text = dtst.Tables[0].Rows[i][28].ToString();
+                this.accntSgmnt3TextBox.Text = dtst.Tables[0].Rows[i][29].ToString();
+                this.accntSgmnt4TextBox.Text = dtst.Tables[0].Rows[i][30].ToString();
+                this.accntSgmnt5TextBox.Text = dtst.Tables[0].Rows[i][31].ToString();
+                this.accntSgmnt6TextBox.Text = dtst.Tables[0].Rows[i][32].ToString();
+                this.accntSgmnt7TextBox.Text = dtst.Tables[0].Rows[i][33].ToString();
+                this.accntSgmnt8TextBox.Text = dtst.Tables[0].Rows[i][34].ToString();
+                this.accntSgmnt9TextBox.Text = dtst.Tables[0].Rows[i][35].ToString();
+                this.accntSgmnt10TextBox.Text = dtst.Tables[0].Rows[i][36].ToString();
+                this.mappedAccntIDTextBox.Text = dtst.Tables[0].Rows[i][37].ToString();
+                this.mappedAccntTextBox.Text = Global.mnFrm.cmCde.getAccntNum(int.Parse(dtst.Tables[0].Rows[i][37].ToString()))
+                + "." + Global.mnFrm.cmCde.getAccntName(int.Parse(dtst.Tables[0].Rows[i][37].ToString()));
+
                 this.accntCurrLabel.Text = "ACCOUNT CURRENCY BALANCE (" +
                   Global.mnFrm.cmCde.getPssblValNm(int.Parse(dtst.Tables[0].Rows[i][24].ToString())) + ")";
 
@@ -1534,7 +1632,8 @@ namespace Accounting.Forms
             {
                 if (this.netBalNumericUpDown.Value != 0
                   || this.crdtBalNumericUpDown.Value != 0
-                  || this.dbtBalNumericUpDown.Value != 0)
+                  || this.dbtBalNumericUpDown.Value != 0
+                  || this.accntSgmnt1TextBox.Text != "-1")
                 {
                     this.isPrntAccntsCheckBox.Enabled = false;
                     this.isContraCheckBox.Enabled = false;
@@ -1559,6 +1658,24 @@ namespace Accounting.Forms
                     this.cntrlAccntButton.Enabled = true;
                     this.accntCrncyNmTextBox.Enabled = true;
                     this.accntCurrButton.Enabled = true;
+                }
+                if (this.accntSgmnt1TextBox.Text != "-1")
+                {
+                    this.accntNumTextBox.ReadOnly = true;
+                    this.accntNumTextBox.BackColor = Color.WhiteSmoke;
+                    this.accntNameTextBox.ReadOnly = true;
+                    this.accntNameTextBox.BackColor = Color.WhiteSmoke;
+                    this.accntDescTextBox.ReadOnly = true;
+                    this.accntDescTextBox.BackColor = Color.WhiteSmoke;
+                }
+                else
+                {
+                    this.accntNumTextBox.ReadOnly = false;
+                    this.accntNumTextBox.BackColor = Color.FromArgb(255, 255, 118);
+                    this.accntNameTextBox.ReadOnly = true;
+                    this.accntNameTextBox.BackColor = Color.FromArgb(255, 255, 118);
+                    this.accntDescTextBox.ReadOnly = false;
+                    this.accntDescTextBox.BackColor = Color.FromArgb(255, 255, 118);
                 }
             }
             this.obey_chrt_evnts = true;
@@ -1654,7 +1771,7 @@ namespace Accounting.Forms
             this.accntNameTextBox.Text = "";
             this.accntDescTextBox.Text = "";
             this.accClsfctnComboBox.SelectedIndex = -1;
-            this.isEnabledAccntsCheckBox.Checked = false;
+            this.isEnabledAccntsCheckBox.Checked = true;
             this.isPrntAccntsCheckBox.Checked = false;
             this.isContraCheckBox.Checked = false;
             this.isRetEarnsCheckBox.Checked = false;
@@ -1679,6 +1796,17 @@ namespace Accounting.Forms
             this.cntrlAccntTextBox.Text = "";
             this.accntCurrIDTextBox.Text = "-1";
             this.accntCrncyNmTextBox.Text = "";
+
+            this.accntSgmnt1TextBox.Text = "-1";
+            this.accntSgmnt2TextBox.Text = "-1";
+            this.accntSgmnt3TextBox.Text = "-1";
+            this.accntSgmnt4TextBox.Text = "-1";
+            this.accntSgmnt5TextBox.Text = "-1";
+            this.accntSgmnt6TextBox.Text = "-1";
+            this.accntSgmnt7TextBox.Text = "-1";
+            this.accntSgmnt8TextBox.Text = "-1";
+            this.accntSgmnt9TextBox.Text = "-1";
+            this.accntSgmnt10TextBox.Text = "-1";
 
             this.accntTypeComboBox.Items.Clear();
             this.rptLnNoUpDown.Value = 100;
@@ -1706,16 +1834,31 @@ namespace Accounting.Forms
         private void prpareForChrtEdit()
         {
             this.saveChrtButton.Enabled = true;
-            this.accntNumTextBox.ReadOnly = false;
-            this.accntNumTextBox.BackColor = Color.FromArgb(255, 255, 118);
-            this.accntNameTextBox.ReadOnly = false;
-            this.accntNameTextBox.BackColor = Color.FromArgb(255, 255, 118);
-            this.accntDescTextBox.ReadOnly = false;
-            this.accntDescTextBox.BackColor = Color.White;
+
+            if (this.accntSgmnt1TextBox.Text != "-1")
+            {
+                this.accntNumTextBox.ReadOnly = true;
+                this.accntNumTextBox.BackColor = Color.WhiteSmoke;
+                this.accntNameTextBox.ReadOnly = true;
+                this.accntNameTextBox.BackColor = Color.WhiteSmoke;
+                this.accntDescTextBox.ReadOnly = true;
+                this.accntDescTextBox.BackColor = Color.WhiteSmoke;
+            }
+            else
+            {
+                this.accntNumTextBox.ReadOnly = false;
+                this.accntNumTextBox.BackColor = Color.FromArgb(255, 255, 118);
+                this.accntNameTextBox.ReadOnly = true;
+                this.accntNameTextBox.BackColor = Color.FromArgb(255, 255, 118);
+                this.accntDescTextBox.ReadOnly = false;
+                this.accntDescTextBox.BackColor = Color.FromArgb(255, 255, 118);
+            }
             this.accClsfctnComboBox.BackColor = Color.White;
 
             this.accntCrncyNmTextBox.ReadOnly = false;
             this.accntCrncyNmTextBox.BackColor = Color.FromArgb(255, 255, 118);
+
+
 
             this.rptLnNoUpDown.Increment = 1;
             this.rptLnNoUpDown.ReadOnly = false;
@@ -1906,7 +2049,8 @@ namespace Accounting.Forms
                 }
                 if (this.netBalNumericUpDown.Value != 0
                   || this.dbtBalNumericUpDown.Value != 0
-                  || this.crdtBalNumericUpDown.Value != 0)
+                  || this.crdtBalNumericUpDown.Value != 0
+                  || this.accntSgmnt1TextBox.Text != "-1")
                 {
                     this.isPrntAccntsCheckBox.Enabled = false;
                     this.isContraCheckBox.Enabled = false;
@@ -1956,9 +2100,15 @@ namespace Accounting.Forms
                 Global.mnFrm.cmCde.showMsg("Cannot delete accounts with Transactions in their Name!", 0);
                 return;
             }
+
             if (Global.get_Accnt_Tot_Chldrn(accntid) > 0)
             {
                 Global.mnFrm.cmCde.showMsg("Cannot delete Parent Accounts with Child Accounts!", 0);
+                return;
+            }
+            if (Global.get_Accnt_Tot_Mappngs(accntid) > 0)
+            {
+                Global.mnFrm.cmCde.showMsg("Cannot delete Accounts with Subsidiary Account Mappings!", 0);
                 return;
             }
             if (Global.get_Accnt_Tot_Pymnts(accntid) > 0)
@@ -2003,6 +2153,9 @@ namespace Accounting.Forms
                     return;
                 }
             }
+            char[] w = { '.' };
+            this.accntNumTextBox.Text = this.accntNumTextBox.Text.Trim(w);
+            this.accntNameTextBox.Text = this.accntNameTextBox.Text.Trim(w);
             if (this.accntNameTextBox.Text == "")
             {
                 Global.mnFrm.cmCde.showMsg("Please enter an Account Name!", 0);
@@ -2155,7 +2308,18 @@ namespace Accounting.Forms
                  (int)this.rptLnNoUpDown.Value, this.hasSubldgrCheckBox.Checked,
                  int.Parse(this.cntrlAccntIDTextBox.Text),
                  int.Parse(this.accntCurrIDTextBox.Text), this.isSuspensCheckBox.Checked,
-                 this.accClsfctnComboBox.Text);
+                 this.accClsfctnComboBox.Text,
+                 int.Parse(this.accntSgmnt1TextBox.Text),
+                 int.Parse(this.accntSgmnt2TextBox.Text),
+                 int.Parse(this.accntSgmnt3TextBox.Text),
+                 int.Parse(this.accntSgmnt4TextBox.Text),
+                 int.Parse(this.accntSgmnt5TextBox.Text),
+                 int.Parse(this.accntSgmnt6TextBox.Text),
+                 int.Parse(this.accntSgmnt7TextBox.Text),
+                 int.Parse(this.accntSgmnt8TextBox.Text),
+                 int.Parse(this.accntSgmnt9TextBox.Text),
+                 int.Parse(this.accntSgmnt10TextBox.Text),
+                 int.Parse(this.mappedAccntIDTextBox.Text));
                 this.saveChrtButton.Enabled = false;
                 this.addChrt = false;
                 this.editChrt = false;
@@ -2176,7 +2340,18 @@ namespace Accounting.Forms
                  (int)this.rptLnNoUpDown.Value, this.hasSubldgrCheckBox.Checked,
                  int.Parse(this.cntrlAccntIDTextBox.Text),
                  int.Parse(this.accntCurrIDTextBox.Text), this.isSuspensCheckBox.Checked,
-                 this.accClsfctnComboBox.Text);
+                 this.accClsfctnComboBox.Text,
+                 int.Parse(this.accntSgmnt1TextBox.Text),
+                 int.Parse(this.accntSgmnt2TextBox.Text),
+                 int.Parse(this.accntSgmnt3TextBox.Text),
+                 int.Parse(this.accntSgmnt4TextBox.Text),
+                 int.Parse(this.accntSgmnt5TextBox.Text),
+                 int.Parse(this.accntSgmnt6TextBox.Text),
+                 int.Parse(this.accntSgmnt7TextBox.Text),
+                 int.Parse(this.accntSgmnt8TextBox.Text),
+                 int.Parse(this.accntSgmnt9TextBox.Text),
+                 int.Parse(this.accntSgmnt10TextBox.Text),
+                 int.Parse(this.mappedAccntIDTextBox.Text));
                 if (this.accntsChrtListView.SelectedItems.Count > 0)
                 {
                     this.accntsChrtListView.SelectedItems[0].SubItems[1].Text = this.accntNumTextBox.Text;
@@ -2187,6 +2362,7 @@ namespace Accounting.Forms
         }
 
         int benhr = 0;
+
         private void accntsChrtListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (this.shdObeyChrtEvts() == false || this.accntsChrtListView.SelectedItems.Count > 1)
@@ -3550,16 +3726,23 @@ namespace Accounting.Forms
               && (Global.get_ScmIntrfcTrnsCnt(long.Parse(this.batchIDTextBox.Text)) > 0
               || Global.get_PayIntrfcTrnsCnt(long.Parse(this.batchIDTextBox.Text)) > 0))
             {
-                Global.mnFrm.cmCde.showMsg("Cannot Delete/Void Batches \r\nthat came from other Modules " +
-                "and have Transactions in them!", 0);
-                return;
+                if (Global.mnFrm.cmCde.showMsg("Force Deleting/Voiding Batches \r\nthat came from other Modules " +
+                "and have Transactions in them can have serious consequences of your Accounting System! \r\nAre you sure you want to Proceed??", 1) == DialogResult.No)
+                {
+                    return;
+                }
             }
             if ((this.batchSourceLabel.Text != "Manual" && this.batchSourceLabel.Text != "Manual Batch Reversal")
               && this.batchStatusLabel.Text == "Posted")
             {
-                Global.mnFrm.cmCde.showMsg("Cannot Void Batches \r\nthat came from other Modules " +
+                if (Global.mnFrm.cmCde.showMsg("Force Deleting/Voiding Batches \r\nthat came from other Modules " +
+               "and have Transactions in them can have serious consequences of your Accounting System! \r\nAre you sure you want to Proceed??", 1) == DialogResult.No)
+                {
+                    return;
+                }
+                /*Global.mnFrm.cmCde.showMsg("Cannot Void Batches \r\nthat came from other Modules " +
                 "and have been Posted!", 0);
-                return;
+                return;*/
             }
             if (this.batchStatusLabel.Text == "Posted" && this.batchSourceLabel.Text == "Manual Batch Reversal")
             {
@@ -3610,21 +3793,50 @@ namespace Accounting.Forms
             }
             else
             {
+                bool expiredPrd = true;
+                DateTime trnsDte = DateTime.ParseExact(this.batchDateLabel.Text, "dd-MMM-yyyy HH:mm:ss",
+            System.Globalization.CultureInfo.InvariantCulture);
+                long prdHdrID = Global.mnFrm.cmCde.getPrdHdrID(Global.mnFrm.cmCde.Org_id);
                 if (this.trnsDetListView.Items.Count > 0)
                 {
-                    //MessageBox.Show(this.trnsDetListView.Items[0].SubItems[7].Text);
+                    trnsDte = DateTime.ParseExact(this.trnsDetListView.Items[0].SubItems[7].Text, "dd-MMM-yyyy HH:mm:ss",
+            System.Globalization.CultureInfo.InvariantCulture);
+                    if (Global.mnFrm.cmCde.getTrnsDteOpenPrdLnID(prdHdrID, trnsDte.ToString("yyyy-MM-dd HH:mm:ss")) < 0)
+                    {
+                        trnsDte = DateTime.ParseExact(Global.mnFrm.cmCde.getLtstOpenPrdAfterDate(trnsDte.ToString("yyyy-MM-dd HH:mm:ss")), "yyyy-MM-dd HH:mm:ss",
+                    System.Globalization.CultureInfo.InvariantCulture);
+                    }
+                    else
+                    {
+                        trnsDte = DateTime.ParseExact(this.trnsDetListView.Items[0].SubItems[7].Text, "dd-MMM-yyyy HH:mm:ss",
+                   System.Globalization.CultureInfo.InvariantCulture);
+                        expiredPrd = false;
+                    }
                     if (!Global.mnFrm.cmCde.isTransPrmttd(
                       Global.mnFrm.cmCde.get_DfltCashAcnt(Global.mnFrm.cmCde.Org_id),
-                      this.trnsDetListView.Items[0].SubItems[7].Text, 200))
+                      trnsDte.ToString("dd-MMM-yyyy HH:mm:ss"), 200))
                     {
                         return;
                     }
                 }
                 else
                 {
+                    trnsDte = DateTime.ParseExact(this.batchDateLabel.Text, "dd-MMM-yyyy HH:mm:ss",
+           System.Globalization.CultureInfo.InvariantCulture);
+                    if (Global.mnFrm.cmCde.getTrnsDteOpenPrdLnID(prdHdrID, trnsDte.ToString("yyyy-MM-dd HH:mm:ss")) < 0)
+                    {
+                        trnsDte = DateTime.ParseExact(Global.mnFrm.cmCde.getLtstOpenPrdAfterDate(trnsDte.ToString("yyyy-MM-dd HH:mm:ss")), "yyyy-MM-dd HH:mm:ss",
+                    System.Globalization.CultureInfo.InvariantCulture);
+                    }
+                    else
+                    {
+                        trnsDte = DateTime.ParseExact(this.batchDateLabel.Text, "dd-MMM-yyyy HH:mm:ss",
+                   System.Globalization.CultureInfo.InvariantCulture);
+                        expiredPrd = false;
+                    }
                     if (!Global.mnFrm.cmCde.isTransPrmttd(
                       Global.mnFrm.cmCde.get_DfltCashAcnt(Global.mnFrm.cmCde.Org_id),
-                      this.batchDateLabel.Text, 200))
+                      trnsDte.ToString("dd-MMM-yyyy HH:mm:ss"), 200))
                     {
                         return;
                     }
@@ -3670,11 +3882,16 @@ namespace Accounting.Forms
                     //Get All Posted/Unposted Transactions in current batch
                     dtst = Global.get_Batch_Trns_NoStatus(long.Parse(this.batchIDTextBox.Text));
                     ttltrns = dtst.Tables[0].Rows.Count;
+                    string dteToUse = trnsDte.ToString("dd-MMM-yyyy HH:mm:ss");
                     for (int i = 0; i < ttltrns; i++)
                     {
+                        if (expiredPrd == false)
+                        {
+                            dteToUse = dtst.Tables[0].Rows[i][6].ToString();
+                        }
                         Global.createTransaction(int.Parse(dtst.Tables[0].Rows[i][9].ToString()),
                         dtst.Tables[0].Rows[i][3].ToString() + " (Reversal)", -1 * double.Parse(dtst.Tables[0].Rows[i][4].ToString()),
-                        dtst.Tables[0].Rows[i][6].ToString(), int.Parse(dtst.Tables[0].Rows[i][7].ToString()),
+                        dteToUse, int.Parse(dtst.Tables[0].Rows[i][7].ToString()),
                         nwbatchid, -1 * double.Parse(dtst.Tables[0].Rows[i][5].ToString()),
                         -1 * double.Parse(dtst.Tables[0].Rows[i][10].ToString()),
                   -1 * double.Parse(dtst.Tables[0].Rows[i][12].ToString()),
@@ -3879,12 +4096,6 @@ Check the ff Days:" + "\r\n";
                 Global.mnFrm.cmCde.showMsg("Cannot Post this Batch Since Current GL is not Balanced!\r\nPlease correct the Imbalance First!", 0);
                 return;
             }
-            //DataSet wrngDtst = Global.get_WrongBalncs(Global.mnFrm.cmCde.Org_id);
-            //if (wrngDtst.Tables[0].Rows.Count > 0)
-            //{
-            //  Global.mnFrm.cmCde.showMsg("Cannot Post this Batch Since Some Accounts have wrong Balances!\r\nPlease correct the Imbalance First!", 0);
-            //  return;
-            //}
 
             if (Global.mnFrm.cmCde.showMsg("REMEMBER! Transactions once posted CANNOT be edited!\r\nAre you sure you want to POST this Batch?", 1) == DialogResult.No)
             {
@@ -4340,15 +4551,13 @@ Check the ff Days:" + "\r\n";
                 System.Windows.Forms.Application.DoEvents();
                 double aesum = Global.get_COA_AESum(int.Parse((string)myargs[1]));
                 double crlsum = Global.get_COA_CRLSum(int.Parse((string)myargs[1]));
-                if (aesum
-                 != crlsum)
+                if (aesum != crlsum)
                 {
                     Global.mnFrm.cmCde.updateLogMsg(msg_id,
                "\r\nBatch of Transactions caused an " +
                       "IMBALANCE in the Accounting! A+E=" + aesum + "\r\nC+R+L=" + crlsum + "\r\nDiff=" + (aesum - crlsum), log_tbl, dateStr);
                     string errmsg = "";
-                    //if (this.postIntoSuspnsAccnt((decimal)aesum, (decimal)crlsum, Global.mnFrm.cmCde.Org_id, ref errmsg) == false)
-                    //{
+
                     Global.mnFrm.cmCde.updateLogMsg(msg_id,
                "\r\n" + errmsg + "\r\nProcess to undo the posted transactions " +
                "is about to start...!", log_tbl, dateStr);
@@ -5395,8 +5604,17 @@ Check the ff Days:" + "\r\n";
                 this.trialBalProgressBar.Value = 10 + (int)(((double)i / (double)count) * 90);
                 if (dtst.Tables[0].Rows[i][7].ToString() == "1")
                 {
-                    DataSet tDtSt = Global.get_Bals_Prnt_Accnts(int.Parse(dtst.Tables[0].Rows[i][0].ToString())
+                    DataSet tDtSt;
+                    if (int.Parse(this.tbalsAcctIDTextBox.Text) <= 0)
+                    {
+                        tDtSt = Global.get_TBals_Prnt_Accnts(int.Parse(dtst.Tables[0].Rows[i][0].ToString())
                       , this.tbalDteTextBox.Text);
+                    }
+                    else
+                    {
+                        tDtSt = Global.get_Bals_Prnt_Accnts(int.Parse(dtst.Tables[0].Rows[i][0].ToString())
+                      , this.tbalDteTextBox.Text);
+                    }
                     double amnt1 = 0;
                     double amnt2 = 0;
                     double amnt3 = 0;
@@ -6757,8 +6975,8 @@ Check the ff Days:" + "\r\n";
                               lneDesc, lnAmnt,
                               lnDte, funcCurrID, this.batchid, 0.00,
                               netAmnt, entrdAmnt, entrdCurrID, acntAmnt, accntCurrID, funcCurrRate, accntCurrRate, "D", refDocNum, srctrnsid);
-                            //this.trnsDataGridView.Rows[i].Cells[0].Value = 
                             Global.updateAmntBrkDwn(oldtrnsid, trnsid);
+                            this.trnsDataGridView.Rows[i].Cells[0].Value = trnsid;
                         }
                         else
                         {
@@ -6781,8 +6999,8 @@ Check the ff Days:" + "\r\n";
                             lnDte, funcCurrID,
                             this.batchid, lnAmnt, netAmnt,
                      entrdAmnt, entrdCurrID, acntAmnt, accntCurrID, funcCurrRate, accntCurrRate, "C", refDocNum, srctrnsid);
-
                             Global.updateAmntBrkDwn(oldtrnsid, trnsid);
+                            this.trnsDataGridView.Rows[i].Cells[0].Value = trnsid;
                         }
                         else
                         {
@@ -6797,6 +7015,8 @@ Check the ff Days:" + "\r\n";
                     }
                 }
             }
+
+            this.trnsDataGridView.EndEdit();
             this.waitLabel1.Visible = false;
             this.saveTrnsBatchRcnclButton.Enabled = true;
             this.saveTrnsBatchRcnclButton.Enabled = true;
@@ -7213,7 +7433,7 @@ Check the ff Days:" + "\r\n";
 
         private void crrctBalsVarnceButton_Click(object sender, EventArgs e)
         {
-            this.trnsDateTextBox.Text = this.tbalDteTextBox.Text;
+            this.trnsDateTextBox.Text = this.tbalDteTextBox.Text.Replace("23:59:59", "23:59:50");
             if (this.trialBalListView.CheckedItems.Count <= 0)
             {
                 Global.mnFrm.cmCde.showMsg("Please select an Account(s) to Reconcile!", 0);
@@ -7227,6 +7447,17 @@ Check the ff Days:" + "\r\n";
                 return;
             }
             int trnsCreated = 0;
+            this.batchid = Global.getBatchID(this.batchNmRcnclTextBox.Text, Global.mnFrm.cmCde.Org_id);
+            if (this.batchid > 0)
+            {
+                if (Global.mnFrm.cmCde.getGnrlRecNm("accb.accb_trnsctn_batches", "batch_id", "batch_status", this.batchid) == "1")
+                {
+                    this.resetRcnclButton_Click(this.resetRcnclButton, e);
+                }
+            }
+            string tstDate = DateTime.Parse(this.tbalDteTextBox.Text).ToString("yyyy-MM");
+            string trnsDte = Global.getLastPeriodEndDate(tstDate);
+            this.trnsDateTextBox.Text = trnsDte;
             for (int i = 0; i < this.trialBalListView.CheckedItems.Count; i++)
             {
                 int curAccntID = -1;
@@ -7246,7 +7477,7 @@ Check the ff Days:" + "\r\n";
                     continue;
                 }
                 long trnsID = -1;
-                string trnsDte = this.tbalDteTextBox.Text;// DateTime.Parse(this.trialBalListView.SelectedItems[0].SubItems[7].Text).ToString("dd-MMM-yyyy HH:mm:ss");
+                // DateTime.Parse(this.trialBalListView.SelectedItems[0].SubItems[7].Text).ToString("dd-MMM-yyyy HH:mm:ss");
                 string accntNum2 = Global.mnFrm.cmCde.getAccntNum(destAccntID);
 
                 string refDocNum = "";
@@ -7589,250 +7820,6 @@ Check the ff Days:" + "\r\n";
         #endregion
 
         #region "MONTHLY STATEMENT..."
-        private void populateMnthlyStatement()
-        {
-            //Check if no other accounting process is running
-            bool isAnyRnng = true;
-            do
-            {
-                isAnyRnng = Global.isThereANActvActnPrcss("5", "10 second");
-                System.Windows.Forms.Application.DoEvents();
-            }
-            while (isAnyRnng == true);
-            Global.updtActnPrcss(2);
-            this.statusLoadLabel.Visible = true;
-            this.statusLoadPictureBox.Visible = true;
-            this.periodStmntListView.Visible = false;
-            System.Windows.Forms.Application.DoEvents();
-            this.mnthlyProgressBar.Value = 0;
-            this.periodStmntListView.Items.Clear();
-            if (this.mnthlyStrtDteTextBox.Text == "" || this.mnthlyEndDteTextBox.Text == "")
-            {
-                Global.mnFrm.cmCde.showMsg("Start Date and End Date must be entered!", 0);
-                return;
-            }
-            this.mnthlyProgressBar.Value = 10;
-            List<string> dteArray1 = Global.getBdgtDates(this.mnthlyStrtDteTextBox.Text,
-              this.mnthlyEndDteTextBox.Text, this.mnthlyDrtnComboBox.Text);
-            this.periodStmntListView.Columns.Clear();
-            this.periodStmntListView.Columns.Add("No.", 35);
-            this.periodStmntListView.Columns.Add("Account Number", 0);
-            this.periodStmntListView.Columns.Add("Account Name", 300);
-            this.periodStmntListView.Columns.Add("accnt_id", 0);
-            this.periodStmntListView.Columns.Add("is_parnt", 0);
-            this.periodStmntListView.Columns.Add("Opening Balance", 100);
-            int nwColsCnt = 0;
-            for (int a = 0; a < dteArray1.Count; a++)
-            {
-                int rem = 0;
-                Math.DivRem(a, 2, out rem);
-                if (rem == 0)
-                {
-                    string colNm = "";
-                    if (this.mnthlyDrtnComboBox.Text == "Yearly")
-                    {
-                        colNm = DateTime.Parse(dteArray1[a]).ToString("yyyy");
-                    }
-                    else if (this.mnthlyDrtnComboBox.Text == "Half Yearly"
-                      || this.mnthlyDrtnComboBox.Text == "Quarterly")
-                    {
-                        colNm = DateTime.Parse(dteArray1[a]).ToString("MMM-")
-                        + DateTime.Parse(dteArray1[a + 1]).ToString("MMM (yyyy)");
-                    }
-                    else if (this.mnthlyDrtnComboBox.Text == "Monthly")
-                    {
-                        colNm = DateTime.Parse(dteArray1[a]).ToString("MMM-yyyy");
-                    }
-                    else
-                    {
-                        colNm = this.mnthlyDrtnComboBox.Text.Replace("ly", "") + (a + 1).ToString();
-                    }
-                    this.periodStmntListView.Columns.Add(colNm, 100);
-                    nwColsCnt++;
-                }
-            }
-            this.periodStmntListView.Columns.Add("Closing Balance", 100);
-            string accTyp = this.mnthlyAccTypComboBox.Text.Substring(0, 2).Trim();
-            if (this.mnthlyAccTypComboBox.Text == "R -REVENUE/EX-EXPENSE")
-            {
-                accTyp = "R','EX";
-            }
-            else if (this.mnthlyAccTypComboBox.Text == "Balance Sheet Accounts")
-            {
-                accTyp = "A','L','EQ";
-            }
-            else if (accTyp == "Al")
-            {
-                accTyp = "A','L','EQ','R','EX";
-            }
-            DataSet dtst = Global.get_Type_Accnts(Global.mnFrm.cmCde.Org_id, accTyp);
-
-            int count = dtst.Tables[0].Rows.Count;
-            string funccur = Global.mnFrm.cmCde.getPssblValNm(
-             Global.mnFrm.cmCde.getOrgFuncCurID(Global.mnFrm.cmCde.Org_id));
-            this.periodGroupBox.Text = "PERIOD BY PERIOD ACCOUNT TRNS. SUM FROM " +
-             this.mnthlyStrtDteTextBox.Text.ToUpper() + " TO " + this.mnthlyEndDteTextBox.Text.ToUpper() + " (" + funccur + ")";
-            //double rvnsum = 0;
-            //double expsum = 0;
-            int cntr = 0;
-            string opngBalsDte = DateTime.Parse(this.mnthlyStrtDteTextBox.Text).AddDays(-1).ToString("dd-MMM-yyyy 23:59:59");
-            string clsngBalsDte = DateTime.Parse(this.mnthlyEndDteTextBox.Text).ToString("dd-MMM-yyyy 23:59:59");
-            double periodVal = 0;
-            double prevPeriodVal = 0;
-            double opngBals = 0;
-            double clsngBals = 0;
-            for (int i = 0; i < count; i++)
-            {
-                Global.updtActnPrcss(2);
-                periodVal = 0;
-                prevPeriodVal = 0;
-                opngBals = 0;
-                clsngBals = 0;
-                this.mnthlyProgressBar.Value = 10 + (int)(((double)i / (double)count) * 90);
-                if (dtst.Tables[0].Rows[i][3].ToString() == "1"
-                  || dtst.Tables[0].Rows[i][5].ToString() == "1")
-                {
-                    opngBals = Global.get_Accnt_BalsSumRcsv(int.Parse(dtst.Tables[0].Rows[i][0].ToString()),
-                    opngBalsDte);
-                    prevPeriodVal = opngBals;
-                    clsngBals += opngBals;
-
-                    ListViewItem nwItem = new ListViewItem(new string[] {
-    (1 + cntr).ToString(), dtst.Tables[0].Rows[i][1].ToString(),
-    dtst.Tables[0].Rows[i][1].ToString() +
-    "." + dtst.Tables[0].Rows[i][2].ToString().ToUpper(),
-    dtst.Tables[0].Rows[i][0].ToString(),
-    dtst.Tables[0].Rows[i][3].ToString(),
-    opngBals.ToString("#,##0.00")});
-
-                    for (int a = 0; a < dteArray1.Count; a++)
-                    {
-                        int rem = 0;
-                        Math.DivRem(a, 2, out rem);
-                        if (rem == 1)
-                        {
-                            periodVal = Global.get_Accnt_Usr_TrnsSumRcsv(int.Parse(dtst.Tables[0].Rows[i][0].ToString()),
-                         dteArray1[a - 1], dteArray1[a]);// - prevPeriodVal;
-                            clsngBals += periodVal;// -prevPeriodVal;
-                            //periodVal = Global.get_Accnt_Usr_TrnsSumRcsv(int.Parse(dtst.Tables[0].Rows[i][0].ToString()),
-                            //dteArray1[a - 1],
-                            //dteArray1[a]);
-                            //clsngBals += periodVal;
-                            //            if (dtst.Tables[0].Rows[i][4].ToString() == "R"
-                            //|| dtst.Tables[0].Rows[i][4].ToString() == "EX")
-                            //            {
-                            //            }
-                            //            else
-                            //            {
-                            //            }
-                            //- prevPeriodVal;
-
-                            prevPeriodVal += periodVal;
-
-                            nwItem.SubItems.Add(periodVal.ToString("#,##0.00"));
-                        }
-                    }
-
-                    nwItem.SubItems.Add(clsngBals.ToString("#,##0.00"));
-
-                    nwItem.UseItemStyleForSubItems = true;
-                    nwItem.BackColor = Color.WhiteSmoke;
-                    nwItem.Font = new Font("Tahoma", 8.5F, FontStyle.Bold);
-                    this.periodStmntListView.Items.Add(nwItem);
-                    cntr++;
-                }
-                else
-                {
-                    opngBals = Global.getAccntLstDailyNetBals(int.Parse(dtst.Tables[0].Rows[i][0].ToString()),
-                     opngBalsDte);
-                    prevPeriodVal = opngBals;
-                    clsngBals += opngBals;
-
-                    ListViewItem nwItem = new ListViewItem(new string[] {
-    (1 + cntr).ToString(), dtst.Tables[0].Rows[i][1].ToString(),
-    dtst.Tables[0].Rows[i][1].ToString() +
-    "." + dtst.Tables[0].Rows[i][2].ToString(),
-    dtst.Tables[0].Rows[i][0].ToString(),
-    dtst.Tables[0].Rows[i][3].ToString(),
-    opngBals.ToString("#,##0.00")});
-
-                    for (int a = 0; a < dteArray1.Count; a++)
-                    {
-                        int rem = 0;
-                        Math.DivRem(a, 2, out rem);
-                        if (rem == 1)
-                        {
-                            periodVal = Global.get_Accnt_Usr_TrnsSum(int.Parse(dtst.Tables[0].Rows[i][0].ToString()),
-                            dteArray1[a - 1],
-                            dteArray1[a]);
-                            clsngBals += periodVal;
-                            //            if (dtst.Tables[0].Rows[i][4].ToString() == "R"
-                            //|| dtst.Tables[0].Rows[i][4].ToString() == "EX")
-                            //            {
-                            //            }
-                            //            else
-                            //            {
-                            //              periodVal = Global.getAccntLstDailyNetBals(int.Parse(dtst.Tables[0].Rows[i][0].ToString()),
-                            //           dteArray1[a]);// -prevPeriodVal;
-                            //              clsngBals += periodVal - prevPeriodVal;
-                            //            }
-                            prevPeriodVal = periodVal;
-
-                            nwItem.SubItems.Add(periodVal.ToString("#,##0.00"));
-                        }
-                    }
-
-                    nwItem.SubItems.Add(clsngBals.ToString("#,##0.00"));
-
-                    this.periodStmntListView.Items.Add(nwItem);
-                    cntr++;
-                }
-                System.Windows.Forms.Application.DoEvents();
-            }
-            //double rvnsum = Global.get_AccntType_TrnsSum(Global.mnFrm.cmCde.Org_id,
-            // "R", this.mnthlyStrtDteTextBox.Text, this.mnthlyEndDteTextBox.Text);
-            //double expsum = Global.get_AccntType_TrnsSum(Global.mnFrm.cmCde.Org_id,
-            // "EX", this.mnthlyStrtDteTextBox.Text, this.mnthlyEndDteTextBox.Text);
-            double tstVal = 0;
-            double wrkngValue = 0;
-            int q = 0;
-            //int itmsCnt = this.periodStmntListView.Items.Count;
-            bool isNum = false;
-            for (q = 0; q < this.periodStmntListView.Items.Count; q++)
-            {
-                wrkngValue = 0;
-                for (int j = 5; j < this.periodStmntListView.Columns.Count; j++)
-                {
-                    isNum = double.TryParse(this.periodStmntListView.Items[q].SubItems[j].Text, out tstVal);
-                    if (isNum)
-                    {
-                        wrkngValue += tstVal;
-                    }
-                    else
-                    {
-                        isNum = false;
-                        break;
-                    }
-                }
-                this.periodStmntListView.Items[q].Text = (q + 1).ToString();
-                if (wrkngValue != 0)
-                {
-                    //this.periodStmntListView.Items[q].SubItems[this.periodStmntListView.Columns.Count - 1].Text = wrkngValue.ToString("#,##0.00");
-                }
-                else if (this.periodStmntListView.Items[q].Font.Bold == false && this.hideZeroMnthlyCheckBox.Checked
-                  && isNum == true)
-                {
-                    this.periodStmntListView.Items.RemoveAt(q);
-                    q--;
-                }
-                System.Windows.Forms.Application.DoEvents();
-            }
-            this.mnthlyProgressBar.Value = 100;
-            this.statusLoadLabel.Visible = false;
-            this.statusLoadPictureBox.Visible = false;
-            this.periodStmntListView.Visible = true;
-            System.Windows.Forms.Application.DoEvents();
-        }
 
         private void mnthlyDate1Button_Click(object sender, EventArgs e)
         {
@@ -7859,18 +7846,8 @@ Check the ff Days:" + "\r\n";
 
         private void genMnthlyRptButton_Click(object sender, EventArgs e)
         {
-            if (Global.mnFrm.cmCde.test_prmssns(Global.dfltPrvldgs[5]) == false)
-            {
-                Global.mnFrm.cmCde.showMsg("You don't have permission to perform" +
-                 " this action!\nContact your System Administrator!", 0);
-                return;
-            }
-            this.genMthlyRptButton.Enabled = false;
-            System.Windows.Forms.Application.DoEvents();
-
-            this.populateMnthlyStatement();
-            this.genMthlyRptButton.Enabled = true;
-            this.periodStmntListView.Focus();
+            Global.mnFrm.cmCde.showMsg("Sorry! Feature not available in this edition!\nContact your the Software Provider!", 0);
+            return;
         }
 
         private void exptExclMnthlyMenuItem_Click(object sender, EventArgs e)
@@ -9259,6 +9236,7 @@ Check the ff Days:" + "\r\n";
           dtst.Tables[0].Rows[i][2].ToString(),
     double.Parse(dtst.Tables[0].Rows[i][3].ToString()).ToString("#,##0.00"),
           double.Parse(dtst.Tables[0].Rows[i][4].ToString()).ToString("#,##0.00"),
+          ( double.Parse(dtst.Tables[0].Rows[i][3].ToString()) - double.Parse(dtst.Tables[0].Rows[i][4].ToString())).ToString("#,##0.00"),
     dtst.Tables[0].Rows[i][5].ToString(),
     dtst.Tables[0].Rows[i][6].ToString(),
     dtst.Tables[0].Rows[i][7].ToString(),
@@ -14395,16 +14373,22 @@ SET net_amount=" + netAmnt + @"
 
         private void trialBalListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
+
             if (e.IsSelected)
             {
                 if (e.Item.Checked)
                 {
                     e.Item.Checked = false;
+                    e.Item.UseItemStyleForSubItems = true;
+                    e.Item.ForeColor = Color.Black;
+                    e.Item.BackColor = Color.White;
                 }
                 else
                 {
                     e.Item.Checked = true;
-                    e.Item.Selected = true;
+                    e.Item.UseItemStyleForSubItems = true;
+                    e.Item.BackColor = Color.CornflowerBlue;
+                    e.Item.ForeColor = Color.White;
                 }
             }
         }
@@ -14424,5 +14408,57 @@ SET net_amount=" + netAmnt + @"
             this.ttlDebitsRcnclLabel.Text = "0.00";
             this.netBalanceRcnclLabel.Text = "0.00";
         }
+
+        private void segmentsButton_Click(object sender, EventArgs e)
+        {
+            Global.mnFrm.cmCde.showMsg("Sorry! Feature not available in this edition!\nContact your the Software Provider!", 0);
+            return;
+        }
+
+        private void budgetDetListView_DoubleClick(object sender, EventArgs e)
+        {
+            if (Global.mnFrm.cmCde.test_prmssns(Global.dfltPrvldgs[2]) == false)
+            {
+                Global.mnFrm.cmCde.showMsg("You don't have permission to perform" +
+                 " this action!\nContact your System Administrator!", 0);
+                return;
+            }
+            if (this.budgetDetListView.SelectedItems.Count <= 0)
+            {
+                Global.mnFrm.cmCde.showMsg("Please select an Account First!", 0);
+                return;
+            }
+            else
+            {
+                int accIDIn = int.Parse(this.budgetDetListView.SelectedItems[0].SubItems[10].Text);
+                string isPrnt = Global.mnFrm.cmCde.getGnrlRecNm("accb.accb_chart_of_accnts", "accnt_id", "(CASE WHEN is_prnt_accnt='1' THEN is_prnt_accnt ELSE has_sub_ledgers END)", accIDIn);
+                if (isPrnt == "1")
+                {
+                    /*this.pnlAccntIDTextBox.Text = accIDIn.ToString();
+                    this.pnlAccntNmTextBox.Text = Global.mnFrm.cmCde.getAccntNum(accIDIn) +
+                      "." + Global.mnFrm.cmCde.getAccntName(accIDIn);
+                    this.pnlSmmryCheckBox.Checked = false;
+                    //this.finStmntsTabControl.SelectedTab = this.tbalTabPage;
+                    System.Windows.Forms.Application.DoEvents();
+                    this.plGenRptButton_Click(this.plGenRptButton, e);*/
+                }
+                else
+                {
+                    vwTrnsctnsDiag nwDiag = new vwTrnsctnsDiag();
+                    nwDiag.my_org_id = Global.mnFrm.cmCde.Org_id;
+                    nwDiag.accnt_name = this.budgetDetListView.SelectedItems[0].SubItems[2].Text.Trim();
+                    nwDiag.accntid = int.Parse(this.budgetDetListView.SelectedItems[0].SubItems[10].Text);
+                    nwDiag.dte1 = this.budgetDetListView.SelectedItems[0].SubItems[6].Text;
+                    nwDiag.dte2 = this.budgetDetListView.SelectedItems[0].SubItems[7].Text;
+
+                    DialogResult dgres = nwDiag.ShowDialog();
+                    if (dgres == DialogResult.OK)
+                    {
+
+                    }
+                }
+            }
+        }
+
     }
 }

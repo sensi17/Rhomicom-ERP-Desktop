@@ -33,7 +33,7 @@ namespace InternalPayments.Dialogs
       this.grpNmIDTextBox.Text = "-1";
       this.grpNmTextBox.Text = "";
       if (this.grpComboBox.Text == "Everyone"
-        || this.grpComboBox.Text == "Currently Selected Person")
+        || this.grpComboBox.Text == "Single Person")
       {
         this.grpNmTextBox.BackColor = Color.WhiteSmoke;
         this.grpNmTextBox.Enabled = false;
@@ -45,9 +45,9 @@ namespace InternalPayments.Dialogs
         this.grpNmTextBox.Enabled = true;
         this.grpNmButton.Enabled = true;
       }
-      if (this.prsnIDs[0] > 0 && this.grpComboBox.Text == "Currently Selected Person")
+      if (this.prsnIDs[0] > 0 && this.grpComboBox.Text == "Single Person")
       {
-        this.grpComboBox.SelectedItem = "Currently Selected Person";
+        this.grpComboBox.SelectedItem = "Single Person";
         this.grpNmTextBox.Text = Global.mnFrm.cmCde.getPrsnName(this.prsnIDs[0]);
       }
 
@@ -240,7 +240,7 @@ namespace InternalPayments.Dialogs
       //}
 
       if (this.grpComboBox.Text != "Everyone"
-        && this.grpComboBox.Text != "Currently Selected Person")
+        && this.grpComboBox.Text != "Single Person")
       {
         if (this.grpNmIDTextBox.Text == "-1"
         || this.grpNmTextBox.Text == "")
@@ -454,7 +454,7 @@ itmvalids[b],itmids[b]});
       }
       if (this.prsnIDs[0] > 0)
       {
-        this.grpComboBox.SelectedItem = "Currently Selected Person";
+        this.grpComboBox.SelectedItem = "Single Person";
         this.grpNmTextBox.Text = Global.mnFrm.cmCde.getPrsnName(this.prsnIDs[0]);
         this.loadPyItmsPanelPrs();
         this.loadPersBanksPanel();

@@ -307,6 +307,8 @@
     <None Include="Resources\images %2814%29.jpg" />
     <None Include="Resources\addresses_wbg_64x64.png" />
     <None Include="Resources\dscnt.png" />
+    <None Include="Resources\background_lgn.jpg" />
+    <None Include="Resources\Green-Life-Wallpaper.png" />
     <Content Include="Resources\logo.ico" />
     <None Include="Resources\undo_256.png" />
     <None Include="Resources\stock_disconnect.png" />

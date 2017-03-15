@@ -19,6 +19,35 @@ namespace OrganizationSetup.Classes
         #region "GLOBAL DECLARATIONS..."
         public static OrganizationSetup myOrgStp = new OrganizationSetup();
         public static mainForm mnFrm = null;
+        public static string[] cashFlowClsfctns ={"Cash and Cash Equivalents",
+"Operating Activities.Sale of Goods",
+"Operating Activities.Sale of Services",
+"Operating Activities.Other Income Sources",
+"Operating Activities.Cost of Sales",
+"Operating Activities.Net Income",
+"Operating Activities.Depreciation Expense",
+"Operating Activities.Amortization Expense",
+"Operating Activities.Gain on Sale of Asset"/*NEGATE*/,
+"Operating Activities.Loss on Sale of Asset",
+"Operating Activities.Other Non-Cash Expense",
+"Operating Activities.Accounts Receivable"/*NEGATE*/,
+"Operating Activities.Bad Debt Expense"/*NEGATE*/,
+"Operating Activities.Prepaid Expenses"/*NEGATE*/,
+"Operating Activities.Inventory"/*NEGATE*/,
+"Operating Activities.Accounts Payable",
+"Operating Activities.Accrued Expenses",
+"Operating Activities.Taxes Payable",
+"Operating Activities.Operating Expense"/*NEGATE*/,
+"Operating Activities.General and Administrative Expense"/*NEGATE*/,
+"Investing Activities.Asset Sales/Purchases"/*NEGATE*/,
+"Investing Activities.Equipment Sales/Purchases"/*NEGATE*/,
+"Financing Activities.Capital/Stock",
+"Financing Activities.Long Term Debts",
+"Financing Activities.Short Term Debts",
+"Financing Activities.Equity Securities",
+"Financing Activities.Dividends Declared"/*NEGATE*/,
+""
+};
         public static string[] dfltPrvldgs = { "View Organization Setup",
   "View Org Details", "View Divisions/Groups", "View Sites/Locations", 
     /*4*/"View Jobs", "View Grades", "View Positions", "View Benefits", 
@@ -47,14 +76,15 @@ namespace OrganizationSetup.Classes
 
         #region "INSERT STATEMENTS..."
         public static void createOrg(string orgnm, int prntID, string resAdrs, string pstlAdrs, string webste
-            , int crncyid, string email, string contacts, int orgtypID, bool isenbld, string orgdesc, string orgslogan)
+            , int crncyid, string email, string contacts, int orgtypID, bool isenbld, string orgdesc,
+            string orgslogan, int noOfSegmnts, string segDelimiter)
         {
             string dateStr = Global.mnFrm.cmCde.getDB_Date_time();
             string insSQL = "INSERT INTO org.org_details(" +
                      "org_name, parent_org_id, res_addrs, pstl_addrs, " +
                      "email_addrsses, websites, cntct_nos, org_typ_id, " +
                      "org_logo, is_enabled, created_by, creation_date, last_update_by, " +
-                                 "last_update_date, oprtnl_crncy_id, org_desc, org_slogan) " +
+                                 "last_update_date, oprtnl_crncy_id, org_desc, org_slogan, no_of_accnt_sgmnts, segment_delimiter) " +
              "VALUES ('" + orgnm.Replace("'", "''") + "', " + prntID + ", '" + resAdrs.Replace("'", "''") +
              "', '" + pstlAdrs.Replace("'", "''") + "', '" + email.Replace("'", "''") + "', " +
                      "'" + webste.Replace("'", "''") + "', '" + contacts.Replace("'", "''") +
@@ -62,7 +92,8 @@ namespace OrganizationSetup.Classes
                      Global.mnFrm.cmCde.cnvrtBoolToBitStr(isenbld) + "', " +
                      "" + Global.myOrgStp.user_id + ", '" + dateStr + "', " + Global.myOrgStp.user_id +
                      ", '" + dateStr + "', " + crncyid +
-                                 ", '" + orgdesc.Replace("'", "''") + "', '" + orgslogan.Replace("'", "''") + "')";
+                     ", '" + orgdesc.Replace("'", "''") + "', '" + orgslogan.Replace("'", "''") +
+                     ", " + noOfSegmnts + ", '" + segDelimiter.Replace("'", "''") + "')";
             Global.mnFrm.cmCde.insertDataNoParams(insSQL);
             Global.updtOrgImg(Global.mnFrm.cmCde.getOrgID(orgnm));
         }
@@ -346,7 +377,7 @@ namespace OrganizationSetup.Classes
 
         public static void updateOrgDet(int orgid, string orgnm, int prntID, string resAdrs, string pstlAdrs, string webste
        , int crncyid, string email, string contacts, int orgtypID, bool isenbld, string orgdesc
-            , string orgslogan)
+            , string orgslogan, int noOfSegmnts, string segDelimiter)
         {
             Global.mnFrm.cmCde.Extra_Adt_Trl_Info = "";
             string dateStr = Global.mnFrm.cmCde.getDB_Date_time();
@@ -358,7 +389,10 @@ namespace OrganizationSetup.Classes
                      "is_enabled = '" + Global.mnFrm.cmCde.cnvrtBoolToBitStr(isenbld) +
                      "', last_update_by = " + Global.myOrgStp.user_id + ", " +
                      "last_update_date = '" + dateStr + "', oprtnl_crncy_id = " + crncyid +
-                                 ", org_desc = '" + orgdesc.Replace("'", "''") + "', org_slogan='" + orgslogan.Replace("'", "''") + "' " +
+                     ", org_desc = '" + orgdesc.Replace("'", "''") +
+                     "', org_slogan='" + orgslogan.Replace("'", "''") +
+                     "', no_of_accnt_sgmnts = " + noOfSegmnts +
+                     ", segment_delimiter = '" + segDelimiter.Replace("'", "''") + "' " +
              "WHERE (org_id = " + orgid + ")";
             Global.mnFrm.cmCde.updateDataNoParams(updtSQL);
         }
@@ -547,22 +581,21 @@ namespace OrganizationSetup.Classes
          Int64 offset, int limit_size)
         {
             string strSql = "";
-            strSql = "WITH RECURSIVE suborg(org_id, parent_org_id, org_name, depth, path, cycle, space) AS " +
-            "( " +
-            "SELECT e.org_id, e.parent_org_id, e.org_name, 1, ARRAY[e.org_id], false, '' FROM org.org_details e WHERE e.parent_org_id = -1 " +
-            "UNION ALL " +
-            " " +
-            "SELECT d.org_id, d.parent_org_id, d.org_name, sd.depth + 1, " +
-            "path || d.org_id, " +
-            "d.org_id = ANY(path), space || '   ' " +
-            "FROM " +
-            "org.org_details AS d, " +
-            "suborg AS sd " +
-            "WHERE d.parent_org_id = sd.org_id AND NOT cycle) " +
-            "SELECT org_id, parent_org_id, org_name as org, depth, path, cycle " +
-            "FROM suborg " +
-            "ORDER BY path LIMIT " + limit_size +
-            " OFFSET " + (Math.Abs(offset * limit_size)).ToString();
+            strSql = @"WITH RECURSIVE suborg(org_id, parent_org_id, org_name, depth, path, cycle, space) AS
+            ( 
+            SELECT e.org_id, e.parent_org_id, e.org_name, 1, ARRAY[e.org_id], false, '' FROM org.org_details e WHERE e.parent_org_id = -1 
+            UNION ALL 
+            SELECT d.org_id, d.parent_org_id, d.org_name, sd.depth + 1, 
+            path || d.org_id, 
+            d.org_id = ANY(path), space || '   ' 
+            FROM 
+            org.org_details AS d, 
+            suborg AS sd 
+            WHERE d.parent_org_id = sd.org_id AND NOT cycle) 
+            SELECT org_id, parent_org_id, org_name as org, depth, path, cycle 
+            FROM suborg 
+            ORDER BY path LIMIT " + limit_size +
+           " OFFSET " + (Math.Abs(offset * limit_size)).ToString();
             Global.mnFrm.orgDetHrchy_SQL = strSql;
             DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
             return dtst;
@@ -576,12 +609,64 @@ namespace OrganizationSetup.Classes
              "email_addrsses, websites, cntct_nos, org_typ_id, (select c.pssbl_value from gst.gen_stp_lov_values " +
              "c where c.pssbl_value_id = a.org_typ_id) org_typ_nm, org_logo, is_enabled, oprtnl_crncy_id, " +
              "(select d.pssbl_value from gst.gen_stp_lov_values " +
-                 "d where d.pssbl_value_id = a.oprtnl_crncy_id) crcy_code, org_desc, org_slogan FROM org.org_details a " +
+                 "d where d.pssbl_value_id = a.oprtnl_crncy_id) crcy_code, org_desc, org_slogan, no_of_accnt_sgmnts, segment_delimiter FROM org.org_details a " +
           "WHERE ((a.org_id = " + orgid + ")) ORDER BY a.org_id";
             //Global.mnFrm.orgDet_SQL = strSql;
             DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
             return dtst;
         }
+
+        public static DataSet get_One_SegmentDet(int segNum, int orgid)
+        {
+            string strSql = "";
+            strSql = @"SELECT segment_id, segment_name_prompt, system_clsfctn 
+        FROM org.org_acnt_sgmnts a  WHERE((a.org_id = " + orgid + " and a.segment_number = " + segNum + "))";
+            //Global.mnFrm.orgDet_SQL = strSql;
+            DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
+            return dtst;
+        }
+
+        public static int get_SegmnetID(long orgid, int segNum)
+        {
+            string strSql = @"SELECT segment_id FROM org.org_acnt_sgmnts a  " +
+             " WHERE((a.org_id = " + orgid + " and a.segment_number = " + segNum + "))";
+
+            DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
+            if (dtst.Tables[0].Rows.Count > 0)
+            {
+                return int.Parse(dtst.Tables[0].Rows[0][0].ToString());
+            }
+            return -1;
+        }
+
+        public static void createAcntSegment(long orgID,
+     int segmntNum, string segmntName, string sysClsfctn)
+        {
+            string dateStr = Global.mnFrm.cmCde.getDB_Date_time();
+            string insSQL = @"INSERT INTO org.org_acnt_sgmnts (
+            segment_number, segment_name_prompt, system_clsfctn, 
+            created_by, creation_date, last_update_by, last_update_date, 
+            org_id) " +
+                  "VALUES (" + segmntNum + ", '" + segmntName.Replace("'", "''") + "', '" + sysClsfctn.Replace("'", "''") +
+                  "', " + Global.myOrgStp.user_id + ", '" + dateStr +
+                  "', " + Global.myOrgStp.user_id + ", '" + dateStr +
+                  "', " + orgID + ")";
+            Global.mnFrm.cmCde.insertDataNoParams(insSQL);
+        }
+
+        public static void updtAcntSegment(long segmntID,
+     int segmntNum, string segmntName, string sysClsfctn)
+        {
+            string dateStr = Global.mnFrm.cmCde.getDB_Date_time();
+            string insSQL = @"UPDATE org.org_acnt_sgmnts SET 
+             segment_name_prompt='" + segmntName.Replace("'", "''") +
+                  "', system_clsfctn='" + sysClsfctn.Replace("'", "''") +
+                  "', last_update_by=" + Global.myOrgStp.user_id +
+                  ", last_update_date='" + dateStr +
+                  "' WHERE segment_id=" + segmntID + " ";
+            Global.mnFrm.cmCde.insertDataNoParams(insSQL);
+        }
+
 
         public static DataSet get_Basic_OrgDet(string searchWord, string searchIn,
          Int64 offset, int limit_size)
@@ -594,7 +679,7 @@ namespace OrganizationSetup.Classes
                  "email_addrsses, websites, cntct_nos, org_typ_id, (select c.pssbl_value from gst.gen_stp_lov_values " +
                  "c where c.pssbl_value_id = a.org_typ_id) org_typ_nm, org_logo, is_enabled, oprtnl_crncy_id, " +
                  "(select d.pssbl_value from gst.gen_stp_lov_values " +
-                      "d where d.pssbl_value_id = a.oprtnl_crncy_id) crcy_code, org_desc, org_slogan FROM org.org_details a " +
+                      "d where d.pssbl_value_id = a.oprtnl_crncy_id) crcy_code, org_desc, org_slogan, no_of_accnt_sgmnts, segment_delimiter FROM org.org_details a " +
               "WHERE ((a.org_name ilike '" + searchWord.Replace("'", "''") +
                  "')) ORDER BY a.org_id LIMIT " + limit_size +
                  " OFFSET " + (Math.Abs(offset * limit_size)).ToString();
@@ -1864,6 +1949,350 @@ to_char(to_timestamp(a.creation_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY  HH24
             else
             {
                 return "";
+            }
+        }
+        #endregion
+
+        #region "SEGMENT VALUES..."
+        public static int getAcctTypID(string accntTyp)
+        {
+            if (accntTyp == "A")
+            {
+                return 1;
+            }
+            else if (accntTyp == "L")
+            {
+                return 2;
+            }
+            else if (accntTyp == "EQ")
+            {
+                return 3;
+            }
+            else if (accntTyp == "R")
+            {
+                return 4;
+            }
+            else if (accntTyp == "EX")
+            {
+                return 5;
+            }
+            return -1;
+        }
+
+
+        public static void clearChrtRetEarns(int segmentID)
+        {
+            Global.mnFrm.cmCde.Extra_Adt_Trl_Info = "";
+            string updtSQL = "UPDATE org.org_segment_values " +
+            "SET is_retained_earnings='0' WHERE segment_id = " + segmentID;
+            Global.mnFrm.cmCde.updateDataNoParams(updtSQL);
+        }
+
+        public static void clearChrtNetIncome(int segmntID)
+        {
+            Global.mnFrm.cmCde.Extra_Adt_Trl_Info = "";
+            string updtSQL = "UPDATE org.org_segment_values " +
+            "SET is_net_income='0' WHERE segment_id = " + segmntID;
+            Global.mnFrm.cmCde.updateDataNoParams(updtSQL);
+        }
+
+        public static void clearChrtSuspns(int segmntID)
+        {
+            Global.mnFrm.cmCde.Extra_Adt_Trl_Info = "";
+            string updtSQL = "UPDATE org.org_segment_values " +
+            "SET is_suspens_accnt='0' WHERE segment_id = " + segmntID;
+            Global.mnFrm.cmCde.updateDataNoParams(updtSQL);
+        }
+
+
+        public static void createSgmntVal(int orgid, int segmentID, string segmentVal, string segmentDesc,
+    string allwdGrpTyp, string allwdGrpVal, bool isEnbld, int prntSegmentID,
+    bool isContra, string accntType, bool isParent, bool isRetainedErngs,
+    bool isNetIncome, int accntTypID, int reportLineNo, bool hsSubLdgrs,
+    int contrlAcntID, int crncyID, bool isSuspenseAcnt, string acntClsfctn, int mappedAcntID)
+        {
+            if (isRetainedErngs == true)
+            {
+                Global.clearChrtRetEarns(segmentID);
+            }
+            if (isNetIncome == true)
+            {
+                Global.clearChrtNetIncome(segmentID);
+            }
+            if (isSuspenseAcnt == true)
+            {
+                Global.clearChrtSuspns(segmentID);
+            }
+            string dateStr = Global.mnFrm.cmCde.getDB_Date_time();
+            string insSQL = @"INSERT INTO org.org_segment_values(
+            segment_id, segment_value, segment_description, 
+            allwd_group_type, allwd_group_value, is_enabled, prnt_segment_value_id, 
+            created_by, creation_date, last_update_by, last_update_date, 
+            org_id, is_contra, accnt_type, is_prnt_accnt, is_retained_earnings, 
+            is_net_income, accnt_typ_id, report_line_no, has_sub_ledgers, 
+            control_account_id, crncy_id, is_suspens_accnt, account_clsfctn, 
+            mapped_grp_accnt_id) " +
+                  "VALUES (" + segmentID +
+                  ",'" + segmentVal.Replace("'", "''") +
+                  "', '" + segmentDesc.Replace("'", "''") +
+                  "', '" + allwdGrpTyp.Replace("'", "''") +
+                  "', '" + allwdGrpVal.Replace("'", "''") +
+                  "', '" + Global.mnFrm.cmCde.cnvrtBoolToBitStr(isEnbld) +
+                  "', " + prntSegmentID +
+                  ", " + Global.myOrgStp.user_id +
+                  ", '" + dateStr +
+                  "', " + Global.myOrgStp.user_id +
+                  ", '" + dateStr +
+                  "', " + orgid +
+                  ", '" + Global.mnFrm.cmCde.cnvrtBoolToBitStr(isContra) +
+                  "', '" + accntType.Replace("'", "''") +
+                  "', '" + Global.mnFrm.cmCde.cnvrtBoolToBitStr(isParent) +
+                  "', '" + Global.mnFrm.cmCde.cnvrtBoolToBitStr(isRetainedErngs) +
+                  "', '" + Global.mnFrm.cmCde.cnvrtBoolToBitStr(isNetIncome) +
+                  "', " + accntTypID +
+                  ", " + reportLineNo +
+                  ", '" + Global.mnFrm.cmCde.cnvrtBoolToBitStr(hsSubLdgrs) +
+                  "', " + contrlAcntID +
+                  ", " + crncyID +
+                  ", '" + Global.mnFrm.cmCde.cnvrtBoolToBitStr(isSuspenseAcnt) +
+                  "', '" + acntClsfctn.Replace("'", "''") +
+                  "', " + mappedAcntID +
+                  ")";
+            Global.mnFrm.cmCde.insertDataNoParams(insSQL);
+        }
+
+        public static void updateSgmntVal(int segmentValID, string segmentVal, string segmentDesc,
+    string allwdGrpTyp, string allwdGrpVal, bool isEnbld, int prntSegmentID,
+    bool isContra, string accntType, bool isParent, bool isRetainedErngs,
+    bool isNetIncome, int accntTypID, int reportLineNo, bool hsSubLdgrs,
+    int contrlAcntID, int crncyID, bool isSuspenseAcnt, string acntClsfctn, int mappedAcntID, int segmnetID)
+        {
+            if (isRetainedErngs == true)
+            {
+                Global.clearChrtRetEarns(segmnetID);
+            }
+            if (isNetIncome == true)
+            {
+                Global.clearChrtNetIncome(segmnetID);
+            }
+            if (isSuspenseAcnt == true)
+            {
+                Global.clearChrtSuspns(segmnetID);
+            }
+            Global.mnFrm.cmCde.Extra_Adt_Trl_Info = "";
+            string dateStr = Global.mnFrm.cmCde.getDB_Date_time();
+            string updtSQL = @"UPDATE org.org_segment_values
+       SET segment_value ='" + segmentVal.Replace("'", "''") +
+       "', segment_description ='" + segmentDesc.Replace("'", "''") +
+       "', allwd_group_type ='" + allwdGrpTyp.Replace("'", "''") +
+       "', allwd_group_value ='" + allwdGrpVal.Replace("'", "''") +
+       "', is_enabled ='" + Global.mnFrm.cmCde.cnvrtBoolToBitStr(isEnbld) +
+       "', prnt_segment_value_id =" + prntSegmentID +
+       ", created_by =" + Global.myOrgStp.user_id +
+       ", creation_date ='" + dateStr +
+       "', last_update_by =" + Global.myOrgStp.user_id +
+       ", last_update_date ='" + dateStr +
+       "', is_contra ='" + Global.mnFrm.cmCde.cnvrtBoolToBitStr(isContra) +
+       "', accnt_type ='" + accntType.Replace("'", "''") +
+       "', is_prnt_accnt ='" + Global.mnFrm.cmCde.cnvrtBoolToBitStr(isParent) +
+       "', is_retained_earnings ='" + Global.mnFrm.cmCde.cnvrtBoolToBitStr(isRetainedErngs) +
+       "', is_net_income ='" + Global.mnFrm.cmCde.cnvrtBoolToBitStr(isNetIncome) +
+       "', accnt_typ_id =" + accntTypID +
+       ", report_line_no =" + reportLineNo +
+       ", has_sub_ledgers ='" + Global.mnFrm.cmCde.cnvrtBoolToBitStr(hsSubLdgrs) +
+       "', control_account_id =" + contrlAcntID +
+       ", crncy_id =" + crncyID +
+       ", is_suspens_accnt ='" + Global.mnFrm.cmCde.cnvrtBoolToBitStr(isSuspenseAcnt) +
+       "', account_clsfctn ='" + acntClsfctn.Replace("'", "''") +
+       "', mapped_grp_accnt_id =" + mappedAcntID +
+       " WHERE (segment_value_id =" + segmentValID + ")";
+            Global.mnFrm.cmCde.updateDataNoParams(updtSQL);
+        }
+
+        public static void deleteSgmntVal(long segmentValID, string segmentValDesc)
+        {
+            Global.mnFrm.cmCde.Extra_Adt_Trl_Info = "Segment Value = " + segmentValDesc;
+            string delSQL = "DELETE FROM org.org_segment_values WHERE segment_value_id = " + segmentValID;
+            Global.mnFrm.cmCde.deleteDataNoParams(delSQL);
+        }
+
+        public static void updateSegmentVal(int segmentValID, int segmentNum, int accntID)
+        {
+            Global.mnFrm.cmCde.Extra_Adt_Trl_Info = "";
+            string dateStr = Global.mnFrm.cmCde.getDB_Date_time();
+            string updtSQL = "UPDATE accb.accb_chart_of_accnts SET accnt_seg" + segmentNum + "_val_id = " + segmentValID +
+                ", last_update_by =" + Global.myOrgStp.user_id +
+                   ", last_update_date ='" + dateStr +
+                   "' WHERE accnt_id = " + accntID;
+            Global.mnFrm.cmCde.updateDataNoParams(updtSQL);
+        }
+
+        public static bool isSgmntValInUse(int segmentValID, int segmentNum)
+        {
+            string strSql = "SELECT a.accnt_id " +
+             "FROM accb.accb_chart_of_accnts a " +
+             "WHERE(a.accnt_seg" + segmentNum + "_val_id = " + segmentValID + ")";
+            DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
+            if (dtst.Tables[0].Rows.Count > 0)
+            {
+                return true;
+            }
+            strSql = "SELECT a.segment_value_id " +
+             "FROM org.org_segment_values a " +
+             "WHERE(a.prnt_segment_value_id= " + segmentValID + " or a.control_account_id= " + segmentValID + ")";
+            dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
+            if (dtst.Tables[0].Rows.Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static int getSgmntValID(string segmentVal, int segmentID)
+        {
+            DataSet dtSt = new DataSet();
+            string sqlStr = "select segment_value_id from org.org_segment_values where lower(segment_value) = '" +
+             segmentVal.Replace("'", "''").ToLower() + "' and segment_id = " + segmentID;
+            dtSt = Global.mnFrm.cmCde.selectDataNoParams(sqlStr);
+            if (dtSt.Tables[0].Rows.Count > 0)
+            {
+                return int.Parse(dtSt.Tables[0].Rows[0][0].ToString());
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        public static int getSgmntValDescID(string segmentVal, int segmentID)
+        {
+            DataSet dtSt = new DataSet();
+            string sqlStr = "select segment_value_id from org.org_segment_values where lower(segment_description) = '" +
+             segmentVal.Replace("'", "''").ToLower() + "' and segment_id = " + segmentID;
+            dtSt = Global.mnFrm.cmCde.selectDataNoParams(sqlStr);
+            if (dtSt.Tables[0].Rows.Count > 0)
+            {
+                return int.Parse(dtSt.Tables[0].Rows[0][0].ToString());
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        public static DataSet get_One_SgmntVals(string searchWord, string searchIn,
+     Int64 offset, int limit_size, int segmentID)
+        {
+            string strSql = @"SELECT a.segment_value_id, a.segment_id, a.segment_value, a.segment_description, 
+       a.allwd_group_type, a.allwd_group_value, a.is_enabled, a.prnt_segment_value_id, 
+       a.created_by, a.creation_date, a.last_update_by, a.last_update_date, 
+       a.org_id, a.is_contra, a.accnt_type, a.is_prnt_accnt, a.is_retained_earnings, 
+       a.is_net_income, a.accnt_typ_id, a.report_line_no, a.has_sub_ledgers, 
+       a.control_account_id, a.crncy_id, a.is_suspens_accnt, a.account_clsfctn, 
+       a.mapped_grp_accnt_id, b.segment_number
+  FROM org.org_segment_values a, org.org_acnt_sgmnts b " +
+             "WHERE(a.segment_id = b.segment_id and b.segment_id = " + segmentID + ") ORDER BY a.segment_value LIMIT " + limit_size +
+              " OFFSET " + (Math.Abs(offset * limit_size)).ToString(); ;
+
+            DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
+            //Global.taxFrm.rec_SQL = strSql;
+            return dtst;
+        }
+
+        public static DataSet get_One_SgmntValDet(int segmentValID)
+        {
+            string strSql = @"SELECT a.segment_value_id, a.segment_id, a.segment_value, a.segment_description, 
+       a.allwd_group_type, a.allwd_group_value, a.is_enabled, a.prnt_segment_value_id, 
+       a.created_by, a.creation_date, a.last_update_by, a.last_update_date, 
+       a.org_id, a.is_contra, a.accnt_type, a.is_prnt_accnt, a.is_retained_earnings, 
+       a.is_net_income, a.accnt_typ_id, a.report_line_no, a.has_sub_ledgers, 
+       a.control_account_id, a.crncy_id, a.is_suspens_accnt, a.account_clsfctn, 
+       a.mapped_grp_accnt_id, b.segment_number
+  FROM org.org_segment_values a, org.org_acnt_sgmnts b " +
+             "WHERE(a.segment_id = b.segment_id and a.segment_value_id = " + segmentValID + ")";
+
+            DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
+            //Global.taxFrm.rec_SQL = strSql;
+            return dtst;
+        }
+
+        public static DataSet get_Basic_SgmntVals(string searchWord, string searchIn,
+     Int64 offset, int limit_size, int segmentID)
+        {
+            string strSql = "";
+            string whrcls = " AND (a.segment_value ilike '" + searchWord.Replace("'", "''") +
+               "' or a.segment_description ilike '" + searchWord.Replace("'", "''") +
+               "')";
+            string subSql = @"SELECT segment_value_id,segment_value,segment_description,space||segment_value||'.'||segment_description account_number_name, is_prnt_accnt, accnt_type,accnt_typ_id, prnt_segment_value_id, control_account_id, depth, path, cycle 
+      FROM suborg WHERE 1=1 ORDER BY accnt_typ_id, path";
+
+            strSql = @"WITH RECURSIVE suborg(segment_value_id, segment_value, segment_description, is_prnt_accnt, accnt_type, accnt_typ_id, prnt_segment_value_id, control_account_id, depth, path, cycle, space) AS 
+      ( 
+      SELECT a.segment_value_id, a.segment_value, a.segment_description, a.is_prnt_accnt, a.accnt_type,a.accnt_typ_id, a.prnt_segment_value_id, a.control_account_id, 1, ARRAY[a.segment_value||'']::character varying[], false, '' opad 
+      FROM org.org_segment_values a 
+        WHERE ((CASE WHEN a.prnt_segment_value_id<=0 THEN a.control_account_id ELSE a.prnt_segment_value_id END)=-1 AND (a.segment_id = " + segmentID + ")" + whrcls + @") 
+      UNION ALL        
+      SELECT a.segment_value_id, a.segment_value, a.segment_description, a.is_prnt_accnt, a.accnt_type,a.accnt_typ_id, a.prnt_segment_value_id, a.control_account_id, sd.depth + 1, 
+      path || a.segment_value, 
+      a.segment_value = ANY(path), space || '      '
+      FROM org.org_segment_values a, suborg AS sd 
+      WHERE (((CASE WHEN a.prnt_segment_value_id<=0 THEN a.control_account_id ELSE a.prnt_segment_value_id END)=sd.segment_value_id AND NOT cycle) 
+       AND (a.segment_id = " + segmentID + @"))) 
+       " + subSql + " LIMIT " + limit_size +
+              " OFFSET " + (Math.Abs(offset * limit_size)).ToString();
+
+            Global.mnFrm.segmentValsSQL = strSql;
+            DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
+            return dtst;
+        }
+
+        public static long get_Total_SgmntVals(string searchWord, string searchIn, int segmentID)
+        {
+            string strSql = "";
+            string whrcls = " AND (a.segment_value ilike '" + searchWord.Replace("'", "''") +
+               "' or a.segment_description ilike '" + searchWord.Replace("'", "''") +
+               "')";
+            string subSql = @"SELECT count(segment_value_id) 
+      FROM suborg";
+
+            strSql = @"WITH RECURSIVE suborg(segment_value_id, segment_value, segment_description, is_prnt_accnt, accnt_type, accnt_typ_id, prnt_segment_value_id, control_account_id, depth, path, cycle, space) AS 
+      ( 
+      SELECT a.segment_value_id, a.segment_value, a.segment_description, a.is_prnt_accnt, a.accnt_type,a.accnt_typ_id, a.prnt_segment_value_id, a.control_account_id, 1, ARRAY[a.segment_value||'']::character varying[], false, '' opad 
+      FROM org.org_segment_values a 
+        WHERE ((CASE WHEN a.prnt_segment_value_id<=0 THEN a.control_account_id ELSE a.prnt_segment_value_id END)=-1 AND (a.segment_id = " + segmentID + ")" + whrcls + @") 
+      UNION ALL        
+      SELECT a.segment_value_id, a.segment_value, a.segment_description, a.is_prnt_accnt, a.accnt_type,a.accnt_typ_id, a.prnt_segment_value_id, a.control_account_id, sd.depth + 1, 
+      path || a.segment_value, 
+      a.segment_value = ANY(path), space || '      '
+      FROM org.org_segment_values a, suborg AS sd 
+      WHERE (((CASE WHEN a.prnt_segment_value_id<=0 THEN a.control_account_id ELSE a.prnt_segment_value_id END)=sd.segment_value_id AND NOT cycle) 
+       AND (a.segment_id = " + segmentID + @"))) 
+       " + subSql;
+
+            DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
+            if (dtst.Tables[0].Rows.Count > 0)
+            {
+                return long.Parse(dtst.Tables[0].Rows[0][0].ToString());
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public static double get_SgmntValAcntBals(int segmentValID, int segmentNum)
+        {
+            string strSql = "SELECT sum(net_balance) " +
+      "FROM accb.accb_chart_of_accnts a " +
+      "WHERE (a.accnt_seg" + segmentNum + "_val_id = " + segmentValID + ")";
+            DataSet dtst = Global.mnFrm.cmCde.selectDataNoParams(strSql);
+            if (dtst.Tables[0].Rows.Count > 0)
+            {
+                return double.Parse(dtst.Tables[0].Rows[0][0].ToString());
+            }
+            else
+            {
+                return 0;
             }
         }
         #endregion

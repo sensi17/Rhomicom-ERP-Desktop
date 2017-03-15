@@ -4428,9 +4428,9 @@ this.payItmID, this.paymntDateTextBox.Text) == false)
   //    }
   //    else
   //    {
-  //      glBatchPrfx = "PYMNT_CSTMR-";
-  //      glBatchSrc = "Payment for Receivables Invoice";
-  //      pymntBatchName = "CSTMR_PYMNT-" +
+  //      glBatchPrfx = "RCPT_CSTMR-";
+  //      glBatchSrc = "Receipt of Payment for Receivables Invoice";
+  //      pymntBatchName = "CSTMR_RCPT-" +
   //       DateTime.Parse(cmnCde.getFrmtdDB_Date_time()).ToString("yyMMdd-HHmmss")
   //                + "-" + cmnCde.getRandomInt(10, 100);
 

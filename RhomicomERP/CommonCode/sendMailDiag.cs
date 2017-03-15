@@ -109,6 +109,7 @@ namespace CommonCode
                 this.attchMntsTextBox.Text.Replace(",", ";"),
                 this.subjTextBox.Text,
                 MarkupConverter.RtfToHtmlConverter.ConvertRtfToHtml(this.bodyTextBox.Rtf),
+                "Old1",
                 ref errMsg);
             }
             else if (this.msgTypComboBox.Text == "SMS")
@@ -193,7 +194,7 @@ namespace CommonCode
     {
       //cmnCde.showSQLNoPermsn(MarkupConverter.RtfToHtmlConverter.ConvertRtfToHtml(this.bodyTextBox.Rtf));
       if (this.grpComboBox.Text != "Everyone"
-  && this.grpComboBox.Text != "Currently Selected Person")
+  && this.grpComboBox.Text != "Single Person")
       {
         if (this.grpNmIDTextBox.Text == "-1"
         || this.grpNmTextBox.Text == "")
@@ -364,7 +365,7 @@ namespace CommonCode
       this.grpNmTextBox.Text = "";
 
       if (this.grpComboBox.Text == "Everyone"
-        || this.grpComboBox.Text == "Currently Selected Person")
+        || this.grpComboBox.Text == "Single Person")
       {
         this.grpNmTextBox.BackColor = Color.WhiteSmoke;
         this.grpNmTextBox.Enabled = false;
@@ -376,9 +377,9 @@ namespace CommonCode
         this.grpNmTextBox.Enabled = true;
         this.grpNmButton.Enabled = true;
       }
-      if (this.prsnID > 0 && this.grpComboBox.Text == "Currently Selected Person")
+      if (this.prsnID > 0 && this.grpComboBox.Text == "Single Person")
       {
-        this.grpComboBox.SelectedItem = "Currently Selected Person";
+        this.grpComboBox.SelectedItem = "Single Person";
         this.grpNmIDTextBox.Text = this.prsnID.ToString();
         this.grpNmTextBox.Text = cmnCde.getPrsnName(this.prsnID) + " (" + cmnCde.getPrsnLocID(this.prsnID) + ")";
       }

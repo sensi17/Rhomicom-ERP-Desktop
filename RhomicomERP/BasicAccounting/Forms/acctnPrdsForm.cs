@@ -386,10 +386,10 @@ namespace Accounting.Forms
             this.periodsDetDataGridView.ReadOnly = false;
             this.periodsDetDataGridView.Columns[0].ReadOnly = true;
             this.periodsDetDataGridView.Columns[0].DefaultCellStyle.BackColor = Color.WhiteSmoke;
-            this.periodsDetDataGridView.Columns[2].ReadOnly = true;
-            this.periodsDetDataGridView.Columns[2].DefaultCellStyle.BackColor = Color.WhiteSmoke;
-            this.periodsDetDataGridView.Columns[4].ReadOnly = true;
-            this.periodsDetDataGridView.Columns[4].DefaultCellStyle.BackColor = Color.WhiteSmoke;
+            this.periodsDetDataGridView.Columns[2].ReadOnly = false;
+            this.periodsDetDataGridView.Columns[2].DefaultCellStyle.BackColor = Color.White;
+            this.periodsDetDataGridView.Columns[4].ReadOnly = false;
+            this.periodsDetDataGridView.Columns[4].DefaultCellStyle.BackColor = Color.White;
             this.periodsDetDataGridView.Columns[6].ReadOnly = true;
             this.periodsDetDataGridView.Columns[6].DefaultCellStyle.BackColor = Color.WhiteSmoke;
             this.periodsDetDataGridView.Columns[1].ReadOnly = false;
@@ -558,7 +558,8 @@ namespace Accounting.Forms
                     }
                     if (prdLnDtID <= 0)
                     {
-                        if (Global.doesNwPrdDatesMeetPrdTyp(strDte, endDte, intrvalTyp) == true
+                        if ((Global.doesNwPrdDatesMeetPrdTyp(strDte, endDte, intrvalTyp) == true
+                            || Global.doesNwPrdDatesMeetPrdTyp(strDte, endDte, "18 second") == true)
                           && Global.isNwPrdDatesInUse(strDte, endDte) == false)
                         {
                             Global.createPeriodsDetLn(hdrID, strDte, endDte, curSts, prdNm);
@@ -574,7 +575,8 @@ namespace Accounting.Forms
                     {
                         string oldStatus = Global.mnFrm.cmCde.getGnrlRecNm(
                           "accb.accb_periods_det", "period_det_id", "period_status", prdLnDtID);
-                        if (Global.doesNwPrdDatesMeetPrdTyp(strDte, endDte, intrvalTyp) == true
+                        if ((Global.doesNwPrdDatesMeetPrdTyp(strDte, endDte, intrvalTyp) == true
+                            || Global.doesNwPrdDatesMeetPrdTyp(strDte, endDte, "18 second") == true)
                           && Global.isNwPrdDatesInUse(strDte, endDte, prdLnDtID) == false
                           && oldStatus == "Never Opened")
                         {
@@ -589,7 +591,6 @@ namespace Accounting.Forms
                     }
                 }
             }
-
             Global.mnFrm.cmCde.showMsg(svd + " Line(s) Saved Successfully!", 3);
         }
 
@@ -859,11 +860,6 @@ namespace Accounting.Forms
 
         private void periodsDetDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (this.addRec == false && this.editRec == false)
-            //{
-            //  Global.mnFrm.cmCde.showMsg("Must be in ADD/EDIT mode First!", 0);
-            //  return;
-            //}
             if (e == null || this.obey_evnts == false)
             {
                 return;
@@ -899,13 +895,13 @@ namespace Accounting.Forms
                 {
                     this.editButton.PerformClick();
                 }
+
                 if (this.addRec == false && this.editRec == false)
                 {
                     Global.mnFrm.cmCde.showMsg("Must be in ADD/EDIT mode First!", 0);
                     this.obey_evnts = true;
                     return;
                 }
-
                 this.textBox1.Text = this.periodsDetDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
                 Global.mnFrm.cmCde.selectDate(ref this.textBox1);
                 if (this.textBox1.Text.Length > 11)
@@ -932,7 +928,7 @@ namespace Accounting.Forms
                 Global.mnFrm.cmCde.selectDate(ref this.textBox2);
                 if (this.textBox2.Text.Length > 11)
                 {
-                    this.textBox2.Text = this.textBox2.Text.Substring(0, 11) + " 23:59:59";
+                    this.textBox2.Text = this.textBox2.Text.Substring(0, 11) + " 23:59:50";
                 }
                 this.periodsDetDataGridView.Rows[e.RowIndex].Cells[4].Value = this.textBox2.Text;
                 this.periodsDetDataGridView.EndEdit();
@@ -1079,7 +1075,7 @@ namespace Accounting.Forms
 
                 string datestr = Global.mnFrm.cmCde.getFrmtdDB_Date_time();
                 string reportTitle = reportName.ToUpper();
-                string paramRepsNVals = "{:orgID}~" + Global.mnFrm.cmCde.Org_id.ToString() + "|{:closing_dte}~" + prdEndDte.Substring(0, 10);
+                string paramRepsNVals = "{:orgID}~" + Global.mnFrm.cmCde.Org_id.ToString() + "|{:closing_dte}~" + prdEndDte;
                 //Global.mnFrm.cmCde.showSQLNoPermsn(reportName + "\r\n" + paramRepsNVals);
                 DialogResult dgres = Global.mnFrm.cmCde.showRptParamsDiaglog(rptID, Global.mnFrm.cmCde, paramRepsNVals, reportTitle);
 
@@ -1217,7 +1213,7 @@ namespace Accounting.Forms
                   + "\r\nAre you sure you want to RE-OPEN the selected Period?" +
         "\r\nThis action cannot be undone!", 1) == DialogResult.No)
                 {
-                    Global.mnFrm.cmCde.showMsg("Operation Cancelled!", 4);
+                    //Global.mnFrm.cmCde.showMsg("Operation Cancelled!", 4);
                     return;
                 }
 
@@ -1231,7 +1227,7 @@ namespace Accounting.Forms
                 while (isAnyRnng == true);
 
                 string reportTitle = rptName.ToUpper();
-                string paramRepsNVals = "{:orgID}~" + Global.mnFrm.cmCde.Org_id.ToString() + "|{:closing_dte}~" + prdEndDte.Substring(0, 10);
+                string paramRepsNVals = "{:orgID}~" + Global.mnFrm.cmCde.Org_id.ToString() + "|{:closing_dte}~" + prdEndDte;
                 //Global.mnFrm.cmCde.showSQLNoPermsn(reportName + "\r\n" + paramRepsNVals);
                 DialogResult dgres = Global.mnFrm.cmCde.showRptParamsDiaglog(rptID, Global.mnFrm.cmCde, paramRepsNVals, reportTitle);
 
@@ -1571,14 +1567,14 @@ namespace Accounting.Forms
                     bool isdate = double.TryParse(prdStrtDte, out tstDte);
                     if (isdate)
                     {
-                        prdStrtDte = DateTime.FromOADate(tstDte).ToString("dd-MMM-yyyy 00:00:00");
+                        prdStrtDte = DateTime.FromOADate(tstDte).ToString("dd-MMM-yyyy HH:mm:ss");
                     }
 
                     tstDte = 0;
                     isdate = double.TryParse(prdEndDte, out tstDte);
                     if (isdate)
                     {
-                        prdEndDte = DateTime.FromOADate(tstDte).ToString("dd-MMM-yyyy 23:59:59");
+                        prdEndDte = DateTime.FromOADate(tstDte).ToString("dd-MMM-yyyy HH:mm:ss");
                     }
                     long prdLnDtID = Global.get_PrdDetID(prdHdrID, periodNm);
                     string intrvalTyp = "";
@@ -1607,7 +1603,8 @@ namespace Accounting.Forms
                     }
                     if (prdLnDtID <= 0)
                     {
-                        if (Global.doesNwPrdDatesMeetPrdTyp(prdStrtDte, prdEndDte, intrvalTyp) == true
+                        if ((Global.doesNwPrdDatesMeetPrdTyp(prdStrtDte, prdEndDte, intrvalTyp) == true
+                            || Global.doesNwPrdDatesMeetPrdTyp(prdStrtDte, prdEndDte, "18 second") == true)
                           && Global.isNwPrdDatesInUse(prdStrtDte, prdEndDte) == false)
                         {
                             Global.createPeriodsDetLn(prdHdrID, prdStrtDte, prdEndDte, "Never Opened", periodNm);
@@ -1624,7 +1621,8 @@ namespace Accounting.Forms
                     {
                         string oldStatus = Global.mnFrm.cmCde.getGnrlRecNm(
                           "accb.accb_periods_det", "period_det_id", "period_status", prdLnDtID);
-                        if (Global.doesNwPrdDatesMeetPrdTyp(prdStrtDte, prdEndDte, intrvalTyp) == true
+                        if ((Global.doesNwPrdDatesMeetPrdTyp(prdStrtDte, prdEndDte, intrvalTyp) == true
+                            || Global.doesNwPrdDatesMeetPrdTyp(prdStrtDte, prdEndDte, "18 second") == true)
                           && Global.isNwPrdDatesInUse(prdStrtDte, prdEndDte, prdLnDtID) == false
                           && oldStatus == "Never Opened")
                         {
@@ -1742,6 +1740,64 @@ namespace Accounting.Forms
             this.dsplySizeDetComboBox.Text = Global.mnFrm.cmCde.get_CurPlcy_Mx_Dsply_Recs().ToString();
 
             this.rfrshButton_Click(this.rfrshButton, e);
+        }
+
+        private void periodsDetDataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e == null || this.obey_evnts == false)
+            {
+                return;
+            }
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            {
+                return;
+            }
+            bool prv = this.obey_evnts;
+            this.obey_evnts = false;
+
+            if (this.periodsDetDataGridView.Rows[e.RowIndex].Cells[0].Value == null)
+            {
+                this.periodsDetDataGridView.Rows[e.RowIndex].Cells[0].Value = "-1";
+            }
+
+            if (this.periodsDetDataGridView.Rows[e.RowIndex].Cells[2].Value == null)
+            {
+                this.periodsDetDataGridView.Rows[e.RowIndex].Cells[2].Value = "";
+            }
+            if (this.periodsDetDataGridView.Rows[e.RowIndex].Cells[4].Value == null)
+            {
+                this.periodsDetDataGridView.Rows[e.RowIndex].Cells[4].Value = "";
+            }
+            if (this.periodsDetDataGridView.Rows[e.RowIndex].Cells[6].Value == null)
+            {
+                this.periodsDetDataGridView.Rows[e.RowIndex].Cells[6].Value = "Never Opened";
+            }
+            this.periodsDetDataGridView.EndEdit();
+            System.Windows.Forms.Application.DoEvents();
+            if (e.ColumnIndex == 2)
+            {
+                DateTime dte1 = DateTime.Now;
+                bool sccs = DateTime.TryParse(this.periodsDetDataGridView.Rows[e.RowIndex].Cells[2].Value.ToString(), out dte1);
+                if (!sccs)
+                {
+                    dte1 = DateTime.Now;
+                }
+                this.periodsDetDataGridView.Rows[e.RowIndex].Cells[2].Value = dte1.ToString("dd-MMM-yyyy HH:mm:ss");
+                //MessageBox.Show(this.periodsDetDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+            }
+            else if (e.ColumnIndex == 4)
+            {
+                DateTime dte1 = DateTime.Now;
+                bool sccs = DateTime.TryParse(this.periodsDetDataGridView.Rows[e.RowIndex].Cells[4].Value.ToString(), out dte1);
+                if (!sccs)
+                {
+                    dte1 = DateTime.Now;
+                }
+                this.periodsDetDataGridView.Rows[e.RowIndex].Cells[4].Value = dte1.ToString("dd-MMM-yyyy HH:mm:ss");
+                //MessageBox.Show(this.periodsDetDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+            }
+            this.obey_evnts = true;
         }
     }
 }

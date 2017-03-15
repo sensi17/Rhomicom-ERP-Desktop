@@ -5966,6 +5966,7 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                 string[] attchMnts = attchmnt.Trim().Split(spltChars, StringSplitOptions.RemoveEmptyEntries);
                 int i = 0;
                 int lovID = this.getLovID("Email Addresses to Ignore");
+                int toMailsAdded = 0;
                 for (i = 0; i < toEmails.Length; i++)
                 {
                     if (this.isEmailValid(toEmails[i], lovID))
@@ -5973,6 +5974,7 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                         if (this.getEnbldPssblValID(toEmails[i], lovID) <= 0)
                         {
                             mail.To.Add(toEmails[i]);
+                            toMailsAdded++;
                         }
                         else
                         {
@@ -5983,6 +5985,10 @@ to_char(to_timestamp(a.last_update_date,'YYYY-MM-DD HH24:MI:SS'),'DD-Mon-YYYY HH
                     {
                         errMsg += "Address:" + toEmails[i] + " is Invalid!\r\n";
                     }
+                }
+                if (toMailsAdded <= 0)
+                {
+                    return false;
                 }
 
                 for (i = 0; i < ccEmails.Length; i++)

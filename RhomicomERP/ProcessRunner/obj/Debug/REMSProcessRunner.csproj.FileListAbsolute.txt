@@ -108,3 +108,11 @@ C:\1_DESIGNS\MYAPPS\GITHUB\RHO_ERP_DESKTOP\RhomicomERP\ProcessRunner\obj\Debug\R
 C:\1_DESIGNS\MYAPPS\GITHUB\RHO_ERP_DESKTOP\RhomicomERP\ProcessRunner\obj\Debug\REMSProcessRunner.csproj.ResolveComReference.cache
 C:\1_DESIGNS\MYAPPS\GITHUB\RHO_ERP_DESKTOP\RhomicomERP\ProcessRunner\obj\Debug\REMSProcessRunner.exe
 C:\1_DESIGNS\MYAPPS\GITHUB\RHO_ERP_DESKTOP\RhomicomERP\ProcessRunner\obj\Debug\REMSProcessRunner.pdb
+C:\1_DESIGNS\MYAPPS\NON-GITHUB\RHO_ERP_DESKTOP\RhomicomERP\ProcessRunner\bin\Debug\REMSProcessRunner.exe.config
+C:\1_DESIGNS\MYAPPS\NON-GITHUB\RHO_ERP_DESKTOP\RhomicomERP\ProcessRunner\bin\Debug\REMSProcessRunner.exe
+C:\1_DESIGNS\MYAPPS\NON-GITHUB\RHO_ERP_DESKTOP\RhomicomERP\ProcessRunner\bin\Debug\REMSProcessRunner.pdb
+C:\1_DESIGNS\MYAPPS\NON-GITHUB\RHO_ERP_DESKTOP\RhomicomERP\ProcessRunner\bin\Debug\stdole.dll
+C:\1_DESIGNS\MYAPPS\NON-GITHUB\RHO_ERP_DESKTOP\RhomicomERP\ProcessRunner\obj\Debug\REMSProcessRunner.csprojResolveAssemblyReference.cache
+C:\1_DESIGNS\MYAPPS\NON-GITHUB\RHO_ERP_DESKTOP\RhomicomERP\ProcessRunner\obj\Debug\REMSProcessRunner.csproj.ResolveComReference.cache
+C:\1_DESIGNS\MYAPPS\NON-GITHUB\RHO_ERP_DESKTOP\RhomicomERP\ProcessRunner\obj\Debug\REMSProcessRunner.exe
+C:\1_DESIGNS\MYAPPS\NON-GITHUB\RHO_ERP_DESKTOP\RhomicomERP\ProcessRunner\obj\Debug\REMSProcessRunner.pdb

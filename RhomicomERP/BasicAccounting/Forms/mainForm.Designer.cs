@@ -30,23 +30,23 @@ namespace Accounting.Forms
 			{
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeVWContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.hideTreevwMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -4359,7 +4359,7 @@ namespace Accounting.Forms
             this.imaDtListView.HideSelection = false;
             this.imaDtListView.Location = new System.Drawing.Point(2, 67);
             this.imaDtListView.Name = "imaDtListView";
-            this.imaDtListView.Size = new System.Drawing.Size(858, 374);
+            this.imaDtListView.Size = new System.Drawing.Size(862, 357);
             this.imaDtListView.TabIndex = 2;
             this.imaDtListView.UseCompatibleStateImageBehavior = false;
             this.imaDtListView.View = System.Windows.Forms.View.Details;
@@ -7535,7 +7535,7 @@ namespace Accounting.Forms
             this.pnlTabPage.Controls.Add(this.prftnlossPanel);
             this.pnlTabPage.Location = new System.Drawing.Point(4, 44);
             this.pnlTabPage.Name = "pnlTabPage";
-            this.pnlTabPage.Size = new System.Drawing.Size(1091, 605);
+            this.pnlTabPage.Size = new System.Drawing.Size(1091, 577);
             this.pnlTabPage.TabIndex = 1;
             this.pnlTabPage.Text = "PROFIT & LOSS";
             this.pnlTabPage.UseVisualStyleBackColor = true;
@@ -7550,7 +7550,7 @@ namespace Accounting.Forms
             this.prftnlossPanel.Location = new System.Drawing.Point(0, 0);
             this.prftnlossPanel.Margin = new System.Windows.Forms.Padding(0);
             this.prftnlossPanel.Name = "prftnlossPanel";
-            this.prftnlossPanel.Size = new System.Drawing.Size(1091, 605);
+            this.prftnlossPanel.Size = new System.Drawing.Size(1091, 577);
             this.prftnlossPanel.TabIndex = 6;
             // 
             // groupBox11
@@ -7765,7 +7765,7 @@ namespace Accounting.Forms
             this.plGroupBox.ForeColor = System.Drawing.Color.White;
             this.plGroupBox.Location = new System.Drawing.Point(2, 0);
             this.plGroupBox.Name = "plGroupBox";
-            this.plGroupBox.Size = new System.Drawing.Size(886, 602);
+            this.plGroupBox.Size = new System.Drawing.Size(886, 574);
             this.plGroupBox.TabIndex = 0;
             this.plGroupBox.TabStop = false;
             this.plGroupBox.Text = "PROFIT && LOSS STATEMENT FOR THE CHOSEN PERIOD";
@@ -7791,7 +7791,7 @@ namespace Accounting.Forms
             this.plListView.HoverSelection = true;
             this.plListView.Location = new System.Drawing.Point(3, 19);
             this.plListView.Name = "plListView";
-            this.plListView.Size = new System.Drawing.Size(880, 580);
+            this.plListView.Size = new System.Drawing.Size(880, 552);
             this.plListView.TabIndex = 0;
             this.plListView.UseCompatibleStateImageBehavior = false;
             this.plListView.View = System.Windows.Forms.View.Details;
@@ -7903,7 +7903,7 @@ namespace Accounting.Forms
             this.balsShtTabPage.Controls.Add(this.balSheetPanel);
             this.balsShtTabPage.Location = new System.Drawing.Point(4, 44);
             this.balsShtTabPage.Name = "balsShtTabPage";
-            this.balsShtTabPage.Size = new System.Drawing.Size(1091, 605);
+            this.balsShtTabPage.Size = new System.Drawing.Size(1091, 577);
             this.balsShtTabPage.TabIndex = 2;
             this.balsShtTabPage.Text = "BALANCE SHEET";
             this.balsShtTabPage.UseVisualStyleBackColor = true;
@@ -7917,7 +7917,7 @@ namespace Accounting.Forms
             this.balSheetPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.balSheetPanel.Location = new System.Drawing.Point(0, 0);
             this.balSheetPanel.Name = "balSheetPanel";
-            this.balSheetPanel.Size = new System.Drawing.Size(1091, 605);
+            this.balSheetPanel.Size = new System.Drawing.Size(1091, 577);
             this.balSheetPanel.TabIndex = 7;
             // 
             // groupBox13
@@ -8035,7 +8035,7 @@ namespace Accounting.Forms
             this.blsGroupBox.ForeColor = System.Drawing.Color.White;
             this.blsGroupBox.Location = new System.Drawing.Point(2, 0);
             this.blsGroupBox.Name = "blsGroupBox";
-            this.blsGroupBox.Size = new System.Drawing.Size(906, 602);
+            this.blsGroupBox.Size = new System.Drawing.Size(906, 574);
             this.blsGroupBox.TabIndex = 0;
             this.blsGroupBox.TabStop = false;
             this.blsGroupBox.Text = "BALANCE SHEET REPORT AS AT";
@@ -8061,7 +8061,7 @@ namespace Accounting.Forms
             this.blsListView.HoverSelection = true;
             this.blsListView.Location = new System.Drawing.Point(3, 19);
             this.blsListView.Name = "blsListView";
-            this.blsListView.Size = new System.Drawing.Size(900, 580);
+            this.blsListView.Size = new System.Drawing.Size(900, 552);
             this.blsListView.TabIndex = 0;
             this.blsListView.UseCompatibleStateImageBehavior = false;
             this.blsListView.View = System.Windows.Forms.View.Details;
@@ -8177,7 +8177,7 @@ namespace Accounting.Forms
             this.subLedgerTabPage.ForeColor = System.Drawing.Color.White;
             this.subLedgerTabPage.Location = new System.Drawing.Point(4, 44);
             this.subLedgerTabPage.Name = "subLedgerTabPage";
-            this.subLedgerTabPage.Size = new System.Drawing.Size(1091, 605);
+            this.subLedgerTabPage.Size = new System.Drawing.Size(1091, 577);
             this.subLedgerTabPage.TabIndex = 3;
             this.subLedgerTabPage.Text = "SUB-LEDGER BALANCES";
             this.subLedgerTabPage.UseVisualStyleBackColor = true;
@@ -8284,7 +8284,7 @@ namespace Accounting.Forms
             this.subLdgrGroupBox.ForeColor = System.Drawing.Color.White;
             this.subLdgrGroupBox.Location = new System.Drawing.Point(2, 0);
             this.subLdgrGroupBox.Name = "subLdgrGroupBox";
-            this.subLdgrGroupBox.Size = new System.Drawing.Size(914, 602);
+            this.subLdgrGroupBox.Size = new System.Drawing.Size(914, 574);
             this.subLdgrGroupBox.TabIndex = 0;
             this.subLdgrGroupBox.TabStop = false;
             this.subLdgrGroupBox.Text = "SUBLEDGER ACCOUNT BALANCE AS AT NOW";
@@ -8312,7 +8312,7 @@ namespace Accounting.Forms
             this.subledgerListView.HoverSelection = true;
             this.subledgerListView.Location = new System.Drawing.Point(3, 19);
             this.subledgerListView.Name = "subledgerListView";
-            this.subledgerListView.Size = new System.Drawing.Size(908, 580);
+            this.subledgerListView.Size = new System.Drawing.Size(908, 552);
             this.subledgerListView.TabIndex = 0;
             this.subledgerListView.UseCompatibleStateImageBehavior = false;
             this.subledgerListView.View = System.Windows.Forms.View.Details;
@@ -8438,7 +8438,7 @@ namespace Accounting.Forms
             this.accntStmntTabPage.Controls.Add(this.panel20);
             this.accntStmntTabPage.Location = new System.Drawing.Point(4, 44);
             this.accntStmntTabPage.Name = "accntStmntTabPage";
-            this.accntStmntTabPage.Size = new System.Drawing.Size(1091, 605);
+            this.accntStmntTabPage.Size = new System.Drawing.Size(1091, 577);
             this.accntStmntTabPage.TabIndex = 4;
             this.accntStmntTabPage.Text = "GL ACCOUNT STATEMENTS";
             this.accntStmntTabPage.UseVisualStyleBackColor = true;
@@ -8615,7 +8615,7 @@ namespace Accounting.Forms
             this.accntStmntGroupBox.ForeColor = System.Drawing.Color.White;
             this.accntStmntGroupBox.Location = new System.Drawing.Point(2, 0);
             this.accntStmntGroupBox.Name = "accntStmntGroupBox";
-            this.accntStmntGroupBox.Size = new System.Drawing.Size(914, 602);
+            this.accntStmntGroupBox.Size = new System.Drawing.Size(914, 574);
             this.accntStmntGroupBox.TabIndex = 0;
             this.accntStmntGroupBox.TabStop = false;
             this.accntStmntGroupBox.Text = "ACCOUNT TRANSACTIONS FOR THE PERIOD CHOSEN";
@@ -8645,7 +8645,7 @@ namespace Accounting.Forms
             this.accntStmntListView.HoverSelection = true;
             this.accntStmntListView.Location = new System.Drawing.Point(3, 19);
             this.accntStmntListView.Name = "accntStmntListView";
-            this.accntStmntListView.Size = new System.Drawing.Size(908, 580);
+            this.accntStmntListView.Size = new System.Drawing.Size(908, 552);
             this.accntStmntListView.TabIndex = 0;
             this.accntStmntListView.UseCompatibleStateImageBehavior = false;
             this.accntStmntListView.View = System.Windows.Forms.View.Details;
@@ -9108,7 +9108,7 @@ namespace Accounting.Forms
             this.tabPage20.Controls.Add(this.cashFlowGroupBox);
             this.tabPage20.Location = new System.Drawing.Point(4, 44);
             this.tabPage20.Name = "tabPage20";
-            this.tabPage20.Size = new System.Drawing.Size(1091, 605);
+            this.tabPage20.Size = new System.Drawing.Size(1091, 577);
             this.tabPage20.TabIndex = 5;
             this.tabPage20.Text = "CASH FLOW STATEMENT";
             this.tabPage20.UseVisualStyleBackColor = true;
@@ -9302,7 +9302,7 @@ namespace Accounting.Forms
             this.cashFlowGroupBox.ForeColor = System.Drawing.Color.White;
             this.cashFlowGroupBox.Location = new System.Drawing.Point(2, 0);
             this.cashFlowGroupBox.Name = "cashFlowGroupBox";
-            this.cashFlowGroupBox.Size = new System.Drawing.Size(880, 602);
+            this.cashFlowGroupBox.Size = new System.Drawing.Size(880, 574);
             this.cashFlowGroupBox.TabIndex = 3;
             this.cashFlowGroupBox.TabStop = false;
             this.cashFlowGroupBox.Text = "PERIOD BY PERIOD TRIAL BALANCE FOR 2015";
@@ -9326,7 +9326,7 @@ namespace Accounting.Forms
             this.cashFlowListView.HoverSelection = true;
             this.cashFlowListView.Location = new System.Drawing.Point(3, 19);
             this.cashFlowListView.Name = "cashFlowListView";
-            this.cashFlowListView.Size = new System.Drawing.Size(874, 580);
+            this.cashFlowListView.Size = new System.Drawing.Size(874, 552);
             this.cashFlowListView.TabIndex = 0;
             this.cashFlowListView.UseCompatibleStateImageBehavior = false;
             this.cashFlowListView.View = System.Windows.Forms.View.Details;
@@ -9416,7 +9416,7 @@ namespace Accounting.Forms
             this.tabPage21.Location = new System.Drawing.Point(4, 44);
             this.tabPage21.Name = "tabPage21";
             this.tabPage21.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage21.Size = new System.Drawing.Size(1091, 605);
+            this.tabPage21.Size = new System.Drawing.Size(1091, 577);
             this.tabPage21.TabIndex = 6;
             this.tabPage21.Text = "NEWLY CREATED CORRECTION TRANSACTIONS";
             // 
@@ -9643,7 +9643,7 @@ namespace Accounting.Forms
             this.groupBox24.ForeColor = System.Drawing.Color.White;
             this.groupBox24.Location = new System.Drawing.Point(0, 58);
             this.groupBox24.Name = "groupBox24";
-            this.groupBox24.Size = new System.Drawing.Size(1092, 547);
+            this.groupBox24.Size = new System.Drawing.Size(1092, 519);
             this.groupBox24.TabIndex = 163;
             this.groupBox24.TabStop = false;
             this.groupBox24.Text = "TRANSACTION LINES";
@@ -9694,20 +9694,20 @@ namespace Accounting.Forms
             this.Column20,
             this.Column21,
             this.Column23});
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.trnsDataGridView.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.trnsDataGridView.DefaultCellStyle = dataGridViewCellStyle34;
             this.trnsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trnsDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.trnsDataGridView.Location = new System.Drawing.Point(3, 17);
             this.trnsDataGridView.Name = "trnsDataGridView";
             this.trnsDataGridView.RowHeadersWidth = 20;
-            this.trnsDataGridView.Size = new System.Drawing.Size(1086, 527);
+            this.trnsDataGridView.Size = new System.Drawing.Size(1086, 499);
             this.trnsDataGridView.TabIndex = 134;
             this.trnsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.trnsDataGridView_CellContentClick);
             this.trnsDataGridView.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.trnsDataGridView_CellEnter);
@@ -9715,13 +9715,13 @@ namespace Accounting.Forms
             // 
             // Column1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle18;
             this.Column1.HeaderText = "Transaction ID";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -9730,13 +9730,13 @@ namespace Accounting.Forms
             // 
             // Column3
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle19;
             this.Column3.FillWeight = 273.8832F;
             this.Column3.HeaderText = "Transaction Description (MEMO)";
             this.Column3.Name = "Column3";
@@ -9744,11 +9744,11 @@ namespace Accounting.Forms
             // 
             // Column22
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column22.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column22.DefaultCellStyle = dataGridViewCellStyle20;
             this.Column22.FillWeight = 115F;
             this.Column22.HeaderText = "Cheque/ Voucher/ Receipt No. (Ref. Doc. No.)";
             this.Column22.Name = "Column22";
@@ -9756,9 +9756,9 @@ namespace Accounting.Forms
             // 
             // Column4
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle21;
             this.Column4.FillWeight = 71.59898F;
             this.Column4.HeaderText = "Increase / Decrease";
             this.Column4.Items.AddRange(new object[] {
@@ -9768,9 +9768,9 @@ namespace Accounting.Forms
             // 
             // Column5
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Black;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle22;
             this.Column5.FillWeight = 122.2843F;
             this.Column5.HeaderText = "Account Number/Name";
             this.Column5.Name = "Column5";
@@ -9792,13 +9792,13 @@ namespace Accounting.Forms
             // 
             // Column8
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = "0";
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle23.Format = "N2";
+            dataGridViewCellStyle23.NullValue = "0";
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle23;
             this.Column8.FillWeight = 102.2843F;
             this.Column8.HeaderText = "Entered Amount";
             this.Column8.Name = "Column8";
@@ -9806,9 +9806,9 @@ namespace Accounting.Forms
             // 
             // Column7
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Black;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle24;
             this.Column7.FillWeight = 25.57106F;
             this.Column7.HeaderText = "...";
             this.Column7.Name = "Column7";
@@ -9824,9 +9824,9 @@ namespace Accounting.Forms
             // 
             // Column12
             // 
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            this.Column12.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.Black;
+            this.Column12.DefaultCellStyle = dataGridViewCellStyle25;
             this.Column12.FillWeight = 50.37055F;
             this.Column12.HeaderText = "Entered Curr.";
             this.Column12.Name = "Column12";
@@ -9840,9 +9840,9 @@ namespace Accounting.Forms
             // 
             // Column2
             // 
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.Black;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle26;
             this.Column2.FillWeight = 81.82741F;
             this.Column2.HeaderText = "Transaction Date";
             this.Column2.Name = "Column2";
@@ -9850,20 +9850,20 @@ namespace Accounting.Forms
             // 
             // Column11
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this.Column11.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.Black;
+            this.Column11.DefaultCellStyle = dataGridViewCellStyle27;
             this.Column11.FillWeight = 25.57106F;
             this.Column11.HeaderText = "...";
             this.Column11.Name = "Column11";
             // 
             // Column18
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column18.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column18.DefaultCellStyle = dataGridViewCellStyle28;
             this.Column18.FillWeight = 72.2843F;
             this.Column18.HeaderText = "Func. Curr. Exch. Rate";
             this.Column18.Name = "Column18";
@@ -9871,11 +9871,11 @@ namespace Accounting.Forms
             // 
             // Column19
             // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column19.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column19.DefaultCellStyle = dataGridViewCellStyle29;
             this.Column19.FillWeight = 72.2843F;
             this.Column19.HeaderText = "Account Curr. Exch. Rate";
             this.Column19.Name = "Column19";
@@ -9883,13 +9883,13 @@ namespace Accounting.Forms
             // 
             // Column14
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle13.Format = "N2";
-            dataGridViewCellStyle13.NullValue = "0";
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column14.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle30.Format = "N2";
+            dataGridViewCellStyle30.NullValue = "0";
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column14.DefaultCellStyle = dataGridViewCellStyle30;
             this.Column14.FillWeight = 92.2843F;
             this.Column14.HeaderText = "Func. Curr. Amount";
             this.Column14.Name = "Column14";
@@ -9898,9 +9898,9 @@ namespace Accounting.Forms
             // 
             // Column17
             // 
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            this.Column17.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.Black;
+            this.Column17.DefaultCellStyle = dataGridViewCellStyle31;
             this.Column17.FillWeight = 50.37055F;
             this.Column17.HeaderText = "Func. Curr.";
             this.Column17.Name = "Column17";
@@ -9909,13 +9909,13 @@ namespace Accounting.Forms
             // 
             // Column15
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.Format = "N2";
-            dataGridViewCellStyle15.NullValue = "0";
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column15.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle32.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle32.Format = "N2";
+            dataGridViewCellStyle32.NullValue = "0";
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column15.DefaultCellStyle = dataGridViewCellStyle32;
             this.Column15.FillWeight = 92.2843F;
             this.Column15.HeaderText = "Account Curr. Amount";
             this.Column15.Name = "Column15";
@@ -9924,9 +9924,9 @@ namespace Accounting.Forms
             // 
             // Column16
             // 
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
-            this.Column16.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle33.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.Black;
+            this.Column16.DefaultCellStyle = dataGridViewCellStyle33;
             this.Column16.FillWeight = 50.37055F;
             this.Column16.HeaderText = "Account Curr.";
             this.Column16.Name = "Column16";

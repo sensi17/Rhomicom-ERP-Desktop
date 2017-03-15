@@ -4878,7 +4878,7 @@ and a.report_id IN (SELECT  a.report_id
 
                 int i = 0;
                 int lovID = Global.getLovID("Email Addresses to Ignore");
-
+                int toMailsAdded = 0;
                 for (i = 0; i < toEmails.Length; i++)
                 {
                     if (Global.isEmailValid(toEmails[i], lovID))
@@ -4886,6 +4886,7 @@ and a.report_id IN (SELECT  a.report_id
                         if (Global.getEnbldPssblValID(toEmails[i], lovID) <= 0)
                         {
                             mail.To.Add(toEmails[i]);
+                            toMailsAdded++;
                         }
                         else
                         {
@@ -4897,7 +4898,10 @@ and a.report_id IN (SELECT  a.report_id
                         errMsgs += "Address:" + toEmails[i] + " is Invalid!\r\n";
                     }
                 }
-
+                if (toMailsAdded <= 0)
+                {
+                    return false;
+                }
                 for (i = 0; i < ccEmails.Length; i++)
                 {
                     if (Global.isEmailValid(ccEmails[i], lovID))

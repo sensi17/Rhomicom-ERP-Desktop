@@ -1672,7 +1672,7 @@ namespace Accounting.Forms
                 {
                     this.accntNumTextBox.ReadOnly = false;
                     this.accntNumTextBox.BackColor = Color.FromArgb(255, 255, 118);
-                    this.accntNameTextBox.ReadOnly = true;
+                    this.accntNameTextBox.ReadOnly = false;
                     this.accntNameTextBox.BackColor = Color.FromArgb(255, 255, 118);
                     this.accntDescTextBox.ReadOnly = false;
                     this.accntDescTextBox.BackColor = Color.FromArgb(255, 255, 118);
@@ -1848,7 +1848,7 @@ namespace Accounting.Forms
             {
                 this.accntNumTextBox.ReadOnly = false;
                 this.accntNumTextBox.BackColor = Color.FromArgb(255, 255, 118);
-                this.accntNameTextBox.ReadOnly = true;
+                this.accntNameTextBox.ReadOnly = false;
                 this.accntNameTextBox.BackColor = Color.FromArgb(255, 255, 118);
                 this.accntDescTextBox.ReadOnly = false;
                 this.accntDescTextBox.BackColor = Color.FromArgb(255, 255, 118);

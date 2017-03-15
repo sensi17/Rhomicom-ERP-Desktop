@@ -4596,6 +4596,7 @@ namespace OrganizationSetup.Forms
             if (e.ColumnIndex == 4)
             {
                 Global.mnFrm.cmCde.showMsg("Sorry! Feature not available in this edition!\nContact your the Software Provider!", 0);
+                this.obey_orgDet_evnts = true;
                 return;
             }
             this.obey_orgDet_evnts = true;

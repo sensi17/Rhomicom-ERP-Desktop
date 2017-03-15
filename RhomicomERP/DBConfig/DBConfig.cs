@@ -806,21 +806,24 @@ WHERE pg_stat_activity.datname = 'TARGET_DB'
             else
             {
                 this.installPath = Application.StartupPath;//this.get64RegistryVal("InstallPath", this.AppName);
-                if (CommonCode.CommonCodes.is64BitOperatingSystem == true)
+                if (this.pgDirTextBox.Text == "")
                 {
-                    this.pgDirTextBox.Text = this.getRegistryVal("Base Directory", @"PostgreSQL\Installations\postgresql-x64-9.3");
-                    if (this.pgDirTextBox.Text == "")
+                    if (CommonCode.CommonCodes.is64BitOperatingSystem == true)
                     {
-                        this.pgDirTextBox.Text = this.get64RegistryVal("Base Directory", @"PostgreSQL\Installations\postgresql-9.3");
+                        this.pgDirTextBox.Text = this.getRegistryVal("Base Directory", @"PostgreSQL\Installations\postgresql-x64-9.3");
+                        if (this.pgDirTextBox.Text == "")
+                        {
+                            this.pgDirTextBox.Text = this.get64RegistryVal("Base Directory", @"PostgreSQL\Installations\postgresql-9.3");
+                        }
                     }
-                }
-                else
-                {
-                    this.pgDirTextBox.Text = this.getRegistryVal("Base Directory", @"PostgreSQL\Installations\postgresql-9.3");
-                }
-                if (this.pgDirTextBox.Text != "")
-                {
-                    this.pgDirTextBox.Text += @"\bin\";
+                    else
+                    {
+                        this.pgDirTextBox.Text = this.getRegistryVal("Base Directory", @"PostgreSQL\Installations\postgresql-9.3");
+                    }
+                    if (this.pgDirTextBox.Text != "")
+                    {
+                        this.pgDirTextBox.Text += @"\bin\";
+                    }
                 }
                 if (this.baseDirTextBox.Text == "")
                 {
@@ -874,17 +877,24 @@ WHERE pg_stat_activity.datname = 'TARGET_DB'
             this.patchDBTextBox.Text = this.restoreDBNmTextBox.Text;
             this.myCon = new NpgsqlConnection();
             this.installPath = Application.StartupPath; //this.get64RegistryVal("InstallPath", this.AppName);
-            if (CommonCode.CommonCodes.is64BitOperatingSystem == true)
+            if (this.pgDirTextBox.Text == "")
             {
-                this.pgDirTextBox.Text = this.getRegistryVal("Base Directory", @"PostgreSQL\Installations\postgresql-x64-9.3");
-                if (this.pgDirTextBox.Text == "")
+                if (CommonCode.CommonCodes.is64BitOperatingSystem == true)
                 {
-                    this.pgDirTextBox.Text = this.get64RegistryVal("Base Directory", @"PostgreSQL\Installations\postgresql-9.3");
+                    this.pgDirTextBox.Text = this.getRegistryVal("Base Directory", @"PostgreSQL\Installations\postgresql-x64-9.3");
+                    if (this.pgDirTextBox.Text == "")
+                    {
+                        this.pgDirTextBox.Text = this.get64RegistryVal("Base Directory", @"PostgreSQL\Installations\postgresql-9.3");
+                    }
                 }
-            }
-            else
-            {
-                this.pgDirTextBox.Text = this.getRegistryVal("Base Directory", @"PostgreSQL\Installations\postgresql-9.3");
+                else
+                {
+                    this.pgDirTextBox.Text = this.getRegistryVal("Base Directory", @"PostgreSQL\Installations\postgresql-9.3");
+                }
+                if (this.pgDirTextBox.Text != "")
+                {
+                    this.pgDirTextBox.Text += @"\bin\";
+                }
             }
             //if (this.installPath == "" || this.myComputer.FileSystem.DirectoryExists(this.installPath) == false)
             //{
@@ -892,10 +902,7 @@ WHERE pg_stat_activity.datname = 'TARGET_DB'
             //}
             this.srcFileNmTextBox.Text = this.installPath + @"\prereq\test_database.backup";
             this.baseDirTextBox.Text = this.installPath + @"\Images\test_database\"; //@"C:\Databases\test_database\";//this.installPath;
-            if (this.pgDirTextBox.Text != "")
-            {
-                this.pgDirTextBox.Text += @"\bin\";
-            }
+
             this.pwdTextBox.Focus();
             this.pwdTextBox.SelectAll();
         }
@@ -1128,6 +1135,13 @@ WHERE pg_stat_activity.datname = 'TARGET_DB'
             patch_description, patch_date, patch_version_nm)
             VALUES ('" + string.Join("\r\n", dbPatchesDesc).Replace("'", "''") +
                          "', '" + this.getDB_Date_time() + "', '" + this.patchVrsnNm + "')";
+                this.executeGnrlDDLSQL(gnrlSQL);
+                patchID = cmnCde.getGnrlRecID("sec.sec_appld_patches", "patch_version_nm", "patch_id", this.patchVrsnNm);
+            }
+
+            if (patchID > 0)
+            {
+                string gnrlSQL = @"DELETE FROM sec.sec_appld_patches WHERE patch_id > " + patchID;
                 this.executeGnrlDDLSQL(gnrlSQL);
             }
             int lvid = cmnCde.getLovID("Security Keys");
